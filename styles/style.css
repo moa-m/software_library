@@ -10,56 +10,61 @@ html {
 
 body {
     background-color: #17142e;
-    margin-top: 8%;
+    margin-top: 8vh; /* ビューポート高さの8% */
 }
 
 #left-zone {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 5%;
+    width: 5vw; /* ビューポート幅の5% */
     background: rgba(170, 43, 170, 0.425);
 }
 
 #title_up {
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem); /* 最小2rem, 最大4rem */
     color: #f5005b;
 }
 
 #title_bottom {
-    font-size: 1.3em;
+    font-size: clamp(1rem, 2vw, 1.5rem); /* 最小1rem, 最大1.5rem */
 }
 
 #main_top {
-    font-size: 1.5em;
+    font-size: clamp(1.2rem, 3vw, 2rem); /* 最小1.2rem, 最大2rem */
     color: gold;
-    padding-top: 35px;
-    padding-bottom: 25px;
+    padding-top: 5vh; /* ビューポート高さの5% */
+    padding-bottom: 5vh; /* ビューポート高さの5% */
 }
 
 table {
     margin: 0 auto;
     border-collapse: collapse;
-    font-size: 1.0rem;
+    font-size: clamp(0.8rem, 2vw, 1.2rem); /* 最小0.8rem, 最大1.2rem */
+    display: flex;
+    flex-wrap: wrap; /* 自動的に要素を折り返す */
+    justify-content: center;
+    gap: 1vw; /* ビューポート幅の1%の隙間 */
+    margin-left: 10vw; /* ビューポート幅の10%の左マージンで左側の余白を広くする */
 }
 
 td {
     border-right: solid 1px white;
     white-space: pre-line;
-    width: 300px;
+    flex: 1 1 45%; /* 各セルが画面幅の45%を占めるようにする */
+    padding: 1vw; /* ビューポート幅の1%のパディング */
+    box-sizing: border-box;
 }
 
 #left {
     text-align: right;
-    padding-right: 25px;
 }
 
 #right {
     text-align: left;
-    padding-left: 25px;
 }
 
-
+/* 左右のセルのボーダーを調整 */
 tr td:first-child {
     border-left: none;
 }
@@ -69,8 +74,14 @@ tr td:last-child {
 }
 
 footer {
-    font-size: 0.8rem;
+    font-size: clamp(0.6rem, 1.5vw, 1rem); /* 最小0.6rem, 最大1rem */
     position: absolute;
     bottom: 0;
-    right: 0%;
+    right: 0;
+}
+
+/* 画像や他の要素がレスポンシブ対応になるように調整 */
+img {
+    max-width: 100%; /* コンテナに収まるようにする */
+    height: auto; /* アスペクト比を維持 */
 }
