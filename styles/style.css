@@ -41,7 +41,7 @@ header {
     font-size: clamp(1rem, 3vw, 2rem);
     color: gold;
     padding-top: 3vh;
-    padding-bottom: 3vh;
+    padding-bottom: 2vh;
     margin-left: 5vw;
 }
 
