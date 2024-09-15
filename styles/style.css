@@ -90,7 +90,8 @@ ul {
 
 li {
     text-align: left;
-    margin-left: 25%;
+    margin-left: clamp(0%, 0%, 25%);
+    font-size: clamp(0.5rem, 1vw, 1.0rem);
 }
 
 img {
@@ -100,7 +101,7 @@ img {
 
 #top_img {
     margin-left: 0;
-    width: clamp(25%, 60%, 60%);
+    width: clamp(30%, 50%, 60%);
 }
 
 #contents {
@@ -110,7 +111,7 @@ img {
 #ss {
     display: inline-block;
     margin: 20px 10px 0 20px;
-    width: 15%;
+    width: clamp(10%, 15%, 20%);
     height: auto;
 }
 
@@ -118,6 +119,7 @@ img {
     margin-top: 5%;
     font-weight: 500;
     text-align: center;
+    font-size: clamp(0.6rem, 1vw, 1.25rem);
 }
 
 footer {
