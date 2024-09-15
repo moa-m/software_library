@@ -19,7 +19,7 @@ body {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 5vw;
+    width: 7.5vw;
     background: rgba(170, 43, 170, 0.425);
 }
 
@@ -29,26 +29,25 @@ header {
 }
 
 #title_up {
-    font-size: clamp(5rem, 5vw, 10rem);
+    font-size: clamp(10rem, 5vw, 12rem);
     color: #f5005b;
 }
 
 #title_bottom {
-    font-size: clamp(1.5rem, 2vw, 3rem);
+    font-size: clamp(3rem, 2vw, 3rem);
+    padding-top: clamp(0.8rem, 1vw, 1rem);
+    padding-bottom: clamp(5rem, 1vw, 7rem);
 }
 
-#main_top {
-    font-size: clamp(1rem, 3vw, 2rem);
+#gold {
     color: gold;
-    padding-top: 3vh;
-    padding-bottom: 2vh;
-    margin-left: 5vw;
 }
 
 table {
     margin: 0 auto;
     border-collapse: collapse;
-    font-size: clamp(1.0rem, 2vw, 1.2rem);
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 500;
     width: 100%;
 }
 
