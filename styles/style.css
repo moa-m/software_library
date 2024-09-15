@@ -11,7 +11,6 @@ html {
 body {
     background-color: #17142e;
     margin-top: 8vh;
-    margin-left: 5vw;
 }
 
 #left-zone {
@@ -24,7 +23,6 @@ body {
 }
 
 header {
-    margin-left: 5vw;
     text-align: center;
 }
 
