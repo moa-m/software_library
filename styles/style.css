@@ -42,7 +42,7 @@ header {
 }
 
 table {
-    margin: 0 2.5rem 0 0;
+    margin: 0 5rem 0 0;
     border-collapse: collapse;
     font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: 500;
