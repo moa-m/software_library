@@ -42,11 +42,11 @@ header {
 }
 
 table {
-    margin: 0 auto;
+    margin: 0 2.5rem 0 0;
     border-collapse: collapse;
     font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: 500;
-    width: 100%;
+    width: 90%;
 }
 
 td {
@@ -63,6 +63,7 @@ td {
 }
 
 #right {
+    padding-left: 3%;
     text-align: left;
 }
 
