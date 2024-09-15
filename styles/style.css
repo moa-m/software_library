@@ -1,4 +1,4 @@
-html {
+<<<<<<< HEAD html {
     margin: 0 auto;
     font-family: "Comfortaa", sans-serif;
     font-weight: 700;
@@ -76,7 +76,7 @@ tr td:last-child {
 }
 
 footer {
-    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+    font-size: clamp(1.0rem, 1.5vw, 1.5rem);
     position: absolute;
     bottom: 0;
     right: 0;
@@ -87,4 +87,95 @@ footer {
 img {
     max-width: 100%;
     height: auto;
-}
+
+    =======html {
+        margin: 0 auto;
+        font-family: "Comfortaa", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        font-style: normal;
+        color: white;
+        text-align: center;
+    }
+
+    body {
+        background-color: #17142e;
+        margin-top: 8vh;
+    }
+
+    #left-zone {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 7.5vw;
+        background: rgba(170, 43, 170, 0.425);
+    }
+
+    header {
+        text-align: center;
+    }
+
+    #title_up {
+        font-size: clamp(10rem, 5vw, 12rem);
+        color: #f5005b;
+    }
+
+    #title_bottom {
+        font-size: clamp(3rem, 2vw, 3rem);
+        padding-top: clamp(0.8rem, 1vw, 1rem);
+        padding-bottom: clamp(5rem, 1vw, 7rem);
+    }
+
+    #gold {
+        color: gold;
+    }
+
+    table {
+        margin: 0 5rem 0 0;
+        border-collapse: collapse;
+        font-size: clamp(1.5rem, 2vw, 2rem);
+        font-weight: 500;
+        width: 90%;
+    }
+
+    td {
+        border-right: solid 1px white;
+        white-space: pre-line;
+        width: 50%;
+        padding: 1vw;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
+
+    #left {
+        text-align: right;
+    }
+
+    #right {
+        padding-left: 3%;
+        text-align: left;
+    }
+
+    tr td:first-child {
+        border-left: none;
+    }
+
+    tr td:last-child {
+        border-right: none;
+    }
+
+    footer {
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        text-align: right;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        >>>>>>>cceaa6ea0831efeb3db71d59f24ba293c58c71d5
+    }
