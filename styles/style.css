@@ -90,7 +90,7 @@ ul {
 
 li {
     text-align: left;
-    margin-left: clamp(0%, 0%, 25%);
+    margin-left: clamp(0%, 25%, 25%);
     font-size: clamp(0.5rem, 1vw, 1.0rem);
 }
 
@@ -101,7 +101,7 @@ img {
 
 #top_img {
     margin-left: 0;
-    width: clamp(30%, 75%, 75%);
+    width: clamp(30%, 35%, 35%);
 }
 
 #contents {
@@ -111,7 +111,7 @@ img {
 #ss {
     display: inline-block;
     margin: 20px 10px 0 20px;
-    width: clamp(10%, 25%, 30%);
+    width: clamp(10%, 12.5%, 12.5%);
     height: auto;
 }
 
