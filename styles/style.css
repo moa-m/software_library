@@ -2,7 +2,7 @@ html {
     margin: 0 auto;
     font-family: "Comfortaa", sans-serif;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 16px;
     font-style: normal;
     color: white;
     text-align: center;
@@ -36,14 +36,14 @@ header {
 }
 
 #title_up {
-    font-size: 6rem;
+    font-size: 8rem;
     color: #f5005b;
 }
 
 #title_bottom {
-    font-size: 2rem;
-    padding-top: 0.9rem;
-    padding-bottom: 6rem;
+    font-size: 2.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 5rem;
 }
 
 #gold {
@@ -51,9 +51,9 @@ header {
 }
 
 table {
-    margin: 0 5rem 0 0;
+    margin: 0;
     border-collapse: collapse;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 500;
     width: 100%;
 }
@@ -77,11 +77,11 @@ td {
 }
 
 #right img {
-    width: 180px;
+    width: 100px;
     height: auto;
     display: inline-block;
     vertical-align: middle;
-    margin-top: 3%;
+    margin-top: 5%;
 }
 
 tr td:first-child {
@@ -137,6 +137,12 @@ li {
     text-align: center;
 }
 
+#form_notification {
+    margin-top: 3%;
+    font-weight: 500;
+    text-align: center;
+}
+
 footer {
     position: relative;
     width: 100%;
@@ -146,9 +152,36 @@ footer {
 
 /* メディアクエリ */
 @media (max-width: 599px) {
+    html {
+        font-size: 8px;
+    }
+
+    #title_up {
+        font-size: 1rem;
+        color: #f5005b;
+    }
+
+    #title_bottom {
+        font-size: 1rem;
+        padding-top: 0.9rem;
+        padding-bottom: 6rem;
+    }
+
+    #gold {
+        color: gold;
+    }
+
+    table {
+        font-size: 1.5rem;
+    }
+
+    td {
+        width: 45%;
+    }
+
     li {
         margin-left: 0;
-        font-size: 0.5rem;
+        font-size: 0.75rem;
     }
 
     #title_up {
@@ -159,10 +192,6 @@ footer {
         font-size: 3rem;
         padding-top: 0.8rem;
         padding-bottom: 5rem;
-    }
-
-    table {
-        font-size: 1.5rem;
     }
 
     #top_img {
@@ -183,10 +212,15 @@ footer {
     }
 
     #form {
-        font-size: 0.3rem;
+        font-size: 1rem;
+        margin-top: 7.5%;
+    }
+
+    #form_notification {
+        margin-top: 2%;
     }
 
     footer {
-        font-size: 0.5rem;
+        font-size: 1rem;
     }
 }
