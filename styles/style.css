@@ -77,11 +77,11 @@ td {
 }
 
 #right img {
-    width: 100px;
+    width: 200px;
     height: auto;
     display: inline-block;
     vertical-align: middle;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 tr td:first-child {
@@ -121,7 +121,7 @@ li {
 #ss {
     display: inline-block;
     margin: 20px 10px 0 20px;
-    width: 18%;
+    width: 15%;
     height: auto;
 }
 
@@ -132,7 +132,7 @@ li {
 }
 
 #form {
-    margin-top: 3%;
+    margin-top: 5%;
     font-weight: 500;
     text-align: center;
 }
@@ -175,8 +175,10 @@ footer {
         font-size: 1.5rem;
     }
 
-    td {
-        width: 45%;
+
+    #right img {
+        width: 125px;
+        margin-top: 3%;
     }
 
     li {
