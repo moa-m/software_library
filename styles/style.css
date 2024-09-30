@@ -58,6 +58,13 @@ table {
     width: 100%;
 }
 
+table {
+    border-collapse: collapse;
+    font-size: 1.4rem;
+    font-weight: 500;
+    width: 100%;
+}
+
 td {
     border-right: solid 2px white;
     white-space: pre-line;
@@ -92,12 +99,6 @@ tr td:first-child {
 
 tr td:last-child {
     border-right: none;
-}
-
-#whats-new {
-    font-size: 1rem;
-    margin-top: 5rem;
-    text-align: center;
 }
 
 ul {
