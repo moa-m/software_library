@@ -2,48 +2,33 @@
 <html lang="ja">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>moa's software library</title>
-	<link href="styles/style.css" rel="stylesheet" type="text/css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moa's software library</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-	<header>
-		<div id="title_up">moa's</div>
-		<div id="title_bottom">
-			<span id="gold">software</span> library
-		</div>
-	</header>
-	<div id="left-zone"></div>
+    <div class="profile-container">
+        <div class="title-main">moa's</div>
+        <div class="title-sub">
+            <span class="highlight">software</span> library
+        </div>
+        <div class="app-description">個人開発したアプリです。</div>
+        <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification"
+            class="google-play-link">
+            <img src="img/notification.png" alt="Notification Image" class="notification-image">
+        </a>
 
-	<table>
-		<tr>
-			<td id="left">
-				<a href="./notification_memo.html">通知にメモ。</a>
-			</td>
-			<td id="right">スマホの通知に
-				メモを表示させるアプリです。
-				簡単操作で、忘れもの対策！
-				<a href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification"><img
-						src="img/google-play-badge.png"></a>
-			</td>
-		</tr>
-	</table>
-
-	<div id="form">
-		<a href="./privacy_policy.html">プライバシーポリシー</a>
-		<p>
-			お問い合わせ先：<a href="https://forms.gle/29Nfc3BWrynxfYLi6">専用Googleフォーム</a>
-	</div>
-	<footer>
-		<small>
-			Copyright © 2024 All Rights Reserved.
-		</small>
-	</footer>
+        <div class="links">
+            <a href="./privacy_policy.html" class="link"><i class="fas fa-user-shield"></i> プライバシーポリシー</a>
+            <a href="https://forms.gle/29Nfc3BWrynxfYLi6" class="link"><i class="fas fa-envelope"></i> お問い合わせ先</a>
+        </div>
+    </div>
 </body>
 
 </html>
