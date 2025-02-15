@@ -1,66 +1,107 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Android開発者moaのポートフォリオサイト。便利なAndroidアプリケーションを提供しています。"
+    />
+    <meta
+      name="keywords"
+      content="Android開発,アプリ開発,通知管理アプリ,検索アプリ,moa's,ソフトウェアライブラリ"
+    />
+    <meta name="author" content="moa's" />
+    <meta
+      property="og:title"
+      content="moa's - Android開発者のソフトウェアライブラリ"
+    />
+    <meta
+      property="og:description"
+      content="Android開発者moaのポートフォリオサイト。便利なAndroidアプリケーションを提供しています。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:image" content="https://yourdomain.com/img/ogp.png" />
+    <title>
+      moa's - Android開発者のソフトウェアライブラリ | アプリ開発ポートフォリオ
+    </title>
+    <link rel="canonical" href="https://yourdomain.com" />
+    <link rel="icon" href="favicon.ico" />
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Android開発者moaのポートフォリオサイト。便利なAndroidアプリケーションを提供しています。">
-    <meta name="keywords" content="Android開発,アプリ開発,通知管理アプリ,検索アプリ,moa's,ソフトウェアライブラリ">
-    <meta name="author" content="moa's">
-    <meta property="og:title" content="moa's - Android開発者のソフトウェアライブラリ">
-    <meta property="og:description" content="Android開発者moaのポートフォリオサイト。便利なAndroidアプリケーションを提供しています。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.com">
-    <meta property="og:image" content="https://yourdomain.com/img/ogp.png">
-    <title>moa's - Android開発者のソフトウェアライブラリ | アプリ開発ポートフォリオ</title>
-    <link rel="canonical" href="https://yourdomain.com">
-    <link rel="icon" href="favicon.ico">
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
-</head>
-
-<body>
+  <body>
     <main class="profile-container">
-        <h1 class="title-main">moa's</h1>
-        <h2 class="title-sub"><span class="highlight">software</span> library</h2>
+      <h1 class="title-main">moa's</h1>
+      <h2 class="title-sub"><span class="highlight">software</span> library</h2>
 
-        <div class="app-description">
-            個人開発したAndroid用アプリです。
-        </div>
+      <div class="app-description">個人開発したAndroid用アプリです。</div>
 
-        <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification"
-            class="google-play-link">
-            <img src="img/notification.png" alt="通知管理アプリのスクリーンショット" class="app-image" loading="lazy">
-        </a>
+      <a
+        href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification"
+        class="google-play-link"
+      >
+        <img
+          src="img/notification.png"
+          alt="通知にメモ。のスクリーンショット"
+          class="app-image"
+          loading="lazy"
+        />
+      </a>
 
-        <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.customizable_search"
-            class="google-play-link">
-            <img src="img/serch.png" alt="カスタマイズ検索アプリのスクリーンショット" class="app-image" loading="lazy">
-        </a>
+      <a
+        href="https://play.google.com/store/apps/details?id=moa.more.wiser.easy_coordination"
+        class="google-play-link"
+      >
+        <img
+          src="img\coordination.png"
+          alt="簡単コーディネートのスクリーンショット"
+          class="app-image"
+          loading="lazy"
+        />
+      </a>
 
-        <div class="links">
-            <a href="./privacy_policy.html" class="link">プライバシーポリシー</a>
-            <a href="https://forms.gle/29Nfc3BWrynxfYLi6" class="link">お問い合わせ先</a>
-        </div>
+      <a
+        href="https://play.google.com/store/apps/details?id=moa.more.wiser.customizable_search"
+        class="google-play-link"
+      >
+        <img
+          src="img/serch.png"
+          alt="検索ワードメーカーのスクリーンショット"
+          class="app-image"
+          loading="lazy"
+        />
+      </a>
+
+      <div class="links">
+        <a href="./privacy_policy.html" class="link">プライバシーポリシー</a>
+        <a href="https://forms.gle/29Nfc3BWrynxfYLi6" class="link"
+          >お問い合わせ先</a
+        >
+      </div>
     </main>
 
     <script type="application/ld+json">
-    {
+      {
         "@context": "http://schema.org",
         "@type": "SoftwareApplication",
         "name": "moa's software library",
         "author": {
-            "@type": "Person",
-            "name": "moa's"
+          "@type": "Person",
+          "name": "moa's"
         },
         "applicationCategory": "MobileApplication",
         "operatingSystem": "Android",
         "offers": {
-            "@type": "Offer",
-            "availability": "http://schema.org/InStock"
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock"
         }
-    }
+      }
     </script>
-</body>
-
+  </body>
 </html>
