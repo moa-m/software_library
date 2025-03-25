@@ -33,55 +33,61 @@
       href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
     <main class="profile-container">
-      <h1 class="title-main">moa's</h1>
-      <h2 class="title-sub"><span class="highlight">software</span> library</h2>
+      <section class="hero-section">
+        <h1 class="title-main">moa's</h1>
+        <h2 class="title-sub">
+          <span class="highlight">software</span> library
+        </h2>
+      </section>
 
       <div class="app-description">個人開発したAndroid用アプリです。</div>
 
-      <a
-        href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification"
-        class="google-play-link"
-      >
-        <img
-          src="img/notification.png"
-          alt="通知にメモ。のスクリーンショット"
-          class="app-image"
-          loading="lazy"
-        />
-      </a>
+      <section class="app-grid">
+        <a
+          href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification"
+          class="app-item"
+        >
+          <img
+            src="img/notification.png"
+            alt="通知にメモ。アプリのメイン画面のスクリーンショット"
+            class="app-image"
+            loading="lazy"
+          />
+          <div class="app-name">通知にメモ。</div>
+        </a>
 
-      <a
-        href="https://play.google.com/store/apps/details?id=moa.more.wiser.easy_coordination"
-        class="google-play-link"
-      >
-        <img
-          src="img\coordination.png"
-          alt="簡単コーディネートのスクリーンショット"
-          class="app-image"
-          loading="lazy"
-        />
-      </a>
-
-      <a
-        href="https://play.google.com/store/apps/details?id=moa.more.wiser.customizable_search"
-        class="google-play-link"
-      >
-        <img
-          src="img/serch.png"
-          alt="検索ワードメーカーのスクリーンショット"
-          class="app-image"
-          loading="lazy"
-        />
-      </a>
+        <a
+          href="https://play.google.com/store/apps/details?id=moa.more.wiser.easy_coordination"
+          class="app-item"
+        >
+          <img
+            src="img/coordination.png"
+            alt="簡単コーディネートのスクリーンショット"
+            class="app-image"
+            loading="lazy"
+          />
+          <div class="app-name">簡単コーディネート</div>
+        </a>
+        
+      </section>
 
       <div class="links">
-        <a href="./privacy_policy.html" class="link">プライバシーポリシー</a>
-        <a href="https://forms.gle/29Nfc3BWrynxfYLi6" class="link"
-          >お問い合わせ先</a
+        <a href="./privacy_policy.html" class="link"
+          ><i class="fa-solid fa-file-contract"></i>プライバシーポリシー</a
+        >
+        <a href="https://forms.gle/29Nfc3BWrynxfYLi6" class="link">
+          <i class="fa-solid fa-envelope"></i>お問い合わせ先</a
         >
       </div>
     </main>
