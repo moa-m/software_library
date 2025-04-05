@@ -23,7 +23,8 @@ body {
 .hero-section {
     padding: 50px 20px;
     margin-bottom: 30px;
-    position: sticky;
+    /* position: sticky; */
+    position: static;
     top: 0;
     z-index: 10;
 }
