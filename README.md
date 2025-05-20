@@ -1,1 +1,0 @@
-moa's Software Library.
