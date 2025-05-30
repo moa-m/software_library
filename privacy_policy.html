@@ -1,51 +1,99 @@
-<!DOCTYPE html>
-<html lang="ja">
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
 
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プライバシーポリシー</title>
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>プライバシーポリシー - moa's Creations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="bg-dark text-white font-inter">
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title fade-in">プライバシーポリシー</h1>
 
-<body class="privacy-policy-body">
-    <div class="container">
-        <h2 class="title">プライバシーポリシー</h2>
+            <h2 class="card-title fade-in">1. はじめに</h2>
+            <p class="card-text fade-in">
+                本サイト・アプリは、利用者のプライバシーを尊重し、個人情報の保護に努めます。<br>
+                このプライバシーポリシーは、利用者の個人情報をどのように取り扱うかについて定めるものです。
+            </p>
 
-        <div class="privacy-policy">
-            <h3>1. はじめに</h3>
-            <p>本サイト・アプリは、利用者のプライバシーを尊重し<br>
-                個人情報の保護に努めます。<br>
-                このプライバシーポリシーは利用者の個人情報を<br>
-                どのように取り扱うかについて定めるものです。</p>
+            <h2 class="card-title fade-in">2. 収集する情報</h2>
+            <p class="card-text fade-in">
+                本アプリが個人情報を取得することはありません。<br>
+                本アプリが個人情報を利用することはありません。<br>
+                本アプリが個人情報を第三者へ提供することはありません。
+            </p>
 
-            <h3>2. 収集する情報</h3>
-            <ul>
-                <li>本アプリが個人情報を取得することはありません。</li>
-                <li>本アプリが個人情報を利用することはありません。</li>
-                <li>本アプリが個人情報を第三者へ提供することはありません。</li>
-            </ul>
+            <h2 class="card-title fade-in">3. 情報の保護</h2>
+            <p class="card-text fade-in">
+                利用者が入力した情報は、暗号化された状態で端末内に保存され、<br>
+                利用者の同意なしに外部に送信されることはありません。
+            </p>
 
-            <h3>3. 情報の保護</h3>
-            <p>利用者が入力した情報は、暗号化された状態で端末内に保存され<br>
-                利用者の同意なしに外部に送信されることはありません。</p>
-
-            <h3>4. 要求される権限</h3>
-            <p>本アプリは利用者が許可した権限のみを使用し<br>
+            <h2 class="card-title fade-in">4. 要求される権限</h2>
+            <p class="card-text fade-in">
+                本アプリは利用者が許可した権限のみを使用し、<br>
                 それ以外の権限は使用しません。<br>
-                また、それ以外の一切の個人情報は収集・利用されません。</p>
+                また、それ以外の一切の個人情報は収集・利用されません。
+            </p>
 
-            <h3>5. お問い合わせ</h3>
-            <p><a href="mailto:moa.more.wiser@gmail.com" class="back-link">moa.more.wiser@gmail.com</a></p>
-
-            <p>
-                <a href="index.html" class="back-link">
-                    <i class="fas fa-arrow-left"></i>戻る
-                </a>
+            <h2 class="card-title fade-in">5. お問い合わせ</h2>
+            <p class="card-text fade-in">
+                プライバシーポリシーに関するご質問は、以下までご連絡ください：<br>
+                <a href="mailto:moa@moa.com" class="link-primary">moa@moa.com</a>
             </p>
         </div>
-    </div>
-</body>
+    </section>
 
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="footer-links">
+                <a href="/index.html" class="link-primary">戻る</a>
+            </div>
+            <p class="footer-text">© 2025 moa's Creations. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>

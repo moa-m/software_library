@@ -1,0 +1,351 @@
+/* 基本スタイル */
+body {
+    background-color: #111827; /* bg-gray-900 */
+    color: #ffffff; /* text-white */
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* ヒーローセクション */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #4338ca, #6b21a8); /* from-indigo-900 to-purple-800 */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.px-4 {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.hero-title {
+    font-size: 3rem; /* text-5xl */
+    font-weight: 700; /* font-bold */
+    margin-bottom: 16px; /* mb-4 */
+    animation: pulse 2s infinite;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 4.5rem; /* md:text-7xl */
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.125rem; /* text-lg */
+    margin-bottom: 32px; /* mb-8 */
+}
+
+@media (min-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.25rem; /* md:text-xl */
+    }
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ec4899; /* bg-pink-500 */
+    color: #ffffff;
+    font-weight: 600; /* font-semibold */
+    padding: 12px 24px; /* py-3 px-6 */
+    border-radius: 8px; /* rounded-lg */
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* transition-colors */
+}
+
+.btn-primary:hover {
+    background-color: #db2777; /* hover:bg-pink-600 */
+}
+
+/* セクション */
+.section {
+    padding: 64px 16px; /* py-16 px-4 */
+}
+
+.bg-dark-gray {
+    background-color: #1f2937; /* bg-gray-800 */
+}
+
+.container {
+    max-width: 1280px; /* max-w-6xl */
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    text-align: center;
+    margin-bottom: 48px; /* mb-12 */
+}
+
+/* グリッド */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px; /* gap-8 */
+}
+
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* sm:grid-cols-2 */
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+    }
+}
+
+/* カード */
+.card {
+    background-color: #1f2937; /* bg-gray-800 */
+    border-radius: 8px; /* rounded-lg */
+    padding: 24px; /* p-6 */
+}
+
+.card.sticker {
+    background-color: #374151; /* bg-gray-700 */
+}
+
+.card-img {
+    width: 100%; /* w-full */
+    height: 192px; /* h-48 */
+    object-fit: cover; /* object-cover */
+    border-radius: 6px; /* rounded-md */
+    margin-bottom: 16px; /* mb-4 */
+}
+
+.card-title {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 8px; /* mb-2 */
+}
+
+.card-text {
+    color: #d1d5db; /* text-gray-300 */
+}
+
+.link-primary {
+    color: #ec4899; /* text-pink-500 */
+    text-decoration: none;
+    margin-top: 8px; /* mt-2 */
+    display: inline-block;
+}
+
+.link-primary:hover {
+    color: #f472b6; /* hover:text-pink-400 */
+}
+
+/* フッター内 プロフィールセクション */
+.profile-section-footer {
+    display: flex;
+    /* flex-direction: column; */ /* 変更前 */
+    flex-direction: row; /* プロフィール画像とテキストコンテンツを横並びに */
+    align-items: center;
+    justify-content: center; /* 中央揃えを維持 */
+    gap: 20px; /* プロフィール画像とテキストコンテンツの間隔を広げる */
+    margin-bottom: 24px; /* フッタータイトルとの間隔 */
+}
+
+/* .profile-info は削除またはコメントアウト */
+/* .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+} */
+
+.profile-text-content { /* 新規追加 */
+    display: flex;
+    flex-direction: column; /* 名前とXアイコンを縦並び */
+    align-items: flex-start; /* 名前とアイコン群を左揃え */
+    /* gap: 6px; */ /* 名前とアイコン群の間隔は .profile-contact-icons の margin-top で調整 */
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* 丸く切り抜く */
+    object-fit: cover; /* 画像がコンテナに合わせて調整されるように */
+    border: 2px solid #ffffff; /* 白い枠線 */
+}
+
+.profile-name {
+    font-size: 1.25rem; /* text-xl相当 */
+    font-weight: 600; /* font-semibold */
+    color: #ffffff;
+}
+
+.profile-contact-icons { /* 新規追加 */
+    display: flex;
+    align-items: center; /* アイコン同士を垂直中央揃え */
+    gap: 16px; /* アイコン間のスペース */
+    margin-top: 8px; /* 名前とアイコン群の間のスペース */
+}
+
+.social-icon { /* アイコン共通スタイル */
+    height: 20px; 
+    width: auto;  /* 幅は自動調整してアスペクト比を維持 */
+    vertical-align: middle; /* リンク内で垂直中央に配置されるように */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+}
+
+/* フッター */
+.footer {
+    padding: 32px 16px; /* py-8 px-4 */
+    /* background-color: #111827; */ /* bg-gray-900 - 変更前 */
+    background: linear-gradient(to bottom right, #4338ca, #6b21a8); /* from-indigo-900 to-purple-800 - ヒーローセクションと同じ背景 */
+}
+
+.footer-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 16px; /* mb-4 */
+}
+/* .footer-title の色はデフォルトで #ffffff なので変更不要 */
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px; /* gap-6 */
+    margin-bottom: 16px; /* mb-4 */
+}
+
+/* フッター内のリンクの色を調整 */
+.footer .link-primary {
+    color: #ffffff; /* text-white */
+}
+
+.footer .link-primary:hover {
+    color: #f3f4f6; /* text-gray-100 - 少し明るい白で見やすく */
+    /* text-decoration: underline; */ /* または下線を表示するのも良いでしょう */
+}
+
+.footer-text {
+    color: #ffffff; /* text-white - 背景色変更に伴い白に変更 */
+}
+
+/* アニメーション（既存） */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hover-scale {
+    transition: transform 0.3s ease-in-out;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* ヒーローセクションのアニメーション */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ライトボックス */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* 半透明の黒背景 */
+    display: none; /* 初期状態は非表示 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 他の要素より手前に表示 */
+    /* padding: 20px; /* Remove padding here, apply to content-wrapper if needed */
+    box-sizing: border-box;
+}
+
+.lightbox-overlay.visible {
+    display: flex; /* 表示するときはflexに */
+}
+
+/* New wrapper for image and disclaimer text */
+.lightbox-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 95vw;   /* Max width of the content area on screen */
+    max-height: 95vh;  /* Max height of the content area on screen */
+    background-color: transparent;
+    padding: 10px; /* Inner padding for the content block */
+    box-sizing: border-box;
+    overflow: hidden; /* Wrapper itself should not scroll, children will */
+}
+
+#lightbox-image {
+    max-width: 100%;   /* Fill available width in wrapper */
+    flex-grow: 1; /* Allow image to grow and take available space */
+    flex-shrink: 1; /* Allow image to shrink if needed */
+    min-height: 0; /* Important for flex children that might overflow */
+    object-fit: contain; /* アスペクト比を保って表示 */
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.7);
+}
+
+/* Disclaimer text styles */
+#lightbox-disclaimer {
+    color: #cccccc;
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 10px; /* 画像と注意文言の間のスペース */
+    line-height: 1.4;
+    width: 100%; /* Full width of wrapper */
+    padding: 5px; /* Small internal padding for text */
+    box-sizing: border-box;
+    overflow-y: auto; /* Scroll if text is long */
+    max-height: 20vh; /* Max height for the disclaimer area */
+    flex-shrink: 0; /* Prevent disclaimer from shrinking away */
+}
+
+#lightbox-disclaimer p {
+    margin-bottom: 0.4em; /* Copied from original inline style */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px; /* Adjust position slightly if needed */
+    right: 25px; /* Adjust position slightly if needed */
+    font-size: 3rem; /* 閉じるボタンのサイズ */
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.lightbox-close:hover {
+    color: #cccccc;
+}
+
+/* Store badge image styles */
+.store-badge-img {
+    height: 64px; /* バッジの高さを指定 (例: 40px) */
+    width: auto;  /* 幅は高さに合わせて自動調整 */
+    vertical-align: middle; /* 他のインライン要素との垂直位置を調整 */
+}
