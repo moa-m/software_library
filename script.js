@@ -1,3 +1,14 @@
+// ページ読み込み時のローディングアニメーション
+window.addEventListener('load', () => {
+    document.querySelector('.loader').style.display = 'none';
+});
+
+// スムーズスクロール
+document.querySelector('.btn-primary').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#apps').scrollIntoView({ behavior: 'smooth' });
+});
+
 // スクロール時のフェードインアニメーション
 const fadeInElements = document.querySelectorAll('.fade-in');
 const observer = new IntersectionObserver((entries) => {
@@ -10,12 +21,27 @@ const observer = new IntersectionObserver((entries) => {
 
 fadeInElements.forEach(el => observer.observe(el));
 
+// テーマ切り替え
+const themeToggle = document.querySelector('.theme-toggle');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+// 検索機能
+document.querySelector('.search-bar').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    document.querySelectorAll('.card').forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+    });
+});
+
 // ライトボックスの機能
 const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
 const lightboxOverlay = document.getElementById('lightbox-overlay');
 const lightboxImage = document.getElementById('lightbox-image');
 const lightboxClose = document.querySelector('.lightbox-close');
-const lightboxDisclaimer = document.getElementById('lightbox-disclaimer'); // 注意文言表示用の要素
+const lightboxDisclaimer = document.getElementById('lightbox-disclaimer');
 
 if (lightboxOverlay && lightboxImage && lightboxClose && lightboxDisclaimer) {
     const disclaimerHTML = `
@@ -33,39 +59,70 @@ if (lightboxOverlay && lightboxImage && lightboxClose && lightboxDisclaimer) {
         </p>
     `;
 
+    let currentImageIndex = 0;
+    const images = Array.from(lightboxTriggers).map(trigger => trigger.href);
+
     lightboxTriggers.forEach(trigger => {
         trigger.addEventListener('click', function(event) {
-            event.preventDefault(); // リンクのデフォルト動作をキャンセル
-            const imageUrl = this.href;
-            lightboxImage.src = imageUrl;
-            lightboxDisclaimer.innerHTML = disclaimerHTML; // 注意文言をセット
-            lightboxOverlay.style.display = 'flex'; // オーバーレイを表示
+            event.preventDefault();
+            currentImageIndex = images.indexOf(this.href);
+            lightboxImage.src = this.href;
+            lightboxDisclaimer.innerHTML = disclaimerHTML;
+            lightboxOverlay.style.display = 'flex';
+            lightboxImage.classList.remove('zoom');
         });
     });
 
     function closeLightbox() {
         lightboxOverlay.style.display = 'none';
-        lightboxDisclaimer.innerHTML = ''; // 注意文言をクリア
+        lightboxDisclaimer.innerHTML = '';
+        lightboxImage.classList.remove('zoom');
     }
 
-    // 閉じるボタンでライトボックスを閉じる
-    lightboxClose.addEventListener('click', function() {
-        closeLightbox();
+    // 閉じるボタン
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') closeLightbox();
     });
 
-    // オーバーレイのクリックでライトボックスを閉じる
+    // オーバーレイのクリック
     lightboxOverlay.addEventListener('click', function(event) {
-        if (event.target === lightboxOverlay) { // 画像自体ではなくオーバーレイがクリックされた場合
+        if (event.target === lightboxOverlay) {
             closeLightbox();
+        }
+    });
+
+    // 画像のズーム
+    lightboxImage.addEventListener('click', () => {
+        lightboxImage.classList.toggle('zoom');
+    });
+
+    // カルーセル機能
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        lightboxImage.src = images[currentImageIndex];
+        lightboxImage.classList.remove('zoom');
+    }
+
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        lightboxImage.src = images[currentImageIndex];
+        lightboxImage.classList.remove('zoom');
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (lightboxOverlay.style.display === 'flex') {
+            if (e.key === 'ArrowRight') showNextImage();
+            if (e.key === 'ArrowLeft') showPrevImage();
+            if (e.key === 'Escape') closeLightbox();
         }
     });
 }
 
-// 画像の右クリックを禁止する
+// 画像の右クリック禁止
 function preventImageContextMenu(selector) {
     const elements = document.querySelectorAll(selector);
     elements.forEach(el => {
-        // img要素自体、またはその子要素のimgに適用
         const targetImages = el.tagName === 'IMG' ? [el] : el.querySelectorAll('img');
         targetImages.forEach(img => {
             img.addEventListener('contextmenu', function(event) {
@@ -75,9 +132,8 @@ function preventImageContextMenu(selector) {
     });
 }
 
-// カード内の画像トリガーとライトボックス内の画像に適用
-preventImageContextMenu('.lightbox-trigger'); // .lightbox-trigger 内の img を対象
-if (lightboxImage) { // lightboxImage は単一の img 要素
+preventImageContextMenu('.lightbox-trigger');
+if (lightboxImage) {
     lightboxImage.addEventListener('contextmenu', function(event) {
         event.preventDefault();
     });

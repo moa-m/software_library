@@ -1,267 +1,207 @@
 <script type="text/javascript">
-  var gk_isXlsx = false;
-  var gk_xlsxFileLookup = {};
-  var gk_fileData = {};
-  function filledCell(cell) {
-    return cell !== "" && cell != null;
-  }
-  function loadFileData(filename) {
-    if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-      try {
-        var workbook = XLSX.read(gk_fileData[filename], { type: "base64" });
-        var firstSheetName = workbook.SheetNames[0];
-        var worksheet = workbook.Sheets[firstSheetName];
-
-        // Convert sheet to JSON to filter blank rows
-        var jsonData = XLSX.utils.sheet_to_json(worksheet, {
-          header: 1,
-          blankrows: false,
-          defval: "",
-        });
-        // Filter out blank rows (rows where all cells are empty, null, or undefined)
-        var filteredData = jsonData.filter((row) => row.some(filledCell));
-
-        // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-        var headerRowIndex = filteredData.findIndex(
-          (row, index) =>
-            row.filter(filledCell).length >=
-            filteredData[index + 1]?.filter(filledCell).length
-        );
-        // Fallback
-        if (headerRowIndex === -1 || headerRowIndex > 25) {
-          headerRowIndex = 0;
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
         }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
 
-        // Convert filtered JSON back to CSV
-        var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-        csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-        return csv;
-      } catch (e) {
-        console.error(e);
-        return "";
-      }
-    }
-    return gk_fileData[filename] || "";
-  }
-</script>
-<!DOCTYPE html>
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>moa's Software & AI Images & LINE Stickers</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="bg-dark text-white font-inter">
-    <!-- ヒーローセクション -->
-    <header class="hero-section">
-      <div class="text-center px-4">
-        <h1 class="hero-title">moa.M Studio</h1>
-        <p class="hero-subtitle">アプリとスタンプで、あなたの毎日に彩りを。</p>
-        <a href="#apps" class="btn-primary">Check</a>
-      </div>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-white font-inter">
+    <div class="loader"></div>
+    <button class="theme-toggle" aria-label="Toggle light/dark theme">Toggle Theme</button>
+    <header class="header">
+        <input type="search" placeholder="アプリやスタンプを検索" aria-label="Search apps or stickers" class="search-bar">
     </header>
 
-    <!-- アプリセクション -->
-    <section id="apps" class="section">
-      <div class="container">
-        <h2 class="section-title fade-in">Androidアプリ</h2>
-        <div class="grid">
-          <div class="card hover-scale fade-in">
-            <img
-              src="images/notification_memo/feature.png"
-              alt="通知にメモ。"
-              class="card-img"
-            />
-            <h3 class="card-title">通知にメモ。</h3>
-            <p class="card-text">
-              素早く通知にメモを取れるアプリ。<br />スマホの通知機能をメモとして使用できます。
-            </p>
-            <a
-              href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification"
-              class="link-primary"
-            >
-              Google Play で入手
-            </a>
-          </div>
-          <div class="card hover-scale fade-in">
-            <img
-              src="images/notification_memo_mini/feature.png"
-              alt="通知にメモ。mini"
-              class="card-img"
-            />
-            <h3 class="card-title">通知にメモ。mini</h3>
-            <p class="card-text">
-              通知にメモ。から、メモ以外の機能を省いた機能限定版。広告ありです。
-            </p>
-            <a
-              href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification_mini"
-              class="link-primary"
-            >
-              Google Play で入手
-            </a>
-          </div>
-          <div class="card hover-scale fade-in">
-            <img
-              src="images/memo_usagi/feature.png"
-              alt="メモうさぎ"
-              class="card-img"
-            />
-            <h3 class="card-title">メモうさぎ</h3>
-            <p class="card-text">
-              うさぎをテーマにした可愛いメモアプリ。<br />定番メモアプリの色分けや並び替え、ピン留めなど基本的な機能はそろっています。
-            </p>
-            <a
-              href="https://play.google.com/store/apps/details?id=moa.more.wiser.memo_usagi"
-              class="link-primary"
-            >
-              Google Play で入手
-            </a>
-          </div>
-          <div class="card hover-scale fade-in">
-            <img
-              src="images/snap_card/feature.png"
-              alt="スナップカード"
-              class="card-img"
-            />
-            <h3 class="card-title">スナップカード</h3>
-            <p class="card-text">
-              カード類を撮影し、スマホで管理できます。<br />ロック機能もあるので安心です。
-            </p>
-            <a
-              href="https://play.google.com/store/apps/details?id=moa.more.wiser.snapcard"
-              class="link-primary"
-            >
-              Google Play で入手
-            </a>
-          </div>
-          <div class="card hover-scale fade-in">
-            <img
-              src="images/coordination/feature.png"
-              alt="簡単コーディネート"
-              class="card-img"
-            />
-            <h3 class="card-title">簡単コーディネート</h3>
-            <p class="card-text">
-              簡単にファッションをコーディネート。<br />手持ちのお洋服の写真を使った、コーディネートもできます。
-            </p>
-            <a
-              href="https://play.google.com/store/apps/details?id=moa.more.wiser.easy_coordination"
-              class="link-primary"
-            >
-              Google Play で入手
-            </a>
-          </div>
+    <section class="hero-section">
+        <div class="text-center px-4">
+            <h1 class="hero-title">moa.M Studio</h1>
+            <p class="hero-subtitle">アプリとスタンプで、あなたの毎日に彩りを。</p>
+            <a href="#apps" class="btn-primary">Check</a>
         </div>
-      </div>
     </section>
 
-    <!-- スタンプセクション -->
-    <section id="stickers" class="section">
-      <div class="container">
-        <h2 class="section-title fade-in">LINEスタンプ</h2>
-        <div class="grid">
-          <div class="card hover-scale fade-in">
-            <img
-              src="images/line/gorth_main.png"
-              alt="ゴスロリファッションのかわいい女の子。日常使いができるスタンプ。"
-              class="card-img"
-            />
-            <h3 class="card-title">ゴスロリ少女の日常♪</h3>
-            <p class="card-text">
-              ゴスロリファッションのかわいい女の子。日常使いができるスタンプです。
-            </p>
-            <a href="https://line.me/S/sticker/30699351" class="link-primary"
-              >LINEストアで見る</a
-            >
-          </div>
-          <div class="card hover-scale fade-in">
-            <img
-              src="images//line/vampire_main.png"
-              alt="ちょっぴり危険な小悪魔ヴァンパイア。日常使いができるスタンプ。"
-              class="card-img"
-            />
-            <h3 class="card-title">小悪魔ヴァンパイアの日常♪</h3>
-            <p class="card-text">
-              ちょっぴり危険な小悪魔ヴァンパイア。日常使いができるスタンプです。
-            </p>
-            <a href="https://line.me/S/sticker/30654386" class="link-primary"
-              >LINEストアで見る</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- フッター -->
-    <footer class="footer">
-      <div class="container text-center">
-        <!-- プロフィールセクション -->
-        <div class="profile-section-footer">
-          <img
-            src="images/icon/icon.png"
-            alt="moa プロフィール画像"
-            class="profile-image"
-          />
-          <div class="profile-text-content">
-            <span class="profile-name">moa.M</span>
-            <div class="profile-contact-icons">
-              <a
-                href="https://x.com/r0NGTIznYp13602"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="profile-link link-primary"
-                aria-label="moa on X"
-              >
-                <img
-                  src="images/icon/x_logo-white.png"
-                  alt="X logo"
-                  class="social-icon x-logo-icon"
-                />
-              </a>
-              <a
-                href="https://forms.gle/fpKH2z5QDBQ9ce4K7"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="profile-link link-primary"
-                aria-label="お問い合わせ"
-              >
-                <img
-                  src="images/icon/mail.png"
-                  alt="Mail icon"
-                  class="social-icon mail-icon"
-                />
-              </a>
+    <section id="apps" class="section bg-light-gray">
+        <div class="container">
+            <h2 class="section-title fade-in">Androidアプリ</h2>
+            <div class="grid">
+                <div class="card hover-scale fade-in">
+                    <a href="images/notification_memo/feature.png" class="lightbox-trigger">
+                        <img src="images/notification_memo/feature.png" alt="通知にメモ。アプリのスクリーンショット" class="card-img">
+                    </a>
+                    <h3 class="card-title">通知にメモ。</h3>
+                    <p class="card-text">素早く通知にメモを取れるアプリ。<br>スマホの通知機能をメモとして使用できます。</p>
+                    <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification" class="link-primary">Google Play で入手</a>
+                </div>
+                <div class="card hover-scale fade-in">
+                    <a href="images/notification_memo_mini/feature.png" class="lightbox-trigger">
+                        <img src="images/notification_memo_mini/feature.png" alt="通知にメモ。miniアプリのスクリーンショット" class="card-img">
+                    </a>
+                    <h3 class="card-title">通知にメモ。mini</h3>
+                    <p class="card-text">通知にメモ。から、メモ以外の機能を省いた機能限定版。広告ありです。</p>
+                    <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification_mini" class="link-primary">Google Play で入手</a>
+                </div>
+                <div class="card hover-scale fade-in">
+                    <a href="images/memo_usagi/feature.png" class="lightbox-trigger">
+                        <img src="images/memo_usagi/feature.png" alt="メモうさぎアプリのスクリーンショット" class="card-img">
+                    </a>
+                    <h3 class="card-title">メモうさぎ</h3>
+                    <p class="card-text">うさぎをテーマにした可愛いメモアプリ。<br>定番メモアプリの色分けや並び替え、ピン留めなど基本的な機能はそろっています。</p>
+                    <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.memo_usagi" class="link-primary">Google Play で入手</a>
+                </div>
+                <div class="card hover-scale fade-in">
+                    <a href="images/snap_card/feature.png" class="lightbox-trigger">
+                        <img src="images/snap_card/feature.png" alt="スナップカードアプリのスクリーンショット" class="card-img">
+                    </a>
+                    <h3 class="card-title">スナップカード</h3>
+                    <p class="card-text">カード類を撮影し、スマホで管理できます。<br>ロック機能もあるので安心です。</p>
+                    <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.snapcard" class="link-primary">Google Play で入手</a>
+                </div>
+                <div class="card hover-scale fade-in">
+                    <a href="images/coordination/feature.png" class="lightbox-trigger">
+                        <img src="images/coordination/feature.png" alt="簡単コーディネートアプリのスクリーンショット" class="card-img">
+                    </a>
+                    <h3 class="card-title">簡単コーディネート</h3>
+                    <p class="card-text">簡単にファッションをコーディネート。<br>手持ちのお洋服の写真を使った、コーディネートもできます。</p>
+                    <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.easy_coordination" class="link-primary">Google Play で入手</a>
+                </div>
             </div>
-          </div>
         </div>
-        <!-- /プロフィールセクション -->
-        <!-- <h3 class="footer-title">リンク</h3> -->
-        <!-- 「リンク」タイトルを削除 -->
-        <div class="footer-links">
-          <!-- <a href="https://forms.gle/fpKH2z5QDBQ9ce4K7" class="link-primary">お問い合わせフォーム</a> -->
-          <!-- お問い合わせフォームのテキストリンクを削除 -->
-          <a href="privacy_policy.html" class="link-primary"
-            >プライバシーポリシー</a
-          >
+    </section>
+
+    <section id="stickers" class="section bg-light-gray">
+        <div class="container">
+            <h2 class="section-title fade-in">LINEスタンプ</h2>
+            <div class="grid">
+                <div class="card sticker hover-scale fade-in">
+                    <a href="images/line/gorth_main.png" class="lightbox-trigger">
+                        <img src="images/line/gorth_main.png" alt="ゴスロリファッションのかわいい女の子。日常使いができるスタンプ。" class="card-img">
+                    </a>
+                    <h3 class="card-title">ゴスロリ少女の日常♪</h3>
+                    <p class="card-text">ゴスロリファッションのかわいい女の子。日常使いができるスタンプです。</p>
+                    <a href="https://line.me/S/sticker/30699351" class="link-primary">LINEストアで見る</a>
+                </div>
+                <div class="card sticker hover-scale fade-in">
+                    <a href="images/line/vampire_main.png" class="lightbox-trigger">
+                        <img src="images/line/vampire_main.png" alt="ちょっぴり危険な小悪魔ヴァンパイア。日常使いができるスタンプ。" class="card-img">
+                    </a>
+                    <h3 class="card-title">小悪魔ヴァンパイアの日常♪</h3>
+                    <p class="card-text">ちょっぴり危険な小悪魔ヴァンパイア。日常使いができるスタンプです。</p>
+                    <a href="https://line.me/S/sticker/30654386" class="link-primary">LINEストアで見る</a>
+                </div>
+            </div>
         </div>
-        <p class="footer-text">© 2025 moa's Creations. All rights reserved.</p>
-      </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="profile-section-footer">
+                <img src="images/icon/icon.png" alt="moa プロフィール画像" class="profile-image">
+                <div class="profile-text-content">
+                    <span class="profile-name">moa.M</span>
+                    <div class="profile-contact-icons">
+                        <a href="https://x.com/r0NGTIznYp13602" target="_blank" rel="noopener noreferrer" aria-label="moa on X">
+                            <img src="images/icon/x_logo-white.png" alt="X logo" class="social-icon x-logo-icon">
+                        </a>
+                        <a href="https://forms.gle/fpKH2z5QDBQ9ce4K7" target="_blank" rel="noopener noreferrer" aria-label="お問い合わせ">
+                            <img src="images/icon/mail.png" alt="Mail icon" class="social-icon mail-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="privacy_policy.html" class="link-primary">プライバシーポリシー</a>
+            </div>
+            <p class="footer-text">© 2025 moa's Creations. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- ライトボックス -->
-    <div id="lightbox-overlay" class="lightbox-overlay">
-      <span class="lightbox-close">&times;</span>
-      <div class="lightbox-content-wrapper">
-        <img id="lightbox-image" src="" alt="Lightbox Image" />
-        <div id="lightbox-disclaimer"></div>
-      </div>
+    <div id="lightbox-overlay" role="dialog" aria-label="Image lightbox">
+        <div class="lightbox-content-wrapper">
+            <img id="lightbox-image" src="" alt="Lightbox Image">
+            <div id="lightbox-disclaimer"></div>
+        </div>
+        <span class="lightbox-close" role="button" aria-label="Close lightbox" tabindex="0">×</span>
     </div>
 
     <script src="script.js"></script>
-  </body>
+    <script>
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+            return cell !== "" && cell != null;
+        }
+        function loadFileData(filename) {
+            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+                try {
+                    var workbook = XLSX.read(gk_fileData[filename], { type: "base64" });
+                    var firstSheetName = workbook.SheetNames[0];
+                    var worksheet = workbook.Sheets[firstSheetName];
+                    var jsonData = XLSX.utils.sheet_to_json(worksheet, {
+                        header: 1,
+                        blankrows: false,
+                        defval: "",
+                    });
+                    var filteredData = jsonData.filter((row) => row.some(filledCell));
+                    var headerRowIndex = filteredData.findIndex(
+                        (row, index) =>
+                            row.filter(filledCell).length >=
+                            filteredData[index + 1]?.filter(filledCell).length
+                    );
+                    if (headerRowIndex === -1 || headerRowIndex > 25) {
+                        headerRowIndex = 0;
+                    }
+                    var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                    return csv;
+                } catch (e) {
+                    console.error(e);
+                    return "";
+                }
+            }
+            return gk_fileData[filename] || "";
+        }
+    </script>
+</body>
 </html>
