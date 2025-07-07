@@ -187,6 +187,9 @@ body.dark-mode .card {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 8px;
+    display: flex; /* バッジとタイトルを横並びにするため */
+    align-items: center; /* 垂直方向の中央揃え */
+    flex-wrap: wrap; /* 必要に応じて折り返し */
 }
 
 .card-text {
@@ -207,6 +210,30 @@ body.dark-mode .card-text {
 
 .link-primary:hover {
     color: #EC4899;
+}
+
+/* バッジのスタイル */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem; /* 小さめのフォントサイズ */
+    font-weight: 700;
+    margin-left: 8px; /* カードタイトルなどからの間隔 */
+    vertical-align: middle; /* 垂直方向の中央揃え */
+    white-space: nowrap; /* テキストの折り返し防止 */
+}
+
+/* NEWバッジのスタイル */
+.new-badge {
+    background-color: #818CF8; /* ライトブルー */
+    color: #ffffff;
+}
+
+/* UPDATEバッジのスタイル */
+.update-badge {
+    background-color: #F59E0B; /* オレンジ */
+    color: #ffffff;
 }
 
 /* フッター */
