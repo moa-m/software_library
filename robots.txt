@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /images/stable_diffusion/
 Disallow: /images/line/
