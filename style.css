@@ -307,12 +307,66 @@ body.dark-mode .card-text {
     margin-bottom: 16px;
 }
 
+.project-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.project-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, text-decoration 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.project-links a[target="_blank"]::after {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.4em;
+    background-color: currentColor;
+    mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M7 17L17 7M17 7h-6M17 7v6'/%3e%3c/svg%3e");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transition: transform 0.3s ease;
+}
+
+.project-links a[target="_blank"]:hover::after {
+    transform: translate(2px, -2px);
+}
+
+.project-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 24px;
+    flex-wrap: wrap; /* 画面幅が狭い時に折り返すように */
+    gap: 16px 24px; /* 縦横の隙間を指定 */
     margin-bottom: 16px;
 }
+
+.project-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+    color: #F3F4F6;
+}
+/* ▲▲▲ 変更箇所 ▲▲▲ */
 
 .footer .link-primary {
     color: #ffffff;
