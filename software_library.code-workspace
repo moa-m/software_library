@@ -1,0 +1,62 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+
+  // settings.jsonの内容をすべてここに持ってきます。
+  "settings": {
+    // 保存時に自動整形 + import 整理
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+
+    // エディタ
+    "editor.fontFamily": "RictyDiminished-Regular",
+    "editor.fontSize": 20,
+    "editor.rulers": [],
+    "editor.guides.bracketPairs": "active",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.renderWhitespace": "all",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // 見た目・UI
+    "workbench.sideBar.location": "left",
+    "workbench.statusBar.visible": true,
+    "workbench.panel.defaultLocation": "bottom",
+    "explorer.compactFolders": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
+    "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
+
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/build": true
+    },
+
+    // エクスプローラー
+    "explorer.fontSize": 16,
+    "workbench.tree.indent": 20,
+
+    // ターミナル
+    "terminal.integrated.fontFamily": "RictyDiminished-Regular",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.defaultProfile.osx": "zsh"
+  },
+
+  // 推奨する拡張機能
+  "extensions": {
+    "recommendations": [
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker"
+    ]
+  }
+}
