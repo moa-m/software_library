@@ -47,7 +47,8 @@
     // ターミナル
     "terminal.integrated.fontFamily": "RictyDiminished-Regular",
     "terminal.integrated.fontSize": 16,
-    "terminal.integrated.defaultProfile.osx": "zsh"
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "liveServer.settings.port": 5501
   },
 
   // 推奨する拡張機能
