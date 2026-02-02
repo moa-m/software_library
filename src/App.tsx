@@ -1,3 +1,4 @@
+import './App.css';
 import Hero from './components/Hero';
 import Apps from './components/Apps';
 import Stickers from './components/Stickers';

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useFadeIn } from '../hooks/useFadeIn'; // useFadeInフックをインポート
+import './Card.css';
 
 // propsの型定義
 interface CardProps {

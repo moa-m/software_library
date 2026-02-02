@@ -1,3 +1,5 @@
+import './Footer.css';
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -37,10 +39,10 @@ const Footer = () => {
           </div>
         </div>
         <div className="project-links">
-          <a href="privacy_policy.html">プライバシーポリシー</a>
+          <a href="/privacy_policy.html">プライバシーポリシー</a>
         </div>
         <p className="footer-text">
-          Copyright © 2025 @Moa Lab. All rights reserved.
+          Copyright © 2026 @Moa Lab. All rights reserved.
         </p>
       </div>
     </footer>

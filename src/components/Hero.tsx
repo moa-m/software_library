@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import './Hero.css';
 
 const Hero = () => {
   const checkButtonRef = useRef<HTMLAnchorElement>(null);
@@ -43,14 +44,14 @@ const Hero = () => {
   return (
     <section className="hero-section">
       <div className="text-center px-4">
-        <h1 className="hero-title pop-element shiny-effect">Moa Lab.</h1>
+        <h1 className="hero-title pop-element">Moa Lab.</h1>
         <p className="hero-subtitle pop-element">
           アプリとスタンプで、あなたの毎日に彩りを。
         </p>
         <a
           ref={checkButtonRef}
           href="#apps"
-          className="btn-primary pop-element shiny-effect"
+          className="btn-primary pop-element"
         >
           Check Our Products
         </a>
