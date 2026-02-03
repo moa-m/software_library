@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -39,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="project-links">
-          <a href="/privacy_policy.html">プライバシーポリシー</a>
+          <Link to="/privacy_policy">プライバシーポリシー</Link>
         </div>
         <p className="footer-text">
           Copyright © 2026 @Moa Lab. All rights reserved.

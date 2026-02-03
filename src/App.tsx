@@ -1,25 +1,17 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import './App.css';
-import Hero from './components/Hero';
-import Apps from './components/Apps';
-import Stickers from './components/Stickers';
-import Footer from './components/Footer';
-import { usePageLoader } from './hooks/usePageLoader';
-import { useFadeInSelector } from './hooks/useFadeInSelector';
-import { useHeaderScroll } from './hooks/useHeaderScroll';
 
 function App() {
-  usePageLoader();
-  useFadeInSelector('.fade-in');
-  useHeaderScroll();
-
   return (
-    <>
-      <div className="loader"></div>
-      <Hero />
-      <Apps />
-      <Stickers />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy_policy.html" element={<PrivacyPolicy />} />
+        <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
