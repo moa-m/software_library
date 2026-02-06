@@ -5,7 +5,11 @@ const appsData = [
   {
     imgSrc: '/images/notification_memo/feature.png',
     imgAlt: '通知にメモ。アプリのスクリーンショット',
-    title: '通知にメモ。',
+    title: (
+      <>
+        通知にメモ。<span className="badge update-badge">UPDATE</span>
+      </>
+    ),
     text: (
       <>
         素早く通知にメモを取れるアプリ。<br />
@@ -17,26 +21,9 @@ const appsData = [
     linkText: 'Google Play で入手',
   },
   {
-    imgSrc: '/images/notification_memo_mini/feature.png',
-    imgAlt: '通知にメモ。miniアプリのスクリーンショット',
-    title: '通知にメモ。mini',
-    text: (
-      <>
-        通知にメモ。から、メモ以外の機能を省いた機能限定版で、広告が表示されます。<br />
-        通知メモのアイコンを変更できたりと、オリジナルの機能もあります。
-      </>
-    ),
-    link: 'https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification_mini',
-    linkText: 'Google Play で入手',
-  },
-  {
     imgSrc: '/images/memo_usagi/feature.png',
     imgAlt: 'メモうさぎアプリのスクリーンショット',
-    title: (
-      <>
-        メモうさぎ<span className="badge update-badge">UPDATE</span>
-      </>
-    ),
+    title: 'メモうさぎ',
     text: (
       <>
         うさぎをテーマにした可愛いメモアプリ。<br />
