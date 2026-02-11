@@ -1,51 +1,65 @@
+.privacy-container {
+    max-width: 820px;
+}
+
 .privacy-policy-page h2 {
-    font-size: 1.4rem;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    color: var(--primary-dark);
-    font-weight: 600;
-    border-left: 4px solid var(--accent);
-    padding-left: 15px;
+    font-size: 1.25rem;
+    margin-top: 2.2rem;
+    margin-bottom: 0.9rem;
+    color: var(--color-primary-strong);
+    font-weight: 700;
 }
 
 .privacy-policy-page p {
-    margin-bottom: 20px;
-    color: var(--text-main);
+    margin-bottom: 1rem;
+    color: var(--color-text);
 }
 
 .privacy-policy-page a:not(.btn-back) {
-    color: var(--primary-dark);
+    color: var(--color-primary-strong);
     text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 65%, white);
     font-weight: 600;
-    border-bottom: 1px dashed var(--primary-dark);
-    transition: all 0.3s ease;
 }
 
-.privacy-policy-page a:not(.btn-back):hover {
-    color: var(--secondary);
-    border-bottom-color: var(--secondary);
+.privacy-policy-page a:not(.btn-back):hover,
+.privacy-policy-page a:not(.btn-back):focus-visible {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-accent);
 }
 
-.footer-links {
-    margin-bottom: 20px;
-    text-align: center;
+.policy-footer {
+    padding: 0 1rem 2.2rem;
+}
+
+.policy-footer-inner {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
 }
 
 .btn-back {
-    display: inline-block;
-    background-color: var(--primary);
-    color: #ffffff;
-    padding: 10px 30px;
-    border-radius: var(--radius-btn);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 210px;
+    padding: 0.72rem 1.3rem;
+    border-radius: var(--radius-pill);
     text-decoration: none;
-    border: none;
-    transition: all 0.3s ease;
+    background: #eef6f7;
+    border: 1px solid var(--color-border);
+    color: var(--color-primary-strong);
+    font-weight: 600;
 }
 
-.btn-back:hover {
-    background-color: var(--primary-dark);
+.btn-back:hover,
+.btn-back:focus-visible {
+    background: #e2f0f2;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
-    color: #fff;
-    border-bottom: none;
+}
+
+.policy-footer-text {
+    margin: 0;
+    color: var(--color-text-subtle);
+    font-size: 0.86rem;
 }

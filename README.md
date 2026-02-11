@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# Moa Lab Software Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Moa Lab の Android アプリと LINE スタンプを紹介する、Next.js 製のランディングサイトです。
 
-Currently, two official plugins are available:
+- 本番URL: https://moa-software-library.pages.dev/
+- 主な掲載内容: アプリ紹介、LINEスタンプ紹介、プライバシーポリシー
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- Next.js 15 (App Router)
+- React 19
+- TypeScript
+- CSS (コンポーネント単位 + グローバルスタイル)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Requirements
 
-## Expanding the ESLint configuration
+- Node.js 20 以上推奨
+- npm
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+開発サーバー起動後、`http://localhost:3000` を開いて確認できます。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev    # 開発サーバー
+npm run build  # 本番ビルド
+npm run start  # 本番ビルド起動
+npm run lint   # ESLint 実行
 ```
+
+## Project Structure
+
+```text
+src/
+  app/
+    layout.tsx                 # ルートレイアウト・メタデータ
+    page.tsx                   # トップページ
+    privacy-policy/page.tsx    # プライバシーポリシーページ
+  components/
+    Hero/
+    Apps/
+    Stickers/
+    Card/
+    Footer/
+  hooks/
+    useFadeIn.ts
+    useFadeInSelector.ts
+    usePageLoader.ts
+    useHeaderScroll.ts
+  App.css                      # 共通スタイル
+
+public/images/                 # 画像アセット
+```
+
+## Notes
+
+- UI 文言は日本語を基本にしています。
+- 画像は `public/images/<category>/` 配下に配置してください。
+- 変更後は `npm run lint` で静的チェックを実行してください。

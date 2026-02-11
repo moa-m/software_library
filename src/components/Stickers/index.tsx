@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import Card from '@/components/Card';
 
 const stickersData = [
@@ -41,7 +42,7 @@ const stickersData = [
 
 const Stickers = () => {
   return (
-    <section id="stickers" className="section bg-light-gray">
+    <section id="stickers" className="section">
       <div className="container">
         <h2 className="section-title fade-in">LINEスタンプ</h2>
         <div className="grid">
@@ -55,6 +56,7 @@ const Stickers = () => {
               link={sticker.link}
               linkText={sticker.linkText}
               isSticker={true}
+              style={{ '--delay': `${index * 0.08}s` } as CSSProperties}
             />
           ))}
         </div>

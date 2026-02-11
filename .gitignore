@@ -1,13 +1,13 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # Dependencies
-/node_modules
+node_modules/
 
-# Build outputs
-/dist
-/dist-ssr
-/build
-/out
+# Build / runtime outputs
+.next/
+out/
+build/
+dist/
+dist-ssr/
+coverage/
 
 # TypeScript
 *.tsbuildinfo
@@ -21,28 +21,38 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Local environment variables
+# Environment files
 .env
 .env.local
 .env.*.local
 
-# IDEs and editors
+# Package manager caches
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Tool caches
+.eslintcache
+.prettiercache
+.vite-node/
+.turbo/
+
+# IDE / OS files
 .idea/
-.vscode/
+.vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-Thumbs.db
 
-# Caches
-.eslintcache
-.prettiercache
-.vite-node/
-
-# Misc
+# Archives / local backups
 *.tgz
-/backup
+backup/

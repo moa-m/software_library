@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="privacy-policy-page">
       <section className="section">
-        <div className="container" style={{ maxWidth: '800px' }}>
+        <div className="container privacy-container">
           <h1 className="section-title fade-in">プライバシーポリシー</h1>
 
           <div style={{ animationDelay: '0.1s' }} className="fade-in">
@@ -57,12 +57,14 @@ export default function PrivacyPolicy() {
         </div>
       </section>
 
-      <footer className="footer fade-in" style={{ animationDelay: '0.6s' }}>
-        <div className="container">
-          <div className="footer-links">
-            <Link href="/" className="btn-back">トップページに戻る</Link>
+      <footer className="policy-footer fade-in" style={{ animationDelay: '0.6s' }}>
+        <div className="container policy-footer-inner">
+          <div className="policy-footer-links">
+            <Link href="/" className="btn-back">
+              トップページに戻る
+            </Link>
           </div>
-          <p className="footer-text">© 2026 Moa Lab. All rights reserved.</p>
+          <p className="policy-footer-text">© 2026 Moa Lab. All rights reserved.</p>
         </div>
       </footer>
     </div>

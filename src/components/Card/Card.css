@@ -1,115 +1,90 @@
 .card {
-    background-color: var(--bg-surface);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: 32px;
-    transition: all 0.4s ease;
-    /* 影を薄く、ボーダーを追加して「紙」のような質感に */
-    box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    box-shadow: var(--shadow-1);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition-delay: var(--delay, 0s);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+.card:hover,
+.card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-2);
+    border-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
 }
 
-/* ホバー時の背景エフェクトを削除し、よりシンプルに */
-.card::before {
-    display: none;
-}
-
-.card-img {
+.card-img,
+.sticker-img {
     width: 100%;
-    height: auto;
-    display: block;
+    aspect-ratio: 4 / 3;
     object-fit: contain;
     border-radius: var(--radius-md);
-    margin-bottom: 24px;
-    /* 影を削除し、フラットに */
-    transition: transform 0.3s ease;
-}
-
-.card:hover .card-img {
-    transform: scale(1.02);
+    display: block;
+    margin-bottom: 1.1rem;
+    background: #f5f8f9;
 }
 
 .sticker-img {
-    width: 100%;
     aspect-ratio: 1 / 1;
-    display: block;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    margin-bottom: 24px;
-    transition: transform 0.3s ease;
-}
-
-.card:hover .sticker-img {
-    transform: scale(1.02);
 }
 
 .card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    color: var(--text-main);
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.7rem;
 }
 
 .card-text {
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-size: 0.95rem;
+    color: var(--color-text-subtle);
+    margin-bottom: 1.2rem;
+    font-size: 0.96rem;
+    flex-grow: 1;
 }
 
 .link-primary {
-    color: var(--primary-dark);
+    width: fit-content;
+    color: var(--color-primary-strong);
     text-decoration: none;
-    margin-top: 16px;
-    display: inline-block;
-    font-weight: 600;
-    position: relative;
-    font-size: 0.9rem;
+    font-weight: 700;
+    font-size: 0.92rem;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.1rem;
 }
 
-.link-primary::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--secondary); /* ピンクのライン */
-    transition: width 0.3s ease;
-}
-
-.link-primary:hover::after {
-    width: 100%;
+.link-primary:hover,
+.link-primary:focus-visible {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-accent);
 }
 
 .badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-left: 10px;
-    vertical-align: middle;
-    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.24rem 0.62rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    line-height: 1;
 }
 
 .new-badge {
-    background-color: var(--secondary);
-    color: #fff;
+    color: #67232a;
+    background-color: var(--color-accent-soft);
 }
 
 .update-badge {
-    background-color: var(--accent);
-    color: #fff;
+    color: #184048;
+    background-color: #d5edf0;
 }

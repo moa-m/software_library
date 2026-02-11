@@ -1,4 +1,4 @@
-import React from 'react';
+import type { CSSProperties } from 'react';
 import Card from '@/components/Card';
 
 const appsData = [
@@ -51,7 +51,7 @@ const Apps = () => {
               text={app.text}
               link={app.link}
               linkText={app.linkText}
-              style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}
+              style={{ '--delay': `${index * 0.1}s` } as CSSProperties}
             />
           ))}
         </div>

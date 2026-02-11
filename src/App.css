@@ -1,34 +1,102 @@
-/* Soft & Clean Theme (北欧・雑貨風) */
 :root {
-    /* カラーパレット */
-    --primary: #8ac6d1;      /* 優しい水色 */
-    --primary-dark: #4b8e9e; /* 濃い水色（ボタン文字など） */
-    --secondary: #ffb6b9;    /* ソフトピンク */
-    --accent: #bbded6;       /* ミントグリーン */
-    
-    --bg-body: #fdfcf8;      /* 温かみのあるアイボリー */
-    --bg-surface: #ffffff;   /* 真っ白なカード背景 */
-    --bg-footer: #4a4e69;    /* 落ち着いたネイビーグレー */
+    /* Core colors */
+    --color-bg: #f9f7f2;
+    --color-bg-elevated: #f5f2ea;
+    --color-surface: #ffffff;
+    --color-text: #2f3a42;
+    --color-text-subtle: #5f6b73;
+    --color-primary: #2e95a6;
+    --color-primary-strong: #226f7c;
+    --color-accent: #f49ea2;
+    --color-accent-soft: #ffd8d9;
+    --color-border: #dce4e7;
+    --color-footer: #27343d;
+    --color-on-dark: #f7fafc;
 
-    --text-main: #4a4a4a;    /* 柔らかい黒 */
-    --text-muted: #888888;   /* グレー */
-    --text-on-dark: #fdfcf8; /* 暗い背景上の文字 */
+    /* Typography */
+    --font-sans: 'Poppins', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    --fs-hero: clamp(2.2rem, 4vw, 3.8rem);
+    --fs-h2: clamp(1.7rem, 2.5vw, 2.2rem);
+    --fs-body: 1rem;
+    --lh-base: 1.7;
 
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05); /* 非常に薄い影 */
-    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.08);
-    
-    --radius-lg: 24px;
-    --radius-md: 16px;
-    --radius-btn: 50px;
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+
+    /* Radius and shadow */
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --radius-pill: 999px;
+    --shadow-1: 0 10px 30px rgba(35, 49, 57, 0.08);
+    --shadow-2: 0 18px 40px rgba(35, 49, 57, 0.14);
+
+    /* Legacy aliases for existing styles */
+    --primary: var(--color-primary);
+    --primary-dark: var(--color-primary-strong);
+    --secondary: var(--color-accent);
+    --accent: #bde3dc;
+    --bg-body: var(--color-bg);
+    --bg-surface: var(--color-surface);
+    --bg-footer: var(--color-footer);
+    --text-main: var(--color-text);
+    --text-muted: var(--color-text-subtle);
+    --text-on-dark: var(--color-on-dark);
+    --shadow-soft: var(--shadow-1);
+    --shadow-hover: var(--shadow-2);
+    --radius-btn: var(--radius-pill);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--bg-body);
-    color: var(--text-main);
-    font-family: 'Poppins', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
     margin: 0;
-    line-height: 1.6;
+    background: radial-gradient(circle at top right, #f1f8f9 0%, var(--color-bg) 45%, #f6f3ec 100%);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: var(--lh-base);
     -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.3;
+}
+
+p {
+    margin-top: 0;
+}
+
+a,
+button {
+    transition: all 0.25s ease;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-primary) 65%, white);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
 }
 
 .text-center {
@@ -36,144 +104,166 @@ body {
 }
 
 .px-4 {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
 }
 
-/* ボタン: フラットで優しい印象に */
-.btn-primary {
-    display: inline-block;
-    background-color: var(--primary);
-    color: #ffffff;
-    font-weight: 600;
-    padding: 14px 36px;
-    border-radius: var(--radius-btn);
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
     text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 2px solid transparent;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
+    font-weight: 600;
+    padding: 0.85rem 1.65rem;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-strong) 100%);
+    color: #ffffff;
+    box-shadow: var(--shadow-1);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-2);
 }
 
-/* セクション共通 */
+.btn-secondary {
+    color: var(--color-primary-strong);
+    background-color: #f0fafb;
+    border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+    background-color: #e5f4f6;
+    transform: translateY(-2px);
+}
+
 .section {
-    padding: 80px 16px;
-    background: var(--bg-body);
+    padding: clamp(3.5rem, 8vw, 5.2rem) var(--space-4);
 }
 
 .bg-light-gray {
-    background-color: #f7f6f2; /* 少しベージュ寄りのグレー */
+    background-color: var(--color-bg-elevated);
 }
 
 .container {
-    max-width: 1280px;
+    width: min(1200px, 100%);
     margin: 0 auto;
 }
 
 .section-title {
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: var(--fs-h2);
+    font-weight: 700;
     text-align: center;
-    margin-bottom: 60px;
-    color: var(--text-main);
-    position: relative;
-    letter-spacing: 0.05em;
+    margin-bottom: var(--space-4);
+    letter-spacing: 0.03em;
 }
 
-/* タイトル下の装飾をシンプルに */
 .section-title::after {
     content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 3px;
-    background-color: var(--secondary);
-    border-radius: 2px;
+    display: block;
+    width: 56px;
+    height: 4px;
+    border-radius: var(--radius-pill);
+    margin: var(--space-3) auto 0;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
 }
 
-/* グリッド */
+.section-intro {
+    max-width: 680px;
+    margin: 0 auto var(--space-7);
+    text-align: center;
+    color: var(--color-text-subtle);
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: var(--space-6);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 700px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1080px) {
     .grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
-/* アニメーション */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
-.fade-in.is-visible {
+.fade-in.is-visible,
+.fade-in.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* ローディング */
 .loader {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 3px solid #f3f3f3;
-    border-top: 3px solid var(--primary);
-    border-radius: 50%;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    border: 3px solid #deeaed;
+    border-top-color: var(--color-primary);
     animation: spin 1s linear infinite;
     z-index: 9999;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* モバイル調整 */
-@media (max-width: 640px) {
-    .section-title {
-        font-size: 1.8rem;
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
     }
-    .btn-primary {
-        width: auto;
-        padding: 12px 30px;
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
-/* ポップアニメーション（控えめに） */
 .pop-element {
-    animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation: pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes pop {
-    0% {
-        transform: scale(0.9);
+    from {
+        transform: translateY(12px) scale(0.98);
         opacity: 0;
     }
-    100% {
-        transform: scale(1);
+
+    to {
+        transform: translateY(0) scale(1);
         opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .fade-in,
+    .pop-element {
+        opacity: 1;
+        transform: none;
     }
 }
