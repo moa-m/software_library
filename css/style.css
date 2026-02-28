@@ -357,7 +357,7 @@ button:focus-visible {
 
 .card:hover,
 .card:focus-within {
-    transform: translateY(-6px);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: var(--shadow-2);
     border-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
 }
