@@ -377,13 +377,22 @@ button:focus-visible {
     gap: var(--space-4);
 }
 
-.app-row-image {
-    margin-bottom: 0;
+.app-row-image-wrap {
+    width: 100%;
     aspect-ratio: 1 / 1;
-    object-fit: contain;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: transparent;
+}
+
+.app-row-image {
+    width: 100%;
+    display: block;
+    margin-bottom: 0;
     height: 100%;
-    max-height: 220px;
-    padding: 0.45rem;
+    object-fit: cover;
+    padding: 0;
+    background: transparent;
 }
 
 .app-row-body {
@@ -450,6 +459,93 @@ button:focus-visible {
 
 .sticker-img {
     aspect-ratio: 1 / 1;
+    background: transparent;
+}
+
+#stickers .card {
+    max-width: 340px;
+    min-width: min(340px, 82vw);
+    flex: 0 0 auto;
+    padding: 1rem;
+    scroll-snap-align: start;
+}
+
+.stickers-carousel {
+    position: relative;
+    padding: 0 2.6rem;
+}
+
+#stickers .grid {
+    display: flex;
+    gap: var(--space-3);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    padding-bottom: var(--space-2);
+}
+
+#stickers .grid::-webkit-scrollbar {
+    display: none;
+}
+
+.stickers-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--color-primary-strong);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(35, 49, 57, 0.14);
+}
+
+.stickers-nav:hover,
+.stickers-nav:focus-visible {
+    transform: translateY(-50%) scale(1.03);
+    background: #f6fbfc;
+}
+
+.stickers-nav:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.stickers-nav-prev {
+    left: 0;
+}
+
+.stickers-nav-next {
+    right: 0;
+}
+
+.stickers-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+}
+
+#stickersIndicator {
+    display: none;
+}
+
+.stickers-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cad7db;
+}
+
+.stickers-dot.is-active {
+    background: var(--color-primary);
 }
 
 .card-title {
@@ -483,6 +579,26 @@ button:focus-visible {
 .link-primary:focus-visible {
     color: var(--color-primary);
     border-bottom-color: var(--color-accent);
+}
+
+.app-store-link {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 44px;
+    margin-top: 0.15rem;
+    border-radius: 10px;
+}
+
+.app-store-badge {
+    width: 152px;
+    height: auto;
+    display: block;
+}
+
+.app-store-link:hover,
+.app-store-link:focus-visible {
+    transform: translateY(-1px);
 }
 
 @media (max-width: 920px) {
@@ -612,6 +728,14 @@ button:focus-visible {
     gap: 1rem;
 }
 
+.profile-contact-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
 .social-icon {
     height: 24px;
     width: auto;
@@ -639,6 +763,39 @@ button:focus-visible {
     .profile-name,
     .profile-copy {
         text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .btn-primary,
+    .btn-secondary,
+    .link-primary,
+    .footer-links a,
+    .app-preview-link,
+    .app-store-link {
+        min-height: 44px;
+    }
+
+    .link-primary,
+    .footer-links a {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-store-badge {
+        width: 168px;
+    }
+
+    .stickers-carousel {
+        padding: 0 1.9rem;
+    }
+
+    .stickers-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 0.96rem;
     }
 }
 

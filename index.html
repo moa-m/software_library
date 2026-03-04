@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moa Lab.</title>
     <meta name="description" content="アプリとスタンプで、あなたの毎日に彩りを。">
+    <link rel="canonical" href="https://moa-lab.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="Moa Lab.">
+    <meta property="og:title" content="Moa Lab.">
+    <meta property="og:description" content="アプリとスタンプで、あなたの毎日に彩りを。">
+    <meta property="og:url" content="https://moa-lab.com/">
+    <meta property="og:image" content="https://moa-lab.com/images/notification_memo/feature.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Moa Lab.">
+    <meta name="twitter:description" content="アプリとスタンプで、あなたの毎日に彩りを。">
+    <meta name="twitter:image" content="https://moa-lab.com/images/notification_memo/feature.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +58,9 @@
                 <!-- App 1: Notification Memo -->
                 <article class="card app-row fade-in" style="--delay: 0s;">
                     <div class="app-row-main">
-                        <img src="images/notification_memo/icon.png" alt="通知にメモ。アプリアイコン" class="card-img app-row-image">
+                        <div class="app-row-image-wrap">
+                            <img src="images/notification_memo/icon.png" alt="通知にメモ。アプリアイコン" class="app-row-image">
+                        </div>
                         <div class="app-row-body">
                             <h3 class="card-title">
                                 通知にメモ。<span class="badge update-badge">UPDATE 2026/02/25</span>
@@ -56,7 +70,15 @@
                                 スマホを見るたび自然に目に入るから、
                                 もう「うっかり忘れ」はありません。
                             </p>
-                            <a href="notification-memo/index.html" class="link-primary">紹介ページを見る</a>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1"
+                                class="app-store-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="通知にメモ。をGoogle Playで見る"
+                            >
+                                <img src="images/google-play-badge.png" alt="Google Play で手に入れよう" class="app-store-badge">
+                            </a>
                         </div>
                     </div>
                     <a href="notification-memo/index.html" class="app-preview-link" aria-label="通知にメモ。の紹介ページを見る">
@@ -68,14 +90,24 @@
                 <!-- App 2: Memo Usagi -->
                 <article class="card app-row fade-in" style="--delay: 0.1s;">
                     <div class="app-row-main">
-                        <img src="images/memo_usagi/icon.png" alt="メモうさぎアプリアイコン" class="card-img app-row-image">
+                        <div class="app-row-image-wrap">
+                            <img src="images/memo_usagi/icon.png" alt="メモうさぎアプリアイコン" class="app-row-image">
+                        </div>
                         <div class="app-row-body">
                             <h3 class="card-title">メモうさぎ<span class="badge update-badge">UPDATE 2026/02/26</span></h3>
                             <p class="card-text">
                                 うさぎをテーマにした可愛いメモアプリ。
                                 やわらかなデザインが、忙しい毎日の中に、ほっとするひとときを届けます。
                             </p>
-                            <a href="memo-usagi/index.html" class="link-primary">紹介ページを見る</a>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=moa.more.wiser.memo_usagi"
+                                class="app-store-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="メモうさぎをGoogle Playで見る"
+                            >
+                                <img src="images/google-play-badge.png" alt="Google Play で手に入れよう" class="app-store-badge">
+                            </a>
                         </div>
                     </div>
                     <a href="memo-usagi/index.html" class="app-preview-link" aria-label="メモうさぎの紹介ページを見る">
@@ -91,41 +123,46 @@
     <section id="stickers" class="section">
         <div class="container">
             <h2 class="section-title fade-in">LINEスタンプ</h2>
-            <div class="grid">
-                <!-- Sticker 1 -->
-                <article class="card fade-in" style="--delay: 0s;">
-                    <img src="images/line/pinkcat_main.png" alt="猫好きさん必見！カツラをかぶったユニークな猫のスタンプです。 毎日使いやすい、日常的なセリフを集めました。" class="sticker-img">
-                    <h3 class="card-title">
-                        ヅラにゃんの日常♪<span class="badge new-badge">NEW</span>
-                    </h3>
-                    <p class="card-text">ピンクの巻髪カツラをかぶったユニークな猫のスタンプです。</p>
-                    <a href="https://line.me/S/sticker/31552679" class="link-primary" target="_blank" rel="noopener noreferrer">LINEストアで見る</a>
-                </article>
+            <div class="stickers-carousel">
+                <button type="button" class="stickers-nav stickers-nav-prev" aria-label="前のスタンプへ">＜</button>
+                <div class="grid" id="stickersGrid">
+                    <!-- Sticker 1 -->
+                    <article class="card fade-in" style="--delay: 0s;">
+                        <img src="images/line/pinkcat_main.png" alt="猫好きさん必見！カツラをかぶったユニークな猫のスタンプです。 毎日使いやすい、日常的なセリフを集めました。" class="sticker-img">
+                        <h3 class="card-title">
+                            ヅラにゃんの日常♪<span class="badge new-badge">NEW</span>
+                        </h3>
+                        <p class="card-text">ピンクの巻髪カツラをかぶったユニークな猫のスタンプです。</p>
+                        <a href="https://line.me/S/sticker/31552679" class="link-primary" target="_blank" rel="noopener noreferrer">LINEストアで見る</a>
+                    </article>
 
-                <!-- Sticker 2 -->
-                <article class="card fade-in" style="--delay: 0.08s;">
-                    <img src="images/line/idol_main.png" alt="元気系・アニメ風アイドルが、毎日をちょっとだけ明るくしてくれ る☆ 応援、励まし、元気づけたい時にぴったり！" class="sticker-img">
-                    <h3 class="card-title">全力アイドル応援スタンプ♪</h3>
-                    <p class="card-text">元気系・アニメ風アイドルが、毎日をちょっとだけ明るくしてくれま す！</p>
-                    <a href="https://line.me/S/sticker/31221945" class="link-primary" target="_blank" rel="noopener noreferrer">LINEストアで見る</a>
-                </article>
+                    <!-- Sticker 2 -->
+                    <article class="card fade-in" style="--delay: 0.08s;">
+                        <img src="images/line/idol_main.png" alt="元気系・アニメ風アイドルが、毎日をちょっとだけ明るくしてくれ る☆ 応援、励まし、元気づけたい時にぴったり！" class="sticker-img">
+                        <h3 class="card-title">全力アイドル応援スタンプ♪</h3>
+                        <p class="card-text">元気系・アニメ風アイドルが、毎日をちょっとだけ明るくしてくれま す！</p>
+                        <a href="https://line.me/S/sticker/31221945" class="link-primary" target="_blank" rel="noopener noreferrer">LINEストアで見る</a>
+                    </article>
 
-                <!-- Sticker 3 -->
-                <article class="card fade-in" style="--delay: 0.16s;">
-                    <img src="images/line/gorth_main.png" alt="ゴスロリファッションのかわいい女の子。日常使いができるスタン プ. " class="sticker-img">
-                    <h3 class="card-title">ゴスロリ少女の日常♪</h3>
-                    <p class="card-text">ゴスロリファッションのかわいい女の子。日常使いができるスタンプ です。</p>
-                    <a href="https://line.me/S/sticker/30699351" class="link-primary" target="_blank" rel="noopener noreferrer">LINEストアで見る</a>
-                </article>
+                    <!-- Sticker 3 -->
+                    <article class="card fade-in" style="--delay: 0.16s;">
+                        <img src="images/line/gorth_main.png" alt="ゴスロリファッションのかわいい女の子。日常使いができるスタン プ. " class="sticker-img">
+                        <h3 class="card-title">ゴスロリ少女の日常♪</h3>
+                        <p class="card-text">ゴスロリファッションのかわいい女の子。日常使いができるスタンプ です。</p>
+                        <a href="https://line.me/S/sticker/30699351" class="link-primary" target="_blank" rel="noopener noreferrer">LINEストアで見る</a>
+                    </article>
 
-                <!-- Sticker 4 -->
-                <article class="card fade-in" style="--delay: 0.24s;">
-                    <img src="images/line/vampire_main.png" alt="ちょっぴり危険な小悪魔ヴァンパイア。日常使いができるスタンプ 。" class="sticker-img">
-                    <h3 class="card-title">小悪魔ヴァンパイアの日常♪</h3>
-                    <p class="card-text">ちょっぴり危険な小悪魔ヴァンパイア。日常使いができるスタンプで す。</p>
-                    <a href="https://line.me/S/sticker/30654386" class="link-primary" target="_blank" rel="noopener noreferrer">LINEストアで見る</a>
-                </article>
+                    <!-- Sticker 4 -->
+                    <article class="card fade-in" style="--delay: 0.24s;">
+                        <img src="images/line/vampire_main.png" alt="ちょっぴり危険な小悪魔ヴァンパイア。日常使いができるスタンプ 。" class="sticker-img">
+                        <h3 class="card-title">小悪魔ヴァンパイアの日常♪</h3>
+                        <p class="card-text">ちょっぴり危険な小悪魔ヴァンパイア。日常使いができるスタンプで す。</p>
+                        <a href="https://line.me/S/sticker/30654386" class="link-primary" target="_blank" rel="noopener noreferrer">LINEストアで見る</a>
+                    </article>
+                </div>
+                <button type="button" class="stickers-nav stickers-nav-next" aria-label="次のスタンプへ">＞</button>
             </div>
+            <div class="stickers-indicator" id="stickersIndicator" aria-hidden="true"></div>
         </div>
     </section>
 
