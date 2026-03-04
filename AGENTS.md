@@ -22,6 +22,11 @@ No build step is required; files are served as-is.
 - JavaScript should stay framework-free and modular by behavior (for example, loader handling, intersection observer animation).
 - Reuse existing CSS variables and color tokens in `:root` before adding new ones.
 
+## Badge Update Rule
+- When adding or changing `NEW` / `UPDATE` badges, always include a date in the badge text.
+- Date format must be `YYYY/MM/DD` (for example, `2026/03/04`).
+- If a badge update is requested without a date, ask for the date before making edits.
+
 ## Testing Guidelines
 There is currently no automated test framework in this repository. Use manual checks for every change:
 - Verify desktop and mobile layouts on edited pages.
