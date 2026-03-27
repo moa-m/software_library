@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ritwickdey.liveserver",
+    "ecmel.vscode-html-css"
+  ],
+  "unwantedRecommendations": [
+    "akamud.vscode-javascript-snippet-pack"
+  ]
+}
