@@ -425,9 +425,11 @@ button:focus-visible {
 }
 
 .app-preview-img {
+    display: block;
     width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    aspect-ratio: 1024 / 500;
+    object-fit: contain;
+    object-position: center;
     border-radius: 12px;
     background: #edf4f6;
 }

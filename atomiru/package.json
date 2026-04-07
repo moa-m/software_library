@@ -1,0 +1,14 @@
+{
+    "name": "atomiru-landing-page",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Landing page for あとみる.",
+    "scripts": {
+        "panda": "panda cssgen --outfile css/style.css",
+        "panda:watch": "panda cssgen --outfile css/style.css --watch",
+        "serve": "python3 -m http.server 8000"
+    },
+    "devDependencies": {
+        "@pandacss/dev": "^1.9.1"
+    }
+}
