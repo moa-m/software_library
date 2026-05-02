@@ -4,264 +4,200 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="../images/icon/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>通知にメモ。 | とにかく手軽にメモしたいあなたへ。</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>通知にメモ。 | 忘れる前に、通知へ残すメモアプリ</title>
+    <meta name="description" content="通知にメモ。は、忘れたくないことを通知領域に残せるAndroidメモアプリです。買い物、連絡、予定の控えをスマホを見るたび自然に思い出せます。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-
-    <!-- Header -->
     <header class="lp-header">
-        <div class="container lp-header-inner">
-            <h1 class="lp-logo">
-                <img src="img/icon.png" alt="通知にメモ。アイコン" class="lp-logo-icon">
-                通知にメモ。
-            </h1>
-            <a href="../index.html" class="lp-btn-back">
-                前のページに戻る
+        <div class="container header-inner">
+            <a href="../index.html" class="brand-link" aria-label="Moa Lab.トップへ戻る">
+                <img src="img/icon.png" alt="" class="brand-icon">
+                <span>通知にメモ。</span>
             </a>
+            <a href="../index.html" class="btn-back">トップへ戻る</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="lp-hero-section">
-        <div class="container text-center">
-            <h2 class="lp-hero-title fade-in">
-                とにかく手軽に<br class="hidden-desktop">メモしたいあなたへ。
-            </h2>
-            <p class="lp-hero-text fade-in">
-                「あ、そうだ」と思い出したこと。<br class="hidden-mobile">
-                忘れる前に、いつもの通知画面に貼っておきませんか？<br class="hidden-mobile">
-                <span>シンプルで、頼れる、新しいメモ習慣です。</span>
-            </p>
-            
-            <!-- App Screenshots Showcase -->
-            <div class="lp-screenshots-container fade-in">
-                <div class="lp-screenshot-item side">
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-copy fade-in">
+                    <p class="eyebrow">Notification Memo</p>
+                    <h1>
+                        忘れる前に、<br>
+                        通知へ残す。
+                    </h1>
+                    <p class="hero-lead">
+                        「あとでやる」を、いつもの通知画面に置いておけるメモアプリです。スマホを見るたび自然に目に入るから、うっかり忘れを減らせます。
+                    </p>
+                    <div class="hero-actions">
+                        <a
+                            href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="store-link"
+                            aria-label="通知にメモ。をGoogle Playで見る"
+                        >
+                            <img src="../images/google-play-badge.png" alt="Google Play で手に入れよう">
+                        </a>
+                        <a href="#flow" class="text-button">使い方を見る</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual fade-in" aria-label="通知にメモ。の画面イメージ">
+                    <img src="../images/notification_memo/create_screen.png" alt="通知にメモ。入力画面" class="phone-shot shot-back">
+                    <img src="../images/notification_memo/notification_screen.png" alt="通知にメモ。通知画面" class="phone-shot shot-front">
+                    <div class="notification-card" aria-hidden="true">
+                        <span>通知にメモ。</span>
+                        <strong>帰りに牛乳を買う</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="problem-section">
+            <div class="container problem-grid">
+                <div class="problem-copy fade-in">
+                    <p class="eyebrow">Problem</p>
+                    <h2>メモしたのに、見返すことを忘れてしまう。</h2>
+                </div>
+                <p class="problem-text fade-in">
+                    大事なのは、どこに書くかよりも、どこなら自然に目に入るか。通知にメモ。は、思い出したいことを通知領域に残して、スマホを開くたびに気づける状態を作ります。
+                </p>
+            </div>
+        </section>
+
+        <section id="flow" class="section">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <p class="eyebrow">How It Works</p>
+                    <h2>3ステップで、通知にメモ。</h2>
+                </div>
+                <ol class="flow-grid">
+                    <li class="flow-card fade-in">
+                        <span>01</span>
+                        <h3>すぐ書く</h3>
+                        <p>アプリを開いて、思い出したことをそのまま入力。タイトルなしでも使えます。</p>
+                    </li>
+                    <li class="flow-card fade-in">
+                        <span>02</span>
+                        <h3>通知に残す</h3>
+                        <p>ボタンひとつで通知領域へ。いつものスマホ操作の中で自然に目に入ります。</p>
+                    </li>
+                    <li class="flow-card fade-in">
+                        <span>03</span>
+                        <h3>気づいて消す</h3>
+                        <p>用事が終わったら通知を消すだけ。短いメモほど軽く扱えます。</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section usecases-section">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <p class="eyebrow">Use Cases</p>
+                    <h2>日常の「あ、そうだ」に。</h2>
+                </div>
+                <div class="usecase-grid">
+                    <article class="usecase-card fade-in">
+                        <p class="mini-notification">明日ごみ出し</p>
+                        <h3>朝に思い出したいこと</h3>
+                        <p>寝る前に気づいた用事を通知へ。翌朝スマホを見たタイミングで思い出せます。</p>
+                    </article>
+                    <article class="usecase-card fade-in">
+                        <p class="mini-notification">折り返し連絡</p>
+                        <h3>あとで対応すること</h3>
+                        <p>移動中や作業中の用事を一時置き。落ち着いた時に通知がきっかけになります。</p>
+                    </article>
+                    <article class="usecase-card fade-in">
+                        <p class="mini-notification">電球買う</p>
+                        <h3>買い物の一言メモ</h3>
+                        <p>買い忘れや持ち物を短く残せます。メモアプリを整理するほどではない用事に向いています。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section screen-section">
+            <div class="container screen-grid">
+                <div class="screen-copy fade-in">
+                    <p class="eyebrow">Screens</p>
+                    <h2>入力、通知、一覧。必要な画面だけ。</h2>
+                    <p>起動してすぐ書ける入力画面、自然に思い出せる通知画面、残したメモを見返せる一覧画面。複雑な操作を増やさず、忘れ防止に集中しています。</p>
+                </div>
+                <div class="screen-gallery fade-in">
                     <img src="../images/notification_memo/create_screen.png" alt="入力画面">
-                </div>
-                <div class="lp-screenshot-item center">
                     <img src="../images/notification_memo/notification_screen.png" alt="通知画面">
-                </div>
-                <div class="lp-screenshot-item side">
                     <img src="../images/notification_memo/list_screen.png" alt="一覧画面">
                 </div>
             </div>
+        </section>
 
-            <div class="lp-download-area fade-in">
-                <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1" target="_blank" rel="noopener noreferrer" class="lp-pulse-button">
-                    <img src="https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play で手に入れよう" class="lp-play-badge">
+        <section class="section faq-section">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <p class="eyebrow">FAQ</p>
+                    <h2>使う前に気になること。</h2>
+                </div>
+                <div class="faq-grid">
+                    <details class="faq-item fade-in">
+                        <summary>どんなメモに向いていますか？</summary>
+                        <p>買い物、折り返し連絡、持ち物、明日の用事など、短く残してあとで思い出したいメモに向いています。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>長い文章の管理にも使えますか？</summary>
+                        <p>長文整理よりも、通知領域で自然に思い出すための一言メモに向いています。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>残したメモはあとで確認できますか？</summary>
+                        <p>通知だけでなく、アプリ内の一覧画面から残したメモを見返せます。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>安心して使うための情報はありますか？</summary>
+                        <p>フッターからプライバシーポリシーと利用規約を確認できます。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container cta-panel fade-in">
+                <p class="eyebrow">Download</p>
+                <h2>思い出すためのメモを、今日から通知へ。</h2>
+                <p>短く書いて、通知に残す。忘れたくないことを、もっと軽く扱えるように。</p>
+                <div class="trust-list" aria-label="通知にメモ。の安心ポイント">
+                    <span>短いメモに集中</span>
+                    <span>通知と一覧で確認</span>
+                    <span>ポリシーを明記</span>
+                </div>
+                <a
+                    href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="store-link"
+                    aria-label="通知にメモ。をGoogle Playで見る"
+                >
+                    <img src="../images/google-play-badge.png" alt="Google Play で手に入れよう">
                 </a>
-                <!-- QR Code -->
-                <div class="lp-qr-box">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=64x64&data=https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1" alt="ダウンロード用QRコード" class="lp-qr-img">
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Concept Section -->
-    <section class="lp-concept-section">
-        <div class="lp-concept-container">
-            <!-- Text Content -->
-            <div class="lp-concept-text fade-in">
-                <h3 class="lp-concept-title">
-                    メモしたこと自体を、<br class="hidden-desktop">忘れてしまった経験はありませんか？
-                </h3>
-                <div class="lp-concept-divider"></div>
-                <p class="lp-concept-desc">
-                    大事なのは「どこに書くか」よりも、<span class="marker">「どこなら目に入るか」</span>でした。
-                    忘れたくないことは、毎日何度も見る「通知領域」に貼っておきましょう。
-                    たったそれだけで、「うっかり」は驚くほど減らせます。
-                </p>
-            </div>
-            
-            <!-- Illustration Image -->
-            <div class="lp-concept-img-wrapper fade-in">
-                <img src="img/image_illustration.png" alt="通知を見て思い出すイラスト" class="lp-concept-img">
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="lp-features-section">
-        <div class="container">
-            <div class="lp-section-header fade-in">
-                <h3 class="lp-section-title">シンプルだから、続けられる。</h3>
-                <p class="lp-section-desc">「思い出したことを忘れない」ために必要なものだけを揃えました。</p>
-            </div>
-            
-            <div class="lp-features-grid">
-                <!-- Feature 1 -->
-                <div class="lp-feature-card fade-in">
-                    <div class="lp-feature-bg-circle"></div>
-                    <div class="lp-feature-header">
-                        <div class="lp-feature-icon">🚀</div>
-                        <h4 class="lp-feature-title">忘れる前に、サッと書く</h4>
-                    </div>
-                    <p class="lp-feature-text">
-                        アイデアや用事は、一瞬で消えてしまいますよね。
-                        だから、起動してすぐに入力画面。タイトルの入力すら省けます。
-                        思考を止めず、指先ひとつで通知へ飛ばしましょう。
-                    </p>
-                    <ul class="lp-feature-list">
-                        <li class="lp-feature-item">
-                            <span class="lp-check-icon">✓</span>
-                            起動即、入力フォーカス
-                        </li>
-                        <li class="lp-feature-item">
-                            <span class="lp-check-icon">✓</span>
-                            タイトルなしでOK
-                        </li>
-                        <li class="lp-feature-item">
-                            <span class="lp-check-icon">✓</span>
-                            ボタンひとつで通知完了
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="lp-feature-card fade-in">
-                    <div class="lp-feature-bg-circle"></div>
-                    <div class="lp-feature-header">
-                        <div class="lp-feature-icon">💡</div>
-                        <h4 class="lp-feature-title">ふとした瞬間に、思い出す</h4>
-                    </div>
-                    <p class="lp-feature-text">
-                        通知領域なら、スマホを使うたびに自然と視界に入ります。
-                        「あ、そうだった」と気づく瞬間が、一日に何度もある。
-                        この安心感を、ぜひ体験してください。
-                    </p>
-                    <ul class="lp-feature-list">
-                        <li class="lp-feature-item">
-                            <span class="lp-check-icon">✓</span>
-                            通知領域にずっと残る
-                        </li>
-                        <li class="lp-feature-item">
-                            <span class="lp-check-icon">✓</span>
-                            自然にリマインド
-                        </li>
-                        <li class="lp-feature-item">
-                            <span class="lp-check-icon">✓</span>
-                            「あ、そうだ」を作る
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Use Cases -->
-    <section class="lp-usecases-section">
-        <div class="container text-center">
-            <h3 class="lp-section-title fade-in" style="margin-bottom: 1rem;">例えば、こんな時に。</h3>
-            <p class="lp-section-desc fade-in" style="opacity: 0.8; color: #1f2937; margin-bottom: 4rem;">日常のふとした瞬間の「あ、そうだ」を逃しません。</p>
-            
-            <div class="lp-usecases-grid">
-                <!-- Case 1 -->
-                <div class="lp-usecase-card fade-in">
-                    <div class="lp-usecase-header">
-                        <div class="lp-usecase-emoji">🗑️</div>
-                        <h5 class="lp-usecase-title">明日ごみ出し</h5>
-                    </div>
-                    <!-- Notification UI -->
-                    <div class="lp-usecase-notification">
-                        <div class="lp-notification-header">
-                            <span class="lp-notification-app-name">通知にメモ。</span>
-                            <span class="lp-notification-time">今</span>
-                            <br>
-                        </div>
-                        <p class="lp-notification-body">明日ごみ出し</p>
-                    </div>
-                    <p class="lp-section-desc">
-                        「あ、明日は燃えるゴミだ」
-                        夜寝る前にふと思い出しても大丈夫。
-                        翌朝スマホを見た瞬間、一番にお知らせします。
-                    </p>
-                </div>
-                
-                <!-- Case 2 -->
-                <div class="lp-usecase-card fade-in">
-                    <div class="lp-usecase-header">
-                        <div class="lp-usecase-emoji">📞</div>
-                        <h5 class="lp-usecase-title">折り返し連絡</h5>
-                    </div>
-                    <!-- Notification UI -->
-                    <div class="lp-usecase-notification">
-                        <div class="lp-notification-header">
-                            <span class="lp-notification-app-name">通知にメモ。</span>
-                            <span class="lp-notification-time">10分前</span>
-                            <br>
-                        </div>
-                        <p class="lp-notification-body">折り返し連絡</p>
-                    </div>
-                    <p class="lp-section-desc">
-                        移動中にかかってきた電話。
-                        「着いたら掛け直そう」と思っても、つい忘れがち。
-                        一言メモしておけば、到着した時に気づけます。
-                    </p>
-                </div>
-                
-                <!-- Case 3 -->
-                <div class="lp-usecase-card fade-in">
-                    <div class="lp-usecase-header">
-                        <div class="lp-usecase-emoji">🛒</div>
-                        <h5 class="lp-usecase-title">電球買う</h5>
-                    </div>
-                    <!-- Notification UI -->
-                    <div class="lp-usecase-notification">
-                        <div class="lp-notification-header">
-                            <span class="lp-notification-app-name">通知にメモ。</span>
-                            <span class="lp-notification-time">1時間前</span>
-                            <br>
-                        </div>
-                        <p class="lp-notification-body">電球買う</p>
-                    </div>
-                    <p class="lp-section-desc">
-                        家を出る時に「切れてるな」と気づいた電球。
-                        買い物中に別のものに気を取られても、
-                        通知がそっと教えてくれます。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="lp-cta-section">
-        <div class="container">
-            <h3 class="lp-cta-title fade-in">
-                「あ、そうだ」を、<br class="hidden-desktop">これからの習慣に。
-            </h3>
-            <p class="lp-hero-text fade-in" style="margin-bottom: 2rem;">
-                通知画面を見るたび、ふと思い出す。<br>
-                そんな新しい習慣を、今日から始めてみませんか？
-            </p>
-            <div class="lp-download-area fade-in">
-                <a href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1" target="_blank" rel="noopener noreferrer" class="lp-pulse-button">
-                    <img src="https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play で手に入れよう" class="lp-play-badge">
-                </a>
-                <!-- QR Code -->
-                <div class="lp-qr-box">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=64x64&data=https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1" alt="ダウンロード用QRコード" class="lp-qr-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="lp-footer">
-        <div class="lp-footer-container">
-            <p class="lp-footer-title">通知にメモ。</p>
-            <p class="lp-footer-desc">とにかく手軽にメモしたいあなたへ。</p>
-            <div class="lp-footer-links">
+        <div class="container footer-inner">
+            <p class="footer-title">通知にメモ。</p>
+            <div class="footer-links">
                 <a href="../privacy-policy.html">プライバシーポリシー</a>
                 <a href="../terms-of-service.html">利用規約</a>
             </div>
-            <p class="lp-copyright">Copyright © 2026 @Moa Lab. All rights reserved.</p>
+            <p class="copyright">Copyright © 2026 @Moa Lab. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>

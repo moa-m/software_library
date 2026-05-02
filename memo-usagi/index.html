@@ -5,145 +5,179 @@
     <link rel="icon" type="image/png" href="../images/icon/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>メモうさぎ | かわいく続けるメモ習慣</title>
-    <meta name="description" content="メモうさぎは、かわいいうさぎデザインで毎日のメモを楽しく続けられるアプリです。">
+    <meta name="description" content="メモうさぎは、やわらかいうさぎデザインで日常のメモを気軽に残せるAndroidアプリです。買い物リスト、思いつき、ちょっとした記録に使えます。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header class="lp-header">
         <div class="container header-inner">
-            <p class="lp-logo">Memo Usagi</p>
-            <a href="../index.html" class="btn-back">前のページに戻る</a>
+            <a href="../index.html" class="brand-link" aria-label="Moa Lab.トップへ戻る">
+                <img src="../images/memo_usagi/icon.png" alt="" class="brand-icon">
+                <span>メモうさぎ</span>
+            </a>
+            <a href="../index.html" class="btn-back">トップへ戻る</a>
         </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-bg-shape shape-a" aria-hidden="true"></div>
-            <div class="hero-bg-shape shape-b" aria-hidden="true"></div>
             <div class="container hero-inner">
                 <div class="hero-copy fade-in">
-                    <p class="hero-kicker">忙しい日々に、小さな安らぎを。</p>
-                    <h1>メモうさぎ</h1>
-                    <p>
-                        うさぎと一緒に、あなたの想いを大切に残しませんか？
-                        やさしいデザインが、毎日のメモ習慣を心地よいひとときに変えてくれます。
+                    <p class="eyebrow">Memo Usagi</p>
+                    <h1>
+                        かわいく、<br>
+                        気軽に残す。
+                    </h1>
+                    <p class="hero-lead">
+                        買い物リスト、思いつき、ちょっとした記録。メモうさぎは、やわらかな画面で毎日のメモを気軽に続けられるアプリです。
                     </p>
                     <div class="hero-actions">
                         <a
                             href="https://play.google.com/store/apps/details?id=moa.more.wiser.memo_usagi"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="btn-primary large"
+                            class="store-link"
+                            aria-label="メモうさぎをGoogle Playで見る"
                         >
-                            Google Play で入手
+                            <img src="../images/google-play-badge.png" alt="Google Play で手に入れよう">
                         </a>
-                        <a href="#features" class="btn-secondary">魅力を知る</a>
+                        <a href="#screens" class="text-button">画面を見る</a>
                     </div>
                 </div>
+
                 <div class="hero-visual fade-in">
-                    <img src="../images/memo_usagi/feature.png" alt="メモうさぎの紹介画像">
+                    <img src="../images/memo_usagi/feature.png" alt="メモうさぎの紹介画像" class="feature-image">
                 </div>
             </div>
         </section>
 
-        <section id="features" class="section features">
+        <section class="section concept-section">
+            <div class="container concept-grid">
+                <div class="concept-copy fade-in">
+                    <p class="eyebrow">Concept</p>
+                    <h2>書くことを、少しだけやさしい時間に。</h2>
+                </div>
+                <p class="concept-text fade-in">
+                    メモは毎日使うものだから、画面を開いた時の気分も大切です。メモうさぎは、複雑な機能よりも、迷わず書けることと、続けたくなる雰囲気を大切にしています。
+                </p>
+            </div>
+        </section>
+
+        <section id="features" class="section features-section">
             <div class="container">
                 <div class="section-head fade-in">
-                    <h2>うさぎが一緒だから、続けたくなる</h2>
-                    <p>毎日使うものだからこそ、心に寄り添う使い心地を大切にしました。</p>
+                    <p class="eyebrow">Features</p>
+                    <h2>気軽に続けるための、シンプルな使い心地。</h2>
                 </div>
                 <div class="feature-grid">
                     <article class="feature-card fade-in">
-                        <h3>ほっとする世界観</h3>
-                        <p>
-                            見ているだけで気持ちがほぐれる、うさぎモチーフのUI。
-                            「書かなきゃ」というプレッシャーを、「書きたい」に変えてくれます。
-                        </p>
+                        <span>01</span>
+                        <h3>かわいい画面で書ける</h3>
+                        <p>うさぎモチーフのやわらかなデザインで、メモを残す時間を少し楽しくします。</p>
                     </article>
                     <article class="feature-card fade-in">
-                        <h3>迷わない、シンプルさ</h3>
-                        <p>
-                            複雑な機能は一切なし。
-                            直感的に使えるから、忙しい合間でも、大切なアイデアを逃さずキャッチできます。
-                        </p>
+                        <span>02</span>
+                        <h3>迷わないシンプルさ</h3>
+                        <p>毎日のメモに必要な操作を中心に、思いついた時にすぐ書ける流れを重視しています。</p>
                     </article>
                     <article class="feature-card fade-in">
-                        <h3>日常に溶け込む</h3>
-                        <p>
-                            買い物リストから、ふとした気づきまで。
-                            どんなメモも優しく受け止める、あなただけの自由なノートです。
-                        </p>
+                        <span>03</span>
+                        <h3>日常のメモに使いやすい</h3>
+                        <p>買い物リスト、予定の控え、ふと思いついたことまで、短いメモを気軽に残せます。</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section usage">
+        <section class="section steps-section">
             <div class="container">
                 <div class="section-head fade-in">
-                    <h2>考えすぎなくていい、3ステップ</h2>
+                    <p class="eyebrow">Flow</p>
+                    <h2>考えすぎず、3ステップ。</h2>
                 </div>
                 <ol class="step-list">
                     <li class="step-card fade-in">
-                        <span class="step-number">1</span>
-                        <h3>ぴょん！と開く</h3>
-                        <p>アプリを開いて、今すぐ書きたいことを入力するだけ。</p>
+                        <span>1</span>
+                        <h3>開く</h3>
+                        <p>書きたいことが浮かんだら、まずアプリを開きます。</p>
                     </li>
                     <li class="step-card fade-in">
-                        <span class="step-number">2</span>
-                        <h3>ふわっと保存</h3>
-                        <p>短いメモでも大丈夫。まずは残すことから始めましょう。</p>
+                        <span>2</span>
+                        <h3>残す</h3>
+                        <p>短い一言でも大丈夫。まずは気軽にメモします。</p>
                     </li>
                     <li class="step-card fade-in">
-                        <span class="step-number">3</span>
-                        <h3>あとで、ゆっくり</h3>
-                        <p>落ち着いたときに読み返して、やりたいことを整理しましょう。</p>
+                        <span>3</span>
+                        <h3>見返す</h3>
+                        <p>あとで読み返して、やることや気づきを整理できます。</p>
                     </li>
                 </ol>
             </div>
         </section>
 
-        <section class="section gallery" id="gallery">
-            <div class="container">
-                <div class="section-head fade-in">
-                    <h2>実際の画面を見てみる</h2>
-                    <p>あなたの毎日に「メモうさぎ」がいる風景をイメージしてみてください。</p>
+        <section id="screens" class="section screens-section">
+            <div class="container screens-grid">
+                <div class="screens-copy fade-in">
+                    <p class="eyebrow">Screens</p>
+                    <h2>実際の画面で、使う雰囲気がわかります。</h2>
+                    <p>やわらかい色づかいと、うさぎらしい世界観。毎日開くメモ帳として、気負わず使える見た目にしています。</p>
                 </div>
-
-                <div class="gallery-wrapper fade-in" aria-label="メモうさぎ画面ギャラリー">
-                    <div class="gallery-track">
-                        <figure class="shot"><img src="../images/memo_usagi/1.png" alt="メモうさぎ スクリーンショット 1" loading="lazy" decoding="async"></figure>
-                        <figure class="shot"><img src="../images/memo_usagi/2.png" alt="メモうさぎ スクリーンショット 2" loading="lazy" decoding="async"></figure>
-                        <figure class="shot"><img src="../images/memo_usagi/3.png" alt="メモうさぎ スクリーンショット 3" loading="lazy" decoding="async"></figure>
-                    </div>
+                <div class="screen-gallery fade-in" aria-label="メモうさぎ画面ギャラリー">
+                    <figure><img src="../images/memo_usagi/1.png" alt="メモうさぎ スクリーンショット 1"></figure>
+                    <figure><img src="../images/memo_usagi/2.png" alt="メモうさぎ スクリーンショット 2"></figure>
+                    <figure><img src="../images/memo_usagi/3.png" alt="メモうさぎ スクリーンショット 3"></figure>
                 </div>
             </div>
         </section>
 
-        <section class="section cta">
-            <div class="container cta-inner fade-in">
-                <h2>今日から、やさしいメモ習慣を。</h2>
-                <p>ふと思い出したことを、かわいく残して、心をかろやかに。</p>
-                
-                <div class="trust-box">
-                    <h3>あなたの想いを、大切に守ります</h3>
-                    <p>
-                        メモうさぎは、プライバシーを第一に考えています。<br>
-                        入力した内容が外部に送信されることはありません。安心して、あなただけの自由なメモを楽しんでください。
-                    </p>
+        <section class="section faq-section">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <p class="eyebrow">FAQ</p>
+                    <h2>使う前に気になること。</h2>
                 </div>
+                <div class="faq-grid">
+                    <details class="faq-item fade-in">
+                        <summary>どんなメモに向いていますか？</summary>
+                        <p>買い物リスト、思いつき、予定の控えなど、毎日の短いメモに向いています。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>複雑な管理機能はありますか？</summary>
+                        <p>複雑な機能を増やすよりも、気軽に開いて書けるシンプルな使い心地を大切にしています。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>入力した内容は外部に送信されますか？</summary>
+                        <p>入力した内容が外部に送信されることはありません。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>安心して使うための情報はありますか？</summary>
+                        <p>フッターからプライバシーポリシーと利用規約を確認できます。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
 
+        <section class="cta-section">
+            <div class="container cta-panel fade-in">
+                <p class="eyebrow">Download</p>
+                <h2>今日から、やさしいメモ習慣を。</h2>
+                <p>日常のメモを、かわいく、気軽に。思いついたことをメモうさぎに残してみませんか。</p>
+                <div class="trust-box">
+                    <h3>プライバシーについて</h3>
+                    <p>入力した内容が外部に送信されることはありません。安心して、あなただけのメモを残せます。</p>
+                </div>
                 <a
                     href="https://play.google.com/store/apps/details?id=moa.more.wiser.memo_usagi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn-primary large"
+                    class="store-link"
+                    aria-label="メモうさぎをGoogle Playで見る"
                 >
-                    メモうさぎを仲間に迎える
+                    <img src="../images/google-play-badge.png" alt="Google Play で手に入れよう">
                 </a>
             </div>
         </section>
