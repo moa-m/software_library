@@ -4,22 +4,31 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/png" href="images/icon/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Moa Lab.</title>
-        <meta name="description" content="アプリとスタンプで、あなたの毎日に彩りを。" />
+        <title>Moa Lab. | 毎日の小さな不便を軽くするAndroidアプリ</title>
+        <meta
+            name="description"
+            content="Moa Lab.は、通知に残すメモアプリ「通知にメモ。」や、かわいく続けるメモアプリ「メモうさぎ」を制作しています。"
+        />
         <link rel="canonical" href="https://moa-lab.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:site_name" content="Moa Lab." />
-        <meta property="og:title" content="Moa Lab." />
-        <meta property="og:description" content="アプリとスタンプで、あなたの毎日に彩りを。" />
+        <meta property="og:title" content="Moa Lab. | 毎日の小さな不便を軽くするAndroidアプリ" />
+        <meta
+            property="og:description"
+            content="通知に残すメモ、かわいく続けるメモ。Moa Lab.のAndroidアプリを紹介します。"
+        />
         <meta property="og:url" content="https://moa-lab.com/" />
         <meta
             property="og:image"
             content="https://moa-lab.com/images/notification_memo/feature.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Moa Lab." />
-        <meta name="twitter:description" content="アプリとスタンプで、あなたの毎日に彩りを。" />
+        <meta name="twitter:title" content="Moa Lab. | 毎日の小さな不便を軽くするAndroidアプリ" />
+        <meta
+            name="twitter:description"
+            content="通知に残すメモ、かわいく続けるメモ。Moa Lab.のAndroidアプリを紹介します。"
+        />
         <meta
             name="twitter:image"
             content="https://moa-lab.com/images/notification_memo/feature.png"
@@ -43,45 +52,105 @@
         <!-- Loader -->
         <div class="loader" id="loader"></div>
 
-        <!-- Hero Section -->
         <section class="hero-section">
             <div class="container hero-layout">
                 <div class="hero-copy">
-                    <h1 class="hero-title fade-in pop-element">Moa Lab.</h1>
-                    <p class="hero-subtitle fade-in">アプリとスタンプで、あなたの毎日に彩りを。</p>
+                    <p class="hero-kicker fade-in">Moa Lab. Android Apps</p>
+                    <h1 class="hero-title fade-in pop-element">
+                        <span>毎日の小さな不便を、</span>
+                        <span>軽くするアプリ。</span>
+                    </h1>
+                    <p class="hero-subtitle fade-in">
+                        忘れ防止のために通知へ残すか、かわいいメモ帳で気軽に書くか。目的に合うアプリを選べます。
+                    </p>
                     <div class="hero-actions fade-in">
-                        <a href="#apps" class="btn-primary"> Check Our Products </a>
+                        <a href="#app-launcher" class="btn-primary">目的から選ぶ</a>
+                        <a href="notification-memo/index.html" class="btn-secondary">通知にメモ。を見る</a>
                     </div>
+                </div>
+                <div id="app-launcher" class="hero-launcher fade-in" aria-label="目的からAndroidアプリを選ぶ">
+                    <a href="notification-memo/index.html" class="launcher-option launcher-option-notification">
+                        <span class="launcher-number">01</span>
+                        <span class="launcher-body">
+                            <span class="launcher-question">忘れたくないことを通知に残したい</span>
+                            <span class="launcher-app">
+                                <img
+                                    src="images/notification_memo/icon.png"
+                                    alt=""
+                                    class="launcher-icon"
+                                />
+                                <span>
+                                    <strong>通知にメモ。</strong>
+                                    <small>通知領域で自然に思い出す</small>
+                                </span>
+                            </span>
+                        </span>
+                        <img
+                            src="images/notification_memo/notification_screen.png"
+                            alt="通知にメモ。通知画面"
+                            class="launcher-shot launcher-shot-notification"
+                        />
+                    </a>
+                    <a href="memo-usagi/index.html" class="launcher-option launcher-option-usagi">
+                        <span class="launcher-number">02</span>
+                        <span class="launcher-body">
+                            <span class="launcher-question">かわいいメモ帳で気軽に書きたい</span>
+                            <span class="launcher-app">
+                                <img
+                                    src="images/memo_usagi/icon.png"
+                                    alt=""
+                                    class="launcher-icon"
+                                />
+                                <span>
+                                    <strong>メモうさぎ</strong>
+                                    <small>やわらかく続けるメモ習慣</small>
+                                </span>
+                            </span>
+                        </span>
+                        <img
+                            src="images/memo_usagi/feature.png"
+                            alt="メモうさぎ紹介画像"
+                            class="launcher-shot launcher-shot-usagi"
+                        />
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Apps Section -->
-        <section id="apps" class="section bg-light-gray">
+        <section id="apps" class="section apps-section">
             <div class="container">
-                <h2 class="section-title fade-in">Androidアプリ</h2>
-                <div class="apps-vertical-list">
-                    <!-- App 1: Notification Memo -->
-                    <article class="card app-row fade-in" style="--delay: 0s">
-                        <div class="app-row-main">
-                            <div class="app-row-image-wrap">
+                <div class="section-heading fade-in">
+                    <p class="section-kicker">Android Apps</p>
+                    <h2 class="section-title">目的に合わせて選べる、2つのメモアプリ</h2>
+                    <p class="section-intro">
+                        すばやく思い出すためのメモと、気分よく続けるためのメモ。使う場面に合わせて選べます。
+                    </p>
+                </div>
+
+                <div class="app-showcase-grid">
+                    <article class="app-showcase app-showcase-notification fade-in" style="--delay: 0s">
+                        <div class="app-showcase-copy">
+                            <div class="app-showcase-head">
                                 <img
                                     src="images/notification_memo/icon.png"
                                     alt="通知にメモ。アプリアイコン"
-                                    class="app-row-image"
+                                    class="app-showcase-icon"
                                 />
+                                <div>
+                                    <p class="app-label">忘れ防止・通知メモ</p>
+                                    <h3>通知にメモ。</h3>
+                                </div>
                             </div>
-                            <div class="app-row-body">
-                                <h3 class="card-title">
-                                    通知にメモ。<span class="badge update-badge"
-                                        >UPDATE 2026/03/25</span
-                                    >
-                                </h3>
-                                <p class="card-text">
-                                    「あ、そうだ」と思い出したことを、通知領域にペタッ。
-                                    スマホを見るたび自然に目に入るから、
-                                    もう「うっかり忘れ」はありません。
-                                </p>
+                            <p class="app-showcase-text">
+                                「あ、そうだ」と思い出したことを、通知領域にそのまま残せるメモアプリです。スマホを見るたび自然に目に入るから、うっかり忘れを減らせます。
+                            </p>
+                            <ul class="app-point-list">
+                                <li>起動してすぐに書ける</li>
+                                <li>通知領域に残して思い出せる</li>
+                                <li>買い物、連絡、予定の控えに使いやすい</li>
+                            </ul>
+                            <div class="app-showcase-actions">
+                                <a href="notification-memo/index.html" class="btn-primary">紹介ページを見る</a>
                                 <a
                                     href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1"
                                     class="app-store-link"
@@ -97,40 +166,43 @@
                                 </a>
                             </div>
                         </div>
-                        <a
-                            href="notification-memo/index.html"
-                            class="app-preview-link"
-                            aria-label="通知にメモ。の紹介ページを見る"
-                        >
+                        <div class="app-showcase-visual" aria-hidden="true">
                             <img
-                                src="images/notification_memo/feature.png"
-                                alt="通知にメモ。紹介ページのサムネイル"
-                                class="app-preview-img"
+                                src="images/notification_memo/notification_screen.png"
+                                alt=""
+                                class="app-screen app-screen-front"
                             />
-                            <span class="app-preview-label">紹介ページ</span>
-                        </a>
+                            <img
+                                src="images/notification_memo/create_screen.png"
+                                alt=""
+                                class="app-screen app-screen-back"
+                            />
+                        </div>
                     </article>
 
-                    <!-- App 3: Memo Usagi -->
-                    <article class="card app-row fade-in" style="--delay: 0.2s">
-                        <div class="app-row-main">
-                            <div class="app-row-image-wrap">
+                    <article class="app-showcase app-showcase-usagi fade-in" style="--delay: 0.12s">
+                        <div class="app-showcase-copy">
+                            <div class="app-showcase-head">
                                 <img
                                     src="images/memo_usagi/icon.png"
                                     alt="メモうさぎアプリアイコン"
-                                    class="app-row-image"
+                                    class="app-showcase-icon"
                                 />
+                                <div>
+                                    <p class="app-label">かわいい・メモ習慣</p>
+                                    <h3>メモうさぎ</h3>
+                                </div>
                             </div>
-                            <div class="app-row-body">
-                                <h3 class="card-title">
-                                    メモうさぎ<span class="badge update-badge"
-                                        >UPDATE 2026/03/27</span
-                                    >
-                                </h3>
-                                <p class="card-text">
-                                    うさぎをテーマにした可愛いメモアプリ。
-                                    やわらかなデザインが、忙しい毎日の中に、ほっとするひとときを届けます。
-                                </p>
+                            <p class="app-showcase-text">
+                                うさぎをテーマにした、やわらかなメモアプリです。買い物リストや気づいたことを、気負わず残せる心地よいメモ習慣に変えてくれます。
+                            </p>
+                            <ul class="app-point-list">
+                                <li>かわいい画面で気軽に書ける</li>
+                                <li>複雑な操作がなく迷わない</li>
+                                <li>日常のメモやアイデア置き場に合う</li>
+                            </ul>
+                            <div class="app-showcase-actions">
+                                <a href="memo-usagi/index.html" class="btn-primary">紹介ページを見る</a>
                                 <a
                                     href="https://play.google.com/store/apps/details?id=moa.more.wiser.memo_usagi"
                                     class="app-store-link"
@@ -146,27 +218,57 @@
                                 </a>
                             </div>
                         </div>
-                        <a
-                            href="memo-usagi/index.html"
-                            class="app-preview-link"
-                            aria-label="メモうさぎの紹介ページを見る"
-                        >
+                        <div class="app-showcase-visual" aria-hidden="true">
                             <img
                                 src="images/memo_usagi/feature.png"
-                                alt="メモうさぎ紹介ページのサムネイル"
-                                class="app-preview-img"
+                                alt=""
+                                class="app-usagi-feature"
                             />
-                            <span class="app-preview-label">紹介ページ</span>
-                        </a>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Stickers Section -->
-        <section id="stickers" class="section">
+        <section class="section chooser-section">
             <div class="container">
-                <h2 class="section-title fade-in">LINEスタンプ</h2>
+                <div class="section-heading fade-in">
+                    <p class="section-kicker">Choose by Purpose</p>
+                    <h2 class="section-title">やりたいことから選ぶ</h2>
+                </div>
+                <div class="chooser-grid">
+                    <a href="notification-memo/index.html" class="chooser-card fade-in">
+                        <span class="chooser-mark">01</span>
+                        <h3>忘れたくないことを通知に残したい</h3>
+                        <p>ごみ出し、折り返し連絡、買い物など、あとで必ず思い出したいことに。</p>
+                        <strong>通知にメモ。を見る</strong>
+                    </a>
+                    <a href="memo-usagi/index.html" class="chooser-card chooser-card-soft fade-in" style="--delay: 0.1s">
+                        <span class="chooser-mark">02</span>
+                        <h3>かわいいメモ帳で気軽に書きたい</h3>
+                        <p>日常のメモ、思いつき、買い物リストをやわらかい画面で残したいときに。</p>
+                        <strong>メモうさぎを見る</strong>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about-section">
+            <div class="container about-panel fade-in">
+                <p class="section-kicker">About Moa Lab.</p>
+                <h2>日常にそっと馴染む、小さなアプリを制作しています。</h2>
+                <p>
+                    Moa Lab.は、毎日の小さな不便や気分に寄り添うAndroidアプリとLINEスタンプを制作しています。大げさな機能よりも、必要なときに迷わず使えることを大切にしています。
+                </p>
+            </div>
+        </section>
+
+        <section id="stickers" class="section stickers-section">
+            <div class="container">
+                <div class="section-heading fade-in">
+                    <p class="section-kicker">LINE Stickers</p>
+                    <h2 class="section-title">LINEスタンプも制作しています</h2>
+                </div>
                 <div class="stickers-carousel">
                     <button
                         type="button"
