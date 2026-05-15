@@ -351,6 +351,12 @@ img {
         var(--color-white);
 }
 
+.app-piece-mood .app-piece-body {
+    background:
+        linear-gradient(135deg, rgba(201, 120, 134, 0.14), transparent 48%),
+        var(--color-white);
+}
+
 .piece-number,
 .app-category {
     margin: 0;
@@ -401,6 +407,19 @@ img {
 .store-link img {
     display: block;
     width: 152px;
+}
+
+.app-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.65rem 1rem;
+    color: var(--color-white);
+    background: var(--color-ink);
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 800;
 }
 
 .scene-layout {
