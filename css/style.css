@@ -507,27 +507,31 @@ img {
 }
 
 .sticker-card {
-    flex: 0 0 min(190px, 54vw);
+    flex: 0 0 min(210px, 58vw);
     scroll-snap-align: start;
-    padding: 0.7rem;
+    padding: 0.9rem 0.8rem 0.85rem;
     background: rgba(255, 254, 253, 0.62);
     border: 1px solid var(--color-line);
 }
 
 .sticker-card img {
-    width: min(100%, 150px);
+    width: min(100%, 164px);
     aspect-ratio: 1;
     display: block;
     object-fit: contain;
-    margin: 0 auto 0.55rem;
+    margin: 0 auto 0.7rem;
     opacity: 0.9;
 }
 
 .sticker-card h3 {
-    min-height: 3.2em;
-    margin: 0 0 0.45rem;
-    font-size: 0.82rem;
+    min-height: 3.35em;
+    margin: 0 0 0.55rem;
+    font-size: 0.8rem;
     line-height: 1.55;
+}
+
+.no-break {
+    white-space: nowrap;
 }
 
 .sticker-card a {
