@@ -7,10 +7,37 @@
         <link rel="icon" type="image/png" sizes="192x192" href="../images/icon/icon-192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="../images/icon/icon-512.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>MoodClip | 保存したものが、雑誌みたいなボードに。</title>
+        <title>MoodClip | URL・画像・メモを集めるAndroidムードボードアプリ</title>
         <meta
             name="description"
-            content="MoodClipは、気になったWebページ、画像、短いメモ、音楽や場所へのリンクを雰囲気ごと残せるAndroid向けムードボードアプリです。"
+            content="MoodClipは、気になったWebページ、画像、短いメモ、音楽や場所へのリンクを雰囲気ごと残し、画像シェアできるAndroid向けムードボードアプリです。"
+        />
+        <link rel="canonical" href="https://moa-lab.com/moodclip/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ja_JP" />
+        <meta property="og:site_name" content="Moa Lab." />
+        <meta
+            property="og:title"
+            content="MoodClip | URL・画像・メモを集めるAndroidムードボードアプリ"
+        />
+        <meta
+            property="og:description"
+            content="気になったWebページ、画像、短いメモ、音楽や場所へのリンクをボードに集めて、1枚の画像としてシェアできます。"
+        />
+        <meta property="og:url" content="https://moa-lab.com/moodclip/" />
+        <meta property="og:image" content="https://moa-lab.com/images/moodclip/MoodClip_top.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="MoodClip | URL・画像・メモを集めるAndroidムードボードアプリ"
+        />
+        <meta
+            name="twitter:description"
+            content="気になったWebページ、画像、短いメモ、音楽や場所へのリンクをボードに集めて、1枚の画像としてシェアできます。"
+        />
+        <meta
+            name="twitter:image"
+            content="https://moa-lab.com/images/moodclip/MoodClip_top.png"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,6 +46,84 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="style.css" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "MoodClip",
+                "applicationCategory": "LifestyleApplication",
+                "operatingSystem": "Android",
+                "description": "MoodClipは、気になったWebページ、画像、短いメモ、音楽や場所へのリンクを雰囲気ごと残し、画像シェアできるAndroid向けムードボードアプリです。",
+                "url": "https://moa-lab.com/moodclip/",
+                "image": "https://moa-lab.com/images/moodclip/MoodClip_top.png",
+                "downloadUrl": "https://play.google.com/store/apps/details?id=com.moalab.moodclip",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Moa Lab.",
+                    "url": "https://moa-lab.com/"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "url": "https://play.google.com/store/apps/details?id=com.moalab.moodclip"
+                }
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "どこからインストールできますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Google Playからインストールできます。ページ上部と下部のバッジからストアページへ移動できます。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "どんな素材を保存できますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Webページ、画像、短いテキスト、音楽や位置情報へのリンクなど、気になった素材をボードに残せます。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "保存したボードは共有できますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "仕上げたボードを1枚の画像として書き出し、SNSやメッセージへ共有できます。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Android以外でも使えますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "現在はAndroid向けアプリとしてGoogle Playで公開しています。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "どんな人に向いていますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "情報を細かく整理するより、好きなものや気になったものを雰囲気ごと見返したい人に向いています。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "安心して使うための情報はありますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "フッターからプライバシーポリシー、利用規約、特定商取引法に基づく表記を確認できます。"
+                        }
+                    }
+                ]
+            }
+        </script>
         <script src="script.js" defer></script>
     </head>
     <body>
@@ -51,8 +156,19 @@
                             気になったページ、画像、短いメモ、音楽や場所へのリンク。
                             MoodClipは、集めた素材を世界観ごと眺めて、1枚の画像としてシェアできるムードボードアプリです。
                         </p>
-                        <div class="hero-actions" aria-label="MoodClipの公開状況">
-                            <span class="status-pill">Google Play 申請中</span>
+                        <div class="hero-actions" aria-label="MoodClipの入手方法">
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.moalab.moodclip"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="store-link"
+                                aria-label="MoodClipをGoogle Playで見る"
+                            >
+                                <img
+                                    src="../images/google-play-badge.png"
+                                    alt="Google Play で手に入れよう"
+                                />
+                            </a>
                             <a href="#screens" class="text-link">画面を見る</a>
                         </div>
                     </div>
@@ -231,19 +347,31 @@
                 <div class="container">
                     <div class="section-heading fade-in">
                         <p class="eyebrow">FAQ</p>
-                        <h2 id="faq-title">公開前に気になること。</h2>
+                        <h2 id="faq-title">使う前に気になること。</h2>
                     </div>
                     <div class="faq-list">
                         <details class="faq-item fade-in">
-                            <summary>いつ使えるようになりますか？</summary>
+                            <summary>どこからインストールできますか？</summary>
                             <p>
-                                現在Google Playへ申請中です。公開後、このページの案内を更新します。
+                                Google Playからインストールできます。ページ上部と下部のバッジからストアページへ移動できます。
                             </p>
                         </details>
                         <details class="faq-item fade-in">
                             <summary>どんな素材を保存できますか？</summary>
                             <p>
                                 Webページ、画像、短いテキスト、音楽や位置情報へのリンクなど、気になった素材をボードに残す想定です。
+                            </p>
+                        </details>
+                        <details class="faq-item fade-in">
+                            <summary>保存したボードは共有できますか？</summary>
+                            <p>
+                                仕上げたボードを1枚の画像として書き出し、SNSやメッセージへ共有できます。
+                            </p>
+                        </details>
+                        <details class="faq-item fade-in">
+                            <summary>Android以外でも使えますか？</summary>
+                            <p>
+                                現在はAndroid向けアプリとしてGoogle Playで公開しています。
                             </p>
                         </details>
                         <details class="faq-item fade-in">
@@ -264,12 +392,23 @@
 
             <section class="cta-section" aria-labelledby="cta-title">
                 <div class="container cta-panel fade-in">
-                    <p class="eyebrow">Coming Soon</p>
-                    <h2 id="cta-title">MoodClipはGoogle Play申請中です。</h2>
+                    <p class="eyebrow">Available Now</p>
+                    <h2 id="cta-title">MoodClipはGoogle Playで公開中です。</h2>
                     <p>
-                        公開後、気になったものをボードに集めて、あなたの世界観として残せます。
+                        気になったものをボードに集めて、あなたの世界観として残せます。
                     </p>
-                    <span class="status-pill">Google Play 申請中</span>
+                    <a
+                        href="https://play.google.com/store/apps/details?id=com.moalab.moodclip"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="store-link"
+                        aria-label="MoodClipをGoogle Playで見る"
+                    >
+                        <img
+                            src="../images/google-play-badge.png"
+                            alt="Google Play で手に入れよう"
+                        />
+                    </a>
                 </div>
             </section>
         </main>

@@ -82,6 +82,7 @@ summary:focus-visible {
 .header-nav,
 .btn-back,
 .text-link,
+.store-link,
 .status-pill {
     display: inline-flex;
     align-items: center;
@@ -125,6 +126,17 @@ summary:focus-visible {
 
 .text-link {
     padding: 0.62rem 1.2rem;
+}
+
+.store-link {
+    justify-content: center;
+    min-height: 46px;
+    border-radius: 8px;
+}
+
+.store-link img {
+    display: block;
+    width: 164px;
 }
 
 .hero-section {
