@@ -749,14 +749,36 @@ img {
         padding-top: 3.6rem;
     }
 
+    .hero-copy {
+        display: contents;
+    }
+
+    .hero-copy .eyebrow {
+        order: 1;
+    }
+
     .hero-copy h1 {
+        order: 2;
         font-size: clamp(3.2rem, 18vw, 5rem);
+    }
+
+    .hero-lead {
+        order: 3;
+    }
+
+    .hero-visual {
+        order: 4;
     }
 
     .hero-actions,
     .app-piece-actions {
         align-items: stretch;
         flex-direction: column;
+    }
+
+    .hero-actions {
+        order: 5;
+        margin-top: 0.5rem;
     }
 
     .btn-primary,
@@ -788,6 +810,10 @@ img {
     .scene-item strong,
     .scene-item small {
         grid-column: auto;
+    }
+
+    .sticker-strip {
+        justify-content: flex-start;
     }
 
     .contact-links a {

@@ -20,6 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const stickerStrip = document.querySelector('.sticker-strip');
+
+    if (stickerStrip) {
+        const stickerCards = Array.from(stickerStrip.children);
+
+        for (let index = stickerCards.length - 1; index > 0; index -= 1) {
+            const randomIndex = Math.floor(Math.random() * (index + 1));
+            [stickerCards[index], stickerCards[randomIndex]] = [
+                stickerCards[randomIndex],
+                stickerCards[index]
+            ];
+        }
+
+        stickerCards.forEach((card) => stickerStrip.appendChild(card));
+    }
+
     const fadeElements = document.querySelectorAll('.fade-in');
 
     if (!('IntersectionObserver' in window)) {
