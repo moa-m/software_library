@@ -26,6 +26,8 @@ const translations = {
             'hero.storeAlt': 'Google Play で手に入れよう',
             'hero.cta': '手順を見る',
             'hero.visualAria': '通知にメモ。の画面イメージ',
+            'hero.noteLabel': '通知にメモ。',
+            'hero.noteText': '帰りにシャンプー',
             'hero.listAlt': '通知にメモ。の一覧画面',
             'hero.notificationAlt': '通知にメモ。の通知画面',
             'hero.createAlt': '通知にメモ。の入力画面',
@@ -107,7 +109,8 @@ const translations = {
             'header.languageAria': 'Language switcher',
             'header.back': 'Back to top',
             'hero.eyebrow': 'Notification Memo',
-            'hero.title': '<span class="hero-title-line">Turn a place you remember</span><span class="hero-title-line">into a notification.</span>',
+            'hero.title':
+                '<span class="hero-title-line">A place you remember</span><span class="hero-title-line">becomes a notification.</span>',
             'hero.lead':
                 'A note is still a little far away when it stays in a notebook. <br />Notification Memo places the one line you do not want to forget <br />inside your regular notification screen, <br />so it comes back to mind naturally every time you check your phone.',
             'hero.actionsAria': 'How to get Notification Memo',
@@ -115,6 +118,8 @@ const translations = {
             'hero.storeAlt': 'Get it on Google Play',
             'hero.cta': 'See how it works',
             'hero.visualAria': 'Screen preview of Notification Memo',
+            'hero.noteLabel': 'Notification Memo',
+            'hero.noteText': 'Buy shampoo on the way home',
             'hero.listAlt': 'Notification Memo list screen',
             'hero.notificationAlt': 'Notification Memo notification screen',
             'hero.createAlt': 'Notification Memo input screen',
