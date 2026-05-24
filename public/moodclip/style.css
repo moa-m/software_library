@@ -83,7 +83,8 @@ summary:focus-visible {
 .btn-back,
 .text-link,
 .store-link,
-.status-pill {
+.status-pill,
+.language-switcher-button {
     display: inline-flex;
     align-items: center;
 }
@@ -107,6 +108,75 @@ summary:focus-visible {
     font-weight: 900;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.34rem 0.4rem 0.34rem 0.8rem;
+    border: 1px solid rgba(31, 36, 40, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 248, 240, 0.7);
+    box-shadow: 0 8px 24px rgba(31, 36, 40, 0.05);
+}
+
+.language-switcher-label {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.language-switcher-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.18rem;
+    border-radius: 999px;
+    background: rgba(31, 36, 40, 0.08);
+}
+
+.language-switcher-button {
+    justify-content: center;
+    min-width: 2.95rem;
+    min-height: 2rem;
+    padding: 0.25rem 0.65rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.language-switcher-button:hover {
+    color: var(--ink);
+}
+
+.language-switcher-button.is-active {
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 6px 18px rgba(31, 36, 40, 0.08);
+}
+
+.language-switcher-button:focus-visible {
+    outline: 2px solid rgba(31, 36, 40, 0.38);
+    outline-offset: 2px;
 }
 
 .btn-back,
@@ -627,6 +697,26 @@ h2 {
     .brand-icon {
         width: 40px;
         height: 40px;
+    }
+
+    .header-actions {
+        gap: 0.55rem;
+    }
+
+    .language-switcher {
+        gap: 0.45rem;
+        padding: 0.28rem 0.32rem 0.28rem 0.7rem;
+    }
+
+    .language-switcher-label {
+        font-size: 0.68rem;
+    }
+
+    .language-switcher-button {
+        min-width: 2.55rem;
+        min-height: 1.9rem;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.68rem;
     }
 
     .btn-back {
