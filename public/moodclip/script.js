@@ -302,6 +302,17 @@ function applyLanguage(language) {
         element.setAttribute('alt', nextValue);
     });
 
+    document.querySelectorAll('[data-lang-src-ja], [data-lang-src-en]').forEach((element) => {
+        const nextSrc =
+            language === 'en'
+                ? element.dataset.langSrcEn || element.dataset.langSrcJa
+                : element.dataset.langSrcJa || element.dataset.langSrcEn;
+
+        if (typeof nextSrc === 'string' && nextSrc.length > 0) {
+            element.setAttribute('src', nextSrc);
+        }
+    });
+
     document.querySelectorAll('[data-lang-switch]').forEach((button) => {
         const isActive = button.dataset.langSwitch === language;
         button.classList.toggle('is-active', isActive);
