@@ -7,8 +7,9 @@
         <link rel="icon" type="image/png" sizes="192x192" href="../images/icon/icon-192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="../images/icon/icon-512.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>通知にメモ。 | 思い出す場所を、通知にする。</title>
+        <title id="page-title">通知にメモ。 | 思い出す場所を、通知にする。</title>
         <meta
+            id="meta-description"
             name="description"
             content="通知にメモ。は、忘れたくないことを通知領域に残せるAndroidメモアプリです。買い物、連絡、予定の控えをスマホを見るたび自然に思い出せます。"
         />
@@ -24,16 +25,30 @@
     <body>
         <header class="lp-header">
             <div class="header-inner">
-                <a href="../index.html" class="brand-link" aria-label="Moa Lab.トップへ戻る">
+                <a
+                    href="../index.html"
+                    class="brand-link"
+                    aria-label="Moa Lab.トップへ戻る"
+                    data-i18n-aria="header.brandAria"
+                >
                     <img src="img/icon.png" alt="" class="brand-icon" />
                     <span>通知にメモ。</span>
                 </a>
-                <nav class="header-nav" aria-label="ページ内ナビゲーション">
-                    <a href="#concept">Concept</a>
-                    <a href="#flow">Flow</a>
-                    <a href="#screens">Screens</a>
+                <nav class="header-nav" aria-label="ページ内ナビゲーション" data-i18n-aria="header.navAria">
+                    <a href="#concept" data-i18n="header.navConcept">Concept</a>
+                    <a href="#flow" data-i18n="header.navFlow">Flow</a>
+                    <a href="#screens" data-i18n="header.navScreens">Screens</a>
                 </nav>
-                <a href="../index.html" class="btn-back">トップへ戻る</a>
+                <div class="header-actions">
+                    <div class="language-switcher" role="group" aria-label="Language switcher" data-i18n-aria="header.languageAria">
+                        <span class="language-switcher-label" data-i18n="header.languageLabel">Language</span>
+                        <div class="language-switcher-controls">
+                            <button type="button" class="language-switcher-button" data-lang-switch="ja">JP</button>
+                            <button type="button" class="language-switcher-button" data-lang-switch="en">EN</button>
+                        </div>
+                    </div>
+                    <a href="../index.html" class="btn-back" data-i18n="header.back">トップへ戻る</a>
+                </div>
             </div>
         </header>
 
@@ -42,49 +57,54 @@
                 <div class="hero-bg-word" aria-hidden="true">NOTIFICATION MEMO</div>
                 <div class="container hero-inner">
                     <div class="hero-copy fade-in">
-                        <p class="eyebrow">Notification Memo</p>
-                        <h1 id="hero-title">
+                        <p class="eyebrow" data-i18n="hero.eyebrow">Notification Memo</p>
+                        <h1 id="hero-title" data-i18n-html="hero.title">
                             <span class="hero-title-line">思い出す場所を、</span>
                             <span class="hero-title-line">通知にする。</span>
                         </h1>
-                        <p class="hero-lead">
+                        <p class="hero-lead" data-i18n-html="hero.lead">
                             メモは書いただけでは、まだ少し遠い。<br />
                             通知にメモ。は、忘れたくない一言を<br />
                             いつもの通知画面に置いて、<br />
                             スマホを見るたび自然に思い出せます。
                         </p>
-                        <div class="hero-actions">
+                        <div class="hero-actions" data-i18n-aria="hero.actionsAria" aria-label="通知にメモ。の入手方法">
                             <a
                                 href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="store-link"
+                                data-i18n-aria="hero.storeAria"
                                 aria-label="通知にメモ。をGoogle Playで見る"
                             >
                                 <img
                                     src="../images/google-play-badge.png"
                                     alt="Google Play で手に入れよう"
+                                    data-i18n-alt="hero.storeAlt"
                                 />
                             </a>
-                            <a href="#flow" class="text-button">手順を見る</a>
+                            <a href="#flow" class="text-button" data-i18n="hero.cta">手順を見る</a>
                         </div>
                     </div>
 
-                    <div class="hero-visual fade-in" aria-label="通知にメモ。の画面イメージ">
+                    <div class="hero-visual fade-in" aria-label="通知にメモ。の画面イメージ" data-i18n-aria="hero.visualAria">
                         <div class="phone-stack">
                             <img
                                 src="../images/notification_memo/list_screen.png"
                                 alt="通知にメモ。の一覧画面"
+                                data-i18n-alt="hero.listAlt"
                                 class="phone-shot shot-left"
                             />
                             <img
                                 src="../images/notification_memo/notification_screen.png"
                                 alt="通知にメモ。の通知画面"
+                                data-i18n-alt="hero.notificationAlt"
                                 class="phone-shot shot-main"
                             />
                             <img
                                 src="../images/notification_memo/create_screen.png"
                                 alt="通知にメモ。の入力画面"
+                                data-i18n-alt="hero.createAlt"
                                 class="phone-shot shot-right"
                             />
                         </div>
@@ -102,15 +122,15 @@
             <section id="concept" class="concept-section">
                 <div class="container concept-layout">
                     <div class="concept-heading fade-in">
-                        <p class="eyebrow">Concept</p>
-                        <h2>見返すためのメモから、目に入るメモへ。</h2>
+                        <p class="eyebrow" data-i18n="concept.eyebrow">Concept</p>
+                        <h2 data-i18n="concept.title">見返すためのメモから、目に入るメモへ。</h2>
                     </div>
                     <div class="concept-body fade-in">
-                        <p>
+                        <p data-i18n-html="concept.body1">
                             やること、買うもの、あとで返す連絡。小さな用事ほど、<br />
                             メモ帳の奥にしまうと忘れやすくなります。
                         </p>
-                        <p>
+                        <p data-i18n-html="concept.body2">
                             通知にメモ。は、整理するためのノートではなく、<br />
                             思い出すための置き場所です。<br />
                             いつもの通知欄に残るから、特別に見返そうとしなくても気づけます。
@@ -119,19 +139,19 @@
                 </div>
             </section>
 
-            <section class="marquee-band" aria-label="通知にメモ。のコンセプト">
+            <section class="marquee-band" aria-label="通知にメモ。のコンセプト" data-i18n-aria="marquee.aria">
                 <div class="marquee-track" aria-hidden="true">
-                    <span>WRITE IT. PLACE IT. NOTICE IT.</span>
-                    <span>WRITE IT. PLACE IT. NOTICE IT.</span>
-                    <span>WRITE IT. PLACE IT. NOTICE IT.</span>
+                    <span data-i18n="marquee.text">WRITE IT. PLACE IT. NOTICE IT.</span>
+                    <span data-i18n="marquee.text">WRITE IT. PLACE IT. NOTICE IT.</span>
+                    <span data-i18n="marquee.text">WRITE IT. PLACE IT. NOTICE IT.</span>
                 </div>
             </section>
 
             <section id="flow" class="section flow-section">
                 <div class="container">
                     <div class="section-head fade-in">
-                        <p class="eyebrow">Flow</p>
-                        <h2>思いついたら、3つの流れで。</h2>
+                        <p class="eyebrow" data-i18n="flow.eyebrow">Flow</p>
+                        <h2 data-i18n="flow.title">思いついたら、3つの流れで。</h2>
                     </div>
                     <ol class="flow-list">
                         <li class="flow-item fade-in">
@@ -142,8 +162,8 @@
                                 </svg>
                             </span>
                             <span class="flow-number">01</span>
-                            <h3>書く</h3>
-                            <p>
+                            <h3 data-i18n="flow.item1.title">書く</h3>
+                            <p data-i18n-html="flow.item1.body">
                                 タイトルだけでも、本文だけでも。<br />
                                 忘れたくないことを短く残します。
                             </p>
@@ -158,8 +178,8 @@
                                 </svg>
                             </span>
                             <span class="flow-number">02</span>
-                            <h3>置く</h3>
-                            <p>
+                            <h3 data-i18n="flow.item2.title">置く</h3>
+                            <p data-i18n="flow.item2.body">
                                 通知メモとして作成すると、いつもの通知領域にそのまま表示されます。
                             </p>
                         </li>
@@ -179,8 +199,8 @@
                                 </svg>
                             </span>
                             <span class="flow-number">03</span>
-                            <h3>気づく</h3>
-                            <p>スマホを見たタイミングで自然に目に入り、終わったら消すだけです。</p>
+                            <h3 data-i18n="flow.item3.title">気づく</h3>
+                            <p data-i18n="flow.item3.body">スマホを見たタイミングで自然に目に入り、終わったら消すだけです。</p>
                         </li>
                     </ol>
                 </div>
@@ -189,29 +209,29 @@
             <section class="section scenes-section">
                 <div class="container scenes-layout">
                     <div class="scenes-copy fade-in">
-                        <p class="eyebrow">Scenes</p>
-                        <h2>日常の、少しだけ忘れたくないことに。</h2>
+                        <p class="eyebrow" data-i18n="scenes.eyebrow">Scenes</p>
+                        <h2 data-i18n="scenes.title">日常の、少しだけ忘れたくないことに。</h2>
                     </div>
                     <div class="scene-list">
                         <article class="scene-item fade-in">
-                            <span>Morning</span>
-                            <h3>明日のごみ出し</h3>
-                            <p>朝に見たい用事を、夜のうちに通知へ置いておけます。</p>
+                            <span data-i18n="scenes.item1.kicker">Morning</span>
+                            <h3 data-i18n="scenes.item1.title">明日のごみ出し</h3>
+                            <p data-i18n="scenes.item1.body">朝に見たい用事を、夜のうちに通知へ置いておけます。</p>
                         </article>
                         <article class="scene-item fade-in">
-                            <span>Move</span>
-                            <h3>折り返し連絡</h3>
-                            <p>移動中に思い出した用件を、落ち着くまで一時置きできます。</p>
+                            <span data-i18n="scenes.item2.kicker">Move</span>
+                            <h3 data-i18n="scenes.item2.title">折り返し連絡</h3>
+                            <p data-i18n="scenes.item2.body">移動中に思い出した用件を、落ち着くまで一時置きできます。</p>
                         </article>
                         <article class="scene-item fade-in">
-                            <span>Shop</span>
-                            <h3>買い物の一言</h3>
-                            <p>シャンプー、電球、封筒。短い買い忘れ防止に向いています。</p>
+                            <span data-i18n="scenes.item3.kicker">Shop</span>
+                            <h3 data-i18n="scenes.item3.title">買い物の一言</h3>
+                            <p data-i18n="scenes.item3.body">シャンプー、電球、封筒。短い買い忘れ防止に向いています。</p>
                         </article>
                         <article class="scene-item fade-in">
-                            <span>Before</span>
-                            <h3>外出前の持ちもの</h3>
-                            <p>鍵、書類、充電器など、家を出る前に見たいことを残せます。</p>
+                            <span data-i18n="scenes.item4.kicker">Before</span>
+                            <h3 data-i18n="scenes.item4.title">外出前の持ちもの</h3>
+                            <p data-i18n="scenes.item4.body">鍵、書類、充電器など、家を出る前に見たいことを残せます。</p>
                         </article>
                     </div>
                 </div>
@@ -220,33 +240,36 @@
             <section id="screens" class="section screens-section">
                 <div class="container screens-layout">
                     <div class="screens-copy fade-in">
-                        <p class="eyebrow">Screens</p>
-                        <h2>入力、通知、一覧。<br />必要な画面だけ。</h2>
-                        <p>
+                        <p class="eyebrow" data-i18n="screens.eyebrow">Screens</p>
+                        <h2 data-i18n-html="screens.title">入力、通知、一覧。<br />必要な画面だけ。</h2>
+                        <p data-i18n="screens.body">
                             複雑に管理するより、すぐに書いて、通知で気づくことを優先した画面構成です。残したメモは一覧からも確認できます。
                         </p>
                     </div>
-                    <div class="screen-gallery fade-in" aria-label="通知にメモ。画面ギャラリー">
+                    <div class="screen-gallery fade-in" aria-label="通知にメモ。画面ギャラリー" data-i18n-aria="screens.galleryAria">
                         <figure>
                             <img
                                 src="../images/notification_memo/create_screen.png"
                                 alt="通知メモの作成画面"
+                                data-i18n-alt="screens.item1.alt"
                             />
-                            <figcaption>Write</figcaption>
+                            <figcaption data-i18n="screens.item1.caption">Write</figcaption>
                         </figure>
                         <figure>
                             <img
                                 src="../images/notification_memo/notification_screen.png"
                                 alt="通知メモが通知領域に表示された画面"
+                                data-i18n-alt="screens.item2.alt"
                             />
-                            <figcaption>Notify</figcaption>
+                            <figcaption data-i18n="screens.item2.caption">Notify</figcaption>
                         </figure>
                         <figure>
                             <img
                                 src="../images/notification_memo/list_screen.png"
                                 alt="通知メモの一覧画面"
+                                data-i18n-alt="screens.item3.alt"
                             />
-                            <figcaption>List</figcaption>
+                            <figcaption data-i18n="screens.item3.caption">List</figcaption>
                         </figure>
                     </div>
                 </div>
@@ -255,29 +278,29 @@
             <section class="section faq-section">
                 <div class="container">
                     <div class="section-head fade-in">
-                        <p class="eyebrow">FAQ</p>
-                        <h2>使う前に気になること。</h2>
+                        <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+                        <h2 data-i18n="faq.title">使う前に気になること。</h2>
                     </div>
                     <div class="faq-grid">
                         <details class="faq-item fade-in">
-                            <summary>どんなメモに向いていますか？</summary>
-                            <p>
+                            <summary data-i18n="faq.item1.q">どんなメモに向いていますか？</summary>
+                            <p data-i18n="faq.item1.a">
                                 買い物、折り返し連絡、持ち物、明日の用事など、短く残してあとで思い出したいメモに向いています。
                             </p>
                         </details>
                         <details class="faq-item fade-in">
-                            <summary>長い文章の管理にも使えますか？</summary>
-                            <p>
+                            <summary data-i18n="faq.item2.q">長い文章の管理にも使えますか？</summary>
+                            <p data-i18n="faq.item2.a">
                                 長文整理よりも、通知領域で自然に思い出すための一言メモに向いています。
                             </p>
                         </details>
                         <details class="faq-item fade-in">
-                            <summary>残したメモはあとで確認できますか？</summary>
-                            <p>通知だけでなく、アプリ内の一覧画面から残したメモを見返せます。</p>
+                            <summary data-i18n="faq.item3.q">残したメモはあとで確認できますか？</summary>
+                            <p data-i18n="faq.item3.a">通知だけでなく、アプリ内の一覧画面から残したメモを見返せます。</p>
                         </details>
                         <details class="faq-item fade-in">
-                            <summary>安心して使うための情報はありますか？</summary>
-                            <p>フッターからプライバシーポリシーと利用規約を確認できます。</p>
+                            <summary data-i18n="faq.item4.q">安心して使うための情報はありますか？</summary>
+                            <p data-i18n="faq.item4.a">フッターからプライバシーポリシーと利用規約を確認できます。</p>
                         </details>
                     </div>
                 </div>
@@ -285,19 +308,21 @@
 
             <section class="cta-section">
                 <div class="container cta-panel fade-in">
-                    <p class="eyebrow">Download</p>
-                    <h2>忘れないための一言を、通知へ。</h2>
-                    <p>思い出したいことを、思い出せる場所に。通知にメモ。をAndroidで使えます。</p>
+                    <p class="eyebrow" data-i18n="cta.eyebrow">Download</p>
+                    <h2 data-i18n="cta.title">忘れないための一言を、通知へ。</h2>
+                    <p data-i18n="cta.body">思い出したいことを、思い出せる場所に。通知にメモ。をAndroidで使えます。</p>
                     <a
                         href="https://play.google.com/store/apps/details?id=moa.more.wiser.instant_notification&pli=1"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="store-link"
+                        data-i18n-aria="cta.storeAria"
                         aria-label="通知にメモ。をGoogle Playで見る"
                     >
                         <img
                             src="../images/google-play-badge.png"
                             alt="Google Play で手に入れよう"
+                            data-i18n-alt="cta.storeAlt"
                         />
                     </a>
                 </div>
@@ -306,13 +331,13 @@
 
         <footer class="lp-footer">
             <div class="container footer-inner">
-                <p class="footer-title">通知にメモ。</p>
+                <p class="footer-title" data-i18n="footer.title">通知にメモ。</p>
                 <div class="footer-links">
-                    <a href="../privacy-policy.html">プライバシーポリシー</a>
-                    <a href="../terms-of-service.html">利用規約</a>
-                    <a href="../commercial-transactions.html">特定商取引法に基づく表記</a>
+                    <a href="../privacy-policy.html" data-i18n="footer.privacy">プライバシーポリシー</a>
+                    <a href="../terms-of-service.html" data-i18n="footer.terms">利用規約</a>
+                    <a href="../commercial-transactions.html" data-i18n="footer.commercial">特定商取引法に基づく表記</a>
                 </div>
-                <p class="copyright">Copyright © 2026 @Moa Lab. All rights reserved.</p>
+                <p class="copyright" data-i18n="footer.copyright">Copyright © 2026 @Moa Lab. All rights reserved.</p>
             </div>
         </footer>
     </body>
