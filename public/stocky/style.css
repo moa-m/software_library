@@ -871,15 +871,15 @@ main {
     }
 
     .hero-visual {
-        min-height: 500px;
+        min-height: 600px;
     }
 
     .phone-cluster {
-        min-height: 480px;
+        min-height: 600px;
     }
 
     .phone-shot {
-        width: min(70vw, 260px);
+        width: min(62vw, 224px);
         border-radius: 26px;
     }
 

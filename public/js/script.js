@@ -36,6 +36,31 @@ document.addEventListener('DOMContentLoaded', () => {
         stickerCards.forEach((card) => stickerStrip.appendChild(card));
     }
 
+    const phoneScreen = document.querySelector('.phone-screen');
+    const scrollIndicator = document.querySelector('[data-scroll-indicator]');
+    const scrollThumb = document.querySelector('[data-scroll-thumb]');
+
+    if (phoneScreen && scrollIndicator && scrollThumb) {
+        const syncMockScroll = () => {
+            const track = scrollIndicator.querySelector('.scroll-track');
+
+            if (!track) {
+                return;
+            }
+
+            const maxScroll = phoneScreen.scrollHeight - phoneScreen.clientHeight;
+            const maxTravel = track.clientHeight - scrollThumb.offsetHeight;
+            const progress = maxScroll > 0 ? phoneScreen.scrollTop / maxScroll : 0;
+            const thumbPosition = Math.max(0, maxTravel * progress);
+
+            scrollThumb.style.transform = `translate(-50%, ${thumbPosition}px)`;
+        };
+
+        phoneScreen.addEventListener('scroll', syncMockScroll, { passive: true });
+        window.addEventListener('resize', syncMockScroll);
+        requestAnimationFrame(syncMockScroll);
+    }
+
     const fadeElements = document.querySelectorAll('.fade-in');
 
     if (!('IntersectionObserver' in window)) {
