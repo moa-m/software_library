@@ -516,10 +516,22 @@ img {
 }
 
 .home-page .footer {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: var(--space-2);
+    align-items: center;
     padding: var(--space-4) var(--space-2);
     color: var(--color-white);
     background: var(--color-ink);
-    text-align: center;
+    text-align: left;
+}
+
+.home-page .footer-cat-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 253, 248, 0.72);
+    border-radius: 50%;
 }
 
 .home-page .footer p {
