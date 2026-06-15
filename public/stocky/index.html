@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href="../images/stocky/app_icon.png" />
+        <link rel="apple-touch-icon" href="../images/stocky/app_icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stocky | 買うものとあるものを、共有したい人とひとつに。</title>
+        <meta
+            name="description"
+            content="Stockyは、買うものとあるものをタップで移動し、同じボードを他の人と共有できる在庫・買い物管理アプリです。"
+        />
+        <link rel="canonical" href="https://moa-lab.com/stocky/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ja_JP" />
+        <meta property="og:site_name" content="Moa Lab." />
+        <meta
+            property="og:title"
+            content="Stocky | 買うものとあるものを、共有したい人とひとつに。"
+        />
+        <meta
+            property="og:description"
+            content="買うものとあるものをタップで移動。同じボードを他の人と共有して、買い忘れや在庫確認のすれ違いを減らします。"
+        />
+        <meta property="og:url" content="https://moa-lab.com/stocky/" />
+        <meta property="og:image" content="https://moa-lab.com/images/stocky/SS01.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Stocky | 買うものとあるものを、共有したい人とひとつに。"
+        />
+        <meta
+            name="twitter:description"
+            content="買うものとあるものをタップで移動。同じボードを他の人と共有できるStocky。"
+        />
+        <meta name="twitter:image" content="https://moa-lab.com/images/stocky/SS01.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Nunito:wght@700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Stocky",
+                "applicationCategory": "LifestyleApplication",
+                "operatingSystem": "Android, iOS",
+                "description": "Stockyは、買うものとあるものを同じボードで共有できる在庫・買い物管理アプリです。",
+                "url": "https://moa-lab.com/stocky/",
+                "image": "https://moa-lab.com/images/stocky/SS01.png",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Moa Lab.",
+                    "url": "https://moa-lab.com/"
+                }
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "家族以外とも共有できますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "はい。家族だけでなく、パートナー、同居人、職場など、同じボードを共有したい相手と使えます。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "数量管理はできますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Stockyは厳密な数量管理ではなく、買うものとあるものをすばやく切り替えて共有することに絞ったアプリです。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "公開されていますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "現在は公開準備中です。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Stocky Plusでは何ができますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Plusではアイテム数とメンバー数の上限解除を予定しています。"
+                        }
+                    }
+                ]
+            }
+        </script>
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header class="lp-header">
+            <a href="../index.html" class="brand-link" aria-label="Moa Lab.トップへ戻る">
+                <img src="../images/stocky/app_icon.png" alt="" class="brand-icon" />
+                <span>Stocky</span>
+            </a>
+            <nav class="header-nav" aria-label="ページ内ナビゲーション">
+                <a href="#worries">お悩み</a>
+                <a href="#features">特徴</a>
+                <a href="#screens">画面</a>
+                <a href="../index.html">トップ</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero-section" aria-labelledby="hero-title">
+                <div class="hero-copy fade-in">
+                    <p class="eyebrow">Shared Stock Board</p>
+                    <h1 id="hero-title">
+                        買うものと<br />
+                        あるものを、<br />
+                        共有したい人とひとつに。
+                    </h1>
+                    <p class="hero-lead">
+                        買うものをタップすると、あるものへ。あるものをタップすると、買うものへ。
+                        Stockyは、その同じボードを他の人と共有できる在庫・買い物管理アプリです。
+                    </p>
+                    <div class="hero-actions" aria-label="Stockyの状態と画面案内">
+                        <span class="status-pill">公開準備中</span>
+                        <a href="#screens" class="text-link">画面を見る</a>
+                    </div>
+                </div>
+                <div class="hero-visual fade-in" aria-label="Stockyのアプリ画面">
+                    <div class="phone-cluster">
+                        <img
+                            src="../images/stocky/SS01.png"
+                            alt="Stockyの買うもの一覧画面"
+                            class="phone-shot phone-front"
+                        />
+                        <img
+                            src="../images/stocky/SS02.png"
+                            alt="Stockyのあるもの一覧画面"
+                            class="phone-shot phone-back"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section id="worries" class="worries-section" aria-labelledby="worries-title">
+                <div class="section-heading fade-in">
+                    <p class="eyebrow">Small Frictions</p>
+                    <h2 id="worries-title">こんなすれ違い、ありませんか？</h2>
+                </div>
+                <div class="bubble-grid" aria-label="買い物と在庫管理のお悩み">
+                    <article class="worry-bubble fade-in">
+                        <img src="../images/stocky/avatar01.png" alt="" />
+                        <div class="worry-message">
+                            <p>卵って、まだ家にあったっけ？</p>
+                        </div>
+                    </article>
+                    <article class="worry-bubble fade-in">
+                        <img src="../images/stocky/avatar02.png" alt="" />
+                        <div class="worry-message">
+                            <p>頼まれていた日用品を買い忘れた。</p>
+                        </div>
+                    </article>
+                    <article class="worry-bubble fade-in">
+                        <img src="../images/stocky/avatar03.png" alt="" />
+                        <div class="worry-message">
+                            <p>買ったあとに、棚にも同じものがあった。</p>
+                        </div>
+                    </article>
+                    <article class="worry-bubble fade-in">
+                        <img src="../images/stocky/avatar04.png" alt="" />
+                        <div class="worry-message">
+                            <p>共有したいけど、細かい在庫数までは続かない。</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="answer-section" aria-labelledby="answer-title">
+                <div class="answer-copy fade-in">
+                    <p class="eyebrow">Stocky Answer</p>
+                    <h2 id="answer-title">
+                        必要なのは、完璧な管理より<br />
+                        すぐ見える共有。
+                    </h2>
+                    <p>
+                        Stockyは「買うもの」と「あるもの」の2つに絞ったシンプルなボードです。アイテムをタップして状態を切り替えるだけで、共有相手にも今の状態が伝わります。
+                    </p>
+                </div>
+                <div class="switch-demo fade-in" aria-label="Stockyの状態切り替えイメージ">
+                    <div class="demo-tap" aria-label="タップで移動">
+                        <img src="../images/tap.png" alt="" />
+                        <span>tap!</span>
+                    </div>
+                    <article class="demo-item-card demo-item-buy">
+                        <div class="demo-item-icon" aria-hidden="true">
+                            <img src="../images/stocky/daily_001.png" alt="" />
+                            <span class="demo-star">★</span>
+                        </div>
+                        <div class="demo-item-body">
+                            <strong>ゴミ袋</strong>
+                            <p>
+                                <span>日用品</span>
+                                <span>6/10 20:30 更新</span>
+                            </p>
+                        </div>
+                        <img src="../images/stocky/avatar01.png" alt="" class="demo-avatar" />
+                    </article>
+                    <div class="demo-arrow" aria-hidden="true">→</div>
+                    <article class="demo-item-card demo-item-stock">
+                        <div class="demo-item-icon" aria-hidden="true">
+                            <img src="../images/stocky/daily_001.png" alt="" />
+                            <span class="demo-star">★</span>
+                        </div>
+                        <div class="demo-item-body">
+                            <strong>ゴミ袋</strong>
+                            <p>
+                                <span>日用品</span>
+                                <span>6/11 17:45 更新</span>
+                            </p>
+                        </div>
+                        <img src="../images/stocky/avatar01.png" alt="" class="demo-avatar" />
+                    </article>
+                </div>
+            </section>
+
+            <section id="features" class="features-section" aria-labelledby="features-title">
+                <div class="section-heading fade-in">
+                    <p class="eyebrow">Features</p>
+                    <h2 id="features-title">迷わず使える、共有のための機能。</h2>
+                </div>
+                <div class="feature-list">
+                    <article class="feature-card fade-in">
+                        <span class="feature-number">01</span>
+                        <h3>タップで状態を移動</h3>
+                        <p>買うものからあるものへ、あるものから買うものへ。確認ダイアログなしで素早く切り替えられます。</p>
+                    </article>
+                    <article class="feature-card fade-in">
+                        <span class="feature-number">02</span>
+                        <h3>QRコードとリンクで招待</h3>
+                        <p>同じボードを見たい相手を、QRコードや招待リンクで追加。家族以外の共有にも使えます。</p>
+                    </article>
+                    <article class="feature-card fade-in">
+                        <span class="feature-number">03</span>
+                        <h3>メンバーを見える化</h3>
+                        <p>アイテムごとに担当メンバーを設定。誰が見るものか、誰に頼みたいものかがひと目でわかります。</p>
+                    </article>
+                    <article class="feature-card fade-in">
+                        <span class="feature-number">04</span>
+                        <h3>アイコンとカテゴリで探しやすく</h3>
+                        <p>食材、日用品、ベビー用品、医薬・衛生用品など、日常の買い物を見つけやすく整理できます。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="usecase-section" aria-labelledby="usecase-title">
+                <div class="section-heading fade-in">
+                    <p class="eyebrow">Use Cases</p>
+                    <h2 id="usecase-title">家でも外でも、少ない人数の共有にも。</h2>
+                </div>
+                <div class="usecase-list">
+                    <article class="usecase-item fade-in">
+                        <span>Home</span>
+                        <h3>家庭の日用品</h3>
+                        <p>トイレットペーパー、洗剤、電池など、切らしたくないものを共有。</p>
+                    </article>
+                    <article class="usecase-item fade-in">
+                        <span>Partner</span>
+                        <h3>パートナーとの買い物</h3>
+                        <p>帰り道に買うものや、重複して買いやすいものを同じボードに。</p>
+                    </article>
+                    <article class="usecase-item fade-in">
+                        <span>Room</span>
+                        <h3>同居人との備品</h3>
+                        <p>共用スペースの消耗品を、誰かひとりの記憶に頼らず管理。</p>
+                    </article>
+                    <article class="usecase-item fade-in">
+                        <span>Work</span>
+                        <h3>職場の小さな在庫</h3>
+                        <p>コピー用紙、ゴミ袋、掃除用品など、軽い備品共有にも。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="screens" class="screens-section" aria-labelledby="screens-title">
+                <div class="section-heading fade-in">
+                    <p class="eyebrow">Screens</p>
+                    <h2 id="screens-title">買う、ある、招待する。<br />必要な画面だけ。</h2>
+                </div>
+                <div class="screen-gallery" aria-label="Stocky画面ギャラリー">
+                    <figure class="screen-card fade-in">
+                        <img src="../images/stocky/SS01.png" alt="Stockyの買うもの一覧画面" />
+                        <figcaption>買うもの</figcaption>
+                    </figure>
+                    <figure class="screen-card fade-in">
+                        <img src="../images/stocky/SS02.png" alt="Stockyのあるもの一覧画面" />
+                        <figcaption>あるもの</figcaption>
+                    </figure>
+                    <figure class="screen-card fade-in">
+                        <img src="../images/stocky/SS03.png" alt="Stockyのアイテム追加画面" />
+                        <figcaption>アイテム追加</figcaption>
+                    </figure>
+                    <figure class="screen-card fade-in">
+                        <img src="../images/stocky/SS05.png" alt="Stockyのメンバー管理画面" />
+                        <figcaption>メンバー管理</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="plus-section" aria-labelledby="plus-title">
+                <div class="plus-copy fade-in">
+                    <p class="eyebrow">Stocky Plus</p>
+                    <h2 id="plus-title">増えてきたら、<br />上限を外して使えます。</h2>
+                    <p>
+                        無料版ではアイテム50件、メンバー3人まで。Plusではアイテム数とメンバー数の上限を外して、より広い共有に対応します。
+                    </p>
+                </div>
+                <div class="price-list fade-in" aria-label="Stocky Plusの価格">
+                    <div class="price-item">
+                        <span class="price-radio" aria-hidden="true"></span>
+                        <div class="price-body">
+                            <h3>月額</h3>
+                            <p>1か月ごとの自動更新です。</p>
+                            <strong>基準プラン</strong>
+                        </div>
+                        <div class="price-value">
+                            <strong>¥120</strong>
+                            <span>月ごと</span>
+                        </div>
+                    </div>
+                    <div class="price-item featured">
+                        <span class="price-radio" aria-hidden="true"></span>
+                        <div class="price-body">
+                            <h3>年額 <span>おすすめ</span></h3>
+                            <p>月額より約32%OFF、約4か月分お得です。</p>
+                            <strong>約4か月分お得</strong>
+                        </div>
+                        <div class="price-value">
+                            <strong>¥980</strong>
+                            <span>年ごと</span>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-radio" aria-hidden="true"></span>
+                        <div class="price-body">
+                            <h3>買い切り</h3>
+                            <p>一度の購入で継続利用できます。</p>
+                            <strong>3年で16か月分お得</strong>
+                        </div>
+                        <div class="price-value">
+                            <strong>¥2,400</strong>
+                            <span>買い切り</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="faq-section" aria-labelledby="faq-title">
+                <div class="section-heading fade-in">
+                    <p class="eyebrow">FAQ</p>
+                    <h2 id="faq-title">使う前に気になること。</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item fade-in">
+                        <summary>家族以外とも共有できますか？</summary>
+                        <p>はい。パートナー、同居人、職場など、同じボードを共有したい相手と使えます。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>数量管理はできますか？</summary>
+                        <p>数量を細かく管理するアプリではありません。「ある」「買う」を素早く共有することに絞っています。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>公開されていますか？</summary>
+                        <p>現在は公開準備中です。ストア公開後に案内を追加します。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>安心して使うための情報はありますか？</summary>
+                        <p>フッターからプライバシーポリシー、利用規約、特定商取引法に基づく表記を確認できます。</p>
+                    </details>
+                </div>
+            </section>
+
+            <section class="final-cta" aria-labelledby="final-title">
+                <img src="../images/stocky/app_icon.png" alt="" class="final-icon fade-in" />
+                <div class="final-copy fade-in">
+                    <p class="eyebrow">Coming Soon</p>
+                    <h2 id="final-title">買い忘れを、共有で減らす。</h2>
+                    <p>StockyはAndroid / iOS向けに公開準備中です。</p>
+                    <span class="status-pill">公開準備中</span>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Stocky</p>
+            <nav aria-label="フッターナビゲーション">
+                <a href="../privacy-policy.html">プライバシーポリシー</a>
+                <a href="../terms-of-service.html">利用規約</a>
+                <a href="../commercial-transactions.html">特定商取引法に基づく表記</a>
+            </nav>
+            <small>Copyright © 2026 @Moa Lab. All rights reserved.</small>
+        </footer>
+    </body>
+</html>
