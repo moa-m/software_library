@@ -328,8 +328,21 @@ main {
     width: 58px;
     height: 58px;
     border-radius: 50%;
-    background: var(--surface);
+    background: #ffe4d6;
+    object-fit: contain;
     box-shadow: 0 8px 20px rgba(83, 56, 52, 0.1);
+}
+
+.worry-bubble:nth-child(2) img {
+    background: #ddf8c8;
+}
+
+.worry-bubble:nth-child(3) img {
+    background: #d8ecff;
+}
+
+.worry-bubble:nth-child(4) img {
+    background: #ffddf0;
 }
 
 .worry-message {
@@ -506,7 +519,8 @@ main {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    object-fit: cover;
+    background: #ffe4d6;
+    object-fit: contain;
 }
 
 .usecase-item span,
