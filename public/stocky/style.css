@@ -418,7 +418,7 @@ main {
 
 .demo-tap {
     position: absolute;
-    top: 4.25rem;
+    top: 6.2rem;
     right: 3.35rem;
     z-index: 4;
     display: grid;
@@ -434,6 +434,22 @@ main {
     text-shadow: 0 2px 0 rgba(255, 255, 255, 0.9);
     transform: rotate(-10deg);
     pointer-events: none;
+}
+
+.demo-card-label {
+    margin: 0 0 -0.25rem;
+    font-family: 'Nunito', 'Noto Sans JP', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.demo-card-label-buy {
+    color: var(--coral);
+}
+
+.demo-card-label-stock {
+    color: var(--green);
 }
 
 .demo-tap img {
