@@ -6,13 +6,13 @@
 
 Stocky は、家庭内で共有するシンプルな在庫・買い物管理モバイルアプリです。
 
-目的は、厳密な在庫数を管理することではなく、家族が「今あるもの」と「買うもの」をすばやく共有し、買い忘れを減らすことです。
+目的は、厳密な在庫数を管理することではなく、招待されたメンバーが「今あるもの」と「買うもの」をすばやく共有し、買い忘れを減らすことです。
 
 中心操作は以下の 1 つに絞ります。
 
 - アイテムをタップすると「あるもの」と「買うもの」の間を移動する
 
-MVP から家族共有を実現するため、複数端末で 1 つのボードを共有できる構成にします。
+MVP からリスト共有を実現するため、複数端末で 1 つのリストを共有できる構成にします。
 
 ## 2. 技術方針
 
@@ -31,7 +31,7 @@ MVP から家族共有を実現するため、複数端末で 1 つのボード�
 | サンプルデータ | JSON asset |
 | セキュリティ | Firestore Security Rules / Firebase App Check |
 | テスト | flutter_test / Firebase Emulator Suite / unit test |
-| 課金 | アプリ内課金（Plus: 買い切り） |
+| 課金 | アプリ内課金（Stocky Plus: 月額 / 年額サブスクリプション） |
 
 ### 2.2 採用しない技術
 
@@ -40,14 +40,14 @@ MVP では以下を採用しません。
 - drift
 - SQLite 独自同期
 - Firebase Storage
-- Cloud Functions
+- Cloud Functions（ただし RevenueCat の課金状態を board 単位へ安全に反映する用途は例外として採用可）
 - Web / PWA
 - アフィリエイト導線
 - 外部 EC リンク
 - 広告 SDK
 - アナリティクス SDK
-- 複数ボード機能
-- サブスクリプション課金
+- 複数リスト機能
+- 買い切り課金
 
 ### 2.3 drift を外す理由
 
@@ -68,42 +68,62 @@ Hive はローカル設定のみに使用します。
 
 ### 3.1 初回利用
 
-初回起動時は Firebase Auth の匿名ログインで開始します。
+初回起動時は Firebase Auth の匿名ログインで内部認証を開始し、以下の3画面を順に表示します。
 
 ユーザー体験としては「ログインなしで即利用」に見せます。
 
 ```text
 アプリ起動
 → 匿名ログイン
-→ 初期ボード作成
-→ サンプルデータ確認
+→ アカウント登録 / ログイン（あとで設定可能）
+→ プロフィール登録（必須）
+→ 初期リスト作成
+→ サンプルデータ選択
 → 利用開始
 ```
 
-### 3.2 アカウント保護
+プロフィールは名前、アバター、背景色を登録し、`users/{uid}.profile`を正本として本人に紐付いた全リストへ同期します。保存から次画面への遷移中はローディング表示を出します。既存アカウントに保存済みリストがある場合、未登録のプロフィールだけを補い、サンプルデータ選択は表示しません。
+
+アカウント登録 / ログインには設定画面を流用せず、データ引き継ぎの目的を先に伝えるオンボーディング専用画面を使用します。プロフィール画面では内部の共有仕様を前提にせず、「アプリ内で表示する名前と画像」と説明します。アバターは5列、背景色は6列のグリッドから選択します。
+
+### 3.2 アカウントとデータ引き継ぎ
 
 設定画面から、匿名アカウントをメールアドレス / パスワードに昇格できます。
+
+ユーザー向けの基本名称は「在庫・買い物リスト」とします。「このリスト」「元のリスト」のような単独表記は避け、参加前・招待先・共有中など、対象を具体的に示します。Firestoreの型・フィールドなど、内部識別子に限り`board`を使用します。
+
+ユーザー向けには「匿名利用」ではなく「アカウント未登録」と表示します。未登録でも変更内容はFirestoreへ自動保存・共有されますが、機種変更や再インストール後に本人がデータへ戻るにはアカウント登録が必要です。
+
+- 新規登録は現在の匿名ユーザーへ認証情報をリンクし、uidと現在データを維持する
+- 既存アカウントへのログインは新規登録と分離する
+- 既存ログイン前に、現在の未登録データは統合されずログイン先データへ切り替わることを確認する
+- パスワード再設定メールを送信できるようにする
 
 目的:
 
 - 機種変更時のデータ保持
 - 複数端末での利用継続
-- 家族共有ボードの復元
+- 共有リストの復元
 
-### 3.3 家族共有
+### 3.3 リスト共有
 
-家族共有は、招待リンクまたは QR コードで実現します。
+リスト共有は、招待リンクまたは QR コードで実現します。
 
 ```text
 設定
-→ 家族を招待
+→ メンバーを招待
 → QRコードを表示 / 招待リンクをコピー
-→ 家族がQRコードまたはリンクを開く
+→ 招待されたメンバーがQRコードまたはリンクを開く
+→ アカウントを登録、または登録済みアカウントでログイン
+→ 共有リストへの移動と適用プランの変更を確認
 → 同じ board に参加
 ```
 
-招待されたユーザーも、まずは匿名ログインで参加できます。  
-必要に応じて後からメール / パスワード登録できます。
+1人で利用する場合は、アカウント未登録のまま利用できます。
+
+招待を作成するユーザーと、共有リストへ参加するユーザーは、メールアドレス / パスワードによるアカウント登録を必須とします。招待参加時は、招待した側のメールアドレスではなく、招待を受けたユーザー自身のメールアドレスを使用することを画面上で明示します。登録は現在の匿名Firebase Userへ認証情報をリンクし、uidと現在データを維持します。登録済みユーザーは本人の既存アカウントでログインできます。
+
+既存のアカウント未登録共有ユーザーは直ちに利用停止せず、アカウント登録を案内します。新しい招待の作成・参加から必須化します。
 
 ### 3.4 QRコード招待
 
@@ -112,36 +132,51 @@ QRコードは、招待リンクを画像化したものとして扱います。
 内部的には招待リンクと同じ `inviteId` を使います。
 
 ```text
-stocky:///invite/{inviteId}
-https://stocky.app/invite/{inviteId}
+https://stocky-33317.web.app/invite/{inviteId}
 ```
+
+インストール済み端末では iOS Universal Links / Android App Links でStocky Homeを開きます。未インストール時はFirebase Hostingの案内ページでApp Store / Google Playへ誘導し、インストール後に同じ招待リンクをもう一度開いてもらいます。Deferred Deep Linkによる`inviteId`の自動引継ぎは行いません。旧`stocky:///invite/{inviteId}`は既存リンクとの互換性のため受信のみ維持します。
 
 MVP では以下を実装します。
 
 - QRコード表示
 - 招待リンクコピー
+- 未インストール時は案内ページからStocky Homeをインストールし、インストール後に同じQRコードまたは招待リンクをもう一度開くことを表示
+- 読み取り後に、招待を受けたユーザー自身のメールアドレスでアカウント登録またはログインを行い、参加確認後に既存のその他のメンバーを引き継ぐか、新しいアプリ利用者として参加する手順を表示
+- QRコード画面に、参加中は共有リストのプランが適用され、退出後は元のリストのプランへ戻ることを表示
+- 参加時に元のリストIDを`users/{uid}.previousBoardId`へ保存する
+- 参加確定前に、共有リストへ移動すること、設定から退出して元のリストへ戻れること、参加中と退出後で適用プランが変わることを確認する
+- 共有リストからの退出時は、共有リストのメンバー権限を外して`previousBoardId`へ戻し、同フィールドを削除する
+- 退出者がStocky Plus購入者の場合は、RevenueCat由来の購入者情報を共有リストから元のリストへ移す。購入者でない場合は、共有リスト由来のStocky Plus利用を終了して元のリストのプランを適用する
 
 OS共有シートはMVPでは使いません。送信手段はユーザーが任意に選び、Stockyはリンクコピーまでを提供します。
 
 招待コード手入力は MVP では実装しません。  
 理由は、短いコードは総当たりリスクがあり、試行回数制限など追加設計が必要になるためです。
 
-### 3.5 家族メンバーと Firebase ユーザーの違い
+### 3.5 メンバーと Firebase ユーザーの違い
 
 Stocky では、以下を分けて扱います。
 
 | 概念 | 役割 |
 |---|---|
 | Firebase User | 端末・認証・アクセス権管理 |
-| Family Member | アプリ内の担当者表示 |
+| アプリ利用者 | Firebase Userとプロフィールに紐付く担当者表示 |
+| その他のメンバー | アプリを使わない人やペットの担当者表示 |
 
 例:
 
 - Firebase User: `uid_xxx`
-- Family Member: `お母さん`, `父`, `子`, `ペット`
+- アプリ利用者: プロフィールを登録した本人
+- その他のメンバー: アプリを使わない人、ペット
 
-アイテムの担当者は Family Member に紐づけます。  
-Firebase User と Family Member を 1:1 に固定しません。
+アイテムの担当者は、アプリ利用者とその他のメンバーのどちらからも自由に選択できます。
+
+アプリ利用者はプロフィール登録時に自動作成し、名前・画像は本人のプロフィールからのみ変更します。設定画面には本人紐付けを変更する項目を置きません。招待参加時に限り、以前から登録されているその他のメンバーを引き継ぐか、新しいアプリ利用者として追加するかを選択します。
+
+その他のメンバーはメンバー画面から追加・編集・削除できます。アプリ利用者はUIDで識別するため同名を許可し、その他のメンバー同士は重複追加を防止します。共有リストから退出したアプリ利用者はその他のメンバーへ変更し、既存のアイテム担当者設定を維持します。
+
+無料プランのメンバー3人上限は、アプリ利用者とその他のメンバーの合計で判定します。招待参加時に既存のその他のメンバーを引き継ぐ場合は、そのメンバーをアプリ利用者へ変換するため人数は増えません。
 
 ## 4. セキュリティ基本方針
 
@@ -175,7 +210,7 @@ Stocky は MVP 段階からセキュリティを前提に設計します。
 - 招待コード手入力を MVP で実装しない
 - メールアドレスなどを `boards` / `items` に保存しない
 - Firebase Storage を MVP で使わない
-- Cloud Functions を MVP で使わない
+- Cloud Functions を MVP で使わない。ただし RevenueCat のサブスクリプション状態を検証済み情報として Firestore に同期し、board 単位の Stocky Plus 権限へ反映する用途は例外とする
 - フロントエンドの条件分岐をセキュリティ境界と見なさない
 
 ## 5. 課金・マネタイズ方針
@@ -191,61 +226,67 @@ Stocky は、アフィリエイトではなく、アプリ内課金を中心に�
 - 買い物中に広告や外部ECリンクを出すと、Stockyの「すぐ使える」体験を壊しやすい
 - MVPではコア体験の継続率確認を優先する
 
-### 5.2 無料版
+### 5.2 無料プラン
 
-無料版の制限は以下です。
+無料プランの制限は以下です。
 
 ```text
-無料版
-- 1ボードのみ
+無料プラン
+- 1リストのみ
 - アイテム50件まで
-- 家族メンバー3人まで
-- 家族共有あり
+- メンバー3人まで
+- リスト共有あり
 - サンプルデータ利用可
 ```
 
 補足:
 
 - サンプルデータは35件のため、無料上限50件でもサンプル投入後に追加余地を確保できる
-- 家族共有はStockyの本質なので無料版にも残す
-- ボードは無料版・Plusともに1ボードのみ
+- リスト共有はStockyの本質なので無料プランにも残す
+- リストは無料プラン・Stocky Plusともに1リストのみ
 
 ### 5.3 Stocky Plus
 
-Stocky Plus は買い切り課金のみとします。
+Stocky Plus は月額 / 年額サブスクリプション課金とします。
 
 ```text
 Stocky Plus
-- 1ボードのみ
+- 1リストのみ
 - アイテム無制限
-- 家族メンバー無制限
+- メンバー無制限
 ```
+
+メンバー無制限には、アプリ利用者とその他のメンバーの両方を含みます。Stocky Plus画面にも対象範囲を明記します。
 
 ### 5.4 価格方針
 
 初期価格の目安:
 
 ```text
-買い切り: 2,400円
+月額: 200円
+年額: 1,800円
 ```
 
 価格はストア審査・運用費・競合状況を見て調整します。
 
 理由:
 
-- Firebaseの無料枠を超えた場合に運用費を吸収しやすい
-- Stocky の利用頻度と家庭向けアプリの性質上、継続課金より買い切りの方が説明しやすい
-- MVPでは課金仕様をシンプルに保ち、サブスクリプション課金は採用しない
+- Firebase / Firestore を使う共有アプリのため、運用費が継続的に発生する
+- 月額200円は家庭内ツールとして導入しやすい価格に抑えつつ、年額1,800円は月額換算150円で継続利用に誘導しやすい
+- 買い切りは年額プランの価値を弱め、長期利用時の運用費負担が残るため、MVPでは採用しない
 
 ### 5.5 実装上の注意
 
-- Plus 状態はアプリ内課金の購入状態で管理する
-- Stockyは1ボード運用のため、Plus購入状態はボード単位で適用する
-- ボード内のいずれかのログインユーザーがPlusを購入または復元した場合、その唯一のボードに対してアイテム数・メンバー数の上限解除を反映する
-- 購入復元自体は購入したFirebaseユーザーで行い、復元後に参加中のボードへPlus状態を反映する
+- Stocky Plus 状態は RevenueCat のサブスクリプション entitlement で管理する
+- RevenueCat の App User ID には Firebase Auth の `uid` を使う
+- Stocky Plusの新規購入・購入復元・プラン変更にはアカウント登録またはログインを必須とする
+- 既存のアカウント未登録Stocky Plus購入者の権利は停止せず、登録完了まで新たなプラン変更を制限する
+- Stockyは1リスト運用のため、Stocky Plus購入状態はリスト単位で適用する
+- リスト内のいずれかのログインユーザーがStocky Plusを購入または復元した場合、その唯一のリストに対してアイテム数・メンバー数の上限解除を反映する
+- 購入復元自体は購入したFirebaseユーザーで行い、復元後に参加中のリストへStocky Plus状態を反映する
 - 購入復元導線を Settings に置く
-- 課金情報を Firestore に保存する場合は、改ざん防止方針を別途検討する
-- MVP初期では課金機能を後回しにし、無料版としてリリースしてもよい
+- Firestore に保存する Stocky Plus 状態はクライアントから直接更新せず、RevenueCat Webhook / Firebase Extension / Cloud Functions などのサーバー側同期で反映する
+- MVP でも課金機能を導入する
 
 ## 6. Firestore データ構造
 
@@ -255,9 +296,17 @@ Stocky Plus
 type User = {
   uid: string
   email?: string
+  profile?: {
+    displayName: string
+    avatarKey: string
+    avatarPath: string
+    avatarBackgroundColor: number
+    updatedAt: Timestamp
+  }
   createdAt: Timestamp
   lastLoginAt: Timestamp
   currentBoardId?: string
+  previousBoardId?: string // 共有リスト参加中のみ、退出時の復帰先
   isPlus?: boolean
   plusUpdatedAt?: Timestamp
 }
@@ -313,6 +362,8 @@ type FamilyMember = {
   avatarKey: string
   avatarPath: string
   sortOrder: number
+  memberType: "user" | "managed"
+  linkedUserUid?: string // memberTypeがuserの場合のFirebase User
   createdAt: Timestamp
   updatedAt: Timestamp
 }
@@ -343,7 +394,7 @@ class PlanLimits {
 }
 ```
 
-Plusの場合:
+Stocky Plusの場合:
 
 ```dart
 class PlusPlanLimits {
@@ -394,10 +445,10 @@ assets/images/design_mock.png
 - 背景色
 - 買うもの / あるものの色分け
 - アイテムカード内のアイコン配置
-- 家族アバターの表示位置
+- メンバーアバターの表示位置
 - 追加モーダル
 - 担当者選択モーダル
-- Settings / メンバー管理画面
+- Settings / メンバー画面
 
 Flutter 実装では、モバイル操作に最適化して再構成します。
 
@@ -408,16 +459,16 @@ Flutter 実装では、モバイル操作に最適化して再構成します。
 - Flutter モバイルアプリとして実装する
 - Firebase匿名ログインで即利用できる
 - メール / パスワードによるアカウント保護ができる
-- QRコード / 招待リンクで家族が同じ board に参加できる
+- アカウント登録後、QRコード / 招待リンクで招待されたメンバーが同じ board に参加できる
 - Firestore で複数端末同期できる
-- 1ボードのみ扱う
-- 無料版はアイテム50件 / 家族メンバー3人まで
-- Plusはアイテム無制限 / 家族メンバー無制限
+- 1リストのみ扱う
+- 無料プランはアイテム50件 / メンバー3人まで
+- Stocky Plusはアイテム無制限 / メンバー無制限
 - 「買うもの」「あるもの」の 2 状態だけを扱う
 - タップで状態を切り替える
 - 長押しで編集する
-- 長押しメニューから削除する
-- 家族アバターは丸型プリセット画像から選択できる
+- 編集シート内から削除する
+- メンバーアバターは丸型プリセット画像から選択できる
 - アイテムごとに任意で担当者を設定できる
 - アイテム登録時にカテゴリを選択できる
 - カテゴリごとのアイテムアイコンを選択できる
@@ -436,7 +487,7 @@ Flutter 実装では、モバイル操作に最適化して再構成します。
 - ユーザー画像アップロード
 - 詳細な操作履歴
 - Firebase Storage
-- Cloud Functions
+- Cloud Functions（RevenueCat の課金状態を board 単位へ同期する用途を除く）
 - drift
 - SQLite 独自同期
 - アフィリエイト導線
@@ -444,7 +495,7 @@ Flutter 実装では、モバイル操作に最適化して再構成します。
 - プッシュ通知
 - 広告 SDK
 - アナリティクス SDK
-- 複数ボード
+- 複数リスト
 - 招待コード手入力
 
 ## 10. 主要画面
@@ -474,10 +525,10 @@ Flutter 実装では、モバイル操作に最適化して再構成します。
 - 買うもの: コーラル / 赤系
 - あるもの: ミント / 緑系
 
-無料版の上限に近づいた場合は、追加画面またはアイテム追加ボタン付近で控えめに表示します。
+無料プランの上限に近づいた場合は、追加画面またはアイテム追加ボタン付近で控えめに表示します。
 
 ```text
-無料版では50件まで登録できます
+無料プランでは50件まで登録できます
 現在: 46 / 50
 ```
 
@@ -497,68 +548,94 @@ Flutter 実装では、モバイル操作に最適化して再構成します。
 
 数量入力は実装しません。
 
-無料版で50件に達している場合:
+無料プランで50件に達している場合:
 
 - 追加ボタンを無効化
-- Plus案内を表示
+- Stocky Plus案内を表示
 
 ### 10.3 担当者選択モーダル
 
 表示内容:
 
-- 登録済み家族メンバーの丸型アバター
+- 登録済みメンバーの丸型アバター
 - 担当なし
 - キャンセル
 - 決定
 
-無料版で家族メンバー3人に達している場合:
+無料プランでメンバー3人に達している場合:
 
 - メンバー追加ボタンを無効化
-- Plus案内を表示
+- Stocky Plus案内を表示
 
 ### 10.4 Settings 画面
 
 項目:
 
-- データを保護（アカウント登録）
-- 家族を招待
+- アカウント
+  - アカウント未登録 / 登録済みを表示
+  - 新規登録と既存アカウントへのログインを分離
+  - パスワード再設定
+- メンバーを招待
   - QRコードを表示
   - 招待リンクをコピー
-- 家族メンバー管理
+- メンバー
+  - アプリ利用者を確認する
+  - アプリ利用者のプロフィールは本人だけが変更できることを表示する
+  - 本人のカードはタップでプロフィール画面を開き、他の利用者は変更不可とする
+  - その他のメンバーを追加・編集・削除する
 - Stocky Plus
-  - Plus購入シミュレーション
+  - RevenueCat Offering から月額 / 年額プランを表示
+  - 月額 / 年額カードのタップではプラン選択だけを行う
+  - アカウント未登録でも料金と特典は閲覧可能
+  - 購入・復元・プラン変更前にアカウント設定を必須とする
+  - 選択中プランをラジオボタンで示す
+  - 選択後、独立した購入ボタンから購入する
   - 購入を復元
-  - 現在のプラン表示
+  - 契約内容の確認・解約
+  - 現在のプランを`Stocky Plus/月額`または`Stocky Plus/年額`で表示
+  - 購入済みの商品と有効期限を表示
+  - 月額 / 年額の変更予約中は、現在の商品を購入済みとして維持し、変更先を`変更予約中・次回更新から適用`と表示
+  - 設定画面では変更予約を`Stocky Plus/月額（次回更新から年額）`の形式で表示
+  - 変更予約中の商品は再購入できないようにする
+  - 解約後は有効期限と自動更新停止済みであることを表示
+  - 月額と年額はいずれも自動更新であることを表示
+  - 購入者ではないメンバーには、メンバーの契約でStocky Plusを利用中とだけ表示し、契約詳細と管理操作を表示しない
+  - メンバー無制限には、アプリ利用者とその他のメンバーの両方が含まれることを表示する
 - サンプルデータの追加
 - サンプルデータの削除
 - データ初期化
+  - 現在のアイテムをすべて削除する
+  - 初期化後にサンプルデータ35件を追加するか選択できる
 - アプリ情報
 
-### 10.5 初回サンプルデータ確認モーダル
+### 10.5 初回サンプルデータ選択画面
 
 表示内容:
 
 ```text
 サンプルデータを追加しますか？
-アプリの使い勝手をすぐに確認できるよう、いくつかの一時的なデータを用意します。
+Stockyをすぐ使えるように、35件のサンプルデータを追加できます。後から設定画面でも追加・削除できます。
 ```
 
 選択肢:
 
-- いいえ
-- はい
+- 35件を追加して始める
+- 追加せずに始める
 
 挙動:
 
 - はい: 初期サンプルデータを現在の board の Firestore に登録する
 - いいえ: 空の状態で開始する
 - 一度選択したら board に `sampleDecisionMade = true` を保存する
+- 保存済みリストへログインした場合は表示しない
 
 ## 11. 操作仕様
 
 ### 11.1 タップ操作
 
 アイテムカードをタップすると状態を切り替えます。
+
+星を含むアイテム画像の56x56領域をお気に入り操作のタップ対象とし、画像部分の操作では状態を切り替えません。
 
 ```text
 stock -> shopping
@@ -569,19 +646,18 @@ shopping -> stock
 
 ### 11.2 長押し操作
 
-アイテムカードを長押しするとコンテキストメニューを表示します。
+アイテムカードを長押しすると編集シートを表示します。
 
-MVP のメニュー項目:
+長押し時にカードとメニューが重なって操作しづらくなることを避けるため、MVP ではコンテキストメニューを使いません。
 
-- 担当者を設定
-- 編集
-- 削除
+削除は編集シート内の削除ボタン、またはスワイプ操作から行います。
+担当者設定はカード右端のメンバーアバターから行います。
 
 アフィリエイト / 外部EC導線は実装しません。
 
 ### 11.3 担当者アバター操作
 
-アイテムカード右端の家族アバターをタップすると、担当者選択モーダルを表示します。
+アイテムカード右端のメンバーアバターをタップすると、担当者選択モーダルを表示します。
 
 ## 12. カテゴリ・アイコン仕様
 
@@ -618,22 +694,20 @@ assets/images/other/other_001.png
 assets/images/default/default_food.png
 ```
 
-### 12.3 家族アバター
+### 12.3 メンバーアバター
 
-家族アバターは丸型プリセットからユーザーが選択できる形式にします。
+メンバーアバターは丸型プリセットからユーザーが選択できる形式にします。
 共有データとしてFirestoreに保存するアバター画像パスは、`assets/images/avatar` 配下のプリセット画像のみとします。
 端末内から選択した画像は別端末へ共有できないため、保存時に担当者なし画像へ置き換えます。
 
 画像格納例:
 
 ```text
-assets/images/avatar/mother.png
-assets/images/avatar/grandma.png
-assets/images/avatar/daughter.png
-assets/images/avatar/farther.png
-assets/images/avatar/san.png
-assets/images/avatar/grandpa.png
-assets/images/avatar/user.png
+assets/images/avatar/001.png
+assets/images/avatar/002.png
+...
+assets/images/avatar/035.png
+assets/images/avatar/999.png
 ```
 
 ## 13. デザインシステム
@@ -663,7 +737,9 @@ class AppColors {
 - 買うもの: 赤 / コーラル系
 - あるもの: 緑 / ミント系
 
-Plusでもテーマカラー変更は提供しません。
+Stocky Plusでもテーマカラー変更は提供しません。
+
+ユーザー向けの説明文は、「管理」「適用」「必要です」のような事務的な表現を避け、「できます」「戻ります」「そのまま残ります」など、操作後の結果が具体的に伝わる柔らかい言葉を使います。削除、初期化、共有退出など取り消せない操作では、失われる内容やプランの変更を明記します。
 
 ## 14. サンプルデータ
 
@@ -675,7 +751,7 @@ assets/stocky_sample_data_35_items.json
 
 現在のサンプルデータは35件です。
 
-無料版の上限は50件なので、サンプル投入後も追加余地を確保します。
+無料プランの上限は50件なので、サンプル投入後も追加余地を確保します。
 
 ## 15. ルーティング設計
 
@@ -891,9 +967,9 @@ assets/
 - 共有される画像パスはプリセットassetに限定し、端末内画像のローカルパスをFirestoreへ保存しない
 - サンプルデータは `assets/stocky_sample_data_35_items.json` から読み込む
 - UI は `assets/images/design_mock.png` を忠実に再現する
-- 1ボードのみ実装する
-- 無料版はアイテム50件 / 家族メンバー3人まで
-- Plusは買い切りで、アイテム無制限 / 家族メンバー無制限
+- 1リストのみ実装する
+- 無料プランはアイテム50件 / メンバー3人まで
+- Stocky Plusは月額200円 / 年額1,800円のサブスクリプションで、アイテム無制限 / メンバー無制限
 - QRコード招待と招待リンクを実装する
 - 招待コード手入力は実装しない
 - Firestore Security Rules を実装する
@@ -919,7 +995,7 @@ dependencies:
   hive: ^2.0.0
   hive_flutter: ^1.0.0
   qr_flutter: ^4.0.0
-  in_app_purchase: ^3.0.0
+  purchases_flutter: ^10.0.0
   freezed_annotation: ^2.0.0
   json_annotation: ^4.0.0
 
@@ -936,202 +1012,256 @@ dev_dependencies:
 
 ## 20. Codex CLI 用タスクリスト
 
+2026-07-26 時点で、Androidアプリのdebugビルド、正式署名したRelease AAB生成、Google Play月額 / 年額商品、RevenueCatのAndroid App / Entitlement / Offering設定、Google Developer Notifications接続とテスト通知送信まで完了している。内部テスト`version: 1.0.0+4`で定期購入・解約・自動更新・購入復元・期限切れを確認済み。
+
+実ファイルと検証結果に基づいて完了状態を更新する。現在の残作業は各Phaseの未チェック項目とREADMEの「優先する残作業」を正とする。
+
 ```md
 # Stocky Flutter + Firebase 実装タスクリスト
 
 ## Phase 0: 初期セットアップ
-- [ ] Flutter プロジェクトを作成する
-- [ ] Riverpod を導入する
-- [ ] Firebase Core を導入する
-- [ ] Firebase Auth を導入する
-- [ ] Cloud Firestore を導入する
-- [ ] Firebase App Check を導入する
-- [ ] Hive を導入する
-- [ ] go_router を導入する
-- [ ] qr_flutter を導入する
-- [ ] in_app_purchase を導入する
-- [ ] build_runner 系パッケージを導入する
-- [ ] assets/images を pubspec.yaml に登録する
-- [ ] assets/stocky_sample_data_35_items.json を pubspec.yaml に登録する
+- [x] Flutter プロジェクトを作成する
+- [x] Riverpod を導入する
+- [x] Firebase Core を導入する
+- [x] Firebase Auth を導入する
+- [x] Cloud Firestore を導入する
+- [x] Firebase App Check をコードへ導入する
+- [x] Hive を導入する
+- [x] go_router を導入する
+- [x] qr_flutter を導入する
+- [x] purchases_flutter を導入する
+- [x] build_runner 系を使わない構成とする
+- [x] assets/images を pubspec.yaml に登録する
+- [x] assets/stocky_sample_data_35_items.json を pubspec.yaml に登録する
 
 ## Phase 1: アセット
-- [ ] assets/images/design_mock.png を配置する
-- [ ] assets/images/default/*.png を配置する
-- [ ] assets/images/food/*.png を配置する
-- [ ] assets/images/daily/*.png を配置する
-- [ ] assets/images/baby/*.png を配置する
-- [ ] assets/images/medical/*.png を配置する
-- [ ] assets/images/pet/*.png を配置する
-- [ ] assets/images/other/*.png を配置する
-- [ ] assets/images/avatar/*.png を配置する
-- [ ] assets/stocky_sample_data_35_items.json を配置する
+- [x] assets/images/design_mock.png を配置する
+- [x] assets/images/default/*.png を配置する
+- [x] assets/images/food/*.png を配置する
+- [x] assets/images/daily/*.png を配置する
+- [x] assets/images/baby/*.png を配置する
+- [x] assets/images/medical/*.png を配置する
+- [x] assets/images/pet/*.png を配置する
+- [x] assets/images/other/*.png を配置する
+- [x] assets/images/avatar/*.png を配置する
+- [x] assets/stocky_sample_data_35_items.json を配置する
 
 ## Phase 2: Firebase / セキュリティ
-- [ ] Firebase プロジェクトを作成する
-- [ ] FlutterFire CLI で Firebase 設定を生成する
-- [ ] 匿名ログインを有効化する
-- [ ] メール / パスワードログインを有効化する
-- [ ] Firestore を作成する
-- [ ] Firestore Security Rules を作成する
-- [ ] Firebase Emulator Suite を導入する
-- [ ] Security Rules テストを作成する
-- [ ] Firebase App Check を設定する
-- [ ] 本番環境で test mode になっていないことを確認する
+- [x] Firebase プロジェクトを作成する
+- [x] FlutterFire CLI で Firebase 設定を生成する
+- [x] 匿名ログインを有効化する
+- [x] メール / パスワードログインを有効化する
+- [x] Firestore を作成する
+- [x] Firestore Security Rules を作成する
+- [x] Firebase Emulator Suite を導入する
+- [x] Security Rules テストを作成する
+- [x] Firebase ConsoleでApp Check本番プロバイダを設定し、Cloud Firestore enforcementを有効化する
+- [x] 本番環境で test mode になっていないことを確認する
 
 ## Phase 3: デザイン基盤
-- [ ] AppColors を定義する
-- [ ] AppTextStyles を定義する
-- [ ] AppTheme を定義する
-- [ ] 共通 Card / Button / Chip / BottomSheet を作る
-- [ ] design_mock.png に合わせて余白・角丸・影を調整する
+- [x] AppColors を定義する
+- [x] AppTheme内でテキストスタイルを定義する
+- [x] AppTheme を定義する
+- [x] Material標準のCard / Button / Chip / BottomSheetをThemeで統一する
+- [x] design_mock.png に合わせて余白・角丸・影を調整する
 
 ## Phase 4: 型 / Repository
-- [ ] UserProfile model を作る
-- [ ] Board model を作る
-- [ ] StockItem model を作る
-- [ ] FamilyMember model を作る
-- [ ] Invite model を作る
-- [ ] Plan model を作る
-- [ ] AuthRepository を作る
-- [ ] BoardRepository を作る
-- [ ] ItemRepository を作る
-- [ ] MemberRepository を作る
-- [ ] InviteRepository を作る
-- [ ] SampleDataRepository を作る
-- [ ] PurchaseRepository を作る
-- [ ] SettingsRepository を作る
+- [x] UserProfile model を作る
+- [x] Board model を作る
+- [x] StockItem model を作る
+- [x] FamilyMember model を作る
+- [x] Invite model を作る
+- [x] PlusSubscriptionDetailsと表示用プランモデルを作る
+- [x] AuthRepository を作る
+- [x] BoardRepository を作る
+- [x] ItemRepository を作る
+- [x] MemberRepository を作る
+- [x] InviteRepository を作る
+- [x] SampleDataRepository を作る
+- [x] RevenueCatService を購入処理の窓口として使う
+- [x] LocalSettings をローカル設定の窓口として使う
 
 ## Phase 5: Riverpod
-- [ ] firebaseAuthProvider を作る
-- [ ] firestoreProvider を作る
-- [ ] hiveProvider を作る
-- [ ] repository providers を作る
-- [ ] authControllerProvider を作る
-- [ ] boardControllerProvider を作る
-- [ ] inventory providers を作る
-- [ ] member providers を作る
-- [ ] invite providers を作る
-- [ ] plus providers を作る
-- [ ] settings providers を作る
+- [x] Firebase Auth Providerを作る
+- [x] Firestore Providerを作る
+- [x] Hive / LocalSettings Providerを作る
+- [x] repository providers を作る
+- [x] 認証状態Providerを作る
+- [x] リスト状態Providerを作る
+- [x] inventory providers を作る
+- [x] member providers を作る
+- [x] invite providers を作る
+- [x] Stocky Plus providers を作る
+- [x] settings providers を作る
 
-## Phase 6: 認証 / ボード初期化
-- [ ] 初回起動時に匿名ログインする
-- [ ] users/{uid} を作成する
-- [ ] 初回 board を作成する
-- [ ] board.memberUids に uid を追加する
-- [ ] currentBoardId を Hive に保存する
-- [ ] メール / パスワード昇格処理を作る
+## Phase 6: 認証 / リスト初期化
+- [x] 初回起動時に匿名ログインする
+- [x] users/{uid} を作成する
+- [x] 初回 board を作成する
+- [x] board.memberUids に uid を追加する
+- [x] currentBoardId を Hive に保存する
+- [x] メール / パスワード昇格処理を作る
 
 ## Phase 7: サンプルデータ
-- [ ] JSON asset を読み込む処理を作る
-- [ ] categories を扱う定義を作る
-- [ ] items を Firestore に投入する
-- [ ] sampleDecisionMade を board に保存する
-- [ ] sampleImported を board に保存する
-- [ ] 重複投入を防ぐ
+- [x] JSON asset を読み込む処理を作る
+- [x] categories を扱う定義を作る
+- [x] items を Firestore に投入する
+- [x] 初回の空のboardでサンプルデータを登録するか選択できるようにする
+- [x] sampleDecisionMade を board に保存する
+- [x] sampleImported を board に保存する
+- [x] 重複投入を防ぐ
 
 ## Phase 8: Inventory UI
-- [ ] InventoryPage を作る
-- [ ] 買うもの / あるものタブを作る
-- [ ] ItemCard を作る
-- [ ] Firestore Stream で items を購読する
-- [ ] status ごとに表示を分ける
-- [ ] タップで status を切り替える
-- [ ] 長押しメニューを作る
-- [ ] 担当者アバターを表示する
-- [ ] 無料版50件上限を表示・制御する
+- [x] InventoryPage を作る
+- [x] 買うもの / あるものタブを作る
+- [x] ItemCard を作る
+- [x] Firestore Stream で items を購読する
+- [x] status ごとに表示を分ける
+- [x] タップで status を切り替える
+- [x] 長押しで編集シートを開く
+- [x] 担当者アバターを表示する
+- [x] 無料プラン50件上限を表示・制御する
 
 ## Phase 9: アイテム追加 / 編集 / 削除
-- [ ] AddItemBottomSheet を作る
-- [ ] アイテム名入力を作る
-- [ ] CategoryPicker を作る
-- [ ] IconPicker を作る
-- [ ] 初期状態選択を作る
-- [ ] 担当者選択を作る
-- [ ] アイテム追加処理を作る
-- [ ] アイテム編集処理を作る
-- [ ] アイテム削除処理を作る
-- [ ] 削除 Undo を検討する
-- [ ] 無料版50件上限到達時にPlus案内を出す
-- [ ] Amazon / 楽天 / 外部 EC リンクを実装していないことを確認する
+- [x] AddItemBottomSheet を作る
+- [x] アイテム名入力を作る
+- [x] CategoryPicker を作る
+- [x] IconPicker を作る
+- [x] 初期状態選択を作る
+- [x] 担当者選択を作る
+- [x] アイテム追加処理を作る
+- [x] アイテム編集処理を作る
+- [x] アイテム削除処理を作る
+- [x] 削除後のUndoは実装しない
+- [x] 無料プラン50件上限到達時にStocky Plus案内を出す
+- [x] Amazon / 楽天 / 外部 EC リンクを実装していないことを確認する
 
-## Phase 10: メンバー管理
-- [ ] MemberManagementPage を作る
-- [ ] MemberAvatar を作る
-- [ ] AvatarPresetGrid を作る
-- [ ] メンバー追加処理を作る
-- [ ] メンバー編集処理を作る
-- [ ] メンバー削除処理を作る
-- [ ] 無料版3人上限を制御する
-- [ ] ItemCard から担当者選択を開けるようにする
+## Phase 10: メンバー
+- [x] MemberManagementPage を作る
+- [x] アプリ利用者とその他のメンバーを分けて表示する
+- [x] アプリ利用者は本人のプロフィールからのみ変更できるようにする
+- [x] その他のメンバーだけ追加・編集・削除できるようにする
+- [x] MemberAvatar を作る
+- [x] AvatarPresetGrid を作る
+- [x] メンバー追加処理を作る
+- [x] メンバー編集処理を作る
+- [x] メンバー削除処理を作る
+- [x] 無料プラン3人上限を制御する
+- [x] ItemCard から担当者選択を開けるようにする
 
-## Phase 11: 家族招待
-- [ ] inviteId を安全なランダム文字列で生成する
-- [ ] invites/{inviteId} を作成する
-- [ ] expiresAt を設定する
-- [ ] QRコード表示を作る
-- [ ] 招待リンクコピーを作る
+## Phase 11: メンバー招待
+- [x] inviteId を安全なランダム文字列で生成する
+- [x] invites/{inviteId} を作成する
+- [x] expiresAt を設定する
+- [x] QRコード表示を作る
+- [x] 招待リンクコピーを作る
 - [x] OS共有シートは使わず、リンクコピーのみ提供する
-- [ ] InviteJoinPage を作る
-- [ ] 招待リンクから board に参加する処理を作る
-- [ ] board.memberUids に参加者 uid を追加する
-- [ ] 期限切れ invite を拒否する
-- [ ] 正式リリース前後に招待リンクを HTTPS 形式へ移行する
+- [x] InviteJoinPage を作る
+- [x] 招待作成・参加前のアカウント登録を必須にする
+- [x] 登録 / ログイン後に開いていた招待へ自動参加する
+- [x] QRコード画面に事前インストールと参加手順を表示する
+- [x] 参加前に共有リストへの移動と適用プランの変更を確認する
+- [x] 参加時に元のリストIDを保存する
+- [x] 設定から共有リストを退出して元のリストへ戻る
+- [x] 退出時に購入者のStocky Plus状態を元のリストへ移す
+- [x] 招待リンクから board に参加する処理を作る
+- [x] board.memberUids に参加者 uid を追加する
+- [x] 招待参加時に既存のその他のメンバーを引き継ぐか、新しいアプリ利用者として追加する
+- [x] 設定から本人紐付けの変更項目を削除する
+- [x] 他ユーザーのメンバー紐付けを上書き・解除・削除できないRulesを追加する
+- [x] 共有リスト退出時に本人のメンバー紐付けを解除する
+- [x] 本人の紐付けに関係なくアイテム担当者を自由に変更できる状態を維持する
+- [x] 期限切れ invite を拒否する
+- [x] QRコード / HTTPSリンクからの直接起動時に、招待取得前の匿名認証を保証する
+- [x] 期限切れ招待を専用メッセージで案内し、共有リストへの参加はRulesで拒否する
+- [x] 招待リンクを HTTPS 形式へ移行する
+  - Firebase Hostingの`stocky-33317.web.app`を正本にする
   - 未インストール時は App Store / Google Play へ案内する
   - インストール済みの場合は Universal Links / Android App Links でアプリを開く
-  - 初回インストール後に inviteId を引き継ぐ方法を検討する
+  - インストール後は同じ招待リンクをもう一度開いてもらう
+  - Deferred Deep LinkによるinviteIdの自動引継ぎは行わない
+- [x] HTTPS招待ページとOS関連付けファイルをFirebase Hostingへ公開する
+- [x] Android App Links / iOS Universal Linksから招待参加画面が開くことを確認する
 
-## Phase 12: Plus / 課金
-- [ ] PlusPage を作る
-- [ ] 買い切り商品IDを定義する
-- [ ] in_app_purchase の購入処理を作る
-- [ ] 購入復元処理を作る
-- [ ] Plus状態Providerを作る
-- [ ] Plus状態に応じてアイテム数制限を切り替える
-- [ ] Plus状態に応じて家族メンバー数制限を切り替える
+## Phase 12: Stocky Plus / 課金
+- [x] PlusPage を作る
+- [x] 月額 / 年額の商品IDを定義する
+- [x] iOS RevenueCat の entitlement / offering を設定する
+- [x] purchases_flutter の購入処理を作る
+- [x] 購入復元処理を作る
+- [x] iOSのサブスクリプション管理画面を開く導線を作る
+- [x] Stocky Plus状態Providerを作る
+- [x] アプリ起動時に RevenueCat の App User ID へ Firebase Auth uid を設定する
+- [x] メールアカウント切り替え後に RevenueCat の App User ID と Stocky Plus状態を再設定する
+- [x] RevenueCat Webhook / Cloud Functions で board 単位の Stocky Plus 状態を Firestore に同期する
+- [x] 購入者本人の Stocky Plus状態に応じてアイテム数制限を切り替える
+- [x] 購入者本人の Stocky Plus状態に応じてメンバー数制限を切り替える
+- [x] board 単位の Stocky Plus状態に応じて全boardメンバーの上限を切り替える
+- [x] iOS Sandbox で購入と購入者本人へのStocky Plus反映を確認する
+- [x] iOS Sandbox で自動更新を確認する
+- [x] iOS Sandbox で期限切れとboard全体のStocky Plus解除を確認する
+- [x] iOS Sandbox で購入復元とStocky Plus維持を確認する
+- [x] iOS Sandbox で手動解約後も有効期限までStocky Plusが維持されることを確認する
+- [x] 同じboardの別メンバーへStocky Plusが反映されることを確認する
+- [x] Android の RevenueCat / Google Play 課金商品を設定する
+- [x] Android の Google Developer Notificationsを接続し、テスト通知を送信する
+- [x] Android の内部テストで定期購入・解約・自動更新・購入復元・期限切れを確認する
 
-Plusの本番購入処理は後続対応とし、当面は他の共有・永続化機能を優先します。テーマカラー変更は実装対象外です。
+Stocky Plusの本番購入処理は RevenueCat を使って MVP で導入します。テーマカラー変更は実装対象外です。
+
+2026-07-14時点でWebhook Function、board単位のStocky Plus集約、Flutterのboard状態購読、改ざん防止Rulesは実装・本番デプロイ済みです。RevenueCat DashboardへのWebhook登録、Testイベントの`200`応答、iOS実機のSandbox購入・復元・自動更新・手動解約・期限切れ、購入者本人と同じboardへ参加した別のAndroidユーザーへのStocky Plus反映を確認済みです。
 
 ## Phase 13: Settings
-- [ ] SettingsPage を作る
-- [ ] アカウント保護画面を作る
-- [ ] 家族招待 UI を作る
-- [ ] 家族メンバー管理導線を作る
-- [ ] Stocky Plus 導線を作る
-- [ ] サンプルデータ再登録を作る
-- [ ] データ初期化を作る
-- [ ] アプリ情報画面を作る
+- [x] SettingsPage を作る
+- [x] アカウント登録 / ログイン / パスワード再設定画面を作る
+- [x] メンバー招待 UI を作る
+- [x] アプリ利用者の確認とその他のメンバー管理導線を作る
+- [x] Stocky Plus 導線を作る
+- [x] サンプルデータ再登録を作る
+- [x] データ初期化を作る
+- [x] データ初期化時にサンプルデータを追加するか選べるようにする
+- [x] アプリ情報画面を作る
 
-## Phase 13.5: Plus / HTTPS 招待リンク以外の優先実装
+## Phase 13.5: Stocky Plus / HTTPS 招待リンク以外の優先実装
 - [x] MemberRepository を作り、boards/{boardId}/members を Firestore の正本にする
 - [x] メンバー追加・編集・削除を Firestore に保存する
 - [x] メンバー削除時に、該当メンバーが割り当てられた item.assignedMemberId を解除する
 - [x] users/{uid} を作成し、匿名 / メール登録済み状態と最終利用 boardId を保存する
-- [x] 入力メールアドレスに応じて、メール / パスワード登録または既存アカウントログインを自動処理する
+- [x] メール / パスワードの新規登録と既存アカウントログインを分離する
+- [x] パスワード再設定メールの送信を実装する
 - [x] users/{uid}.currentBoardId からログイン済みユーザーの board を復元する
+- [x] users/{uid}.previousBoardId から共有リスト退出時の復帰先を管理する
 - [x] sampleImported / sampleDecisionMade を board ドキュメントに保存する
 - [x] Hive の sampleSeeded はローカル補助情報に限定する
 - [x] Firebase Emulator Suite で Security Rules テストを追加する
 - [x] Firebase App Check をコード初期化する
-- [ ] Firebase Console 側で App Check 本番プロバイダを有効化する
-- [ ] Apple Developer Program 登録後、iOS App Check に App Attest と DeviceCheck fallback を設定する
-- [ ] iOS App Check 設定後、Firestore enforcement を有効化できるかモニタリングで確認する
+- [x] Firebase Console 側で Android App Check に Play Integrityを設定する
+- [x] Firebase Console で iOS App Check に App Attest とDeviceCheck fallbackを設定する
+- [x] Android / iOSの検証済み通信を確認し、Cloud Firestore enforcementを有効化する
 
 ## Phase 14: テスト
 - [x] Security Rules テストを作る
-- [ ] sortOrder のテストを作る
+- [x] sortOrder のテストを作る
 - [x] status 切り替えのテストを作る
 - [x] sample data import のテストを作る
-- [ ] repository のテストを作る
-- [x] 無料版上限のテストを作る
-- [ ] Plus状態のテストを作る
-- [ ] 主要 Widget の smoke test を作る
+- [x] Board / Item / Member / UserProfile Repositoryのテストを作る
+- [x] 無料プラン上限のテストを作る
+- [x] Stocky Plus状態のテストを作る
+- [x] アカウント画面のWidgetテストを作る
+- [x] Inventoryのタップ切り替え・お気に入り・編集・削除のWidgetテストを作る
+- [x] Membersのアプリ利用者・その他のメンバー管理のWidgetテストを作る
+- [x] Stocky Plusの商品取得失敗・購入可否・契約状態表示のWidgetテストを作る
+- [x] オンボーディングのプロフィール保存・ローディング・サンプル選択のWidgetテストを作る
+- [x] データ初期化とサンプル追加選択のWidgetテストを作る
 
 ## Phase 15: ビルド
-- [ ] Android ビルド確認
-- [ ] iOS ビルド確認
-- [ ] アプリアイコン設定
-- [ ] スプラッシュ画面設定
+- [x] Android debug ビルド確認
+- [x] Android Release署名を設定し、AAB生成と署名を確認
+- [x] iOS 実機ビルド / 起動確認
+- [x] アプリアイコン設定
+- [x] スプラッシュ画面設定
+- [x] Android の Google Play内部テストへ配布する
+- [x] Android の内部テスト配布で定期購入・解約・自動更新・購入復元・期限切れを確認する
 ```
 
 ## 21. 完了条件
@@ -1142,14 +1272,15 @@ MVP 完了条件は以下です。
 - `assets/images/design_mock.png` に近い UI が再現されている
 - 匿名ログインで即利用できる
 - メール / パスワードでデータ保護できる
-- QRコード / 招待リンクで家族が同じ board に参加できる
+- QRコード / 招待リンクで招待されたメンバーが同じ board に参加できる
 - 複数端末で同じ board の状態が同期される
-- 1ボードのみで運用できる
-- 無料版でアイテム50件まで制限できる
-- 無料版で家族メンバー3人まで制限できる
-- Plusでアイテム無制限になる
-- Plusで家族メンバー無制限になる
+- 1リストのみで運用できる
+- 無料プランでアイテム50件まで制限できる
+- 無料プランでアプリ利用者とその他のメンバーを合計3人までに制限できる
+- Stocky Plusでアイテム無制限になる
+- Stocky Plusでメンバー無制限になる
 - 初回にサンプルデータ追加を選択できる
+- データ初期化時に、サンプルデータを追加するか選択できる
 - サンプルデータが Firestore に保存される
 - 「買うもの」と「あるもの」を表示できる
 - アイテムをタップで相互移動できる
@@ -1158,12 +1289,14 @@ MVP 完了条件は以下です。
 - アイテムを削除できる
 - 6カテゴリからカテゴリ選択できる
 - カテゴリごとのアイテムアイコンを選択できる
-- 家族メンバーを丸型プリセットアバターから登録できる
+- メンバーを丸型プリセットアバターから登録できる
 - アバターの見た目を選択できる
 - アイテムごとに担当者を任意設定できる
-- Settings からアカウント保護・家族招待・メンバー管理・Stocky Plus・データ初期化・アプリ情報を開ける
+- Settings からアカウント保護・メンバー招待・アプリ利用者の確認・その他のメンバー管理・Stocky Plus・データ初期化・アプリ情報を開ける
 - Firestore Security Rules が実装されている
 - Firebase Emulator Suite で Rules テストがある
 - Firebase App Check が設定されている
 - Amazon / 楽天 / 外部 EC / アフィリエイト導線が存在しない
-- Android / iOS のビルドが通る
+- iOS の実機ビルドが通る
+- Android のdebugビルドが通る
+- Android の内部テスト配布でRevenueCat / Google Playの定期購入・解約・自動更新・購入復元・期限切れを確認する

@@ -48,7 +48,7 @@
                 "name": "Stocky",
                 "applicationCategory": "LifestyleApplication",
                 "operatingSystem": "Android, iOS",
-                "description": "Stockyは、買うものとあるものを同じボードで共有できる在庫・買い物管理アプリです。",
+                "description": "Stockyは、買うものとあるものをメンバーと同じ在庫・買い物リストで共有できるアプリです。",
                 "url": "https://moa-lab.com/stocky/",
                 "image": "https://moa-lab.com/images/stocky/screenshot/SS01.png",
                 "publisher": {
@@ -68,7 +68,7 @@
                         "name": "家族以外とも共有できますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "はい。家族だけでなく、パートナー、同居人、職場など、同じボードを共有したい相手と使えます。"
+                            "text": "はい。パートナー、同居人、職場など、メンバーと同じ在庫・買い物リストの買うものとあるものを共有できます。"
                         }
                     },
                     {
@@ -76,7 +76,15 @@
                         "name": "1人でも使えますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "はい。1人の買い物メモや在庫チェックとして使い始め、必要になったらあとから共有できます。"
+                            "text": "はい。1人の買い物メモや在庫チェックとして使い始め、必要になったらあとからメンバーを招待して共有できます。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "共有するには何が必要ですか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "1人で使い始めるだけならアカウント登録なしで利用できます。メンバーを招待する、または共有リストに参加するには、メールアドレスとパスワードでアカウント登録またはログインが必要です。"
                         }
                     },
                     {
@@ -84,15 +92,7 @@
                         "name": "数量管理はできますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Stockyは厳密な数量管理ではなく、買うものとあるものをすばやく切り替えて共有することに絞ったアプリです。"
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "公開されていますか？",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "現在は公開準備中です。"
+                            "text": "数量を細かく管理するアプリではありません。買うものとあるものを素早く切り替えて共有することに絞っています。"
                         }
                     },
                     {
@@ -100,7 +100,23 @@
                         "name": "Stocky Plusでは何ができますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Plusではアイテム数とメンバー数の上限解除を予定しています。"
+                            "text": "無料プランはアイテム50件、メンバー3人までです。Stocky Plusではアイテム数とメンバー数の上限がなくなります。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "公開されていますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "現在は公開準備中です。ストア公開後に案内を追加します。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "安心して使うための情報はありますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "フッターからプライバシーポリシー、利用規約、特定商取引法に基づく表記を確認できます。"
                         }
                     }
                 ]
@@ -125,15 +141,15 @@
         <main>
             <section class="hero-section" aria-labelledby="hero-title">
                 <div class="hero-copy fade-in">
-                    <p class="eyebrow">Shared Stock Board</p>
+                    <p class="eyebrow">Shared Shopping List</p>
                     <h1 id="hero-title">
                         買うものと<br />
                         あるものを、<br />
-                        共有したい人とひとつに。
+                        メンバーとひとつに。
                     </h1>
                     <p class="hero-lead">
                         買うものをタップすると、あるものへ。あるものをタップすると、買うものへ。
-                        Stockyは、1人でも使えて、同じボードを他の人とも共有できる在庫・買い物管理アプリです。
+                        Stockyは、1人でも使えて、メンバーと同じ在庫・買い物リストの「買うもの」と「あるもの」を共有できるアプリです。
                     </p>
                     <div class="hero-actions" aria-label="Stockyの状態と画面案内">
                         <span class="status-pill">公開準備中</span>
@@ -197,7 +213,7 @@
                         すぐ見える共有。
                     </h2>
                     <p>
-                        Stockyは「買うもの」と「あるもの」の2つに絞ったシンプルなボードです。アイテムをタップして状態を切り替えるだけで、共有相手にも今の状態が伝わります。
+                        Stockyは「買うもの」と「あるもの」の2つに絞ったシンプルな在庫・買い物リストです。アイテムをタップして状態を切り替えるだけで、メンバーにも今の状態が伝わります。
                     </p>
                 </div>
                 <div class="switch-demo fade-in" aria-label="Stockyの状態切り替えイメージ">
@@ -253,7 +269,7 @@
                     <article class="feature-card fade-in">
                         <span class="feature-number">02</span>
                         <h3>QRコードとリンクで招待</h3>
-                        <p>同じボードを見たい相手を、QRコードや招待リンクで追加。家族以外の共有にも使えます。</p>
+                        <p>メンバーをQRコードや招待リンクで追加。同じ在庫・買い物リストの「買うもの」と「あるもの」を一緒に確認できます。</p>
                     </article>
                     <article class="feature-card fade-in">
                         <span class="feature-number">03</span>
@@ -282,7 +298,7 @@
                     <article class="usecase-item fade-in">
                         <span>Partner</span>
                         <h3>パートナーとの買い物</h3>
-                        <p>帰り道に買うものや、重複して買いやすいものを同じボードに。</p>
+                        <p>帰り道に買うものや、重複して買いやすいものを同じ在庫・買い物リストに。</p>
                     </article>
                     <article class="usecase-item fade-in">
                         <span>Room</span>
@@ -327,7 +343,7 @@
                     <p class="eyebrow">Stocky Plus</p>
                     <h2 id="plus-title">増えてきたら、<br />上限を外して使えます。</h2>
                     <p>
-                        無料版ではアイテム50件、メンバー3人まで。Plusではアイテム数とメンバー数の上限を外して、より広い共有に対応します。
+                        無料プランではアイテム50件、メンバー3人まで。Plusではアイテム数とメンバー数の上限を外して、より広い共有に対応します。
                     </p>
                 </div>
                 <div class="price-list fade-in" aria-label="Stocky Plusの価格">
@@ -336,10 +352,10 @@
                         <div class="price-body">
                             <h3>月額</h3>
                             <p>1か月ごとの自動更新です。</p>
-                            <strong>基準プラン</strong>
+                            <strong>自動更新サブスクリプション</strong>
                         </div>
                         <div class="price-value">
-                            <strong>¥150</strong>
+                            <strong>¥200</strong>
                             <span>月ごと</span>
                         </div>
                     </div>
@@ -347,10 +363,10 @@
                         <span class="price-radio" aria-hidden="true"></span>
                         <div class="price-body">
                             <h3>年額 <span>おすすめ</span></h3>
-                            <p>月額より約17%OFF、約2か月分お得です。</p>
+                            <p>月額より25%OFF、3か月分お得です。</p>
                         </div>
                         <div class="price-value">
-                            <strong>¥1,500</strong>
+                            <strong>¥1,800</strong>
                             <span>年ごと</span>
                         </div>
                     </div>
@@ -365,15 +381,23 @@
                 <div class="faq-list">
                     <details class="faq-item fade-in">
                         <summary>家族以外とも共有できますか？</summary>
-                        <p>はい。パートナー、同居人、職場など、同じボードを共有したい相手と使えます。</p>
+                        <p>はい。パートナー、同居人、職場など、メンバーと同じ在庫・買い物リストの「買うもの」と「あるもの」を共有できます。</p>
                     </details>
                     <details class="faq-item fade-in">
                         <summary>1人でも使えますか？</summary>
-                        <p>はい。1人の買い物メモや在庫チェックとして使い始め、必要になったらあとから共有できます。</p>
+                        <p>はい。1人の買い物メモや在庫チェックとして使い始め、必要になったらあとからメンバーを招待して共有できます。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>共有するには何が必要ですか？</summary>
+                        <p>1人で使い始めるだけならアカウント登録なしで利用できます。メンバーを招待する、または共有リストに参加するには、メールアドレスとパスワードでアカウント登録またはログインが必要です。</p>
                     </details>
                     <details class="faq-item fade-in">
                         <summary>数量管理はできますか？</summary>
                         <p>数量を細かく管理するアプリではありません。「ある」「買う」を素早く共有することに絞っています。</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>Stocky Plusでは何ができますか？</summary>
+                        <p>無料プランはアイテム50件、メンバー3人までです。Stocky Plusではアイテム数とメンバー数の上限がなくなります。</p>
                     </details>
                     <details class="faq-item fade-in">
                         <summary>公開されていますか？</summary>
