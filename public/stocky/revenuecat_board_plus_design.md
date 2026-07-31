@@ -1,4 +1,6 @@
-# RevenueCat board単位 Stocky Plus設計
+# RevenueCat board単位 NUUPAMO Plus設計
+
+> 表示名は「NUUPAMO Plus」を使用します。既存購入を引き継ぐため、Entitlement ID と商品IDに含まれる `stocky` は内部識別子として変更しません。
 
 ## 方針
 
@@ -17,6 +19,7 @@ Stocky Plusのメンバー無制限は、`members`内のアプリ利用者（`me
 ## 現在の実装状況
 
 - iOS の RevenueCat App、Entitlement、Offering、月額 / 年額商品を設定済み。
+- Android / iOS の RevenueCat Public SDK Keyはアプリへ組み込み済み。必要時は対応する`dart-define`で上書きできる。
 - `purchases_flutter` による初期化、商品取得、購入、復元を実装済み。
 - Firebase Auth の `uid` を起動時とメールアカウント切り替え後の RevenueCat App User ID に設定済み。
 - App Store Connect からの商品取得と日本円表示をiOS実機で確認済み。
