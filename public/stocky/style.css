@@ -706,6 +706,7 @@ main {
     display: inline-flex;
     align-items: center;
     min-height: 1.55rem;
+    margin-bottom: 0;
     padding: 0.12rem 0.6rem;
     border-radius: 999px;
     color: var(--surface);
@@ -880,13 +881,35 @@ main {
 
 @media (max-width: 720px) {
     .lp-header {
-        align-items: flex-start;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.55rem 0.65rem;
         border-radius: 28px;
     }
 
+    .brand-link {
+        flex-shrink: 0;
+        gap: 0.4rem;
+        font-size: 0.84rem;
+    }
+
+    .brand-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+    }
+
+    .header-nav {
+        flex: 1 1 auto;
+        flex-wrap: nowrap;
+        gap: 0;
+    }
+
     .header-nav a {
-        padding: 0.34rem 0.52rem;
-        font-size: 0.76rem;
+        flex-shrink: 0;
+        padding: 0.3rem 0.35rem;
+        font-size: 0.69rem;
+        white-space: nowrap;
     }
 
     .hero-section,
