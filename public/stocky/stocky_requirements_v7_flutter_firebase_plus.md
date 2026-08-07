@@ -123,7 +123,7 @@ Hive はローカル設定のみに使用します。
 
 1人で利用する場合は、アカウント未登録のまま利用できます。
 
-招待を作成するユーザーと、共有リストへ参加するユーザーは、メールアドレス / パスワードによるアカウント登録を必須とします。招待参加時は、招待した側のメールアドレスではなく、招待を受けたユーザー自身のメールアドレスを使用することを画面上で明示します。登録は現在の匿名Firebase Userへ認証情報をリンクし、uidと現在データを維持します。登録済みユーザーは本人の既存アカウントでログインできます。
+招待を作成するユーザーと、共有リストへ参加するユーザーは、メールアドレス / パスワードによるアカウント登録を必須とします。招待参加時は、招待した側のメールアドレスではなく、招待を受けたユーザー自身のメールアドレスを使用することを画面上で明示します。登録はFirebase Authenticationのメール列挙保護に対応したREST `signUp`へ現在のIDトークンを渡し、現在の匿名Firebase Userへ認証情報をリンクしてuidと現在データを維持します。RESTリクエストにはApp Checkトークンを付与します。登録済みユーザーは本人の既存アカウントでログインできます。
 
 既存のアカウント未登録共有ユーザーは直ちに利用停止せず、アカウント登録を案内します。新しい招待の作成・参加から必須化します。
 
@@ -137,7 +137,7 @@ QRコードは、招待リンクを画像化したものとして扱います。
 https://stocky-33317.web.app/invite/{inviteId}
 ```
 
-インストール済み端末では iOS Universal Links / Android App Links でStocky Homeを開きます。未インストール時はFirebase Hostingの案内ページでApp Store / Google Playへ誘導し、インストール後に同じ招待リンクをもう一度開いてもらいます。Deferred Deep Linkによる`inviteId`の自動引継ぎは行いません。旧`stocky:///invite/{inviteId}`は既存リンクとの互換性のため受信のみ維持します。
+インストール済み端末では iOS Universal Links / Android App Links でStocky Homeを開きます。未インストール時はFirebase Hostingの案内ページでApp Store / Google Playへ誘導し、インストール後に同じ招待リンクをもう一度開いてもらいます。Deferred Deep Linkによる`inviteId`の自動引継ぎは行いません。第三者アプリに招待IDを奪われる可能性があるカスタムURLスキームは使用しません。
 
 MVP では以下を実装します。
 
@@ -194,14 +194,15 @@ Stocky は MVP 段階からセキュリティを前提に設計します。
 - 本番環境で Firestore test mode を使用しない
 - すべての read / write は `request.auth != null` を必須にする
 - `boardId` を知っているだけではデータを読めない設計にする
-- `boards/{boardId}` 配下の `items` / `members` は、その board のメンバーだけが read / write できる
+- `boards/{boardId}` 配下の `items` / `members` は、その board のメンバーだけが read できる。件数上限に関係する作成・削除はApp Check必須のCallable Functionsで行う
 - `users/{uid}` は本人だけが read / write できる
 - 招待リンクは十分長いランダム ID を使う
-- 招待リンクには有効期限を設定する
+- 招待リンクには7日以内の有効期限を設定し、個別取得だけを許可して一覧取得を拒否する
 - QRコードは招待リンクと同じ有効期限・権限制御を適用する
 - 個人情報・機微情報を Firestore に保存しない
 - アフィリエイト・外部 EC リンクは実装しない
 - Firebase App Check を導入する
+- 新規登録のパスワードは8文字以上で、英大文字・英小文字・数字をそれぞれ含める。アプリの事前検証とFirebase Authenticationの要求モードを一致させる
 - Firebase Emulator Suite で Security Rules のテストを作成する
 
 ### 4.2 セキュリティ上の禁止事項
@@ -214,7 +215,7 @@ Stocky は MVP 段階からセキュリティを前提に設計します。
 - 招待コード手入力を MVP で実装しない
 - メールアドレスなどを `boards` / `items` に保存しない
 - Firebase Storage を MVP で使わない
-- Cloud Functions を MVP で使わない。ただし RevenueCat のサブスクリプション状態を検証済み情報として Firestore に同期し、board 単位の Stocky Plus 権限へ反映する用途は例外とする
+- Cloud Functions は、RevenueCatの課金状態同期、共有退出、プロフィール・アプリ利用者の同期、無料プラン上限を伴うアイテム・その他のメンバーの作成と削除に限定する。Callable FunctionsはFirebase AuthとApp Checkを必須にする
 - フロントエンドの条件分岐をセキュリティ境界と見なさない
 
 ## 5. 課金・マネタイズ方針
@@ -251,7 +252,7 @@ Stocky は、アフィリエイトではなく、アプリ内課金を中心に�
 
 ### 5.3 Stocky Plus
 
-Stocky Plus は月額 / 年額サブスクリプション課金とします。
+Stocky Plus は月額サブスクリプションを新規購入の基本プランとします。年額サブスクリプションは既存契約の継続・復元のため保持しますが、公開時の新規購入画面には表示しません。
 
 ```text
 Stocky Plus
@@ -268,7 +269,7 @@ Stocky Plus
 
 ```text
 月額: 200円
-年額: 1,800円
+年額: 1,800円（既存契約の継続・復元用。新規購入画面には表示しない）
 ```
 
 価格はストア審査・運用費・競合状況を見て調整します。
@@ -276,8 +277,9 @@ Stocky Plus
 理由:
 
 - Firebase / Firestore を使う共有アプリのため、運用費が継続的に発生する
-- 月額200円は家庭内ツールとして導入しやすい価格に抑えつつ、年額1,800円は月額換算150円で継続利用に誘導しやすい
-- 買い切りは年額プランの価値を弱め、長期利用時の運用費負担が残るため、MVPでは採用しない
+- 月額200円は家庭内ツールとして導入しやすい価格に抑える
+- 公開前は年額を新規購入画面から外し、月額ユーザーの継続率・解約理由・有料転換率を確認してから再表示を判断する
+- 既存の年額契約は商品設定・権利・購入復元を維持し、契約者に不利益が出ないようにする
 
 ### 5.5 実装上の注意
 
@@ -291,6 +293,8 @@ Stocky Plus
 - 購入復元導線を Settings に置く
 - Firestore に保存する Stocky Plus 状態はクライアントから直接更新せず、RevenueCat Webhook / Firebase Extension / Cloud Functions などのサーバー側同期で反映する
 - MVP でも課金機能を導入する
+- RevenueCatの年額商品は削除せず、Offeringから取得できる状態を維持する。ただし、アプリの新規購入候補には月額商品のみを表示する
+- 既存の年額契約は現在プランとして表示し、購入復元とストアの契約管理導線を利用できるようにする
 
 ## 6. Firestore データ構造
 
@@ -590,8 +594,10 @@ Flutter 実装では、モバイル操作に最適化して再構成します。
   - 本人のカードはタップでプロフィール画面を開き、他の利用者は変更不可とする
   - その他のメンバーを追加・編集・削除する
 - Stocky Plus
-  - RevenueCat Offering から月額 / 年額プランを表示
-  - 月額 / 年額カードのタップではプラン選択だけを行う
+  - RevenueCat Offering から月額プランを新規購入候補として表示する
+  - 年額商品は既存契約の継続・復元のため保持するが、新規購入候補には表示しない
+  - 既存の年額契約者には現在プランとして年額を表示し、購入復元と契約管理を利用できるようにする
+  - 月額カードのタップではプラン選択だけを行う
   - アカウント未登録でも料金と特典は閲覧可能
   - 購入・復元・プラン変更前にアカウント設定を必須とする
   - 選択中プランをラジオボタンで示す
@@ -833,60 +839,17 @@ final boardItemsProvider =
 
 Firestore Security Rules は MVP でも必須実装とします。
 
-### 17.1 基本ルール案
+### 17.1 実装ルール
 
-```js
-rules_version = '2';
+ルールの正本はリポジトリ直下の`firestore.rules`とし、ドキュメント内に簡略化した許可コードを複製しません。実装では次を必須とします。
 
-service cloud.firestore {
-  match /databases/{database}/documents {
-    function isSignedIn() {
-      return request.auth != null;
-    }
-
-    function isBoardMember(boardId) {
-      return isSignedIn()
-        && request.auth.uid in get(/databases/$(database)/documents/boards/$(boardId)).data.memberUids;
-    }
-
-    function isBoardOwner(boardId) {
-      return isSignedIn()
-        && request.auth.uid == get(/databases/$(database)/documents/boards/$(boardId)).data.ownerUid;
-    }
-
-    match /users/{uid} {
-      allow read, create, update: if isSignedIn() && request.auth.uid == uid;
-      allow delete: if false;
-    }
-
-    match /boards/{boardId} {
-      allow read: if isBoardMember(boardId);
-      allow create: if isSignedIn()
-        && request.resource.data.ownerUid == request.auth.uid
-        && request.auth.uid in request.resource.data.memberUids;
-      allow update: if isBoardMember(boardId);
-      allow delete: if isBoardOwner(boardId);
-
-      match /items/{itemId} {
-        allow read, create, update, delete: if isBoardMember(boardId);
-      }
-
-      match /members/{memberId} {
-        allow read, create, update, delete: if isBoardMember(boardId);
-      }
-    }
-
-    match /invites/{inviteId} {
-      allow read: if isSignedIn()
-        && resource.data.expiresAt > request.time;
-      allow create: if isSignedIn()
-        && isBoardMember(request.resource.data.boardId);
-      allow update: if false;
-      allow delete: if false;
-    }
-  }
-}
-```
+- boardはUUID v4を使い、作成者本人だけを最初の所有者・メンバーとして作成する
+- boardの所有者・メンバー配列・Plus状態を通常のクライアント更新から保護する
+- itemsとmanaged membersの作成・削除はCallable Functionsだけに許可し、無料プランの50件・3人上限をサーバーで判定する
+- app user memberとプロフィールの同期はCallable Functionsだけに許可する
+- usersのメール・匿名状態はFirebase Authトークンと一致させ、currentBoardIdは本人が所属するboardだけを許可する
+- inviteはUUID v4・7日以内・作成者本人に限定し、個別取得は許可するが一覧取得は拒否する
+- クライアントからのboard削除を拒否し、個人boardの初期化はCallable Functionsで子データを含めて処理する
 
 ### 17.2 Rules テスト要件
 
@@ -898,8 +861,11 @@ Firebase Emulator Suite を使い、最低限以下をテストします。
 - board member は自分の board の items を更新できる
 - board member でないユーザーは items を読めない
 - users/{uid} は本人だけ読める
-- 期限切れ invite は読めない
+- 期限切れ invite は状態表示のため個別取得できるが、一覧取得はできない
 - inviteId を知っていても期限切れなら参加できない
+- クライアントからitems / managed membersを直接作成・削除できない
+- usersのcurrentBoardIdを未所属boardへ変更できない
+- 所有者を含め、クライアントからboardを削除できない
 
 ## 18. アーキテクチャ
 
@@ -1061,8 +1027,11 @@ dev_dependencies:
 - [x] Firestore Security Rules を作成する
 - [x] Firebase Emulator Suite を導入する
 - [x] Security Rules テストを作成する
-- [x] Firebase ConsoleでApp Check本番プロバイダを設定し、Cloud Firestore enforcementを有効化する
+- [x] Firebase ConsoleでApp Check本番プロバイダを設定し、Cloud Firestore / Firebase Authentication enforcementを有効化する
+- [x] Firebase Authenticationのメール列挙保護を有効化し、App Check付きREST `signUp`による匿名アカウント登録を確認する
 - [x] 本番環境で test mode になっていないことを確認する
+- [x] Firebase自動作成APIキーをiOS bundle ID、Android package name・署名SHA-1、Firebase HostingのHTTPリファラーで制限し、利用可能APIも限定する
+- [x] Cloud Billingに月額500円、50%・90%・100%の実額しきい値とメール通知を設定する
 
 ## Phase 3: デザイン基盤
 - [x] AppColors を定義する
@@ -1244,7 +1213,8 @@ Stocky Plusの本番購入処理は RevenueCat を使って MVP で導入しま�
 - [x] Firebase App Check をコード初期化する
 - [x] Firebase Console 側で Android App Check に Play Integrityを設定する
 - [x] Firebase Console で iOS App Check に App Attest とDeviceCheck fallbackを設定する
-- [x] Android / iOSの検証済み通信を確認し、Cloud Firestore enforcementを有効化する
+- [x] Android / iOSの検証済み通信を確認し、Cloud Firestore / Firebase Authentication enforcementを有効化する
+- [x] メール列挙保護とApp Check適用後に、匿名UIDを維持したメール / パスワード登録をAndroid統合テストで確認する
 
 ## Phase 14: テスト
 - [x] Security Rules テストを作る
