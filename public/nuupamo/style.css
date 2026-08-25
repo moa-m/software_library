@@ -224,12 +224,9 @@ main {
     margin-left: auto;
 }
 
-.phone-shot {
+.hero-phone {
     position: absolute;
     width: min(58vw, 320px);
-    border-radius: 34px;
-    box-shadow: var(--shadow);
-    background: var(--paper);
 }
 
 .phone-front {
@@ -636,10 +633,39 @@ main {
     scroll-snap-align: start;
 }
 
-.screen-card img {
+.screen-phone,
+.hero-phone {
+    padding: 7px;
+    overflow: hidden;
+    border: 1px solid #242424;
+    border-radius: 32px;
+    background: linear-gradient(135deg, #4a4a4a, #161616 42%, #363636);
+    box-shadow: 0 18px 30px rgba(72, 57, 52, 0.22);
+}
+
+.screen-phone {
+    position: relative;
+}
+
+.screen-phone::before,
+.hero-phone::before {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    z-index: 1;
+    width: 35%;
+    height: 16px;
+    border-radius: 999px;
+    background: #161616;
+    content: '';
+    transform: translateX(-50%);
+}
+
+.screen-phone img,
+.hero-phone img {
+    display: block;
     width: 100%;
-    border-radius: 26px;
-    box-shadow: var(--shadow);
+    border-radius: 25px;
 }
 
 .screen-card figcaption {
@@ -931,9 +957,8 @@ main {
         min-height: 600px;
     }
 
-    .phone-shot {
+    .hero-phone {
         width: min(62vw, 224px);
-        border-radius: 26px;
     }
 
     .phone-back {
