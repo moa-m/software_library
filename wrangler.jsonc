@@ -2,7 +2,21 @@
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "moa-lab",
     "compatibility_date": "2026-05-17",
+    "main": "src/index.ts",
     "assets": {
         "directory": "./public",
+        "binding": "ASSETS",
+        "run_worker_first": ["/white_goat/migration/*"],
+    },
+    "d1_databases": [
+        {
+            "binding": "MIGRATION_DB",
+            "database_name": "white-goat-migration",
+            "database_id": "af8701ba-a0fb-4fa3-a8ca-4648fc9112db",
+            "migrations_dir": "migrations",
+        },
+    ],
+    "observability": {
+        "enabled": true,
     },
 }

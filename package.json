@@ -1,0 +1,23 @@
+{
+  "name": "moa-lab-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit && tsc --noEmit -p tsconfig.scripts.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "deploy": "wrangler deploy",
+    "d1:migrate": "wrangler d1 migrations apply white-goat-migration --remote",
+    "codes:import": "tsx scripts/import-promo-codes.ts",
+    "codes:inventory": "tsx scripts/check-promo-inventory.ts"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "@cloudflare/workers-types": "^5.20260829.1",
+    "@types/node": "^24.10.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0",
+    "wrangler": "^4.112.0"
+  }
+}
