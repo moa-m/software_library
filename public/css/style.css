@@ -371,6 +371,12 @@ img {
     width: 100%;
 }
 
+.home-page .white-goat-panel .app-actions {
+    position: relative;
+    z-index: 2;
+    margin-top: var(--space-3);
+}
+
 .home-page .app-actions,
 .home-page .contact-links {
     display: flex;
