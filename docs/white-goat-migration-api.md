@@ -25,11 +25,16 @@ NEW_ANDROID_PACKAGE_NAME=com.moalab.whitegoatnotification
 
 ## コード在庫
 
-Android CSVは`code,expires_at`、iOS CSVは`redemption_url,expires_at`をヘッダーにする。
+Android CSVは`code,expires_at`、iOS CSVは`redemption_url,expires_at`をヘッダーにする。Google Play ConsoleのエクスポートCSV（`Promotion code`列のみ）も対応しており、その場合は有効期限を引数で指定する。
 
 ```bash
 PROMO_CODE_ENCRYPTION_KEY='<base64url-32-byte-key>' \
   npm run codes:import -- --platform android --file /secure/path/android-codes.csv
+
+# Google PlayのCSVから初回450件だけを登録する例（日本時間2026年10月31日23:00まで）
+PROMO_CODE_ENCRYPTION_KEY='<base64url-32-byte-key>' \
+  npm run codes:import -- --platform android --file /secure/path/promotion_codes.csv \
+  --expires-at 2026-10-31T14:00:00.000Z --limit 450
 
 PROMO_CODE_LOW_STOCK_THRESHOLD=25 npm run codes:inventory
 ```

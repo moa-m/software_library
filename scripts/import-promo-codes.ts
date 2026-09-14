@@ -31,6 +31,21 @@ function requiredOption(name: string): string {
   return value;
 }
 
+function optionalOption(name: string): string | undefined {
+  const index = process.argv.indexOf(name);
+  const value = index >= 0 ? process.argv[index + 1] : undefined;
+  if (index >= 0 && (!value || value.startsWith('--'))) throw new Error(`${name} requires a value.`);
+  return value;
+}
+
+function optionalPositiveInteger(name: string): number | undefined {
+  const value = optionalOption(name);
+  if (!value) return undefined;
+  const parsed = Number(value);
+  if (!Number.isSafeInteger(parsed) || parsed < 1) throw new Error(`${name} must be a positive integer.`);
+  return parsed;
+}
+
 function parseCsv(raw: string): Array<Record<string, string>> {
   const lines = raw.split(/\r?\n/).filter((line) => line.trim().length > 0);
   if (lines.length < 2) throw new Error('CSV must include a header and at least one code.');
@@ -57,13 +72,18 @@ async function main(): Promise<void> {
   const platform = requiredOption('--platform') as Platform;
   if (platform !== 'android' && platform !== 'ios') throw new Error('--platform must be android or ios.');
   const file = requiredOption('--file');
+  const defaultExpiresAt = optionalOption('--expires-at');
+  if (defaultExpiresAt && Number.isNaN(Date.parse(defaultExpiresAt))) {
+    throw new Error('--expires-at must be a valid ISO 8601 date/time.');
+  }
+  const limit = optionalPositiveInteger('--limit');
   const key = process.env.PROMO_CODE_ENCRYPTION_KEY;
   if (!key) throw new Error('PROMO_CODE_ENCRYPTION_KEY is required.');
-  const rows = parseCsv(await readFile(file, 'utf8'));
+  const rows = parseCsv(await readFile(file, 'utf8')).slice(0, limit);
   let imported = 0;
   for (const row of rows) {
-    const value = platform === 'android' ? row.code : row.redemption_url;
-    const expiresAt = row.expires_at;
+    const value = platform === 'android' ? (row.code ?? row['Promotion code']) : row.redemption_url;
+    const expiresAt = row.expires_at || defaultExpiresAt;
     if (!value || !expiresAt || Number.isNaN(Date.parse(expiresAt))) throw new Error('Each row needs a valid value and expires_at.');
     if (platform === 'android' && !/^[A-Za-z0-9_-]{4,256}$/.test(value)) throw new Error('Android code format is invalid.');
     if (platform === 'ios') {

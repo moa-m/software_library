@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー | NUUPAMO | Moa Lab.</title>
+    <meta name="description" content="NUUPAMOのプライバシーポリシーです。アプリの機能と情報の取扱い、利用条件をご案内します。">
+    <link rel="canonical" href="https://moa-lab.com/nuupamo/privacy-policy.html">
+    <link rel="icon" type="image/png" href="../images/icon/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/app-policy.css">
+</head>
+<body class="app-policy-page">
+    <header class="container app-policy-header">
+        <a href="./">NUUPAMOの紹介ページへ</a>
+        <a href="../">Moa Lab.</a>
+    </header>
+    <main class="privacy-policy-page" id="main-content">
+        <article class="container privacy-container app-policy-article">
+            <p class="app-policy-name">NUUPAMO</p>
+            <h1 class="section-title">プライバシーポリシー</h1>
+            <p class="app-policy-date">制定日：<time datetime="2026-09-13">2026年9月13日</time></p>
+            <nav class="app-policy-toc" aria-label="目次">
+                <h2>目次</h2>
+                <ol>
+                    <li><a href="#section-1">適用範囲</a></li>
+                    <li><a href="#section-2">アカウントとクラウド保存</a></li>
+                    <li><a href="#section-3">リスト情報と共有範囲</a></li>
+                    <li><a href="#section-4">利用状況の計測</a></li>
+                    <li><a href="#section-5">外部サービスと購入情報</a></li>
+                    <li><a href="#section-6">データ・アカウントの削除</a></li>
+                    <li><a href="#section-7">フィードバック</a></li>
+                    <li><a href="#section-8">情報の管理・第三者提供</a></li>
+                    <li><a href="#section-9">お問い合わせ・開示等の請求</a></li>
+                    <li><a href="#section-10">本ポリシーの変更</a></li>
+                </ol>
+            </nav>
+                <section aria-labelledby="section-1">
+                    <h2 id="section-1">1. 適用範囲</h2>
+                    <p>Moa Lab（以下「当方」）が提供するNUUPAMO（以下「本アプリ」）における、利用者情報の取扱いを定めます。</p>
+                    <p>在庫と買い物リストを管理し、家族等のメンバーと共有できるアプリです。本ページは本アプリに適用され、Moa Labの他のアプリについては各アプリのポリシー・規約をご確認ください。</p>
+                </section>
+
+                <section aria-labelledby="section-2">
+                    <h2 id="section-2">2. アカウントとクラウド保存</h2>
+                    <p>アカウント登録をせずに使う場合も、Firebaseの匿名認証で内部識別子を発行し、リストをクラウドに保存します。「登録不要」は、端末内だけに保存することや、外部通信がないことを意味しません。</p>
+                    <p>登録時はメールアドレスとパスワードをFirebase Authenticationで処理し、内部識別子、表示名、選択したアバターや背景色等を管理します。認証と不正利用防止のため、IPアドレス等の接続情報も外部サービスで処理されます。</p>
+                </section>
+
+                <section aria-labelledby="section-3">
+                    <h2 id="section-3">3. リスト情報と共有範囲</h2>
+                    <p>在庫・買い物アイテムの名前、分類、アイコン、状態、担当者、お気に入り、並び順、更新日時、買い物リストへの移動回数、メンバー、招待情報等を保存し、一覧表示・同期・共有に利用します。端末内には見た目設定、選択中リスト、初回設定状態等も保存します。</p>
+                    <p>共有リストのメンバーは、リスト内のアイテムやメンバー情報を閲覧し、アイテムを編集できます。アプリを使わない人を担当者として登録する場合も、その表示名等はメンバーに共有されます。招待リンクの送信先と、登録する他人の情報に注意してください。</p>
+                </section>
+
+                <section aria-labelledby="section-4">
+                    <h2 id="section-4">4. 利用状況の計測</h2>
+                    <p>機能改善と不具合調査のため、起動、初期設定、アイテム操作、共有、登録・ログイン、購入・復元等の操作と失敗を独自に記録します。内部ユーザーID、リストID、セッションID、日時、OS種別、アプリバージョン、件数、操作した画面や導線、エラーコード等をFirestoreへ送信します。送信待ちの記録は端末内にも一時保存します。</p>
+                    <p>アイテム名、メールアドレス、表示名等の自由入力内容を、利用計測の項目として意図的に送信しません。リスト内容のクラウド保存とは別の処理です。</p>
+                </section>
+
+                <section aria-labelledby="section-5">
+                    <h2 id="section-5">5. 外部サービスと購入情報</h2>
+                    <ul><li>Google / Firebase：Authenticationによる認証、Cloud Firestoreによる保存・共有・計測、Cloud Functionsによるサーバー処理、App Checkによる不正利用防止。端末やアプリの正当性の確認にGoogle Play Integrity、Apple App Attest / DeviceCheckを使用します。</li><li>RevenueCat：有料プランの購入状態・更新状態・利用権の管理。Firebaseの内部ユーザーIDを顧客識別子として用い、商品・取引・契約に関する情報を処理します。</li><li>Apple / Google：ストア決済と定期購入管理。当方がクレジットカード番号を直接取得することはありません。</li></ul>
+                    <ul><li><a href="https://policies.google.com/privacy?hl=ja">Googleのプライバシーポリシー</a></li><li><a href="https://firebase.google.com/support/privacy">Firebaseのデータの取扱い</a></li><li><a href="https://www.apple.com/legal/privacy/jp/">Appleのプライバシーポリシー</a></li><li><a href="https://www.revenuecat.com/privacy/">RevenueCatのプライバシーポリシー</a></li></ul>
+                </section>
+
+                <section aria-labelledby="section-6">
+                    <h2 id="section-6">6. データ・アカウントの削除</h2>
+                    <p>設定から、登録済みの場合は「アカウントを削除」、未登録の場合は「この端末のデータをすべて削除」を実行できます。プロフィール、個人リスト、招待、本人のIDに紐づく計測・課金連携記録、認証情報等の削除処理を行います。外部サービスのバックアップ等からの削除完了には、各サービスの処理期間を要することがあります。</p>
+                    <p>他の利用者が残る共有リストとアイテムは、継続利用のために残ります。削除した本人のメンバー表示は「退出したメンバー」に変更し、ユーザーIDとの紐付けを取り除きます。ただし、アイテム名などに利用者自身が記入した情報まで自動で書き換わるものではありません。必要な内容は退会前に確認してください。</p>
+                    <p>アンインストールやログアウトだけではクラウドの情報は削除されません。また、アカウント削除はストアの定期購入を解約する操作ではありません。</p>
+                </section>
+
+                <section aria-labelledby="section-7">
+                    <h2 id="section-7">7. フィードバック</h2>
+                    <p>アプリのフィードバック機能では、アプリバージョン、OSとそのバージョン、端末機種、言語設定等をメール下書きに挿入します。利用者がメールアプリで送信を確定した場合にのみ送信されます。アプリのサポート窓口は<a href="mailto:support@moa-lab.com">support@moa-lab.com</a>です。</p>
+                </section>
+
+                <section aria-labelledby="section-8">
+                    <h2 id="section-8">8. 情報の管理・第三者提供</h2>
+                    <p>当方が取り扱う情報について、アクセス制限など必要かつ適切な安全管理措置を講じます。情報は利用目的の達成に必要な範囲・期間で取り扱い、不要になった情報は遅滞なく削除するよう努めます。法令上保存が必要な情報は、その期間保有します。</p>
+                    <p>利用者の指示による共有、業務に必要な範囲での委託、法令に基づく場合などを除き、本人の同意なく個人データを第三者に提供しません。外部サービスで処理される情報には各事業者の規定も適用され、国外で処理される場合があります。外国にある第三者への提供等について、法令上必要な情報提供・同意取得その他の措置を行います。</p>
+                </section>
+
+                <section aria-labelledby="section-9">
+                    <h2 id="section-9">9. お問い合わせ・開示等の請求</h2>
+                    <p>お問い合わせを送信した場合、送信元メールアドレス、記載内容、任意に添付した資料を、回答・本人確認・不具合調査のために取り扱います。メモや画像など、対応に不要な情報は含めないでください。</p>
+                    <p>当方が保有する本人の情報の開示、訂正、削除、利用停止、安全管理措置等に関する照会は、以下の窓口へご連絡ください。必要な本人確認を行い、法令に従って対応します。当方が取得していない端末内のデータを、当方から閲覧・削除することはできません。</p>
+                    <p>運営者：Moa Lab<br>お問い合わせ：<a href="mailto:info@moa-lab.com">info@moa-lab.com</a></p>
+                </section>
+
+                <section aria-labelledby="section-10">
+                    <h2 id="section-10">10. 本ポリシーの変更</h2>
+                    <p>取扱内容や法令の変更に応じて本ポリシーを改定します。重要な変更は本ページやアプリ内等で案内し、法令上必要な場合は事前の通知や同意取得を行います。</p>
+                    <p>制定日：2026年9月13日</p>
+                </section>
+        </article>
+    </main>
+    <footer class="policy-footer">
+        <div class="container policy-footer-inner">
+            <nav class="policy-footer-links" aria-label="関連ページ">
+                <a href="terms-of-service.html" class="btn-back">NUUPAMOの利用規約</a>
+                <a href="./" class="btn-back">NUUPAMOの紹介ページへ</a>
+                <a href="../commercial-transactions.html" class="btn-back">特定商取引法に基づく表記</a>
+            </nav>
+            <p class="policy-footer-text">© 2026 Moa Lab. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,5 +1,7 @@
 # Repository Guidelines
 
+共通方針: [Web・LP](/Users/moa/Project/html/AGENTS.md)。作業に関連する共通方針を読み、このリポジトリの固有仕様を優先する。
+
 ## Project Structure & Module Organization
 This repository is a static website for Moa Lab products.
 - Root pages: `index.html`, `privacy-policy.html`, `terms-of-service.html`
@@ -13,7 +15,7 @@ Keep new assets in the closest existing category and use relative paths from eac
 No build step is required; files are served as-is.
 - `python3 -m http.server 8000` : run a local static server from repository root.
 - `open http://localhost:8000` : preview locally in a browser (macOS).
-- `find . -name '*.html'` : quickly list pages to smoke-test after edits.
+- `rg --files -g '*.html'`: list pages when the affected page set is unclear.
 
 ## Coding Style & Naming Conventions
 - Use 4-space indentation in HTML/CSS/JS (match current files).
@@ -25,28 +27,18 @@ No build step is required; files are served as-is.
 ## Badge Update Rule
 - When adding or changing `NEW` / `UPDATE` badges, always include a date in the badge text.
 - Date format must be `YYYY/MM/DD` (for example, `2026/03/04`).
-- If a badge update is requested without a date, ask for the date before making edits.
+- Resolve the badge date from the request or existing release information. Ask only if the intended date cannot be determined; do not invent a release date.
 
 ## Testing Guidelines
-There is currently no automated test framework in this repository. Use manual checks for every change:
+There is currently no automated test framework in this repository. Select relevant manual checks based on the change; use mobile and desktop checks for layout changes:
 - Verify desktop and mobile layouts on edited pages.
 - Confirm key links (Google Play, LINE, policy pages, back navigation).
 - Confirm animations/loaders still run without console errors.
 - Validate updated images load and paths resolve from each HTML file.
 
 ## Commit & Pull Request Guidelines
-Recent commits follow concise, emoji-prefixed messages (often Japanese), such as:
-- `✨LPの追加`
-- `💄アニメーションの追加、画像の変更`
-
-Follow this pattern: `<emoji><short summary>` focused on one change set.
-
-For PRs, include:
-- What changed and why
-- Affected pages/paths
-- Before/after screenshots (desktop + mobile) for UI changes
-- Manual test steps and results
-- Linked issue/task if available
+Use `gitmoji-commit`: one emoji, a space, and a concise Japanese summary.
+For PRs, describe the change, affected pages and relevant validation. Add before/after screenshots for material UI changes.
 
 ## Security & Configuration Tips
 - Do not commit secrets or API keys.
