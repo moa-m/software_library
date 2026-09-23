@@ -9,7 +9,7 @@ export interface Env {
   NEW_ANDROID_PACKAGE_NAME?: string;
 }
 
-export type Platform = 'android' | 'ios';
+export type Platform = 'android';
 
 export interface PromoCodeRow {
   id: string;

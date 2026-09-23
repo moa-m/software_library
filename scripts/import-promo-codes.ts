@@ -4,7 +4,7 @@ import { randomUUID, webcrypto } from 'node:crypto';
 
 const encoder = new TextEncoder();
 
-type Platform = 'android' | 'ios';
+type Platform = 'android';
 
 function base64Url(value: Uint8Array): string {
   return Buffer.from(value).toString('base64url');
@@ -70,7 +70,7 @@ function runWrangler(sql: string): Promise<void> {
 
 async function main(): Promise<void> {
   const platform = requiredOption('--platform') as Platform;
-  if (platform !== 'android' && platform !== 'ios') throw new Error('--platform must be android or ios.');
+  if (platform !== 'android') throw new Error('--platform must be android.');
   const file = requiredOption('--file');
   const defaultExpiresAt = optionalOption('--expires-at');
   if (defaultExpiresAt && Number.isNaN(Date.parse(defaultExpiresAt))) {
@@ -82,14 +82,10 @@ async function main(): Promise<void> {
   const rows = parseCsv(await readFile(file, 'utf8')).slice(0, limit);
   let imported = 0;
   for (const row of rows) {
-    const value = platform === 'android' ? (row.code ?? row['Promotion code']) : row.redemption_url;
+    const value = row.code ?? row['Promotion code'];
     const expiresAt = row.expires_at || defaultExpiresAt;
     if (!value || !expiresAt || Number.isNaN(Date.parse(expiresAt))) throw new Error('Each row needs a valid value and expires_at.');
-    if (platform === 'android' && !/^[A-Za-z0-9_-]{4,256}$/.test(value)) throw new Error('Android code format is invalid.');
-    if (platform === 'ios') {
-      const url = new URL(value);
-      if (url.protocol !== 'https:' || url.hostname !== 'apps.apple.com') throw new Error('iOS redemption_url must be an apps.apple.com HTTPS URL.');
-    }
+    if (!/^[A-Za-z0-9_-]{4,256}$/.test(value)) throw new Error('Android code format is invalid.');
     const encrypted = await encrypt(value, key);
     const hash = base64Url(new Uint8Array(await webcrypto.subtle.digest('SHA-256', encoder.encode(value))));
     const sql = `INSERT INTO promo_codes (id, platform, product_id, value_ciphertext, value_iv, value_hash, expires_at, created_at) VALUES ('${randomUUID()}', '${platform}', 'full_unlock', '${encrypted.ciphertext}', '${encrypted.iv}', '${hash}', '${expiresAt.replaceAll("'", "''")}', '${new Date().toISOString()}');`;

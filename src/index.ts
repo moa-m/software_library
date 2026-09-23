@@ -161,15 +161,6 @@ async function handleIssue(request: Request, env: Env): Promise<Response> {
     ).bind(nowIso(), migration.id).run();
   }
 
-  if (platform === 'ios') {
-    const code = await findCodeForMigration(env, migration.id);
-    if (!code) throw new Error('Migration code is missing.');
-    const redemptionUrl = await decryptValue(code.value_ciphertext, code.value_iv, env.PROMO_CODE_ENCRYPTION_KEY);
-    const uri = new URL(redemptionUrl);
-    if (uri.protocol !== 'https:' || uri.hostname !== 'apps.apple.com') throw new Error('Invalid iOS redemption URL.');
-    return response({ status: 'issued', redemption_url: redemptionUrl });
-  }
-
   const issuedToken = await issueAndroidToken(env, migration);
   const newPackage = env.NEW_ANDROID_PACKAGE_NAME ?? 'com.moalab.whitegoatnotification';
   const referrer = encodeURIComponent(`migration_token=${issuedToken.token}`);

@@ -25,7 +25,7 @@ NEW_ANDROID_PACKAGE_NAME=com.moalab.whitegoatnotification
 
 ## コード在庫
 
-Android CSVは`code,expires_at`、iOS CSVは`redemption_url,expires_at`をヘッダーにする。Google Play ConsoleのエクスポートCSV（`Promotion code`列のみ）も対応しており、その場合は有効期限を引数で指定する。
+Android CSVは`code,expires_at`をヘッダーにする。Google Play ConsoleのエクスポートCSV（`Promotion code`列のみ）も対応しており、その場合は有効期限を引数で指定する。iOS用コードとApp Store引き換えURLは取り込まない。
 
 ```bash
 PROMO_CODE_ENCRYPTION_KEY='<base64url-32-byte-key>' \
@@ -51,3 +51,11 @@ npm run deploy
 ```
 
 本番配備後は、旧アプリをUnpublishedにして新規取得を停止してから、移行対応版を段階公開する。
+
+## API契約
+
+`POST /v1/migration/issue`の`target_platform`は`android`だけを受理する。同じ`request_id`では割り当て済みのGoogle Playプロモーションコードを再利用し、15分間有効な`migration_token`だけを更新する。レスポンスは`status`、`migration_token`、`target_install_url`、`expires_at`を返す。
+
+`POST /v1/migration/redeem`は有効な`migration_token`に対して、割り当て済みコードの同じ`play.google.com`引き換えURLを返す。1回限りなのは無料解除権とプロモーションコードであり、通信の試行回数ではない。
+
+既存D1にiOS用行が存在しても削除せず、新規発行・在庫取込の対象外として保持する。

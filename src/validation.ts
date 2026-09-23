@@ -4,7 +4,7 @@ import type { Env, IntegrityVerdict, Platform } from './types';
 const maxIntegrityAgeMillis = 2 * 60 * 1000;
 
 export function isPlatform(value: unknown): value is Platform {
-  return value === 'android' || value === 'ios';
+  return value === 'android';
 }
 
 export function isRequestId(value: unknown): value is string {

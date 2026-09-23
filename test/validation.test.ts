@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { assertEligibleVerdict, isMigrationToken, isRequestId } from '../src/validation';
+import { assertEligibleVerdict, isMigrationToken, isPlatform, isRequestId } from '../src/validation';
 import type { Env, IntegrityVerdict } from '../src/types';
 
 const env = {
@@ -36,6 +36,8 @@ describe('migration validation', () => {
   });
 
   it('validates opaque IDs without accepting user-entered values', () => {
+    expect(isPlatform('android')).toBe(true);
+    expect(isPlatform('ios')).toBe(false);
     expect(isRequestId('A'.repeat(22))).toBe(true);
     expect(isRequestId('short')).toBe(false);
     expect(isMigrationToken('B'.repeat(16))).toBe(true);

@@ -15,13 +15,10 @@ describe('migration crypto', () => {
     expect(randomToken()).toMatch(/^[A-Za-z0-9_-]{43}$/);
   });
 
-  it('binds a request hash to its platform and request ID', async () => {
+  it('binds a request hash to the Android platform and request ID', async () => {
     const requestId = 'A'.repeat(22);
     await expect(requestHashFor(requestId, 'android')).resolves.toBe(
       await sha256Base64Url(`v1/migration/issue\n${requestId}\nandroid`),
-    );
-    await expect(requestHashFor(requestId, 'ios')).not.resolves.toBe(
-      await requestHashFor(requestId, 'android'),
     );
   });
 });
