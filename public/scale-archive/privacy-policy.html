@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー | Scale Archive | Moa Lab.</title>
+    <meta name="description" content="Scale Archiveで扱う飼育記録、ログイン情報、クラウドバックアップ、購入状態と削除方法をご案内します。">
+    <link rel="canonical" href="https://moa-lab.com/scale-archive/privacy-policy.html">
+    <link rel="icon" type="image/png" href="../images/icon/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/app-policy.css">
+</head>
+<body class="app-policy-page">
+    <header class="container app-policy-header">
+        <a href="../">Moa Lab. トップページへ</a>
+    </header>
+    <main class="privacy-policy-page" id="main-content">
+        <article class="container privacy-container app-policy-article">
+            <p class="app-policy-name">Scale Archive / Moa Lab.</p>
+            <h1 class="section-title">プライバシーポリシー</h1>
+            <p class="app-policy-date">制定日：<time datetime="2026-09-30">2026年9月30日</time></p>
+            <section aria-labelledby="scope">
+                <h2 id="scope">1. 対象</h2>
+                <p>Moa Lab（以下「当方」）が提供するScale Archive（以下「本アプリ」）で取り扱う情報について定めます。本アプリは、爬虫類の個体情報と飼育記録を保存・閲覧するアプリです。</p>
+            </section>
+            <section aria-labelledby="local-data">
+                <h2 id="local-data">2. 端末内の情報</h2>
+                <p>個体情報、給餌・脱皮・排せつ・通院・身体測定等の記録、選択した写真は端末内に保存します。言語、週の始まり、テーマカラー等の設定も端末内に保存します。ログインやPlus契約がなくても基本機能を利用できます。</p>
+                <p>写真ファイルはクラウドバックアップへ送信しません。バックアップを復元した後、利用者が端末内の写真を選択すると、照合情報を使って記録へ再接続できます。</p>
+            </section>
+            <section aria-labelledby="account-backup">
+                <h2 id="account-backup">3. アカウントとクラウドバックアップ</h2>
+                <p>GoogleまたはAppleでログインすると、Firebase Authenticationでアカウントを識別します。ログイン方法に応じて内部ユーザーID、メールアドレス、表示名等が処理されます。認証や不正利用防止のため、接続情報等が各サービスで処理される場合があります。</p>
+                <p>Plus利用者がクラウドバックアップを作成すると、個体・飼育記録のデータベースと写真の照合情報を、Firebase Storageに内部ユーザーIDごとに最新1件保存します。クラウドバックアップは端末から書き出すパスワード暗号化ファイルとは別で、エンドツーエンド暗号化は実装していません。Plus失効後も、同じアカウントでログインすれば既存バックアップを復元できます。新たな保存・上書きはPlus契約が必要です。</p>
+            </section>
+            <section aria-labelledby="subscription">
+                <h2 id="subscription">4. 購入状態</h2>
+                <p>RevenueCatでPlusの購入状態と有効期限を管理します。Firebaseの内部ユーザーIDを顧客識別子として使い、商品・取引・契約状態を処理します。購入と定期購入の管理はApp StoreまたはGoogle Playで行われ、当方がクレジットカード番号を直接取得することはありません。</p>
+            </section>
+            <section aria-labelledby="third-parties">
+                <h2 id="third-parties">5. 利用する外部サービス</h2>
+                <ul>
+                    <li>Google / Firebase：認証、クラウドバックアップ、削除処理</li>
+                    <li>RevenueCat：Plus契約の状態確認</li>
+                    <li>Apple / Google：ログイン、アプリストアでの決済と定期購入</li>
+                </ul>
+                <p><a href="https://firebase.google.com/support/privacy">Firebaseのデータの取扱い</a>、<a href="https://www.revenuecat.com/privacy/">RevenueCatのプライバシーポリシー</a>、<a href="https://policies.google.com/privacy?hl=ja">Googleのプライバシーポリシー</a>、<a href="https://www.apple.com/legal/privacy/jp/">Appleのプライバシーポリシー</a>もご確認ください。</p>
+            </section>
+            <section aria-labelledby="deletion">
+                <h2 id="deletion">6. 削除と保持期間</h2>
+                <p>アプリの「設定」→「クラウドバックアップ」から退会できます。アプリを使えない場合は<a href="account-deletion.html">アカウント削除の案内</a>からメールで依頼できます。本人確認後、Firebase認証アカウント、クラウドバックアップ、RevenueCat顧客データの削除処理を通常24時間以内に完了します。ログアウトやアプリのアンインストールだけではクラウドデータは削除されません。</p>
+                <p>削除したStorageバックアップの復旧用コピーはsoft deleteにより最大7日間保持されます。削除処理の監査として、削除イベントID・時刻・成否だけを30日間記録します。バックアップ内容や飼育記録は監査ログに保存しません。法令上保存が必要な情報がある場合は、その目的と期間に限って保持します。</p>
+                <p>端末内のデータは退会後も残ります。当方が端末内の個体・記録・写真を遠隔で閲覧・削除することはできません。退会してもアプリストアの定期購入は自動解約されないため、契約中の場合はストアで別途解約してください。</p>
+            </section>
+            <section aria-labelledby="contact">
+                <h2 id="contact">7. お問い合わせ</h2>
+                <p>お問い合わせや削除依頼のメールでは、送信元アドレス、本文、任意の添付資料を回答・本人確認・対応のために扱います。不要な飼育記録や写真、パスワード、認証コードを送らないでください。メール事業者で処理された情報には、同事業者の保存・削除の仕組みが適用されます。</p>
+                <p>運営者：Moa Lab<br>お問い合わせ：<a href="mailto:info@moa-lab.com">info@moa-lab.com</a></p>
+            </section>
+            <section aria-labelledby="changes">
+                <h2 id="changes">8. 変更</h2>
+                <p>取扱内容や法令の変更に応じて本ポリシーを改定し、重要な変更は本ページまたはアプリ内で案内します。</p>
+            </section>
+        </article>
+    </main>
+    <footer class="policy-footer">
+        <div class="container policy-footer-inner">
+            <nav class="policy-footer-links" aria-label="関連ページ">
+                <a href="account-deletion.html" class="btn-back">アカウント削除の案内</a>
+                <a href="../" class="btn-back">Moa Lab. トップページへ</a>
+            </nav>
+            <p class="policy-footer-text">© 2026 Moa Lab. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
