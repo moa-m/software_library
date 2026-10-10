@@ -32,7 +32,20 @@ main { width: min(100%, 480px); margin: 0 auto; overflow: clip; background: var(
 .section-shell { width: min(100% - 32px, 432px); margin: 0 auto; }
 .eyebrow { margin-bottom: var(--space-1); font-size: 12px; font-weight: 900; letter-spacing: 0.14em; }
 .section-title h2, .settings-copy h2 { margin-bottom: 0; font-size: 32px; line-height: 1.36; letter-spacing: -0.04em; }
-.status-label, .status-badge { display: inline-flex; align-items: center; min-height: 32px; padding: 4px 16px; border: 1px solid var(--ink); border-radius: 999px; background: var(--yellow); font-size: 12px; font-weight: 900; letter-spacing: 0.04em; }
+.store-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    vertical-align: top;
+}
+.store-link img {
+    width: auto;
+    height: 48px;
+}
+.hero-heading > .store-link {
+    margin-left: var(--space-2);
+}
 
 .hero { position: relative; min-height: 0; padding: var(--space-3) var(--space-2) var(--space-6); background: linear-gradient(180deg, #fff5c8 0%, #ffdfe5 100%); }
 .corner-copy { position: absolute; top: 188px; right: -76px; margin: 0; color: rgba(41, 35, 34, 0.14); font-size: 12px; font-weight: 900; letter-spacing: 0.14em; transform: rotate(90deg); }
@@ -124,7 +137,6 @@ main { width: min(100%, 480px); margin: 0 auto; overflow: clip; background: var(
 .final-inner h2 { margin-bottom: var(--space-2); font-size: 32px; line-height: 1.35; letter-spacing: -0.04em; }
 .final-inner > p { margin-bottom: var(--space-4); font-size: 14px; font-weight: 700; }
 .final-inner .eyebrow { color: var(--yellow); }
-.status-badge-dark { background: var(--ink); color: var(--cream); }
 
 .footer { width: min(100% - 32px, 480px); margin: var(--space-4) auto 0; padding: var(--space-5) var(--space-2) calc(var(--space-6) + var(--space-2)); border: 2px solid var(--ink); border-radius: var(--radius-3); color: var(--cream); background: var(--ink); text-align: center; }
 .footer-brand { display: inline-block; margin-bottom: var(--space-2); font-size: 20px; font-weight: 700; }

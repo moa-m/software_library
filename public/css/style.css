@@ -372,6 +372,7 @@ img {
 .home-page .contact-links {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--space-1);
 }
 
@@ -471,6 +472,15 @@ img {
 
 .home-page .store-link img {
     width: 160px;
+}
+
+.home-page .store-link-app-store {
+    padding: 12px;
+}
+
+.home-page .store-link-app-store img {
+    width: auto;
+    height: 48px;
 }
 
 .home-page .scene-section,
