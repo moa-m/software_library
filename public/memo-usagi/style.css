@@ -306,6 +306,23 @@ p {
     font-weight: 900;
     line-height: 1.18;
     letter-spacing: 0;
+    text-wrap: balance;
+}
+
+.intro-section .section-copy h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+}
+
+.screens-section .section-copy h2 {
+    font-size: clamp(1.65rem, 3.2vw, 2.75rem);
+}
+
+/* 語句の途中で分断せず、文字拡大時は語句内でも折り返せるようにする。 */
+.copy-chunk {
+    display: inline-block;
+    max-inline-size: 100%;
+    vertical-align: top;
+    text-wrap: balance;
 }
 
 .title-line {
@@ -320,6 +337,7 @@ p {
     margin-bottom: 0;
     color: var(--cocoa-soft);
     font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+    text-wrap: pretty;
 }
 
 .wide-visual {
@@ -337,7 +355,7 @@ p {
     filter: drop-shadow(0 14px 18px rgba(82, 46, 45, 0.14));
 }
 
-.intro-bunny {
+.screens-bunny {
     right: clamp(0.7rem, 3vw, 2.4rem);
     bottom: -1.2rem;
     width: clamp(96px, 13vw, 150px);
@@ -388,6 +406,7 @@ p {
     font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
     font-size: 1.04rem;
     font-weight: 900;
+    text-wrap: balance;
 }
 
 .step-item h3 {
@@ -422,9 +441,16 @@ p {
     margin-bottom: 0;
     color: var(--cocoa-soft);
     font-size: 0.94rem;
+    text-wrap: pretty;
+}
+
+.step-item p,
+.download-section .section-copy p {
+    text-wrap: balance;
 }
 
 .screens-section {
+    padding-bottom: 10rem;
     display: grid;
     grid-template-columns: minmax(0, 0.76fr) minmax(320px, 1.24fr);
     gap: clamp(2rem, 5vw, 4.5rem);
@@ -459,7 +485,7 @@ p {
     color: var(--pink-deep);
     font-size: 0.76rem;
     font-weight: 900;
-    white-space: nowrap;
+    text-wrap: balance;
     text-align: center;
 }
 
@@ -519,6 +545,7 @@ p {
     cursor: pointer;
     padding: 1.05rem 1.2rem;
     font-weight: 900;
+    text-wrap: balance;
 }
 
 .faq-item p {
@@ -576,12 +603,15 @@ p {
 .footer-links a {
     color: rgba(255, 250, 241, 0.78);
     font-size: 0.9rem;
+    max-inline-size: 100%;
+    text-wrap: balance;
 }
 
 .copyright {
     margin-bottom: 0;
     color: rgba(255, 250, 241, 0.58);
     font-size: 0.8rem;
+    text-wrap: balance;
 }
 
 .fade-in {
@@ -595,11 +625,11 @@ p {
     transform: translateY(0);
 }
 
-.intro-bunny.fade-in {
+.screens-bunny.fade-in {
     transform: translateY(22px) scaleX(-1) rotate(-8deg);
 }
 
-.intro-bunny.fade-in.is-visible {
+.screens-bunny.fade-in.is-visible {
     transform: translateY(0) scaleX(-1) rotate(-8deg);
 }
 
@@ -633,7 +663,7 @@ p {
         margin-inline: auto;
     }
 
-    .intro-bunny {
+    .screens-bunny {
         right: 1rem;
         width: 112px;
     }
@@ -712,7 +742,7 @@ p {
         min-height: 460px;
     }
 
-    .intro-bunny {
+    .screens-bunny {
         opacity: 0.55;
     }
 }
