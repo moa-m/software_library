@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
+import { base64UrlEncode } from '../src/crypto';
 import { assertEligibleVerdict, isMigrationToken, isPlatform, isRequestId } from '../src/validation';
 import type { Env, IntegrityVerdict } from '../src/types';
 
 const env = {
-  LEGACY_CERTIFICATE_SHA256: 'certificate',
+  LEGACY_CERTIFICATE_SHA256: Array(32).fill('11').join(':'),
   LEGACY_MIN_VERSION_CODE: '32',
   LEGACY_PACKAGE_NAME: 'moa.more.wiser.instant_notification',
 } as Env;
@@ -15,7 +16,7 @@ function validVerdict(): IntegrityVerdict {
     timestampMillis: Date.now(),
     appRecognitionVerdict: 'PLAY_RECOGNIZED',
     packageName: 'moa.more.wiser.instant_notification',
-    certificateSha256Digest: ['certificate'],
+    certificateSha256Digest: [base64UrlEncode(new Uint8Array(32).fill(0x11))],
     versionCode: 32,
     appLicensingVerdict: 'LICENSED',
     deviceRecognitionVerdicts: ['MEETS_DEVICE_INTEGRITY'],

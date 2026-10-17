@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { encryptValue, sha256Base64Url } from '../src/crypto';
+import { base64UrlEncode, encryptValue, sha256Base64Url } from '../src/crypto';
 import { requestHashFor } from '../src/validation';
 import type { Env, IntegrityVerdict, MigrationRow, PromoCodeRow } from '../src/types';
 
@@ -97,7 +97,7 @@ function env(database: FakeMigrationDatabase): Env {
     ASSETS: {} as Fetcher,
     GOOGLE_SERVICE_ACCOUNT_JSON: '{}',
     PROMO_CODE_ENCRYPTION_KEY: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
-    LEGACY_CERTIFICATE_SHA256: 'certificate',
+    LEGACY_CERTIFICATE_SHA256: Array(32).fill('11').join(':'),
     LEGACY_MIN_VERSION_CODE: '32',
     LEGACY_PACKAGE_NAME: 'moa.more.wiser.instant_notification',
     NEW_ANDROID_PACKAGE_NAME: 'com.moalab.whitegoatnotification',
@@ -131,7 +131,7 @@ async function integrityVerdict(requestId: string, recalled = false): Promise<In
     timestampMillis: Date.now(),
     appRecognitionVerdict: 'PLAY_RECOGNIZED',
     packageName: 'moa.more.wiser.instant_notification',
-    certificateSha256Digest: ['certificate'],
+    certificateSha256Digest: [base64UrlEncode(new Uint8Array(32).fill(0x11))],
     versionCode: 32,
     appLicensingVerdict: 'LICENSED',
     deviceRecognitionVerdicts: ['MEETS_DEVICE_INTEGRITY'],

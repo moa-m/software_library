@@ -7,6 +7,8 @@ export interface Env {
   LEGACY_MIN_VERSION_CODE: string;
   LEGACY_PACKAGE_NAME?: string;
   NEW_ANDROID_PACKAGE_NAME?: string;
+  REVIEW_ACCESS_CODE_SHA256?: string;
+  LEGACY_PROMO_ISSUANCE_ENABLED?: string;
 }
 
 export type Platform = 'android';

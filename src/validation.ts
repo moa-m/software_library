@@ -1,4 +1,5 @@
 import { sha256Base64Url } from './crypto';
+import { matchesCertificateDigest } from './certificate';
 import type { Env, IntegrityVerdict, Platform } from './types';
 
 const maxIntegrityAgeMillis = 2 * 60 * 1000;
@@ -36,7 +37,7 @@ export function assertEligibleVerdict(
     Math.abs(now - verdict.timestampMillis) > maxIntegrityAgeMillis ||
     verdict.appRecognitionVerdict !== 'PLAY_RECOGNIZED' ||
     verdict.packageName !== expectedPackage ||
-    !verdict.certificateSha256Digest.includes(expectedCertificate) ||
+    !matchesCertificateDigest(verdict.certificateSha256Digest, expectedCertificate) ||
     !Number.isFinite(verdict.versionCode) || verdict.versionCode < minimumVersion ||
     verdict.appLicensingVerdict !== 'LICENSED' ||
     !verdict.deviceRecognitionVerdicts.includes('MEETS_DEVICE_INTEGRITY') ||

@@ -18,6 +18,15 @@ const jsonHeaders = {
 const productId = 'full_unlock';
 const tokenLifetimeMillis = 15 * 60 * 1000;
 
+function sameHash(left: string, right: string): boolean {
+  if (left.length !== 43 || right.length !== 43) return false;
+  let difference = 0;
+  for (let index = 0; index < 43; index++) {
+    difference |= left.charCodeAt(index) ^ right.charCodeAt(index);
+  }
+  return difference === 0;
+}
+
 class ApiError extends Error {
   constructor(readonly code: string, readonly status: number) {
     super(code);
@@ -57,7 +66,7 @@ function nowIso(): string {
   return new Date().toISOString();
 }
 
-function isCodeExpired(code: PromoCodeRow): boolean {
+function isCodeExpired(code: Pick<PromoCodeRow, 'expires_at'>): boolean {
   return Number.isNaN(Date.parse(code.expires_at)) || Date.parse(code.expires_at) <= Date.now();
 }
 
@@ -133,6 +142,9 @@ async function issueAndroidToken(env: Env, migration: MigrationRow): Promise<{ t
 }
 
 async function handleIssue(request: Request, env: Env): Promise<Response> {
+  if (env.LEGACY_PROMO_ISSUANCE_ENABLED === 'false') {
+    throw new ApiError('promotion_ended', 410);
+  }
   const body = await readJson(request);
   const integrityToken = body.integrity_token;
   const platform = body.target_platform;
@@ -193,6 +205,33 @@ async function handleRedeem(request: Request, env: Env): Promise<Response> {
   return response({ redemption_url: `https://play.google.com/redeem?code=${encodeURIComponent(promoCode)}` });
 }
 
+async function handleReviewAccess(request: Request, env: Env): Promise<Response> {
+  const body = await readJson(request);
+  const code = body.access_code;
+  if (typeof code !== 'string' || !/^[A-Za-z0-9_-]{4,256}$/.test(code)) {
+    throw new ApiError('invalid_code', 403);
+  }
+  const actualHash = await sha256Base64Url(code);
+  const expectedHash = env.REVIEW_ACCESS_CODE_SHA256;
+  const reviewConfigured = typeof expectedHash === 'string' && /^[A-Za-z0-9_-]{43}$/.test(expectedHash);
+  if (reviewConfigured && sameHash(actualHash, expectedHash)) {
+    // 審査アクセスはコード在庫を消費せず、購入権利も発行しない。
+    return new Response(null, { status: 204, headers: jsonHeaders });
+  }
+
+  const promo = await env.MIGRATION_DB.prepare(
+    `SELECT expires_at FROM promo_codes
+     WHERE value_hash = ? AND platform = 'android' AND product_id = ? AND status = 'assigned'
+     LIMIT 1`,
+  ).bind(actualHash, productId).first<Pick<PromoCodeRow, 'expires_at'>>();
+  if (promo && !isCodeExpired(promo)) {
+    // 通常コードはGoogle Playで引き換えた後、アプリが購入情報を確認して解除する。
+    return response({ redemption_url: `https://play.google.com/redeem?code=${encodeURIComponent(code)}` });
+  }
+  if (!reviewConfigured) throw new ApiError('temporarily_unavailable', 503);
+  throw new ApiError('invalid_code', 403);
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -204,6 +243,13 @@ export default {
       if (url.pathname === `${apiPrefix}redeem`) {
         if (request.method !== 'POST') return response({ error: 'invalid_request' }, 405);
         return await handleRedeem(request, env);
+      }
+      if (url.pathname === '/white_goat/migration/v1/review/access') {
+        if (request.method !== 'POST') return response({ error: 'invalid_request' }, 405);
+        return await handleReviewAccess(request, env);
+      }
+      if (url.pathname === '/white_goat/migration/v1/campaign/entitlement') {
+        return response({ error: 'endpoint_retired' }, 410);
       }
       return env.ASSETS.fetch(request);
     } catch (error) {
