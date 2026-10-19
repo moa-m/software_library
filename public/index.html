@@ -7,194 +7,145 @@
         <link rel="icon" type="image/png" sizes="192x192" href="images/icon/icon-192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="images/icon/icon-512.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Moa Lab. | 何度も使う、便利なアプリ</title>
+        <title>Moa Lab. | メモを残す。通知で見る。</title>
         <meta
             name="description"
-            content="Moa Lab.は、NUUPAMO、白ヤギ通知、メモうさぎなど、スマホでよく起きる小さな不満解消に向けたアプリを制作しています。"
+            content="短いメモをその場で通知にする「白ヤギ通知」と、買い物メモや日記を色で分けて残せる「メモうさぎ」。Moa Lab.のiOS・Androidアプリを紹介します。"
         />
         <link rel="canonical" href="https://moa-lab.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:site_name" content="Moa Lab." />
-        <meta property="og:title" content="Moa Lab. | 何度も使う、便利なアプリ" />
+        <meta property="og:title" content="Moa Lab. | メモを残す。通知で見る。" />
         <meta
             property="og:description"
-            content="NUUPAMO、白ヤギ通知、メモうさぎ。Moa Lab.のアプリを紹介します。"
+            content="短いメモをその場で通知にする白ヤギ通知。買い物メモや日記を色で分けて残せるメモうさぎ。"
         />
         <meta property="og:url" content="https://moa-lab.com/" />
         <meta property="og:image" content="https://moa-lab.com/images/top-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Moa Lab. | 何度も使う、便利なアプリ" />
+        <meta name="twitter:title" content="Moa Lab. | メモを残す。通知で見る。" />
         <meta
             name="twitter:description"
-            content="NUUPAMO、白ヤギ通知、メモうさぎ。Moa Lab.のアプリを紹介します。"
+            content="短いメモをその場で通知にする白ヤギ通知。買い物メモや日記を色で分けて残せるメモうさぎ。"
         />
         <meta name="twitter:image" content="https://moa-lab.com/images/top-image.png" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Nunito:wght@700;800;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
             rel="stylesheet"
         />
 
-        <link rel="stylesheet" href="css/style.css?v=20260915-screenshots-2" />
-        <script src="js/script.js" defer></script>
+        <link rel="stylesheet" href="css/home.css?v=20261019-footer" />
     </head>
     <body class="home-page">
-        <div class="loader" id="loader" aria-hidden="true"></div>
-
-        <div class="site-frame">
-            <aside class="side-space side-space-left" aria-hidden="true">
+        <a class="skip-link" href="#main">本文へスキップ</a>
+        <header class="site-header page-width">
+            <a href="./" class="brand-mark" aria-label="Moa Lab. トップ">
+                <img src="images/icon/icon-192.png" alt="" width="40" height="40" />
                 <span>Moa Lab.</span>
-                <strong>Small apps for daily taps.</strong>
-            </aside>
+            </a>
+            <nav class="site-nav" aria-label="主要ナビゲーション">
+                <a href="#apps">アプリ</a>
+                <a href="#contact">お問い合わせ</a>
+            </nav>
+        </header>
 
-            <main class="phone-mock" aria-label="Moa Lab.サイト">
-                <div class="phone-camera" aria-hidden="true"></div>
-                <div class="phone-screen">
-                    <header class="mock-header">
-                        <a href="./" class="brand-mark" aria-label="Moa Lab. トップ">
-                            <img src="images/icon/icon-192.png" alt="" />
-                            <span>Moa Lab.</span>
+        <main id="main" class="page-width">
+            <section class="intro" aria-labelledby="hero-title">
+                <h1 id="hero-title"><span>メモを残す。</span><span>通知で見る。</span></h1>
+                <p>通知にするメモと、残しておくメモ。</p>
+            </section>
+
+            <section id="apps" class="app-shelf" aria-label="配信中のアプリ">
+                <article class="app-summary" aria-labelledby="goat-title">
+                    <img class="app-icon" src="images/home/white-goat-icon.jpg" alt="" width="64" height="64" />
+                    <div class="app-info">
+                        <h2 id="goat-title">白ヤギ通知</h2>
+                        <p class="platform">iOSで配信中</p>
+                        <p class="app-description">短いメモを、その場で通知に。</p>
+                        <div class="app-actions">
+                            <a class="store-link" href="https://apps.apple.com/jp/app/id6801238828" target="_blank" rel="noopener noreferrer" aria-label="白ヤギ通知をApp Storeで見る（新しいタブ）">
+                                <img src="images/app-store-badge-black-ja.svg" alt="App Storeからダウンロード" width="131" height="48" />
+                            </a>
+                            <a class="text-link" href="white_goat_notification/" aria-label="白ヤギ通知を詳しく見る">詳しく見る</a>
+                        </div>
+                        <p class="availability-note">Android版は公開準備中です。</p>
+                    </div>
+                </article>
+                <article class="app-summary" aria-labelledby="rabbit-title">
+                    <img class="app-icon" src="images/memo_usagi/icon.png" alt="" width="64" height="64" />
+                    <div class="app-info">
+                        <h2 id="rabbit-title">メモうさぎ</h2>
+                        <p class="platform">Androidで配信中</p>
+                        <p class="app-description">買い物メモも、日記も。<br />色で分けて、あとから見返す。</p>
+                        <div class="app-actions">
+                            <a class="store-link store-link-google" href="https://play.google.com/store/apps/details?id=moa.more.wiser.memo_usagi" target="_blank" rel="noopener noreferrer" aria-label="メモうさぎをGoogle Playで見る（新しいタブ）">
+                                <img src="images/google-play-badge.png" alt="Google Playで手に入れよう" width="157" height="61" />
+                            </a>
+                            <a class="text-link" href="memo-usagi/" aria-label="メモうさぎを詳しく見る">詳しく見る</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="screens-section" aria-labelledby="screens-title">
+                <div class="section-heading">
+                    <p class="eyebrow">APP SCREENS</p>
+                    <h2 id="screens-title">画面で見る、使い方。</h2>
+                </div>
+                <div class="screens-grid">
+                    <figure class="app-preview">
+                        <a class="screen-link" href="white_goat_notification/" aria-label="白ヤギ通知の画面と機能を見る">
+                            <div class="screen-window">
+                                <img src="images/home/white-goat-screen.jpg" alt="iOSのロック画面に表示された、白ヤギ通知の「シャンプー買う」というメモ" width="295" height="640" loading="lazy" decoding="async" />
+                            </div>
                         </a>
-                        <nav class="site-nav" aria-label="主要ナビゲーション">
-                            <a href="#apps">Apps</a>
-                            <a href="#contact">Info</a>
-                        </nav>
-                    </header>
-
-                    <section class="brand-hero" aria-labelledby="hero-title">
-                        <p class="eyebrow fade-in">iOS / Android Apps</p>
-                        <h1 id="hero-title" class="fade-in">
-                            何度も使う、<br />便利なアプリを。
-                        </h1>
-                        <img
-                            src="images/top-image.png"
-                            alt="Moa Lab.の猫のブランドビジュアル"
-                            class="hero-cat fade-in"
-                        />
-                        <p class="hero-lead fade-in">
-                            買い物、メモ、保存、忘れもの防止。<br />
-                            スマホでよく起きる小さな不満解消に向けた、アプリを作っています。
-                        </p>
-                    </section>
-
-                    <section class="feature-panel stocky-panel" aria-labelledby="stocky-title">
-                        <div class="section-copy fade-in">
-                            <p class="eyebrow">Next App</p>
-                            <h2 id="stocky-title">NUUPAMO</h2>
-                            <p>
-                                買うものをタップで「あるもの」へ。同じ在庫・買い物リストを家族やパートナーと共有できるアプリです。
-                            </p>
-                        </div>
-                        <div class="stocky-phone fade-in" aria-label="NUUPAMOのアプリ画面">
-                            <img src="images/nuupamo/screenshot/SS01.png" alt="NUUPAMOの買うもの一覧画面" />
-                            <img src="images/nuupamo/screenshot/SS02.png" alt="NUUPAMOのあるもの一覧画面" />
-                        </div>
-                        <div class="app-actions fade-in">
-                            <a href="nuupamo/" class="btn-primary">NUUPAMOの詳細を見る</a>
-                            <span class="status-pill">公開準備中</span>
-                        </div>
-                    </section>
-
-                    <section id="apps" class="apps-section" aria-labelledby="apps-title">
-                        <div class="section-copy fade-in">
-                            <p class="eyebrow">Available Now</p>
-                            <h2 id="apps-title">今すぐ使えるアプリ。</h2>
-                        </div>
-
-                        <article class="app-look app-look-white-goat fade-in">
-                            <img src="images/white_goat_notification/feature.png" alt="白ヤギ通知の紹介ビジュアル" width="1024" height="500" loading="lazy" decoding="async" />
-                            <div>
-                                <p class="app-kicker">Memo / iOS</p>
-                                <h3>白ヤギ通知</h3>
-                                <p>白ヤギは短いメモを時間指定なしですぐ通知に。黒ヤギには一時メモを1件残せます。</p>
-                                <div class="app-actions">
-                                    <a
-                                        href="https://apps.apple.com/jp/app/id6801238828"
-                                        class="store-link store-link-app-store"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="白ヤギ通知をApp Storeで見る"
-                                    >
-                                        <img src="images/app-store-badge-black-ja.svg" alt="App Storeからダウンロード" width="109" height="40" />
-                                    </a>
-                                    <a href="white_goat_notification/" class="text-link">詳しく見る</a>
-                                </div>
+                        <figcaption><strong>白ヤギ通知</strong><span>書いたメモを、すぐ通知に。</span></figcaption>
+                    </figure>
+                    <figure class="app-preview">
+                        <a class="screen-link" href="memo-usagi/" aria-label="メモうさぎの画面と機能を見る">
+                            <div class="screen-window screen-window-rabbit">
+                                <img src="images/home/memo-usagi-screen.jpg" alt="メモうさぎの一覧画面。日記や買い物リストを色で分けて表示" width="709" height="1500" loading="lazy" decoding="async" />
                             </div>
-                        </article>
-
-                        <article class="app-look app-look-usagi fade-in">
-                            <img src="images/memo_usagi/feature01.png" alt="メモうさぎの紹介ビジュアル" />
-                            <div>
-                                <p class="app-kicker">Memo / Cute Notes</p>
-                                <h3>メモうさぎ</h3>
-                                <p>買い物リスト、日記、思いつきを、かわいいうさぎと一緒に気軽に残せるメモアプリです。</p>
-                                <div class="app-actions">
-                                    <a
-                                        href="https://play.google.com/store/apps/details?id=moa.more.wiser.memo_usagi"
-                                        class="store-link"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="メモうさぎをGoogle Playで見る"
-                                    >
-                                        <img src="images/google-play-badge.png" alt="Google Play で手に入れよう" />
-                                    </a>
-                                    <a href="memo-usagi/" class="text-link">詳しく見る</a>
-                                </div>
-                            </div>
-                        </article>
-                    </section>
-
-                    <section class="scene-section" aria-labelledby="scene-title">
-                        <div class="section-copy fade-in">
-                            <p class="eyebrow">Choose by Scene</p>
-                            <h2 id="scene-title">使う場面で選ぶ。</h2>
-                        </div>
-                        <div class="scene-list">
-                            <a href="nuupamo/" class="scene-item fade-in">
-                                <span>Stock</span>
-                                <strong>買うものと家にあるものを共有したい</strong>
-                            </a>
-                            <a href="memo-usagi/" class="scene-item fade-in">
-                                <span>Memo</span>
-                                <strong>短いメモを気軽に残したい</strong>
-                            </a>
-                        </div>
-                    </section>
-
-                    <section id="contact" class="about-section" aria-labelledby="about-title">
-                        <div class="section-copy fade-in">
-                            <p class="eyebrow">Moa Lab.</p>
-                            <h2 id="about-title">必要なときだけ、すぐ開けるもの。</h2>
-                            <p>
-                                Moa Lab.は、スマホでよく起きる小さな不満解消に向けたアプリを制作しています。
-                            </p>
-                        </div>
-                        <div class="contact-links">
-                            <a href="https://x.com/moa_lab" target="_blank" rel="noopener noreferrer">X</a>
-                            <a href="mailto:info@moa-lab.com">Mail</a>
-                            <a href="privacy-policy.html">Privacy</a>
-                            <a href="terms-of-service.html">Terms</a>
-                            <a href="commercial-transactions.html">Legal</a>
-                        </div>
-                    </section>
-
-                    <footer class="footer">
-                        <img src="images/top-image.png" alt="" class="footer-cat-icon" />
-                        <p>Copyright © 2026 @Moa Lab. All rights reserved.</p>
-                    </footer>
+                        </a>
+                        <figcaption><strong>メモうさぎ</strong><span>色で見分ける、メモの一覧。</span></figcaption>
+                    </figure>
                 </div>
-            </main>
+            </section>
 
-            <aside class="side-space side-space-right" aria-hidden="true">
-                <span class="scroll-label">scroll</span>
-                <div class="mock-scroll-indicator" data-scroll-indicator>
-                    <span class="scroll-mark" data-scroll-thumb></span>
-                    <span class="scroll-track"></span>
+            <section class="upcoming" aria-labelledby="nuupamo-title">
+                <img class="upcoming-icon" src="images/nuupamo/icon.png" alt="" width="64" height="64" loading="lazy" decoding="async" />
+                <div class="upcoming-copy">
+                    <div class="upcoming-title">
+                        <h2 id="nuupamo-title">NUUPAMO</h2>
+                        <span class="status-label">公開準備中</span>
+                    </div>
+                    <p>買うものと、家にあるものを共有。</p>
                 </div>
-            </aside>
-        </div>
+                <a class="text-link" href="nuupamo/" aria-label="NUUPAMOを詳しく見る">詳しく見る</a>
+            </section>
+        </main>
+
+        <footer id="contact" class="site-footer page-width">
+            <div class="footer-brand">
+                <a class="footer-brand-link" href="./" aria-label="Moa Lab. トップ">
+                    <img class="footer-cat" src="images/home/footer-cat.png" alt="" width="56" height="56" loading="lazy" decoding="async" />
+                    <span>Moa Lab.</span>
+                </a>
+                <p>Small apps for daily taps.</p>
+            </div>
+            <nav class="footer-nav" aria-label="フッターナビゲーション">
+                <a href="#apps">アプリ</a>
+                <a href="mailto:info@moa-lab.com">お問い合わせ</a>
+                <a href="https://x.com/moa_lab" target="_blank" rel="noopener noreferrer">X<span class="visually-hidden">（新しいタブ）</span></a>
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+                <a href="terms-of-service.html">利用規約</a>
+                <a href="commercial-transactions.html">特定商取引法に基づく表記</a>
+            </nav>
+            <p class="copyright">© 2026 Moa Lab.</p>
+        </footer>
     </body>
 </html>
