@@ -2,60 +2,41 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NUUPAMO（ヌーパモ）｜あるものも、買うものも、家族で共有。</title>
+        <meta name="description" content="家にあるものと、これから買うものをタップで移動。NUUPAMOは、ひとりでも家族とでも使えるiPhone・Androidアプリです。買い物メモや担当者も共有できます。50アイテム・自分を含む3メンバーまで無料。" />
+        <link rel="canonical" href="https://moa-lab.com/nuupamo/" />
         <link rel="icon" type="image/png" href="../images/nuupamo/icon.png" />
         <link rel="apple-touch-icon" href="../images/nuupamo/icon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>NUUPAMO | 買うものとあるものを、みんなとひとつに。</title>
-        <meta
-            name="description"
-            content="NUUPAMOは、買うものとあるものをタップで移動し、同じ在庫・買い物リストをみんなと共有できるアプリです。"
-        />
-        <link rel="canonical" href="https://moa-lab.com/nuupamo/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:site_name" content="Moa Lab." />
-        <meta
-            property="og:title"
-            content="NUUPAMO | 買うものとあるものを、みんなとひとつに。"
-        />
-        <meta
-            property="og:description"
-            content="買うものとあるものをタップで移動。同じ在庫・買い物リストをみんなと共有して、買い忘れや在庫確認のすれ違いを減らします。"
-        />
+        <meta property="og:title" content="NUUPAMO｜あるものも、買うものも、家族で共有。" />
+        <meta property="og:description" content="家にあるもの、これから買うものを同じリストで。ひとりでも、iPhoneとAndroidの家族との共有でも使えます。" />
         <meta property="og:url" content="https://moa-lab.com/nuupamo/" />
-        <meta property="og:image" content="https://moa-lab.com/images/nuupamo/screenshot/SS01.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-            name="twitter:title"
-            content="NUUPAMO | 買うものとあるものを、みんなとひとつに。"
-        />
-        <meta
-            name="twitter:description"
-            content="買うものとあるものをタップで移動。同じ在庫・買い物リストをみんなと共有できるNUUPAMO。"
-        />
-        <meta name="twitter:image" content="https://moa-lab.com/images/nuupamo/screenshot/SS01.png" />
+        <meta property="og:image" content="https://moa-lab.com/images/nuupamo/icon.png" />
+        <meta property="og:image:alt" content="NUUPAMOの赤と緑の買い物かごのアプリアイコン" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="NUUPAMO｜あるものも、買うものも、家族で共有。" />
+        <meta name="twitter:description" content="iPhoneとAndroidで、同じ在庫・買い物リストを。" />
+        <meta name="twitter:image" content="https://moa-lab.com/images/nuupamo/icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Nunito:wght@700;800;900&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css?v=20261101-1" />
+        <script src="script.js?v=20261028-1" defer></script>
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "SoftwareApplication",
                 "name": "NUUPAMO",
+                "alternateName": "ヌーパモ",
                 "applicationCategory": "LifestyleApplication",
-                "operatingSystem": "Android, iOS",
-                "description": "NUUPAMOは、買うものとあるものをみんなと同じ在庫・買い物リストで共有できるアプリです。",
+                "operatingSystem": "iOS, Android",
+                "description": "ひとりでも家族とでも使える在庫・買い物リストのアプリ。カードをタップして、あるものと買うものを行き来できます。買い物メモと担当者も共有できます。",
                 "url": "https://moa-lab.com/nuupamo/",
-                "image": "https://moa-lab.com/images/nuupamo/screenshot/SS01.png",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Moa Lab.",
-                    "url": "https://moa-lab.com/"
-                }
+                "image": "https://moa-lab.com/images/nuupamo/icon.png",
+                "publisher": { "@type": "Organization", "name": "Moa Lab.", "url": "https://moa-lab.com/" }
             }
         </script>
         <script type="application/ld+json">
@@ -65,389 +46,209 @@
                 "mainEntity": [
                     {
                         "@type": "Question",
-                        "name": "AndroidとiOSの間でも共有できますか？",
+                        "name": "登録しなくても使えますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "はい。AndroidとiOSの間でも、同じ在庫・買い物リストを共有できます。"
+                            "text": "はい。ひとりで使うなら、アカウントやプロフィールの登録はあとからでも大丈夫です。家族と共有するときは、使う方それぞれの登録が必要です。"
                         }
                     },
                     {
                         "@type": "Question",
-                        "name": "家族以外とも共有できますか？",
+                        "name": "iPhoneとAndroidで共有できますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "はい。パートナー、同居人、職場などで、同じ在庫・買い物リストの「買うもの」と「あるもの」を共有できます。"
+                            "text": "はい。iPhoneとAndroidでも同じリストを使えます。家族に招待リンクかQRコードを送り、参加してもらってください。まだアプリを入れていない方は、インストール後に同じリンクやQRコードをもう一度開いてください。"
                         }
                     },
                     {
                         "@type": "Question",
-                        "name": "1人でも使えますか？",
+                        "name": "無料のメンバーには、誰が含まれますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "はい。1人の買い物メモや在庫チェックとして使い始め、必要になったタイミングで、メンバーを招待して共有することもできます。"
+                            "text": "自分を含めたアプリ利用者と、担当者として登録した子どもやペットなどを合わせた数です。担当者として名前を登録するだけでは、その人とリストは共有されません。"
                         }
                     },
                     {
                         "@type": "Question",
-                        "name": "共有するには何が必要ですか？",
+                        "name": "個数や賞味期限も記録できますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "1人で使い始めるだけならアカウント登録なしで利用できます。メンバーを招待する、または共有リストに参加するには、メールアドレスとパスワードでアカウント登録またはログインが必要です。"
+                            "text": "個数・残りの量・賞味期限の記録には対応していません。「あるもの」「買うもの」のどちらかに分けて、買う必要があるかを確認できます。"
                         }
                     },
                     {
                         "@type": "Question",
-                        "name": "数量管理はできますか？",
+                        "name": "買い物メモはいつ書けますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "細かな数量管理には対応していません。「ある」「買う」を気軽に共有するためのアプリです。"
+                            "text": "「買うもの」へ移した直後や、「買うもの」として新しくアイテムを追加するときに、30文字まで書けます。編集画面で「あるもの」から「買うもの」に変えるときも入力できます。一覧画面では、メモを読んで確認できます。"
                         }
                     },
                     {
                         "@type": "Question",
-                        "name": "NUUPAMO Plusでは何ができますか？",
+                        "name": "Plusは家族それぞれで申し込む必要がありますか？",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "無料プランはアイテム30件、共有できるメンバーは3人までです。NUUPAMO Plusは月額200円で、アイテム数とメンバーの人数の上限がなくなります。"
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "公開されていますか？",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "現在は公開準備中です。ストア公開後に案内を追加します。"
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "安心して使うための情報はありますか？",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "フッターからプライバシーポリシー、利用規約、特定商取引法に基づく表記を確認できます。"
+                            "text": "いいえ。同じリストを使う誰かひとりが申し込めば、そのリスト全体でアイテム数とメンバー数の制限がなくなります。月額200円・年額3,000円から選べます。毎月または毎年、解約するまで自動更新されます。解約は申し込んだストアで行ってください。アプリやアカウントを削除しただけでは解約されません。"
                         }
                     }
                 ]
             }
         </script>
-        <script src="script.js" defer></script>
     </head>
-    <body>
-        <header class="lp-header">
-            <a href="../" class="brand-link" aria-label="Moa Lab.トップへ戻る">
-                <img src="../images/nuupamo/icon.png" alt="" class="brand-icon" />
-                <span>NUUPAMO</span>
-            </a>
-            <nav class="header-nav" aria-label="ページ内ナビゲーション">
-                <a href="#worries">お悩み</a>
-                <a href="#features">特徴</a>
-                <a href="#screens">画面</a>
-                <a href="../">トップ</a>
-            </nav>
+    <body id="top">
+        <a href="#main" class="skip-link">本文へ移動</a>
+        <header class="site-header">
+            <div class="header-inner">
+                <a href="#top" class="brand" aria-label="NUUPAMO ページの先頭へ">
+                    <img src="../images/nuupamo/lp/brand-icon.webp?v=ba92c895572b" alt="" width="40" height="40" />
+                    <span>NUUPAMO</span>
+                </a>
+                <nav class="header-nav" aria-label="ページ内ナビゲーション">
+                    <a href="#how-to" class="nav-features">できること</a>
+                    <a href="#plans">料金プラン</a>
+                    <a href="#faq" class="nav-faq">よくある質問</a>
+                    <a href="#how-to" class="button button-small">使い方を見る<img src="../images/nuupamo/lp/icons/arrow-right.svg?v=82c981b4d062" alt="" width="16" height="16" /></a>
+                </nav>
+            </div>
         </header>
 
-        <main>
+        <main id="main">
             <section class="hero-section" aria-labelledby="hero-title">
-                <div class="hero-copy fade-in">
-                    <p class="eyebrow">Shared Shopping List</p>
-                    <h1 id="hero-title">
-                        買うものと<br />
-                        あるものを、<br />
-                        みんなと<br />
-                        ひとつに。
-                    </h1>
-                    <p class="hero-lead">
-                        買うものをタップすると、あるものへ。あるものをタップすると、買うものへ。
-                        NUUPAMO（ヌーパモ）は、1人でも使えて、みんなと同じ在庫・買い物リストの「買うもの」と「あるもの」を共有できるアプリです。
-                    </p>
-                    <div class="hero-actions" aria-label="NUUPAMOの状態と画面案内">
-                        <span class="status-pill">公開準備中</span>
-                        <a href="#screens" class="text-link">画面を見る</a>
+                <div class="hero-scenery" aria-hidden="true">
+                    <img class="hero-portrait hero-portrait-woman" src="../images/nuupamo/lp/hero-woman-home.webp?v=71d26413e9f9" srcset="../images/nuupamo/lp/hero-woman-home-small.webp?v=34b866d4e335 600w, ../images/nuupamo/lp/hero-woman-home.webp?v=71d26413e9f9 1024w" sizes="(max-width: 720px) 55vw, 40vw" alt="" width="1024" height="1536" fetchpriority="low" />
+                    <img class="hero-portrait hero-portrait-man" src="../images/nuupamo/lp/hero-man-shopping.webp?v=c5a4c2f28b36" srcset="../images/nuupamo/lp/hero-man-shopping-small.webp?v=bf6f429792d3 600w, ../images/nuupamo/lp/hero-man-shopping.webp?v=c5a4c2f28b36 1024w" sizes="(max-width: 720px) 55vw, 40vw" alt="" width="1024" height="1536" fetchpriority="low" />
+                </div>
+                <div class="hero-content">
+                    <p class="hero-brand"><img src="../images/nuupamo/lp/brand-icon.webp?v=ba92c895572b" alt="" width="48" height="48" /><span>NUUPAMO</span></p>
+                    <h1 id="hero-title"><span class="hero-first-line">「あるもの」も</span><span class="keep-together">「買うもの」も、</span><span class="keep-together">家族で共有。</span></h1>
+                    <p class="hero-lead"><span class="keep-together">iPhoneとAndroidで、</span><span class="keep-together">同じ在庫・買い物リストを。</span><span class="hero-use-note">ひとりでも、家族と一緒でも使えます。</span></p>
+                    <div class="hero-devices" id="screens" aria-label="iPhoneとAndroidで同じリストを共有">
+                        <figure class="hero-device">
+                            <img class="phone-image" src="../images/nuupamo/lp/phone-ios-shopping.webp?v=9f60d6949733" alt="iPhoneの買うもの一覧。ハンドソープのメモと担当者を表示。" width="760" height="1560" fetchpriority="high" />
+                            <figcaption><img src="../images/nuupamo/lp/icons/apple.svg?v=fdbd0f867a1a" alt="" width="25" height="25" /><span>iPhone / iOS</span></figcaption>
+                        </figure>
+                        <div class="sharing-connection" aria-hidden="true"><img src="../images/nuupamo/lp/icons/cloud.svg?v=7cf6cfc7af3d" alt="" width="54" height="54" /><p>同じリストを<br />共有</p></div>
+                        <figure class="hero-device">
+                            <img class="phone-image" src="../images/nuupamo/lp/phone-android-shopping.webp?v=ecb1bbae0e40" alt="Androidの買うもの一覧。iPhoneと同じハンドソープのメモと担当者を表示。" width="760" height="1601" fetchpriority="high" />
+                            <figcaption><img src="../images/nuupamo/lp/icons/android.svg?v=f3e880a8bf0b" alt="" width="27" height="27" /><span>Android</span></figcaption>
+                        </figure>
                     </div>
+                    <a href="#how-to" class="button hero-button">使い方を見る<img src="../images/nuupamo/lp/icons/arrow-right.svg?v=82c981b4d062" alt="" width="21" height="21" /></a>
+                    <p class="hero-free-note">50アイテム・3メンバーまで無料<span>（自分もメンバーに含まれます）</span></p>
+                </div>
+            </section>
+
+            <section class="memo-section section-surface" aria-labelledby="memo-title">
+                <div class="section-inner memo-layout">
+                    <div class="memo-copy">
+                        <h2 id="memo-title">買い物のお願いも、<span class="keep-together">一緒に。</span></h2>
+                        <p>「ミントがなかったらピーチ」など、<br />買ってほしいものにメモを添えられます。</p>
+                        <p>メモは30文字まで。「誰が買う？」も、<br />カードの担当者を見ればわかります。</p>
+                        <p class="small-note">家族と共有するときは、<br />それぞれのアカウントとプロフィールを登録してください。</p>
                     </div>
-                    <div class="hero-visual fade-in" aria-label="NUUPAMOのアプリ画面">
-                        <div class="phone-cluster">
-                            <div class="hero-phone phone-front">
-                                <img src="../images/nuupamo/screenshot/SS01.png" alt="NUUPAMOの買うもの一覧画面" />
+                    <figure class="memo-card-figure">
+                        <img src="../images/nuupamo/lp/item-handsoap-memo.webp?v=2586f9329cda" alt="ハンドソープのカード。瑞希のアバターと、買い物メモ「ミントがなかったらピーチ」を表示。" width="1000" height="476" loading="lazy" />
+                    </figure>
+                </div>
+            </section>
+
+            <section class="how-to-section section-surface" id="how-to" aria-labelledby="how-to-title">
+                <div class="section-inner">
+                    <div class="section-heading centered-heading">
+                        <h2 id="how-to-title">なくなったら<span class="text-buy">「買うもの」</span>へ。<br class="mobile-break" />買ったら<span class="text-stock">「あるもの」</span>へ。</h2>
+                        <p>いつも買うものは、<br class="mobile-break" />同じカードをくり返し使えます。</p>
+                    </div>
+                    <ol class="story-grid">
+                        <li class="story-step">
+                            <div class="step-heading"><span class="step-number" aria-hidden="true">01</span><div><h3>家で気づく</h3><p>使い切ったらタップで<br />「買うもの」へ。</p></div></div>
+                            <div class="story-visual">
+                                <img class="story-photo" src="../images/nuupamo/lp/story-at-home.webp?v=ce749e736e75-final" srcset="../images/nuupamo/lp/story-at-home-small.webp?v=0ff764f1fdd0 600w, ../images/nuupamo/lp/story-at-home.webp?v=ce749e736e75-final 1000w" sizes="(max-width: 720px) 92vw, 33vw" alt="洗面台のそばでハンドソープを手に取り、残りを確認する様子。" width="1000" height="1000" loading="lazy" />
+                                <div class="story-example">
+                                    <p class="state-label state-buy">買うもの</p>
+                                    <img class="story-card-image" src="../images/nuupamo/lp/item-handsoap-memo.webp?v=2586f9329cda" alt="買うものの実画面：ハンドソープ。担当者は瑞希、メモはミントがなかったらピーチ。" width="1000" height="476" loading="lazy" />
+                                    <span class="tap-indicator" aria-hidden="true">
+                                        <img class="tap-icon" src="../images/tap_white.png?v=20261028" alt="" width="44" height="46" />
+                                        <img class="tap-ray tap-ray-left" src="../images/nuupamo/lp/icons/tap-triangle.svg" alt="" width="9" height="13" />
+                                        <img class="tap-ray tap-ray-center" src="../images/nuupamo/lp/icons/tap-triangle.svg" alt="" width="9" height="13" />
+                                        <img class="tap-ray tap-ray-right" src="../images/nuupamo/lp/icons/tap-triangle.svg" alt="" width="9" height="13" />
+                                    </span>
+                                </div>
                             </div>
-                            <div class="hero-phone phone-back">
-                                <img src="../images/nuupamo/screenshot/SS02.png" alt="NUUPAMOのあるもの一覧画面" />
+                        </li>
+                        <li class="story-step">
+                            <div class="step-heading"><span class="step-number" aria-hidden="true">02</span><div><h3>お店で確認</h3><p>メモや担当者を見て、<br />買うものをチェック。</p></div></div>
+                            <div class="story-visual">
+                                <img class="story-photo" src="../images/nuupamo/lp/story-at-store.webp?v=4e479884b298" srcset="../images/nuupamo/lp/story-at-store-small.webp?v=c11ad1e057cb 600w, ../images/nuupamo/lp/story-at-store.webp?v=4e479884b298 1000w" sizes="(max-width: 720px) 92vw, 33vw" alt="買い物先でスマートフォンを確認する男性の手元。" width="1000" height="1000" loading="lazy" />
                             </div>
-                        </div>
+                        </li>
+                        <li class="story-step">
+                            <div class="step-heading"><span class="step-number" aria-hidden="true">03</span><div><h3>買ったら戻す</h3><p>購入後はタップで<br />「あるもの」へ。</p></div></div>
+                            <div class="story-visual">
+                                <img class="story-photo" src="../images/nuupamo/lp/story-back-home.webp?v=061195880d11" srcset="../images/nuupamo/lp/story-back-home-small.webp?v=b2c091da5fae 600w, ../images/nuupamo/lp/story-back-home.webp?v=061195880d11 1000w" sizes="(max-width: 720px) 92vw, 33vw" alt="購入したハンドソープを洗面台の蛇口横に戻す様子。" width="1000" height="1000" loading="lazy" />
+                                <div class="story-example">
+                                    <p class="state-label state-stock">あるもの</p>
+                                    <img class="story-card-image" src="../images/nuupamo/lp/item-handsoap-stock.webp?v=1079c5b71055" alt="あるものの実画面：ハンドソープ。緑のマークと担当者の瑞希を表示し、買い物メモは表示しません。" width="1000" height="308" loading="lazy" />
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                    <p class="example-note">タップするたびに、<br class="mobile-break" />「あるもの」と「買うもの」を行ったり来たり。</p>
+                </div>
+            </section>
+
+            <section class="sharing-section section-surface" id="features" aria-labelledby="sharing-title">
+                <div class="section-inner sharing-layout">
+                    <div class="sharing-copy">
+                        <h2 id="sharing-title">同じリストを、<span class="keep-together">家族みんなで。</span></h2>
+                        <p>家で見ているリストを、お店にいる家族も確認。<br />招待リンクやQRコードを送って、一緒に使えます。</p>
+                        <ul class="category-grid" aria-label="6つのカテゴリ">
+                            <li><img src="../images/nuupamo/lp/category-food.webp?v=ddcc9d2a9856" alt="" width="28" height="28" loading="lazy" /><span>食材</span></li>
+                            <li><img src="../images/nuupamo/lp/category-daily.webp?v=d934f55179b7" alt="" width="28" height="28" loading="lazy" /><span>日用品</span></li>
+                            <li><img src="../images/nuupamo/lp/category-baby.webp?v=393ce3e99644" alt="" width="28" height="28" loading="lazy" /><span>ベビー用品</span></li>
+                            <li><img src="../images/nuupamo/lp/category-medical.webp?v=6f5d8e8c9bf1" alt="" width="28" height="28" loading="lazy" /><span>医薬・衛生用品</span></li>
+                            <li><img src="../images/nuupamo/lp/category-pet.webp?v=7c0e8ceb1996" alt="" width="28" height="28" loading="lazy" /><span>ペット用品</span></li>
+                            <li><img src="../images/nuupamo/lp/category-other.webp?v=e77972b750b3" alt="" width="28" height="28" loading="lazy" /><span>その他</span></li>
+                        </ul>
+                        <p>子どもやペットも、担当者として登録できます。</p>
+                        <p class="small-note">家族と共有するときは、<br />それぞれのアカウントとプロフィールを登録してください。<br />ひとりで使うなら、登録はあとからでも大丈夫です。</p>
                     </div>
-            </section>
-
-            <section id="worries" class="worries-section" aria-labelledby="worries-title">
-                <div class="section-heading fade-in">
-                    <p class="eyebrow">Small Frictions</p>
-                    <h2 id="worries-title">こんなすれ違い、ありませんか？</h2>
-                </div>
-                <div class="bubble-grid" aria-label="買い物と在庫管理のお悩み">
-                    <article class="worry-bubble fade-in">
-                        <img src="../images/nuupamo/avatar/001.png" alt="" />
-                        <div class="worry-message">
-                            <p>卵って、まだ家にあったっけ？</p>
-                        </div>
-                    </article>
-                    <article class="worry-bubble fade-in">
-                        <img src="../images/nuupamo/avatar/002.png" alt="" />
-                        <div class="worry-message">
-                            <p>家族に頼まれていた日用品を買い忘れた。</p>
-                        </div>
-                    </article>
-                    <article class="worry-bubble fade-in">
-                        <img src="../images/nuupamo/avatar/011.png" alt="" />
-                        <div class="worry-message">
-                            <p>同僚が買ったコピー用紙が、倉庫にもまだあった。</p>
-                        </div>
-                    </article>
-                    <article class="worry-bubble fade-in">
-                        <img src="../images/nuupamo/avatar/004.png" alt="" />
-                        <div class="worry-message">
-                            <p>家族やパートナーと「買うもの」「あるもの」を共有したい。<br />でも、細かい在庫数の管理までは続かない。</p>
-                        </div>
-                    </article>
+                    <figure class="members-figure"><img src="../images/nuupamo/lp/phone-android-members.webp?v=db0ca66f5bd1" alt="メンバー画面。アプリ利用者の瑞希・悠斗と、その他のメンバーのももを表示。" width="760" height="1601" loading="lazy" /></figure>
                 </div>
             </section>
 
-            <section class="answer-section" aria-labelledby="answer-title">
-                <div class="answer-copy fade-in">
-                    <p class="eyebrow">NUUPAMO Answer</p>
-                    <h2 id="answer-title">
-                        必要なのは、完璧な管理より<br />
-                        すぐ見える共有。
-                    </h2>
-                    <p>
-                        NUUPAMOは「買うもの」と「あるもの」の2つに絞ったシンプルな在庫・買い物リストです。アイテムをタップして状態を切り替えるだけで、共有中のメンバーにも今の状態が伝わります。
-                    </p>
-                </div>
-                <div class="switch-demo fade-in" aria-label="NUUPAMOの状態切り替えイメージ">
-                    <div class="demo-tap" aria-label="タップで移動">
-                        <img src="../images/tap.png" alt="" />
-                        <span>tap!</span>
+            <section class="plans-section section-surface" id="plans" aria-labelledby="plans-title">
+                <div class="section-inner">
+                    <div class="section-heading"><h2 id="plans-title"><span class="keep-together">ひとりでも、</span><span class="keep-together">家族とでも。</span><span class="keep-together">まずは無料から。</span></h2><p>ひとりなら、アカウントやプロフィールの登録はあとから。<br />家族との共有も、無料プランで使えます。</p></div>
+                    <div class="plans-grid">
+                        <article class="plan-card"><h3>無料</h3><p class="plan-price"><strong>0</strong><span>円</span></p><ul><li><img src="../images/nuupamo/lp/icons/check.svg?v=e95bd6570ff3" alt="" width="16" height="16" /><span>アイテム合計 <strong>50件</strong>まで</span></li><li><img src="../images/nuupamo/lp/icons/check.svg?v=e95bd6570ff3" alt="" width="16" height="16" /><span>自分を含めて <strong>3メンバー</strong>まで</span></li><li><img src="../images/nuupamo/lp/icons/check.svg?v=e95bd6570ff3" alt="" width="16" height="16" /><span>家族との共有も、<br class="mobile-break" />買い物メモも使える</span></li></ul></article>
+                        <article class="plan-card plan-plus"><h3><img src="../images/nuupamo/lp/brand-icon.webp?v=ba92c895572b" alt="" width="24" height="24" loading="lazy" />NUUPAMO Plus</h3><div class="plan-prices">
+                            <p class="plan-price"><span class="price-period">月額</span><strong>200</strong><span>円</span></p>
+                            <p class="plan-price"><span class="price-period">年額</span><strong>3,000</strong><span>円</span></p>
+                        </div><ul><li><img src="../images/nuupamo/lp/icons/check.svg?v=e95bd6570ff3" alt="" width="16" height="16" /><span>アイテム数・メンバー数の制限なし</span></li><li><img src="../images/nuupamo/lp/icons/check.svg?v=e95bd6570ff3" alt="" width="16" height="16" /><span>ひとりが申し込めば、<br />同じリストのみんなも上限なし</span></li></ul></article>
                     </div>
-                    <p class="demo-card-label demo-card-label-buy">買うもの</p>
-                    <article class="demo-item-card demo-item-buy">
-                        <div class="demo-item-icon" aria-hidden="true">
-                            <img src="../images/nuupamo/daily_001.png" alt="" />
-                            <span class="demo-star">★</span>
-                        </div>
-                        <div class="demo-item-body">
-                            <strong>ゴミ袋</strong>
-                            <p>
-                                <svg class="demo-time-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <circle cx="12" cy="12" r="8.5" />
-                                    <path d="M12 7.5v5l3.5 2" />
-                                </svg>
-                                <span>6/10 20:30 更新</span>
-                            </p>
-                        </div>
-                        <img src="../images/nuupamo/avatar/001.png" alt="" class="demo-avatar" />
-                    </article>
-                    <div class="demo-arrow" aria-hidden="true">→</div>
-                    <p class="demo-card-label demo-card-label-stock">あるもの</p>
-                    <article class="demo-item-card demo-item-stock">
-                        <div class="demo-item-icon" aria-hidden="true">
-                            <img src="../images/nuupamo/daily_001.png" alt="" />
-                            <span class="demo-star">★</span>
-                        </div>
-                        <div class="demo-item-body">
-                            <strong>ゴミ袋</strong>
-                            <p>
-                                <svg class="demo-time-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <circle cx="12" cy="12" r="8.5" />
-                                    <path d="M12 7.5v5l3.5 2" />
-                                </svg>
-                                <span>6/11 17:45 更新</span>
-                            </p>
-                        </div>
-                        <img src="../images/nuupamo/avatar/001.png" alt="" class="demo-avatar" />
-                    </article>
+                    <div class="plan-notes"><p>Plusは月額・年額から選べます。<br />選んだプランに合わせて、毎月または毎年自動で更新されます。<br />お申し込み前に、アプリ・ストアの購入画面で価格をご確認ください。</p><p>50件は「あるもの」と「買うもの」を合わせた数で、サンプルも含みます。<br />メンバーは、自分・一緒にアプリを使う家族・担当者として登録した子どもやペットなどを合わせて数えます。</p></div>
                 </div>
             </section>
 
-            <section id="features" class="features-section" aria-labelledby="features-title">
-                <div class="section-heading fade-in">
-                    <p class="eyebrow">Features</p>
-                    <h2 id="features-title">迷わず使える、共有のための機能。</h2>
-                </div>
-                <div class="feature-list">
-                    <article class="feature-card fade-in">
-                        <span class="feature-number">買うもの ⇄ あるもの</span>
-                        <h3>タップで状態を移動</h3>
-                        <p>買うものからあるものへ、あるものから買うものへ。確認ダイアログなしで素早く切り替えられます。</p>
-                    </article>
-                    <article class="feature-card fade-in">
-                        <span class="feature-number">リストを共有</span>
-                        <h3>QRコードとリンクで招待</h3>
-                        <p>メンバーをQRコードや招待リンクで追加。AndroidとiOSの間でも、同じ在庫・買い物リストの「買うもの」と「あるもの」を一緒に確認できます。</p>
-                    </article>
-                    <article class="feature-card fade-in">
-                        <span class="feature-number">担当を決める</span>
-                        <h3>誰のアイテムかを決める</h3>
-                        <p>アイテムごとにメンバーを設定。「買うもの」に入れた人や、買いに行く人など、用途に合わせて使えます。</p>
-                    </article>
-                    <article class="feature-card fade-in">
-                        <span class="feature-number">お気に入りを付ける</span>
-                        <h3>よく買うものに目印を付ける</h3>
-                        <p>アイテムの画像をタップして、お気に入りにできます。よく買うものをすぐ見分けられます。</p>
-                    </article>
-                </div>
-            </section>
-
-            <section class="usecase-section" aria-labelledby="usecase-title">
-                <div class="section-heading fade-in">
-                    <p class="eyebrow">Use Cases</p>
-                    <h2 id="usecase-title">家でも外でも、ひとりでも。</h2>
-                </div>
-                <div class="usecase-list">
-                    <article class="usecase-item fade-in">
-                        <span>Home</span>
-                        <h3>家庭の日用品</h3>
-                        <p>トイレットペーパー、洗剤、電池など、切らしたくないものを共有。</p>
-                    </article>
-                    <article class="usecase-item fade-in">
-                        <span>Partner</span>
-                        <h3>パートナーとの買い物</h3>
-                        <p>帰り道に買うものや、重複して買いやすいものを同じ在庫・買い物リストに。</p>
-                    </article>
-                    <article class="usecase-item fade-in">
-                        <span>Room</span>
-                        <h3>同居人との備品</h3>
-                        <p>共用スペースの消耗品を、誰かひとりの記憶に頼らず管理。</p>
-                    </article>
-                    <article class="usecase-item fade-in">
-                        <span>Work</span>
-                        <h3>職場の小さな在庫</h3>
-                        <p>コピー用紙、ゴミ袋、掃除用品など、軽い備品共有にも。</p>
-                    </article>
-                </div>
-            </section>
-
-            <section id="screens" class="screens-section" aria-labelledby="screens-title">
-                <div class="section-heading fade-in">
-                    <p class="eyebrow">Screens</p>
-                    <h2 id="screens-title">買う、ある、みんなと共有する。</h2>
-                </div>
-                <div class="screen-gallery" aria-label="NUUPAMO画面ギャラリー">
-                    <figure class="screen-card fade-in">
-                        <div class="screen-phone">
-                            <img src="../images/nuupamo/screenshot/SS01.png" alt="NUUPAMOの買うもの一覧画面" />
-                        </div>
-                        <figcaption>買うもの</figcaption>
-                    </figure>
-                    <figure class="screen-card fade-in">
-                        <div class="screen-phone">
-                            <img src="../images/nuupamo/screenshot/SS02.png" alt="NUUPAMOのあるもの一覧画面" />
-                        </div>
-                        <figcaption>あるもの</figcaption>
-                    </figure>
-                    <figure class="screen-card fade-in">
-                        <div class="screen-phone">
-                            <img src="../images/nuupamo/screenshot/SS03.png" alt="NUUPAMOのアイテム追加画面" />
-                        </div>
-                        <figcaption>アイテム追加</figcaption>
-                    </figure>
-                    <figure class="screen-card fade-in">
-                        <div class="screen-phone">
-                            <img src="../images/nuupamo/screenshot/SS04.png" alt="NUUPAMOのメンバーの管理画面" />
-                        </div>
-                        <figcaption>メンバーの管理</figcaption>
-                    </figure>
-                    <figure class="screen-card fade-in">
-                        <div class="screen-phone">
-                            <img src="../images/nuupamo/screenshot/SS05.png" alt="NUUPAMOのQRコード招待画面" />
-                        </div>
-                        <figcaption>QRコードで招待</figcaption>
-                    </figure>
-                </div>
-            </section>
-
-            <section class="plus-section" aria-labelledby="plus-title">
-                <div class="plus-copy fade-in">
-                    <p class="eyebrow">NUUPAMO Plus</p>
-                    <h2 id="plus-title">増えてきたら、<br />上限を外して使えます。</h2>
-                    <p>
-                        無料プランではアイテム30件、共有できるメンバーは3人まで。NUUPAMO Plusは月額200円で、アイテム数とメンバーの人数の上限を外して、より広い共有に対応します。
-                    </p>
-                </div>
-                <div class="price-list fade-in" aria-label="NUUPAMO Plusの価格">
-                    <div class="price-item featured">
-                        <span class="price-radio" aria-hidden="true"></span>
-                        <div class="price-body">
-                            <h3>月額</h3>
-                            <p>1か月ごとの自動更新です。</p>
-                            <strong>自動更新サブスクリプション</strong>
-                        </div>
-                        <div class="price-value">
-                            <strong>¥200</strong>
-                            <span>月ごと</span>
-                        </div>
+            <section class="faq-section section-surface" id="faq" aria-labelledby="faq-title">
+                <div class="section-inner"><h2 id="faq-title">よくある質問</h2>
+                    <div class="faq-list" data-faq>
+                        <details open><summary>登録しなくても使えますか？</summary><p>はい。ひとりで使うなら、アカウントやプロフィールの登録はあとからでも大丈夫です。<br />家族と共有するときは、使う方それぞれの登録が必要です。</p></details>
+                        <details><summary>iPhoneとAndroidで共有できますか？</summary><p>はい。iPhoneとAndroidでも同じリストを使えます。<br />家族に招待リンクかQRコードを送り、参加してもらってください。<br />まだアプリを入れていない方は、インストール後に同じリンクやQRコードをもう一度開いてください。</p></details>
+                        <details><summary>無料のメンバーには、誰が含まれますか？</summary><p>自分を含めたアプリ利用者と、担当者として登録した子どもやペットなどを合わせた数です。<br />担当者として名前を登録するだけでは、その人とリストは共有されません。</p></details>
+                        <details><summary>個数や賞味期限も記録できますか？</summary><p>個数・残りの量・賞味期限の記録には対応していません。<br />「あるもの」「買うもの」のどちらかに分けて、買う必要があるかを確認できます。</p></details>
+                        <details><summary>買い物メモはいつ書けますか？</summary><p>「買うもの」へ移した直後や、「買うもの」として新しくアイテムを追加するときに、30文字まで書けます。<br />編集画面で「あるもの」から「買うもの」に変えるときも入力できます。<br />一覧画面では、メモを読んで確認できます。</p></details>
+                        <details><summary>Plusは家族それぞれで申し込む必要がありますか？</summary><p>いいえ。同じリストを使う誰かひとりが申し込めば、そのリスト全体でアイテム数とメンバー数の制限がなくなります。<br />月額200円・年額3,000円から選べます。<br />毎月または毎年、解約するまで自動更新されます。<br />解約は申し込んだストアで行ってください。<br />アプリやアカウントを削除しただけでは解約されません。</p></details>
                     </div>
                 </div>
             </section>
 
-            <section class="faq-section" aria-labelledby="faq-title">
-                <div class="section-heading fade-in">
-                    <p class="eyebrow">FAQ</p>
-                    <h2 id="faq-title">使う前に気になること。</h2>
-                </div>
-                <div class="faq-list">
-                    <details class="faq-item fade-in">
-                        <summary>AndroidとiOSの間でも共有できますか？</summary>
-                        <p>はい。AndroidとiOSの間でも、同じ在庫・買い物リストを共有できます。</p>
-                    </details>
-                    <details class="faq-item fade-in">
-                        <summary>家族以外とも共有できますか？</summary>
-                        <p>はい。パートナー、同居人、職場などで、同じ在庫・買い物リストの「買うもの」と「あるもの」を共有できます。</p>
-                    </details>
-                    <details class="faq-item fade-in">
-                        <summary>1人でも使えますか？</summary>
-                        <p>はい。1人の買い物メモや在庫チェックとして使い始め、必要になったタイミングで、メンバーを招待して共有することもできます。</p>
-                    </details>
-                    <details class="faq-item fade-in">
-                        <summary>共有するには何が必要ですか？</summary>
-                        <p>1人で使い始めるだけならアカウント登録なしで利用できます。メンバーを招待する、または共有リストに参加するには、メールアドレスとパスワードでアカウント登録またはログインが必要です。</p>
-                    </details>
-                    <details class="faq-item fade-in">
-                        <summary>数量管理はできますか？</summary>
-                        <p>細かな数量管理には対応していません。「ある」「買う」を気軽に共有するためのアプリです。</p>
-                    </details>
-                    <details class="faq-item fade-in">
-                        <summary>NUUPAMO Plusでは何ができますか？</summary>
-                        <p>無料プランはアイテム30件、共有できるメンバーは3人までです。NUUPAMO Plusは月額200円で、アイテム数とメンバーの人数の上限がなくなります。</p>
-                    </details>
-                    <details class="faq-item fade-in">
-                        <summary>公開されていますか？</summary>
-                        <p>現在は公開準備中です。ストア公開後に案内を追加します。</p>
-                    </details>
-                    <details class="faq-item fade-in">
-                        <summary>安心して使うための情報はありますか？</summary>
-                        <p>フッターからプライバシーポリシー、利用規約、特定商取引法に基づく表記、サポート窓口を確認できます。</p>
-                    </details>
-                </div>
-            </section>
-
-            <section class="final-cta" aria-labelledby="final-title">
-                <img src="../images/nuupamo/icon.png" alt="" class="final-icon fade-in" />
-                <div class="final-copy fade-in">
-                    <p class="eyebrow">Coming Soon</p>
-                    <h2 id="final-title">買い忘れを、共有で減らす。</h2>
-                    <p>NUUPAMOはAndroid / iOS向けに公開準備中です。</p>
-                    <span class="status-pill">公開準備中</span>
-                </div>
+            <section class="closing-section" aria-labelledby="closing-title">
+                <img class="closing-background" src="../images/nuupamo/lp/footer-still-life.webp?v=239c6ad677cc" srcset="../images/nuupamo/lp/footer-still-life-small.webp?v=517c55b7e0a2 1086w, ../images/nuupamo/lp/footer-still-life.webp?v=239c6ad677cc 2172w" sizes="100vw" alt="" width="2172" height="724" loading="lazy" />
+                <div class="closing-copy"><h2 id="closing-title" class="closing-brand"><img src="../images/nuupamo/lp/brand-icon.webp?v=ba92c895572b" alt="" width="44" height="44" loading="lazy" />NUUPAMO</h2><p>家にあるもの、これから買うもの。<br />ひとりでも、家族と一緒でも。</p><a href="#plans" class="button">無料プランと料金を見る<img src="../images/nuupamo/lp/icons/arrow-right.svg?v=82c981b4d062" alt="" width="20" height="20" /></a></div>
+                <footer class="site-footer"><nav aria-label="フッターナビゲーション"><a href="terms-of-service.html">利用規約</a><a href="privacy-policy.html">プライバシーポリシー</a><a href="../commercial-transactions.html">特定商取引法に基づく表記</a><a href="mailto:support@moa-lab.com">お問い合わせ</a><a href="../">Moa Lab. トップ</a></nav><small>© 2026 Moa Lab.</small></footer>
             </section>
         </main>
-
-        <footer class="footer">
-            <p>NUUPAMO</p>
-            <nav aria-label="フッターナビゲーション">
-                <a href="privacy-policy.html">プライバシーポリシー</a>
-                <a href="terms-of-service.html">利用規約</a>
-                <a href="../commercial-transactions.html">特定商取引法に基づく表記</a>
-                <a href="mailto:support@moa-lab.com" aria-label="NUUPAMOのサポートへメールを送る">support@moa-lab.com</a>
-            </nav>
-            <small>Copyright © 2026 @Moa Lab. All rights reserved.</small>
-        </footer>
     </body>
 </html>

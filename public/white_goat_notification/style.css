@@ -43,8 +43,18 @@ main { width: min(100%, 480px); margin: 0 auto; overflow: clip; background: var(
     width: auto;
     height: 48px;
 }
-.hero-heading > .store-link {
-    margin-left: var(--space-2);
+.store-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.hero-heading > .store-links {
+    justify-content: flex-start;
+}
+.store-link-google img {
+    width: 157px;
+    height: auto;
 }
 
 .hero { position: relative; min-height: 0; padding: var(--space-3) var(--space-2) var(--space-6); background: linear-gradient(180deg, #fff5c8 0%, #ffdfe5 100%); }

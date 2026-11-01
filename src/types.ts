@@ -27,7 +27,7 @@ export interface MigrationRow {
   id: string;
   request_id_hash: string;
   target_platform: Platform;
-  state: 'pending' | 'recall_pending' | 'issued';
+  state: 'pending' | 'issued';
   code_id: string | null;
   migration_token_hash: string | null;
   token_expires_at: string | null;
@@ -45,5 +45,4 @@ export interface IntegrityVerdict {
   versionCode: number;
   appLicensingVerdict: string;
   deviceRecognitionVerdicts: string[];
-  deviceRecallBitFirst: boolean;
 }

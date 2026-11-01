@@ -5,7 +5,6 @@ import type { Env, IntegrityVerdict, MigrationRow, PromoCodeRow } from '../src/t
 
 const googleMocks = vi.hoisted(() => ({
   decodeIntegrityToken: vi.fn(),
-  markDeviceMigrationIssued: vi.fn(),
 }));
 
 vi.mock('../src/google-play', () => googleMocks);
@@ -79,8 +78,6 @@ class FakeMigrationDatabase {
     if (!migration) throw new Error('Migration row was not found.');
     if (sql.includes('SET code_id =')) {
       migration.code_id = values[0] as string;
-      migration.state = 'recall_pending';
-    } else if (sql.includes("SET state = 'issued'")) {
       migration.state = 'issued';
     } else if (sql.includes('SET migration_token_hash =')) {
       migration.migration_token_hash = values[0] as string;
@@ -124,7 +121,7 @@ function redeemRequest(token: string): Request {
   });
 }
 
-async function integrityVerdict(requestId: string, recalled = false): Promise<IntegrityVerdict> {
+async function integrityVerdict(requestId: string): Promise<IntegrityVerdict> {
   return {
     requestPackageName: 'moa.more.wiser.instant_notification',
     requestHash: await requestHashFor(requestId, 'android'),
@@ -135,7 +132,6 @@ async function integrityVerdict(requestId: string, recalled = false): Promise<In
     versionCode: 32,
     appLicensingVerdict: 'LICENSED',
     deviceRecognitionVerdicts: ['MEETS_DEVICE_INTEGRITY'],
-    deviceRecallBitFirst: recalled,
   };
 }
 
@@ -144,9 +140,7 @@ describe('migration issue worker', () => {
 
   beforeEach(async () => {
     googleMocks.decodeIntegrityToken.mockReset();
-    googleMocks.markDeviceMigrationIssued.mockReset();
     googleMocks.decodeIntegrityToken.mockResolvedValue(await integrityVerdict(requestId));
-    googleMocks.markDeviceMigrationIssued.mockResolvedValue(undefined);
   });
 
   it('rejects iOS as an unsupported target', async () => {
@@ -173,20 +167,53 @@ describe('migration issue worker', () => {
     expect(firstBody.expires_at).toBeTruthy();
     expect(database.migrations).toHaveLength(1);
     expect(database.codes.filter((code) => code.status === 'assigned')).toHaveLength(1);
-    expect(googleMocks.markDeviceMigrationIssued).toHaveBeenCalledTimes(1);
   });
 
-  it('rejects a different request ID from a recalled device', async () => {
+  it('reuses an already assigned code and normalizes the migration state', async () => {
+    const database = new FakeMigrationDatabase();
+    const requestIdHash = await sha256Base64Url(requestId);
+    database.migrations.push({
+      id: 'migration-existing',
+      request_id_hash: requestIdHash,
+      target_platform: 'android',
+      state: 'pending',
+      code_id: null,
+      migration_token_hash: null,
+      token_expires_at: null,
+      created_at: '2026-09-22T00:00:00.000Z',
+      updated_at: '2026-09-22T00:00:00.000Z',
+    });
+    Object.assign(database.codes[0], {
+      status: 'assigned',
+      migration_id: 'migration-existing',
+    });
+
+    const response = await worker.fetch(issueRequest(requestId), env(database));
+
+    expect(response.status).toBe(200);
+    expect(database.migrations).toHaveLength(1);
+    expect(database.migrations[0].state).toBe('issued');
+    expect(database.migrations[0].code_id).toBe('code-1');
+    expect(database.codes.filter((code) => code.status === 'assigned')).toHaveLength(1);
+  });
+
+  it('allocates one code to each different request ID', async () => {
+    const database = new FakeMigrationDatabase();
+    database.codes.push({
+      ...database.codes[0],
+      id: 'code-2',
+    });
     const otherRequestId = 'B'.repeat(22);
-    googleMocks.decodeIntegrityToken.mockResolvedValue(await integrityVerdict(otherRequestId, true));
+    const environment = env(database);
 
-    const response = await worker.fetch(
-      issueRequest(otherRequestId),
-      env(new FakeMigrationDatabase()),
-    );
+    const first = await worker.fetch(issueRequest(requestId), environment);
+    googleMocks.decodeIntegrityToken.mockResolvedValue(await integrityVerdict(otherRequestId));
+    const second = await worker.fetch(issueRequest(otherRequestId), environment);
 
-    expect(response.status).toBe(403);
-    await expect(response.json()).resolves.toEqual({ error: 'ineligible' });
+    expect(first.status).toBe(200);
+    expect(second.status).toBe(200);
+    expect(database.migrations).toHaveLength(2);
+    expect(database.codes.filter((code) => code.status === 'assigned')).toHaveLength(2);
   });
 
   it('returns inventory_exhausted without an available Android code', async () => {

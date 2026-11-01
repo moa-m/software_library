@@ -24,7 +24,6 @@ export function assertEligibleVerdict(
   verdict: IntegrityVerdict,
   env: Env,
   expectedRequestHash: string,
-  allowPreviouslyIssuedDevice = false,
 ): void {
   const expectedPackage = env.LEGACY_PACKAGE_NAME ?? 'moa.more.wiser.instant_notification';
   const expectedCertificate = env.LEGACY_CERTIFICATE_SHA256;
@@ -40,8 +39,7 @@ export function assertEligibleVerdict(
     !matchesCertificateDigest(verdict.certificateSha256Digest, expectedCertificate) ||
     !Number.isFinite(verdict.versionCode) || verdict.versionCode < minimumVersion ||
     verdict.appLicensingVerdict !== 'LICENSED' ||
-    !verdict.deviceRecognitionVerdicts.includes('MEETS_DEVICE_INTEGRITY') ||
-    (!allowPreviouslyIssuedDevice && verdict.deviceRecallBitFirst)
+    !verdict.deviceRecognitionVerdicts.includes('MEETS_DEVICE_INTEGRITY')
   ) {
     throw new Error('INELIGIBLE');
   }

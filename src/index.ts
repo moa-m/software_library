@@ -1,5 +1,5 @@
 import { decryptValue, randomToken, sha256Base64Url } from './crypto';
-import { decodeIntegrityToken, markDeviceMigrationIssued } from './google-play';
+import { decodeIntegrityToken } from './google-play';
 import type { Env, MigrationRow, Platform, PromoCodeRow } from './types';
 import {
   assertEligibleVerdict,
@@ -108,6 +108,9 @@ async function allocateCode(env: Env, migration: MigrationRow): Promise<PromoCod
   const existing = await findCodeForMigration(env, migration.id);
   if (existing) {
     if (isCodeExpired(existing)) throw new ApiError('inventory_exhausted', 409);
+    await env.MIGRATION_DB.prepare(
+      `UPDATE migration_requests SET code_id = ?, state = 'issued', updated_at = ? WHERE id = ?`,
+    ).bind(existing.id, nowIso(), migration.id).run();
     return existing;
   }
 
@@ -124,7 +127,7 @@ async function allocateCode(env: Env, migration: MigrationRow): Promise<PromoCod
   ).bind(migration.id, nowIso(), migration.target_platform, productId, nowIso()).first<PromoCodeRow>();
   if (!allocated) throw new ApiError('inventory_exhausted', 409);
   await env.MIGRATION_DB.prepare(
-    `UPDATE migration_requests SET code_id = ?, state = 'recall_pending', updated_at = ? WHERE id = ?`,
+    `UPDATE migration_requests SET code_id = ?, state = 'issued', updated_at = ? WHERE id = ?`,
   ).bind(allocated.id, nowIso(), migration.id).run();
   return allocated;
 }
@@ -155,23 +158,10 @@ async function handleIssue(request: Request, env: Env): Promise<Response> {
 
   const expectedRequestHash = await requestHashFor(requestId, platform);
   const requestIdHash = await sha256Base64Url(requestId);
-  const existing = await findMigrationByRequestId(env, requestIdHash);
   const verdict = await decodeIntegrityToken(env, integrityToken);
-  assertEligibleVerdict(
-    verdict,
-    env,
-    expectedRequestHash,
-    existing != null && existing.target_platform === platform,
-  );
+  assertEligibleVerdict(verdict, env, expectedRequestHash);
   const migration = await getOrCreateMigration(env, requestIdHash, platform);
   await allocateCode(env, migration);
-
-  if (migration.state !== 'issued') {
-    await markDeviceMigrationIssued(env, integrityToken);
-    await env.MIGRATION_DB.prepare(
-      `UPDATE migration_requests SET state = 'issued', updated_at = ? WHERE id = ?`,
-    ).bind(nowIso(), migration.id).run();
-  }
 
   const issuedToken = await issueAndroidToken(env, migration);
   const newPackage = env.NEW_ANDROID_PACKAGE_NAME ?? 'com.moalab.whitegoatnotification';

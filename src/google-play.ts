@@ -95,8 +95,6 @@ export async function decodeIntegrityToken(env: Env, token: string): Promise<Int
   const appIntegrity = external.appIntegrity as Record<string, unknown> | undefined;
   const accountDetails = external.accountDetails as Record<string, unknown> | undefined;
   const deviceIntegrity = external.deviceIntegrity as Record<string, unknown> | undefined;
-  const deviceRecall = deviceIntegrity?.deviceRecall as Record<string, unknown> | undefined;
-  const recallValues = deviceRecall?.values as Record<string, unknown> | undefined;
   if (!requestDetails || !appIntegrity || !accountDetails || !deviceIntegrity) {
     throw new Error('Google Play Integrity verdict is incomplete.');
   }
@@ -110,20 +108,5 @@ export async function decodeIntegrityToken(env: Env, token: string): Promise<Int
     versionCode: Number(appIntegrity.versionCode ?? 0),
     appLicensingVerdict: String(accountDetails.appLicensingVerdict ?? ''),
     deviceRecognitionVerdicts: stringArray(deviceIntegrity.deviceRecognitionVerdict),
-    deviceRecallBitFirst: recallValues?.bitFirst === true,
   };
-}
-
-export async function markDeviceMigrationIssued(env: Env, integrityToken: string): Promise<void> {
-  const packageName = env.LEGACY_PACKAGE_NAME ?? 'moa.more.wiser.instant_notification';
-  const accessToken = await getAccessToken(env.GOOGLE_SERVICE_ACCOUNT_JSON);
-  const response = await fetch(`${playIntegrityBaseUrl}/${encodeURIComponent(packageName)}/deviceRecall:write`, {
-    method: 'POST',
-    headers: {
-      authorization: `Bearer ${accessToken}`,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({ integrityToken, newValues: { bitFirst: true } }),
-  });
-  if (!response.ok) throw new Error('Unable to update Device Recall.');
 }
