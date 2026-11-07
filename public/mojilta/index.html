@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#171A19">
+    <title>Mojilta｜TXT・Markdownを読むためのリーダー</title>
+    <meta name="description" content="TXTとMarkdownを、元ファイルを書き換えずに読むMojilta。自分のファイルを開くには日本向け480円の買い切り購入。月額料金・自動更新なし。">
+    <link rel="icon" href="images/app-icon.png" type="image/png">
+    <link rel="alternate" hreflang="ja" href="./">
+    <link rel="alternate" hreflang="en" href="en.html">
+    <link rel="stylesheet" href="style.css?v=20261108-language">
+    <script src="script.js?v=20261108-language" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header wrap">
+        <a class="brand" href="#top" aria-label="Mojilta ページの先頭へ">
+            <img src="images/app-icon.png" alt="" width="192" height="192">
+            <span>Mojilta</span>
+        </a>
+        <nav aria-label="メインナビゲーション">
+            <a class="nav-reading" href="#reading">読む・使う</a>
+            <a class="nav-display" href="#display">表示設定</a>
+            <a class="nav-pricing" href="#pricing">料金</a>
+            <a href="#faq">FAQ</a>
+            <a class="language-switch" href="en.html" hreflang="en" lang="en" aria-label="Switch to English" data-language-switch>English</a>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="hero wrap" id="top" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="accent-rule" aria-hidden="true"></span> TXT / Markdownリーダー</p>
+                <h1 id="hero-title">文章はそのまま。<br>読み方は自由に。</h1>
+                <p class="hero-lead">スマートフォンで、<wbr><span>TXTとMarkdownを。</span></p>
+                <p class="hero-description">2本指で文字サイズを変え、気になる段落をコピー。元ファイルを書き換えずに読める、閲覧専用リーダーです。</p>
+                <p class="hero-price"><a href="#pricing">買い切り480円</a></p>
+                <a class="button" href="#reading">使い方を見る <span aria-hidden="true">↓</span></a>
+                <ul class="hero-facts" aria-label="製品の特徴">
+                    <li>元ファイルの編集なし</li>
+                    <li>会員登録不要</li>
+                </ul>
+            </div>
+            <figure class="hero-visual">
+                <div class="visual-heading"><span>TXTを読む</span><span class="os-label">Android</span></div>
+                <img class="screen" src="images/android-txt-720.jpg" srcset="images/android-txt-360.jpg 360w, images/android-txt-720.jpg 720w" sizes="(min-width: 800px) 288px, (max-width: 380px) 280px, 304px" width="720" height="1616" alt="AndroidのMojiltaで日本語のTXT「雨あがりの栞」をダーク表示で読んでいる画面" fetchpriority="high">
+                <figcaption>いつもの文章を、読みたい表示で。</figcaption>
+            </figure>
+        </section>
+
+        <div class="format-strip wrap">
+            <p>端末にある文章を、開いて読む。</p>
+            <p class="format-list"><span>.txt</span><span>.md</span><span>.markdown</span></p>
+        </div>
+
+        <section class="section wrap reading-section" id="reading" aria-labelledby="reading-title">
+            <div class="section-heading">
+                <p class="section-index">01 <span>文字サイズ</span></p>
+                <h2 id="reading-title">2本指で、<br>読みたい大きさに。</h2>
+                <p>指を広げたり、縮めたりするだけ。文字の大きさに合わせて行が折り返されるので、本文の表示をその場で調整できます。</p>
+                <p class="note">同じTXTを18sp・24spで表示した静止画の比較です。</p>
+            </div>
+            <div class="comparison" data-comparison>
+                <div class="view-controls" role="group" aria-label="文字サイズの表示例を選択" hidden>
+                    <button type="button" data-view="0" aria-pressed="true" aria-controls="size-18">18sp<span>標準の大きさ</span></button>
+                    <button type="button" data-view="1" aria-pressed="false" aria-controls="size-24">24sp<span>大きめの文字</span></button>
+                </div>
+                <div class="comparison-images">
+                    <figure id="size-18" class="screen-figure" data-panel>
+                        <figcaption><span><strong>18</strong> sp <span class="caption-detail">標準の大きさ</span></span><span class="os-label">iOS</span></figcaption>
+                        <img class="screen" src="images/txt-720.jpg" srcset="images/txt-360.jpg 360w, images/txt-720.jpg 720w" sizes="(min-width: 800px) 256px, (min-width: 640px) 40vw, (max-width: 380px) calc(100vw - 48px), 320px" width="720" height="1565" alt="18spの文字で表示したTXT。1行に入る文字が多い表示例" loading="lazy" decoding="async">
+                    </figure>
+                    <figure id="size-24" class="screen-figure" data-panel>
+                        <figcaption><span><strong>24</strong> sp <span class="caption-detail">大きめの文字</span></span><span class="os-label">iOS</span></figcaption>
+                        <img class="screen" src="images/txt-large-720.jpg" srcset="images/txt-large-360.jpg 360w, images/txt-large-720.jpg 720w" sizes="(min-width: 800px) 256px, (min-width: 640px) 40vw, (max-width: 380px) calc(100vw - 48px), 320px" width="720" height="1565" alt="同じTXTを24spの大きい文字で表示。1行に入る文字が減り、文章が折り返されている" loading="lazy" decoding="async">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="surface-section" aria-labelledby="copy-title">
+            <div class="wrap section split-section copy-section">
+                <div class="section-heading">
+                    <p class="section-index">02 <span>選択・コピー</span></p>
+                    <h2 id="copy-title">段落をまたいで、<br>そのままコピー。</h2>
+                    <p>TXTを長押しして、必要な範囲を選択。段落をまたぐ文章も、まとめてコピーできます。</p>
+                    <p>PCで書いた原稿を、移動中に読み返す。気になった文章はコピーして、いつものメモへ貼り付けられます。</p>
+                    <p class="note">Markdownでブロックをまたいでコピーするときは、閲覧専用の原文表示を使います。</p>
+                    <a class="text-link" href="#markdown">Markdownの表示を見る <span aria-hidden="true">↗</span></a>
+                </div>
+                <figure class="single-visual">
+                    <div class="visual-heading"><span>TXTの範囲選択</span><span class="os-label">iOS</span></div>
+                    <img class="screen" src="images/selection-720.jpg" srcset="images/selection-360.jpg 360w, images/selection-720.jpg 720w" sizes="(min-width: 640px) 304px, (max-width: 380px) calc(100vw - 48px), 320px" width="720" height="1565" alt="TXTの第1段落から第2段落の終わりまでを選択し、コピーメニューを表示したiOS画面" loading="lazy" decoding="async">
+                    <figcaption>長押しから、コピーしたい範囲を選択。</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="wrap section split-section display-section" id="display" aria-labelledby="display-title">
+            <div class="section-heading">
+                <p class="section-index">03 <span>表示設定</span></p>
+                <h2 id="display-title">字体も、<br>行間も、余白も。</h2>
+                <p>明朝で原稿を読み返す。行間を広げて小説を読む。設定のサンプルを見ながら、自分に合う表示を選べます。</p>
+                <dl class="settings-list">
+                    <div><dt>字体</dt><dd>ゴシック・明朝・手書き風</dd></div>
+                    <div><dt>行間・余白</dt><dd>それぞれ3段階で調整</dd></div>
+                    <div><dt>外観</dt><dd>ダーク・ライト・システム</dd></div>
+                </dl>
+                <p class="note">選んだ表示は、これから開くファイルにも。ファイルを開く前に、拡大プレビューでも確認できます。</p>
+            </div>
+            <figure class="single-visual settings-visual">
+                <div class="visual-heading"><span>サンプルを見ながら設定</span><span class="os-label">Android</span></div>
+                <img class="screen" src="images/settings-720.jpg" srcset="images/settings-360.jpg 360w, images/settings-720.jpg 720w" sizes="(min-width: 640px) 304px, (max-width: 380px) calc(100vw - 48px), 320px" width="720" height="1616" alt="Androidの設定画面。表示プレビュー、文字サイズのスライダー、行間・左右余白・3種類の字体を選ぶ項目" loading="lazy" decoding="async">
+                <figcaption>本文を変えずに、読むときの表示だけを。</figcaption>
+            </figure>
+        </section>
+
+        <section class="surface-section" id="markdown" aria-labelledby="markdown-title">
+            <div class="section wrap markdown-section">
+                <div class="section-heading">
+                    <p class="section-index">04 <span>Markdown</span></p>
+                    <h2 id="markdown-title">読みやすい形と、<br>記法のある原文と。</h2>
+                    <p>見出しや箇条書きのあるメモは、整形表示で確認。記法を含めてコピーしたいときは、閲覧専用の原文表示へ切り替えられます。</p>
+                    <p class="note">ブロックをまたぐ選択・コピーは原文表示で。どちらの表示でも、元ファイルは書き換えません。</p>
+                </div>
+                <div class="comparison" data-comparison>
+                    <div class="view-controls" role="group" aria-label="Markdownの表示例を選択" hidden>
+                        <button type="button" data-view="0" aria-pressed="true" aria-controls="md-rendered">整形表示</button>
+                        <button type="button" data-view="1" aria-pressed="false" aria-controls="md-source">原文表示</button>
+                    </div>
+                    <div class="comparison-images">
+                        <figure class="screen-figure" id="md-rendered" data-panel>
+                            <figcaption><span>整形表示</span><span class="os-label">Android</span></figcaption>
+                            <img class="screen" src="images/android-markdown-720.jpg" srcset="images/android-markdown-360.jpg 360w, images/android-markdown-720.jpg 720w" sizes="(min-width: 800px) 256px, (min-width: 640px) 40vw, (max-width: 380px) calc(100vw - 48px), 320px" width="720" height="1616" alt="AndroidでMarkdownの散歩メモを整形表示。見出し、太字、箇条書き、引用が表示されている" loading="lazy" decoding="async">
+                        </figure>
+                        <figure class="screen-figure" id="md-source" data-panel>
+                            <figcaption><span>閲覧専用の原文表示</span><span class="os-label">Android</span></figcaption>
+                            <img class="screen" src="images/android-markdown-source-720.jpg" srcset="images/android-markdown-source-360.jpg 360w, images/android-markdown-source-720.jpg 720w" sizes="(min-width: 800px) 256px, (min-width: 640px) 40vw, (max-width: 380px) calc(100vw - 48px), 320px" width="720" height="1616" alt="Androidで同じ散歩メモを原文表示。見出しのシャープ記号や強調のアスタリスクを含む文章が表示されている" loading="lazy" decoding="async">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap section split-section resume-section" aria-labelledby="resume-title">
+            <div class="section-heading">
+                <p class="section-index">05 <span>履歴から再開</span></p>
+                <h2 id="resume-title">続きは、<br>履歴から。</h2>
+                <p>長いTXTを読みかけで閉じても、最近開いたファイルから、前回読んでいた位置付近へ戻れます。</p>
+                <p>気になる言葉を探したいときは、ファイル内検索で前後の一致箇所へ。読み返したいところを見つけられます。</p>
+                <p class="note">継続してアクセスできるファイルが対象です。元ファイルの移動・削除やアクセス権の変更、一時アクセスのファイルでは再選択が必要です。</p>
+            </div>
+            <figure class="single-visual">
+                <div class="visual-heading"><span>最近開いたファイル</span><span class="os-label">iOS</span></div>
+                <img class="screen" src="images/history-720.jpg" srcset="images/history-360.jpg 360w, images/history-720.jpg 720w" sizes="(min-width: 640px) 304px, (max-width: 380px) calc(100vw - 48px), 320px" width="720" height="1565" alt="Mojiltaのホーム。前回の続きからのカードと、Markdown・TXTの2文書の履歴" loading="lazy" decoding="async">
+                <figcaption>「前回の続きから」で、また読み始める。</figcaption>
+            </figure>
+        </section>
+
+        <section class="reading-notes wrap" aria-labelledby="local-title">
+            <div>
+                <p class="eyebrow">YOUR FILES, ON YOUR PHONE</p>
+                <h2 id="local-title">手元のファイルを、<br class="mobile-break">手元で読む。</h2>
+            </div>
+            <div>
+                <p>購入後、購入状態を確認済みの端末では、ダウンロード済みのTXT・Markdownをオフラインでも読めます。アプリ内の会員登録は不要です。</p>
+                <p class="note">本文をMojiltaのサーバーへ送る機能や文書のクラウド同期はありません。購入・初回の購入確認・復元には通信が必要です。クラウド上の未取得ファイルや、タップして開く外部リンクにも通信が必要になることがあります。</p>
+            </div>
+        </section>
+
+        <section class="section wrap pricing-section" id="pricing" aria-labelledby="pricing-title">
+            <div class="section-heading">
+                <p class="section-index">06 <span>料金・購入</span></p>
+                <h2 id="pricing-title">サンプルで試して、<br>一度の購入で。</h2>
+                <p>無料ダウンロード後、サンプルのTXT・Markdownや表示設定で読み心地を確認。自分のファイルを開くときに、Mojiltaを買い切りで購入する仕組みです。</p>
+                <p class="note">現在、ストア公開準備中です。</p>
+            </div>
+            <div class="pricing-detail">
+                <p class="pricing-label">自分のTXT・Markdownを読む</p>
+                <p class="pricing-amount"><span>買い切り</span><strong>480</strong><span>円</span></p>
+                <p>月額料金・自動更新はありません。</p>
+                <p>Mojiltaの会員登録は不要です。</p>
+                <dl class="pricing-features">
+                    <div><dt>購入前</dt><dd>サンプルのTXT・Markdownを閲覧。字体・文字サイズ・行間・余白などの表示設定を試せます。</dd></div>
+                    <div><dt>購入後</dt><dd>自分のTXT・Markdownを開き、検索・コピーや履歴からの再開も使えます。</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="section wrap faq-section" id="faq" aria-labelledby="faq-title">
+            <div class="section-heading">
+                <p class="section-index">07 <span>対応形式・使い方</span></p>
+                <h2 id="faq-title">よくある質問</h2>
+            </div>
+            <div class="faq-list">
+                <details>
+                    <summary>購入前に試せますか？<span aria-hidden="true"></span></summary>
+                    <p>無料ダウンロード後、サンプルのTXT・Markdownの閲覧と表示設定を試せます。自分のファイルを開くには、日本向け480円の買い切り購入が必要です。月額料金・自動更新はありません。詳しくは<a href="#pricing">料金・購入について</a>をご確認ください。</p>
+                </details>
+                <details>
+                    <summary>どのファイルを開けますか？<span aria-hidden="true"></span></summary>
+                    <p>TXT（.txt）とMarkdown（.md / .markdown）に対応しています。ファイルサイズの上限は8 MiBです。PDFやEPUBには対応していません。端末の標準ファイル選択から、読みたいファイルを開きます。</p>
+                </details>
+                <details>
+                    <summary>元のファイルは変わりませんか？<span aria-hidden="true"></span></summary>
+                    <p>Mojiltaは閲覧専用です。文字サイズや行間を変えても、元ファイルの内容は変わりません。本文の編集・上書き・削除・改名機能はありません。</p>
+                </details>
+                <details>
+                    <summary>Markdownの文章もコピーできますか？<span aria-hidden="true"></span></summary>
+                    <p>Markdownでブロックをまたいでコピーするときは、閲覧専用の原文表示に切り替えて範囲を選択します。TXTは長押しして、複数の段落をまとめて選択・コピーできます。</p>
+                </details>
+                <details>
+                    <summary>日本語の文字コードに対応していますか？<span aria-hidden="true"></span></summary>
+                    <p>UTF-8（BOM付きも含む）と、BOM付きUTF-16に対応しています。Shift_JIS系のファイルは、文字コードを手動で選び直して開けます。文字コードの完全な自動判定は行いません。</p>
+                </details>
+                <details>
+                    <summary>Markdown内の画像も表示されますか？<span aria-hidden="true"></span></summary>
+                    <p>画像は表示せず、代わりのアイコンを表示します。外部リンクは、利用者がタップしたときだけ外部アプリで開きます。</p>
+                </details>
+                <details>
+                    <summary>前回の続きから読めないときは？<span aria-hidden="true"></span></summary>
+                    <p>元ファイルが移動・削除された場合や、アクセス権が失われた場合、一時アクセスのファイルは再選択が必要です。継続してアクセスできるファイルは履歴から前回読んでいた位置付近へ戻れます。Markdownの整形表示では、おおよその位置を復元します。</p>
+                </details>
+                <details>
+                    <summary>アカウントやインターネット接続は必要ですか？<span aria-hidden="true"></span></summary>
+                    <p>Mojiltaの利用にアプリ内の会員登録・ログインは不要です。購入・初回の購入確認・復元には通信が必要です。購入済みの利用権が端末に保存されていれば、ダウンロード済みのファイルはオフラインで開けます。クラウドのファイル提供元では、そのサービスへのログインやファイルの取得に通信が必要な場合があります。</p>
+                </details>
+                <details>
+                    <summary>本文や履歴はどこに保存されますか？<span aria-hidden="true"></span></summary>
+                    <p>本文をMojilta独自のサーバーへ送る機能や文書のクラウド同期はありません。設定と最近開いたファイルの情報・閲覧位置は端末に保存します。購入の確認・復元では、RevenueCatとストアで匿名の識別子や購入情報を処理します。本文・ファイル名・閲覧履歴はRevenueCatへ送りません。詳しくは<a href="privacy-policy.html">プライバシーポリシー</a>をご確認ください。</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="closing wrap" aria-labelledby="closing-title">
+            <img src="images/app-icon.png" alt="" width="192" height="192" loading="lazy">
+            <p class="closing-brand">Mojilta</p>
+            <h2 id="closing-title">文章はそのまま。<br class="mobile-break">読み方は自由に。</h2>
+            <a class="button" href="#pricing">料金と購入について見る <span aria-hidden="true">↑</span></a>
+        </section>
+    </main>
+
+    <footer class="site-footer wrap">
+        <a class="footer-brand" href="../">Moa Lab.</a>
+        <nav aria-label="Mojiltaに関する情報">
+            <a href="privacy-policy.html">プライバシーポリシー</a>
+            <a href="terms-of-service.html">利用規約</a>
+            <a href="../commercial-transactions.html">特定商取引法に基づく表記</a>
+        </nav>
+        <p>© Moa Lab.</p>
+    </footer>
+</body>
+</html>

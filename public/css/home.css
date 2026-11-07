@@ -348,6 +348,10 @@ figcaption span {
     border-radius: 14px;
 }
 
+.upcoming + .upcoming {
+    border-top: 0;
+}
+
 .upcoming-title {
     display: flex;
     flex-wrap: wrap;

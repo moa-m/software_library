@@ -1,0 +1,421 @@
+{
+  "captured": "2026-11-03/2026-11-04",
+  "timezone": "Asia/Tokyo",
+  "total": 46,
+  "screenshots": [
+    {
+      "os": "android",
+      "file": "android/00_home_empty.png",
+      "description": "ファイルを開く前の空ホーム",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 115165,
+      "sha256": "c05c52fe7fc5933eaed779c5e6ee4338c4416e7654fda2a29d0af6dc5cf027d0"
+    },
+    {
+      "os": "android",
+      "file": "android/01_markdown_immersive.png",
+      "description": "Markdown整形表示、操作UI非表示",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 355561,
+      "sha256": "515cf1ad5a6ecaf6f148e6a1e28e43b168206ced5d15f5ee09f2ceea541c6976"
+    },
+    {
+      "os": "android",
+      "file": "android/02_markdown_dark.png",
+      "description": "「週末の小さな旅.md」の整形表示",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 360816,
+      "sha256": "8f0422fc3801b1ad79d4cdd7ed30f237620682319de280045fca103ec8802244"
+    },
+    {
+      "os": "android",
+      "file": "android/03_markdown_source.png",
+      "description": "同じ文書の閲覧専用原文",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 318179,
+      "sha256": "bade7900d884e107d5b0b3148af0493597a872cb1bd81ebd62eaa2939f3a2480"
+    },
+    {
+      "os": "android",
+      "file": "android/04_file_picker.png",
+      "description": "標準SAFの「ダウンロード → 読みもの」、2文書だけの一覧",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 120577,
+      "sha256": "397e34bc664a89e621c41d103f422ad913dcf566c2d233eb2ee2f686f8307667"
+    },
+    {
+      "os": "android",
+      "file": "android/05_txt_dark.png",
+      "description": "「雨あがりの栞.txt」、ゴシック・ダーク",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 473127,
+      "sha256": "20fe82f2a6a24dfc8b43b912c15c8be87a3080b3947e8f7790f20c25bf51edaf"
+    },
+    {
+      "os": "android",
+      "file": "android/06_txt_immersive.png",
+      "description": "操作UIを隠したTXT",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 512070,
+      "sha256": "598e633ac2694cb96e7cb164dd342f1851396e3f6c147d8b9b6b1c9280a36f11"
+    },
+    {
+      "os": "android",
+      "file": "android/07_txt_selection.png",
+      "description": "標準の「すべてを選択」で複数段落を含む本文を選択",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 522587,
+      "sha256": "d8971dead360a148435c7f5240032ee44b038dc43290721b500710f66a73503c"
+    },
+    {
+      "os": "android",
+      "file": "android/08_txt_search.png",
+      "description": "「手紙」を検索、1/3と本文ハイライト",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 481075,
+      "sha256": "7d28059ab59682b16c349d405d6bb3b4aa6ccb238162de5fb097b3f10532985e"
+    },
+    {
+      "os": "android",
+      "file": "android/09_home_history.png",
+      "description": "2文書の履歴と再開カード",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 159647,
+      "sha256": "3a9acfd949182dd54b56e4408c9f8310017a019b6694f4398e8bbecfc1a0fc43"
+    },
+    {
+      "os": "android",
+      "file": "android/10_language_menu.png",
+      "description": "ホームの言語プルダウン",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 160593,
+      "sha256": "40fa3edeb17dccf5b5a5cfbeb4eb9c2d67e025670b9d2bb25124e211b05d8765"
+    },
+    {
+      "os": "android",
+      "file": "android/11_settings_reading.png",
+      "description": "本文サイズ・行間・余白・字体と標準サンプル",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 232654,
+      "sha256": "818265ed90934c0a47573a70309ed4bfbd2db53e5363e4fd8381daea4bc906c0"
+    },
+    {
+      "os": "android",
+      "file": "android/12_display_preview.png",
+      "description": "専用の表示プレビュー",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 172414,
+      "sha256": "1ed568524f7fbf22ac9b5d957baf99e19dff296339898970dab0c3d6916eec6f"
+    },
+    {
+      "os": "android",
+      "file": "android/13_settings_font_serif.png",
+      "description": "明朝を選択した設定画面",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 241008,
+      "sha256": "a5e2a2bbeffa0b77b4e493f3906e9b7daadcb9b11f837f2f215fc29d9ce7d13a"
+    },
+    {
+      "os": "android",
+      "file": "android/14_settings_appearance.png",
+      "description": "外観モードと6色のアクセント",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 185072,
+      "sha256": "940ceeb0d6a9ae2878f97e6ffe7a219e1b7c938466d753594b045f0c5f754de1"
+    },
+    {
+      "os": "android",
+      "file": "android/15_home_light.png",
+      "description": "ライト表示の履歴付きホーム",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 155923,
+      "sha256": "3a0bb243c71df860aeb9232276c10e9a713564abcd83cc60acefe1f8fe99e75a"
+    },
+    {
+      "os": "android",
+      "file": "android/16_txt_serif_light.png",
+      "description": "明朝・ライトのTXT",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 519704,
+      "sha256": "05ebcde783ff1dc3dfde8f05ce7b6234d69079b9b02c48f0943ebf2634c7365b"
+    },
+    {
+      "os": "android",
+      "file": "android/17_reader_settings_sheet.png",
+      "description": "閲覧中の表示設定シート、ライト",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 235656,
+      "sha256": "dd4fb3aa9d1a05104fa74ed0b683be57432292f316f76b750937b608cae7cddc"
+    },
+    {
+      "os": "android",
+      "file": "android/18_settings_about.png",
+      "description": "表示トグルとアプリ情報",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 198462,
+      "sha256": "c42befd171ac6eeda41f4083eb38335732128cd66f9f3d43f06b7940b107279c"
+    },
+    {
+      "os": "android",
+      "file": "android/19_txt_handwritten_dark.png",
+      "description": "手書き風・18sp・標準余白のTXT",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 512376,
+      "sha256": "a15cedd531c885730d72480b8a2ba9dce45790ab589ae1c53ca2283daba1761f"
+    },
+    {
+      "os": "android",
+      "file": "android/20_encoding_sheet.png",
+      "description": "UTF-8 / Shift_JISの選択シート",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 386530,
+      "sha256": "910650eaa2be16f0c722f87fba34f2be5936278e9bb4c6ed2864958f5a307ca1"
+    },
+    {
+      "os": "android",
+      "file": "android/21_txt_large.png",
+      "description": "ゴシック・24spのTXT",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 373970,
+      "sha256": "50a8ba4c08927bdc5c5c514f1fae52540031a49ddadc8b9fb3a10a545023b1c5"
+    },
+    {
+      "os": "android",
+      "file": "android/22_markdown_table.png",
+      "description": "Markdownの表全4行とコードブロック",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 298502,
+      "sha256": "322c4b9424bf6bc62b61489afc02cfbd84447695033ec184cbeaedb1c1421011"
+    },
+    {
+      "os": "ios",
+      "file": "ios/00-home-empty.png",
+      "description": "ファイルを開く前の空ホーム",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 182212,
+      "sha256": "8382d0a1cb74172b59592491d34b85f13d7dead68520cf3d1386cca07ae34476"
+    },
+    {
+      "os": "ios",
+      "file": "ios/01-txt-dark.png",
+      "description": "「雨あがりの栞.txt」、ゴシック・ダーク",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 487328,
+      "sha256": "3cc2ce724862a9c37f4710675fc0329abe02c492b18c19d3a6720b63e67f7440"
+    },
+    {
+      "os": "ios",
+      "file": "ios/02-txt-immersive.png",
+      "description": "操作UIを隠したTXT",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 517573,
+      "sha256": "4b692b686936fc516941e4cfd7f1cc6e8731f753ff9cf3f3ec8b0062ce56757e"
+    },
+    {
+      "os": "ios",
+      "file": "ios/03-txt-selection.png",
+      "description": "第1段落の「駅」から第2段落末・改行まで選択",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 482771,
+      "sha256": "04d73b795288e9900bec271856a5bbac40ada936217a487d0a959d00a2c7a252"
+    },
+    {
+      "os": "ios",
+      "file": "ios/04-txt-search.png",
+      "description": "「手紙」を検索、1/3と本文ハイライト",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 444729,
+      "sha256": "cec38a457457aac39604d330dcf9ca1ff8ae183761cf114415f7e879cde58c5d"
+    },
+    {
+      "os": "ios",
+      "file": "ios/05-markdown-rendered.png",
+      "description": "「週末の小さな旅.md」、整形表示",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 428203,
+      "sha256": "2229ae113bb4938cd7ea8438f6652b4ebb81402b0b5c2baea9e4a2cb1069e137"
+    },
+    {
+      "os": "ios",
+      "file": "ios/06-markdown-source.png",
+      "description": "同じ文書の閲覧専用原文",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 367161,
+      "sha256": "90a41e88eb6367cff5b3024db2eba1b07422062cfe06296e52bc97c19a969892"
+    },
+    {
+      "os": "ios",
+      "file": "ios/07-home-history.png",
+      "description": "2文書の履歴と再開カード",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 239580,
+      "sha256": "45ed093ac016a2af9ed7383a095eb6bbbc6c804f6cfd9e07958e71c772670477"
+    },
+    {
+      "os": "ios",
+      "file": "ios/08-language-menu.png",
+      "description": "ホームの言語プルダウン",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 241698,
+      "sha256": "17d6650f2c500cf86e3b79e3788da4763117b6b9f2d901f985778db08eba25ee"
+    },
+    {
+      "os": "ios",
+      "file": "ios/09-settings-reading.png",
+      "description": "本文サイズ・行間・余白と標準サンプル",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 323122,
+      "sha256": "f2126ec17963ebb722a9e8772cb8161badd526b839528e5b27d7821ad6d75428"
+    },
+    {
+      "os": "ios",
+      "file": "ios/10-display-preview.png",
+      "description": "専用の表示プレビュー",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 234807,
+      "sha256": "794e825bf7273be8284c0deca456cffcfcf8b03d73fa41bcfec3f3431fc9b974"
+    },
+    {
+      "os": "ios",
+      "file": "ios/11-settings-font.png",
+      "description": "明朝を選択した設定画面",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 279877,
+      "sha256": "1af1c60bc3b7f853f7e6f2c913fb5e66c47902e77d0c606e5135b68744a2df96"
+    },
+    {
+      "os": "ios",
+      "file": "ios/12-settings-appearance.png",
+      "description": "外観モードと6色のアクセント",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 278685,
+      "sha256": "1446202aebbbd1287b683b64cb050a68efb0e26a9d2f2fd8a6c16d269f7464c5"
+    },
+    {
+      "os": "ios",
+      "file": "ios/13-txt-serif-dark.png",
+      "description": "明朝・ダークのTXT、文字コード表示あり",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 518322,
+      "sha256": "d27ddc846eae30bc1d57fc8296237af20514e696a3f80191222ded51b6fb0f03"
+    },
+    {
+      "os": "ios",
+      "file": "ios/14-txt-serif-light.png",
+      "description": "明朝・ライトのTXT、文字コード表示なし",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 514590,
+      "sha256": "56a204fe1023d2288d0e7e67abae9b0b247beec4f992692b3b9691852ca01061"
+    },
+    {
+      "os": "ios",
+      "file": "ios/15-file-picker.png",
+      "description": "標準Filesの「読みもの」内にある2文書",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 231175,
+      "sha256": "0be5a51c48dbf6c73058e75a7997db57f6b627b6aa9e40cc21f3ed3cdcad4da4"
+    },
+    {
+      "os": "ios",
+      "file": "ios/16-markdown-table.png",
+      "description": "Markdownの表全4行とコードブロック",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 341685,
+      "sha256": "13704d1679f61b2a07679be362267c410fda0998be32dcb311d138ef3fe1136d"
+    },
+    {
+      "os": "ios",
+      "file": "ios/17-reader-settings-sheet.png",
+      "description": "閲覧中の表示設定シート",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 325109,
+      "sha256": "7a41010745685b712ea96c98312e2d7786ab756db17736b0ee871f6641ae8e31"
+    },
+    {
+      "os": "ios",
+      "file": "ios/18-encoding-sheet.png",
+      "description": "UTF-8 / Shift_JISの選択シート",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 277492,
+      "sha256": "368826d49c95212870b0478c48b6ad8b7b21579b15e8642484293e7b8d71ea5f"
+    },
+    {
+      "os": "ios",
+      "file": "ios/19-settings-about.png",
+      "description": "表示トグルとアプリ情報",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 280707,
+      "sha256": "fee79baf1244f2c4ad9c6782cf5baf51b4fe3fb348cb2bf2527253d496953629"
+    },
+    {
+      "os": "ios",
+      "file": "ios/20-txt-handwritten-dark.png",
+      "description": "手書き風・18sp・広い余白のTXT",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 489136,
+      "sha256": "e1d65750d4f9983e246048b4025ae82b8fca7a9f47baa14cb8b6e6c6aac4525c"
+    },
+    {
+      "os": "ios",
+      "file": "ios/21-txt-large.png",
+      "description": "ゴシック・24spのTXT",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 434039,
+      "sha256": "37f05c69f4d23318a156f6545427355c298d9fe4506b3660b5fbb1df0fcd83a3"
+    },
+    {
+      "os": "ios",
+      "file": "ios/22-settings-handwritten.png",
+      "description": "手書き風と広い余白を選択した設定",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 316978,
+      "sha256": "34bb3bf83c1804c1753de98521d74b15822ad9cdd40627608a1905f14a29bb52"
+    }
+  ]
+}

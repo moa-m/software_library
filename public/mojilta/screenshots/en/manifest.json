@@ -1,0 +1,71 @@
+{
+  "captured": "2026-11-08",
+  "files": [
+    {
+      "path": "android/02_markdown_dark.png",
+      "sha256": "38549cef6c53fcb4aa89fde8fb8eb547021fa593295ed73ec92e5e7c920dc37d",
+      "bytes": 302563,
+      "width": 1080,
+      "height": 2424
+    },
+    {
+      "path": "android/03_markdown_source.png",
+      "sha256": "c2acdca6fddf2956ad66645bc2037a5078c29ac5345f54f416d9edd28edc3b27",
+      "bytes": 253884,
+      "width": 1080,
+      "height": 2424
+    },
+    {
+      "path": "android/05_txt_dark.png",
+      "sha256": "2f0c427a50adf5e405a87fc8645305c39b5813c079a3a283aa733f0cc1040532",
+      "bytes": 329076,
+      "width": 1080,
+      "height": 2424
+    },
+    {
+      "path": "android/11_settings_reading.png",
+      "sha256": "015bb64c3d9957c6c1ca0ad244b613b3566583330c6e8b3baf6f29d5f914a7f5",
+      "bytes": 204111,
+      "width": 1080,
+      "height": 2424
+    },
+    {
+      "path": "ios/01-txt-dark.png",
+      "sha256": "35a655c5e3ec15533b2f73397a977725708abe6861520807515794c677d03b27",
+      "bytes": 386129,
+      "width": 1206,
+      "height": 2622
+    },
+    {
+      "path": "ios/03-txt-selection.png",
+      "sha256": "c56bf9fd7d1a53510e6af6eca0388513bfa52c7e505891fd1684445fbf8cf8cc",
+      "bytes": 393252,
+      "width": 1206,
+      "height": 2622
+    },
+    {
+      "path": "ios/07-home-history.png",
+      "sha256": "7627023a7f25278452e9f405dc25acacbd8a044ed2811f90a0fcc1bf2aa5e770",
+      "bytes": 226548,
+      "width": 1206,
+      "height": 2622
+    },
+    {
+      "path": "ios/21-txt-large.png",
+      "sha256": "e6ec8dd90dd4b07207578949ecdee164c60783e1c77cfa2ae589fb80487a2fba",
+      "bytes": 340587,
+      "width": 1206,
+      "height": 2622
+    },
+    {
+      "path": "samples/A Small Weekend Trip.md",
+      "sha256": "8abf8b069391ac99da4c91df6e67c3cf660d250a7331fcffc4867cece8492367",
+      "bytes": 1219
+    },
+    {
+      "path": "samples/After the Rain.txt",
+      "sha256": "146eb1ddb66f39297f40cc9805ba072ec574c74dcbdd0c55e2a7fa8828bf0a27",
+      "bytes": 2848
+    }
+  ]
+}
