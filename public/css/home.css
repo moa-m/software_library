@@ -271,13 +271,26 @@ img {
 
 .screens-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 64px;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 24px;
     margin-top: 40px;
 }
 
 .app-preview {
     min-width: 0;
+}
+
+.screen-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.screen-platform {
+    margin-top: 8px;
+    color: var(--color-muted);
+    font-size: 13px;
+    text-align: center;
 }
 
 .screen-link {
@@ -539,8 +552,18 @@ figcaption span {
     }
 
     .screens-grid {
-        gap: 20px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
         margin-top: 24px;
+    }
+
+    .screen-pair {
+        gap: 16px;
+    }
+
+    .screens-grid > .app-preview:last-child {
+        width: calc((100% - 16px) / 2);
+        margin-inline: auto;
     }
 
     .screen-link {
