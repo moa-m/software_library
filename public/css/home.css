@@ -283,7 +283,9 @@ img {
 .screen-pair {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    gap: 8px;
+    width: min(100%, 568px);
+    margin-inline: auto;
 }
 
 .screen-platform {
@@ -555,10 +557,6 @@ figcaption span {
         grid-template-columns: minmax(0, 1fr);
         gap: 32px;
         margin-top: 24px;
-    }
-
-    .screen-pair {
-        gap: 16px;
     }
 
     .screens-grid > .app-preview:last-child {
