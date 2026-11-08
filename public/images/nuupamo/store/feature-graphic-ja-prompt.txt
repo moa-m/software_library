@@ -1,0 +1,13 @@
+Use case: ads-marketing
+Asset type: Japanese Google Play feature graphic for NUUPAMO, a household inventory and shopping-list app.
+Create ONE finished polished wide landscape banner, exact 1024 x 500 px aspect ratio 2.048:1, full bleed, opaque background. Designed to stay readable as a small store thumbnail.
+Input references: image 1 woman at home (supporting lifestyle photo, use this same woman and cream knit/charcoal pants); image 2 man shopping (same neat man, blue Oxford shirt, clean hands); image 3 real iPhone device screenshot; image 4 real Android device screenshot; image 5 existing app icon (brand reference, use exactly this red/green basket).
+Art direction: match NUUPAMO's approved landing page: warm ivory #f8f5f1, dark chocolate Japanese rounded bold type, subtle natural wood and greenery, quiet daylight, photoreal lifestyle, restrained coral red and emerald green accents.
+Layout: left ~49% dedicated to very legible headline and brand, right ~47% shows two upright complete front-view phone mockups at equal height (about 345px tall at final 500px canvas), one iPhone notch and one Android punch hole. Use supplied actual phone screen images faithfully, do not invent UI, preserve Japanese item cards red shopping tab, avatars and memos. Between phones a small elegant cloud/link symbol visually communicates the same list being shared. Behind the composition near far left and far right edges, very faint low-opacity photo vignettes of woman at home and man in store checking their own phones, gently fading into ivory. These people are atmosphere only, must not obscure headline or devices. Woman facing slightly left, man slightly right. Keep the two environments separate.
+Typography: large confident rounded Japanese type, immaculate real Japanese glyphs. Brand NUUPAMO at upper left with SMALL existing basket icon. Headline at left center exactly three lines:
+「あるもの」も
+「買うもの」も、
+家族で共有。
+Use dark brown for headline with restrained emerald on 家族で共有 if helpful. Below headline a smaller exact supporting line:
+iPhoneとAndroidで、同じリストを。
+No extra text outside phone screen UIs and these specified brand/headline/supporting line. No CTA/button, prices, sale text, badges, review stars, download logos, watermarks, explanatory labels. Keep key content at least40px from canvas edges. Premium clean balanced store-ready banner, NOT a screenshot of a webpage, NOT a multi-variant board, no outer frame. Use enough empty space and avoid clutter.
