@@ -236,6 +236,19 @@ h1 {
     font-size: 0.8125rem;
 }
 
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 24px;
+    margin-top: 32px;
+}
+
+.hero-actions .button,
+.hero-actions .text-link {
+    margin-top: 0;
+}
+
 .button {
     display: inline-flex;
     align-items: center;
@@ -857,7 +870,7 @@ h2 {
         font-size: 0.9375rem;
     }
 
-    .hero .button {
+    .hero-actions {
         margin-top: 24px;
     }
 

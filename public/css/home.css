@@ -271,8 +271,8 @@ img {
 
 .screens-grid {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    gap: 24px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
     margin-top: 40px;
 }
 
@@ -554,14 +554,13 @@ figcaption span {
     }
 
     .screens-grid {
-        grid-template-columns: minmax(0, 1fr);
         gap: 32px;
         margin-top: 24px;
     }
 
-    .screens-grid > .app-preview:last-child {
+    .app-preview-rabbit > .screen-link {
         width: calc((100% - 16px) / 2);
-        margin-inline: auto;
+        max-width: 280px;
     }
 
     .screen-link {
@@ -670,6 +669,20 @@ figcaption span {
 
     .app-description {
         font-size: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    .app-summary + .app-summary-wide {
+        grid-column: 1 / -1;
+        margin-top: 24px;
+        padding: 24px 0 8px;
+        border-top: 1px solid var(--color-line);
+        border-left: 0;
+    }
+
+    .app-summary-wide .app-description {
+        min-height: 0;
     }
 }
 
