@@ -101,9 +101,9 @@ summary:focus-visible {
 }
 
 .brand-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
 }
 
 .header-nav {
@@ -687,8 +687,8 @@ p {
     }
 
     .brand-icon {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
     }
 
     .header-nav a {
