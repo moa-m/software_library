@@ -7,7 +7,7 @@ const sharp = require('sharp');
 
 const publicRoot = path.resolve(__dirname, '../../..');
 const out = path.join(publicRoot, 'images/nuupamo/lp');
-const appImages = '/Users/moa/Project/Mobile_Project/stocky/assets/images';
+const appImages = '/Volumes/BackUp/Mobile_Project/stocky/assets/images';
 const templateAssets = '/Users/moa/.codex/plugins/cache/openai-curated-remote/product-design/0.1.56/templates/mobile-app/public/assets';
 const generated = '/Users/moa/.codex/generated_images/01a17b3a-c5c8-7331-b454-a2ed0bb44fa9';
 const records = [];

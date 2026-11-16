@@ -57,7 +57,7 @@
 
 追加コメントに基づき、スクリーンショット・端末モックは更新済みの原本から再作成し、拡大カードと操作アイコンもハンドソープへ変更しています。旧 `item-shampoo-*` の配信用ファイルは差し替え済みです。
 
-画面は `public/images/nuupamo/screenshot/` の現行画像を使用。カテゴリ・手洗いアイコン・アバターは `/Users/moa/Project/Mobile_Project/stocky/assets/images/` の実素材、ブランドアイコンは `public/images/nuupamo/icon.png` を使用しました。アプリ側のファイルは変更していません。
+画面は `public/images/nuupamo/screenshot/` の現行画像を使用。カテゴリ・手洗いアイコン・アバターは `/Volumes/BackUp/Mobile_Project/stocky/assets/images/` の実素材、ブランドアイコンは `public/images/nuupamo/icon.png` を使用しました。アプリ側のファイルは変更していません。
 
 端末枠はProduct Design 0.1.56の同梱テンプレート素材（`iphone/Bezel.png`、`android/Pixel10.png`）を使用しています。実画面の比率を維持し、テンプレートの画面開口に合わせてクリップ・合成しました。
 

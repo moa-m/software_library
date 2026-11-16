@@ -1,6 +1,6 @@
 # Repository Guidelines
 
-共通方針: [Web・LP](/Users/moa/Project/html/AGENTS.md)。作業に関連する共通方針を読み、このリポジトリの固有仕様を優先する。
+共通方針: [Web・LP](../AGENTS.md)。作業に関連する共通方針を読み、このリポジトリの固有仕様を優先する。
 
 ## Project Structure & Module Organization
 This repository is a static website for Moa Lab products.
