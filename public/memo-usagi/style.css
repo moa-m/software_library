@@ -104,6 +104,10 @@ summary:focus-visible {
     width: 36px;
     height: 36px;
     flex-shrink: 0;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: var(--paper-pink);
+    object-fit: contain;
 }
 
 .header-nav {
@@ -689,6 +693,7 @@ p {
     .brand-icon {
         width: 32px;
         height: 32px;
+        padding: 5px;
     }
 
     .header-nav a {
