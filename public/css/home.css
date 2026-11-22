@@ -558,11 +558,6 @@ figcaption span {
         margin-top: 24px;
     }
 
-    .app-preview-rabbit > .screen-link {
-        width: calc((100% - 16px) / 2);
-        max-width: 280px;
-    }
-
     .screen-link {
         padding: 3px;
         border-radius: 24px;
