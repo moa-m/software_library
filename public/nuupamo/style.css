@@ -63,7 +63,14 @@ p + p { margin-top: 12px; }
 .sharing-connection::before { left: 0; }
 .sharing-connection::after { right: 0; }
 .sharing-connection p { font-size: 16px; font-weight: 700; line-height: 1.6; }
-.hero-button { min-width: 344px; margin-top: 26px; }
+.store-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 16px; }
+.store-link { display: flex; border-radius: 10px; transition: opacity 160ms ease, transform 160ms ease; }
+.store-link > img { width: auto; height: 56px; }
+/* Googleのバッジ画像は上下に透明な余白を含むため、見える高さをApp Storeのバッジに揃える。 */
+.store-link-google { margin-block: -10px; }
+.store-link-google > img { height: 76px; }
+.store-link:hover { opacity: 0.82; transform: translateY(-2px); }
+.hero-store { margin-top: 24px; }
 .hero-free-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
 .hero-free-note span { display: inline-block; margin-left: 4px; font-size: 12px; }
 .section-surface { border-bottom: 1px solid var(--line); }
@@ -141,7 +148,9 @@ p + p { margin-top: 12px; }
 .closing-background { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
 .closing-copy { width: min(680px, calc(100% - 40px)); margin: 40px auto 28px; text-align: center; }
 .closing-copy > p { margin-top: 12px; font-size: 16px; line-height: 1.8; }
-.closing-copy > .button { margin-top: 22px; }
+.closing-copy > .closing-store { margin-top: 20px; }
+.closing-plans-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 5px; }
+.closing-plans-link:hover { color: var(--green); }
 .site-footer { width: min(1280px, calc(100% - 64px)); margin: 0 auto; padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 11px; color: #554b43; }
 .site-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 20px; }
 .site-footer a { padding: 5px 0; }
@@ -216,7 +225,11 @@ p + p { margin-top: 12px; }
     .sharing-connection > img { width: 34px; height: 34px; margin-bottom: 6px; }
     .sharing-connection p { font-size: 10px; line-height: 1.7; }
     .sharing-connection::before, .sharing-connection::after { top: 18px; width: 6px; border-width: 2px; }
-    .hero-button { min-width: 0; width: min(300px, calc(100% - 32px)); margin-top: 24px; font-size: 17px; }
+    .store-links { gap: 12px; }
+    .store-link > img { height: 46px; }
+    .store-link-google { margin-block: -8px; }
+    .store-link-google > img { height: 62px; }
+    .hero-store { margin-top: 20px; }
     .hero-free-note { font-size: 11px; margin-top: 12px; }
     .hero-free-note span { display: block; font-size: 10px; margin-left: 0; }
     .section-inner { width: calc(100% - 40px); }
@@ -268,7 +281,7 @@ p + p { margin-top: 12px; }
     .closing-brand { font-size: 28px; gap: 8px; }
     .closing-brand img { width: 38px; height: 38px; }
     .closing-copy > p { font-size: 14px; }
-    .closing-copy > .button { font-size: 16px; padding: 12px 24px; }
+    .closing-plans-link { font-size: 14px; }
     .site-footer { width: calc(100% - 32px); padding: 20px 0; font-size: 10px; }
     .site-footer nav { gap: 4px 16px; }
     .site-footer a { display: inline-flex; align-items: center; min-height: 36px; }
@@ -282,6 +295,10 @@ p + p { margin-top: 12px; }
     .button-small { padding: 8px 10px; font-size: 10px; }
     .hero-content h1 { font-size: 25px; }
     .hero-device figcaption { font-size: 11px; gap: 4px; }
+    .store-links { gap: 10px; }
+    .store-link > img { height: 44px; }
+    .store-link-google { margin-block: -7px; }
+    .store-link-google > img { height: 58px; }
     .section-inner { width: calc(100% - 32px); }
 }
 

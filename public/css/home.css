@@ -152,13 +152,6 @@ img {
     grid-template-columns: 72px minmax(0, 1fr);
     align-content: start;
     gap: 24px;
-    padding: 8px 48px 8px 0;
-}
-
-.app-summary + .app-summary {
-    padding-right: 0;
-    padding-left: 48px;
-    border-left: 1px solid var(--color-line);
 }
 
 .app-icon {
@@ -187,6 +180,7 @@ img {
     font-weight: 500;
     line-height: 1.8;
     letter-spacing: -0.035em;
+    word-break: auto-phrase;
 }
 
 .app-actions {
@@ -347,55 +341,6 @@ figcaption span {
     font-size: 14px;
 }
 
-.upcoming {
-    display: grid;
-    grid-template-columns: 64px minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 24px;
-    padding-block: 32px;
-    border-top: 1px solid var(--color-line);
-    border-bottom: 1px solid var(--color-line);
-}
-
-.upcoming-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 14px;
-}
-
-.upcoming + .upcoming {
-    border-top: 0;
-}
-
-.upcoming-title {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-}
-
-.upcoming h2 {
-    font-size: 24px;
-    font-weight: 800;
-    line-height: 1.5;
-    letter-spacing: -0.035em;
-}
-
-.status-label {
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: #eeece7;
-    color: #58564f;
-    font-size: 12px;
-    white-space: nowrap;
-}
-
-.upcoming-copy > p {
-    margin-top: 8px;
-    color: var(--color-muted);
-    font-size: 14px;
-}
-
 .site-footer {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -446,11 +391,6 @@ figcaption span {
     .app-summary {
         grid-template-columns: 56px minmax(0, 1fr);
         gap: 16px;
-        padding-right: 24px;
-    }
-
-    .app-summary + .app-summary {
-        padding-left: 24px;
     }
 
     .app-icon {
@@ -515,11 +455,9 @@ figcaption span {
         padding-bottom: 0;
     }
 
-    .app-summary,
-    .app-summary + .app-summary {
+    .app-summary {
         gap: 16px;
         padding: 20px 0;
-        border-left: 0;
     }
 
     .app-summary + .app-summary {
@@ -582,41 +520,6 @@ figcaption span {
         line-height: 1.7;
     }
 
-    .upcoming {
-        grid-template-columns: 48px minmax(0, 1fr);
-        gap: 8px 16px;
-        padding-block: 24px;
-    }
-
-    .upcoming-icon {
-        align-self: start;
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
-    }
-
-    .upcoming-title {
-        gap: 8px;
-    }
-
-    .upcoming h2 {
-        font-size: 19px;
-    }
-
-    .status-label {
-        padding: 2px 8px;
-        font-size: 11px;
-    }
-
-    .upcoming-copy > p {
-        font-size: 13px;
-    }
-
-    .upcoming > .text-link {
-        grid-column: 2;
-        justify-self: start;
-    }
-
     .site-footer {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -667,17 +570,37 @@ figcaption span {
     }
 }
 
+/* 2列の製品棚。右列に縦線、2段目以降に横線を引く。 */
 @media (min-width: 768px) {
-    .app-summary + .app-summary-wide {
-        grid-column: 1 / -1;
-        margin-top: 24px;
-        padding: 24px 0 8px;
-        border-top: 1px solid var(--color-line);
-        border-left: 0;
+    .app-summary {
+        padding: 8px 48px 32px 0;
     }
 
-    .app-summary-wide .app-description {
-        min-height: 0;
+    .app-summary:nth-child(even) {
+        padding-right: 0;
+        padding-left: 48px;
+        border-left: 1px solid var(--color-line);
+    }
+
+    .app-summary:nth-child(n + 3) {
+        padding-top: 32px;
+        border-top: 1px solid var(--color-line);
+    }
+
+    .app-summary:nth-last-child(-n + 2):nth-child(odd),
+    .app-summary:last-child {
+        padding-bottom: 8px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .app-summary {
+        padding-right: 24px;
+    }
+
+    .app-summary:nth-child(even) {
+        padding-right: 0;
+        padding-left: 24px;
     }
 }
 
